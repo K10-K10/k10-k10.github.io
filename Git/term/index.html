@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>
+    用語集
+</title>
+</head>
+<body>
+    <h1>
+        GitHub　用語＆コマンド
+    </h1>
+    <h3><p>
+        基本用語
+    </p></h3>
+    <div>
+    <ul>
+    <li><p><strong>repository</strong>プロジェクトのファイルや履歴を管理する場所。クラウド上にリモートリポジトリとして保存され、ローカルでの作業に使うローカルリポジトリと対応します。</p></li>
+    <li><p><strong>stage</strong>コンピューター上でファイルを入れておくための行為。一度ステージするとその状態を後で参照することができます。</p></li>
+    <li><p><strong>commit</strong>ファイルの変更履歴を保存する行為。一度コミットするとその状態を後で参照することができます。</p></li>
+    <li><p><strong>branch</strong>リポジトリの異なるバージョンを管理する機能。複数の作業を同時進行で行えます。</p></li>
+    <li><p><strong>merge</strong>異なるブランチの変更を一つに統合すること。</p></li>
+    <li><p><strong>pull request</strong>他の開発者にコードをレビューしてもらうために、リポジトリに変更を提案する機能。</p></li>
+    <li><p><strong>clone</strong>リモートリポジトリの内容を自分のローカルにコピーすること。</p></li>
+    <li><p><strong>push</strong>ローカルリポジトリの変更をリモートリポジトリに反映させる操作。</p></li>
+    <li><p><strong>pull</strong>リモートリポジトリの最新の変更をローカルに反映する操作。</p></li>
+    <li><p><strong>directory</strong>コンピューター上でファイルを入れておくためのフォルダ</p></li>
+    </ul>
+
+    </div>
+    <h2>
+        コマンド集
+    </h2>
+    <div><ul>
+        <li>
+        <strong>リモート→ローカルにクローン:</strong><p>git clone https://github.com/username/repo.git</p></li>
+        <li><strong>変更をステージングする:</strong><p>git add filename</p></li>
+        <li><strong>すべての変更をステージングする</strong>git add .</li>
+        <li><strong>変更をコミット:</strong><p>git commit -m "message"</p></li>
+        <li><strong>変更をローカルリポジトリに反映:</strong><p>git push origin main</p></li>
+        <li><strong>新しいディレクトリを作成:</strong><p>mkdir directoryname</p></li>
+        <li><strong>ディレクトリの中身を確認:</strong><p>ls</p></li>
+        <li><strong>リモートリポジトリの最新の変更をローカルに反映する操作。</strong><p>git pull origin main</p></li>
+        <li><strong>現在のリポジトリを確認:</strong><p>git remote -v</p></li>
+        <li><strong>リポジトリを変更:</strong><p>git remote set-url origin 新しいリポジトリのURL
+        </p></li>
+    </ul>
+    </div>
+</body>
+</html>
