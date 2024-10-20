@@ -5,6 +5,52 @@
 </head>
 <body>
     <h1>C++について</h1>
-    <button onclick="goToPage()">top</button>
+    <p>ここでは、C++の基本的な変数、関数についてまとめていきます。</p>
+    <br>
+    <h2>入出力</h2>
+    <p>まずはコードを見てみましょう。</p>
+    <hr>
+    <pre class="code">
+        #include &lt;iostream&gt;
+        using namespace std;
+        int main(){
+            int a;
+            cin&gt;&gt;a;
+            cout&lt;&lt;a&lt;&lt;endl;
+            return 0;
+        }
+    </pre>
+    <hr>
+    <p>それでは解説です</p>
+    <p><strong>まず#include&Lt;iostream&gt;</strong>とは、C++で用意されている標準ライブラリをインクルード、
+        つまりプログラムで使用できるようにするためのコードです</p>
+    <p><strong>iostream</strong>とは、その中の標準入出力ライブラリです</p>
+    <a href="../Include/">iostreamについて</a>
+    <br>
+    <p><strong>using namespace std;</strog>とは、標準的な名前空間を使用することを表しています。
+        名前空間については、別のページで詳しく解説します。ここで<strong>cout</strong>などが定義されています。
+    </p>
+    <a href="../Namespace/">名前空間</a>
+    <br>
+    <p><strong>cin</strong>とは、入力を受け取るためのものです。ここではaという変数に入力された値を入れるということです。
+        なお、この<strong>a</strong>のことを変数、<strong>cin</strong>などのことを関数といいます
+    また、C++では文末に<strong>;</strong>をつける決まりになっています。書き忘れると動かなくなります。</p>
+    <br>
+    <p><strong>int a;</strong>とは、int(整数)型の変数aを作るためのコードです。この変数の型についても、別のページで解説します。</p>
+    <a href="../Variable/">変数の型</a>
+    <br>
+    <p><strong>cout&lt;&lt;a&lt;&lt;endl;</strong>は、aの値を出力するための関数です(厳密にいえばオブジェクト)。
+    文末の<strong>endl</strong>strongは改行です。</p>
+    <p>なお、C++では、文字を'、文字列を"で囲むことになっているので、</p>
+    <p class="code">cout&lt;&lt;"Hello World"&lt;&lt;;</p>
+    <p>となります。このプログラムでは、Hello Worldが出力されます。</p>
+    <br>
+    <br>
+    <hr>
+    <h2>ここからは、基本的な関数について書いていこうと思います</h2>
+    <h4>if</h4>
+    <h4>for</h4>
+    <h4>while</h4>
+        <button onclick="goToPage()">top</button>
 </body>
 </html>
