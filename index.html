@@ -4,6 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Introduction</title>
+    <style>
+        .feedback-form button {
+            width: 100%;
+            padding: 10px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
     <h1>Hello World!</h1>
@@ -24,5 +36,19 @@
     <hr>
     <br>
     <a href="https://k10-k10.github.io/Home/">自己紹介</a>
+    <br>
+    <br>
+    <div class="feedback-form">
+    <p>感想、改善点</p>
+    <form method="POST">
+        <label for="name">お名前:</label>
+        <input type="text" id="name" name="name" placeholder="お名前を入力してください" required>
+
+        <label for="feedback">感想：</label>
+        <textarea id="feedback" name="feedback" rows="5" placeholder="感想を入力してください" required></textarea>
+
+        <button type="submit">送信</button>
+    </form>
+</div>
 </body>
 </html>
