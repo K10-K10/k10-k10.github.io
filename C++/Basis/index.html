@@ -34,6 +34,9 @@
     <a href="../Namespace/">名前空間</a>
     <br>
     <br>
+    <p><strong>int main()</strong>基本はこの中にコードを書いていくことになります。</p>
+    <br>
+    <br>
     <p><strong>cin</strong>とは、入力を受け取るためのものです。ここではaという変数に入力された値を入れるということです。
         なお、この<strong>a</strong>のことを変数、<strong>cin</strong>などのことを関数といいます
     また、C++では文末に<strong>;</strong>をつける決まりになっています。書き忘れると動かなくなります。</p>
@@ -53,8 +56,39 @@
     <hr>
     <h2>ここからは、基本的な関数について書いていこうと思います</h2>
     <h4>if</h4>
+    <pre class="code">
+    if(a &le; 5){
+        cout&lt;&lt;a*5;    
+    }
+    else{
+        cout&lt;&lt;a+5;
+    }<pre>
+    <p>if文は、<strong>if(条件式)</strong>で書くことができ、条件に当てはまっていたらその後の<strong>{}</strong>
+    が実行されます。<p>
+    <p>elseは、前のif文に当てはまら無い場合(この場合a&lt;=5)に<strong>{}</strong>内が実行されるものです。</p>
+    <p>また、<strong>else if()</strong>と書くことで、前の条件に当てはまらないものをさらに細かく分けることができます。</p>
+    <br>
+    <br>
     <h4>for</h4>
+    <per class="code">
+        for(int i = 0;i&lt;a;i++){
+            cout&lt;&lt;"Hello World";
+        }
+    </per>
+    <p>for文は、<strong>for(int i = 始める数;i &lt;繰り返したい回数+1;i++)</strong>と書くことができ、任意の回数繰り返すことができます。</p>
+    <p>最初のコードでは、a回(a - 0)Hello Worldが出力されます。</p>
+    <br>
+    <br>
     <h4>while</h4>
+    <per class="code">
+        int a = 0;
+        int cnt = 0;
+        while(a &le;5){
+            cnt++;
+        }
+    </per>
+    <p>while文は<strong>while(条件式)</strong>と書き、条件がtureの場合、{}条件が外れるまで{}の操作を繰り返します。
+    ()の条件が外れない場合、無限に操作が繰り返されます。無限ループを作れますが、予期せぬところでループに入らないように気をつけてください。</p>
         <button onclick="goToPage()">top</button>
 </body>
 </html>
