@@ -1,6 +1,6 @@
 /*
 @author hatuna-827
-2025/01/25
+2025/02/10
 */
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -31,4 +31,7 @@ function copy(target_id){
     setTimeout(function() {
         document.getElementById('button'+target_id).textContent = 'copy'
     }, 1000)
+}
+function goToPage() {
+    window.location.href = 'https://k10-k10.github.io/';
 }
