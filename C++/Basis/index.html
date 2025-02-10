@@ -51,20 +51,20 @@
     <p><strong>cout&lt;&lt;a&lt;&lt;endl;</strong>は、aの値を出力するための関数です(厳密にいえばオブジェクト)。
     文末の<strong>endl</strong>strongは改行です。</p>
     <p>なお、C++では、文字を'、文字列を"で囲むことになっているので、</p>
-    <p class="code">cout&lt;&lt;"Hello World"&lt;&lt;;</p>
+    <p>cout&lt;&lt;"Hello World"&lt;&lt;;</p>
     <p>となります。このプログラムでは、Hello Worldが出力されます。</p>
     <br>
     <br>
     <hr>
     <h2>ここからは、基本的な関数について書いていこうと思います</h2>
     <h4>if</h4>
-    <pre class="code">
+    <pre>
     if(a &le; 5){
-        cout&lt;&lt;a*5;    
+        cout&lt;&lt;a*5;
     }
     else{
         cout&lt;&lt;a+5;
-    }<pre>
+    }</pre>
     <p>if文は、<strong>if(条件式)</strong>で書くことができ、条件に当てはまっていたらその後の<strong>{}</strong>
     が実行されます。
     elseは、前のif文に当てはまら無い場合(この場合a&lt;=5)に<strong>{}</strong>内が実行されるものです。
@@ -72,23 +72,23 @@
     <br>
     <br>
     <h4>for</h4>
-    <per class="code">
+    <pre>
         for(int i = 0;i&lt;a;i++){
             cout&lt;&lt;"Hello World";
         }
-    </per>
+    </pre>
     <p>for文は、<strong>for(int i = 始める数;i &lt;繰り返したい回数+1;i++)</strong>と書くことができ、任意の回数繰り返すことができます。
     最初のコードでは、a回(a - 0)Hello Worldが出力されます。</p>
     <br>
     <br>
     <h4>while</h4>
-    <per class="code">
+    <pre>
         int a = 0;
         int cnt = 0;
         while(a &le;5){
             cnt++;
         }
-    </per>
+    </pre>
     <p>while文は<strong>while(条件式)</strong>と書き、条件がtureの場合、{}条件が外れるまで{}の操作を繰り返します。
     ()の条件が外れない場合、無限に操作が繰り返されます。無限ループを作れますが、予期せぬところでループに入らないように気をつけてください。</p>
     <br>
