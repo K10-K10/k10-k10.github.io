@@ -9,11 +9,13 @@ document.getElementsByTagName('body')[0].insertAdjacentHTML('afterbegin','<div i
 document.getElementsByTagName('body')[0].insertAdjacentHTML('beforeend','<div id="footer"></div>')
 document.getElementsByTagName('h1')[0].insertAdjacentHTML('afterend','<div id="tag"></div>')
 var tag_target=document.getElementsByTagName('h2')
+if(tag_target.length!=0){
 for (i=0;i<tag_target.length;i++){
     tag_target[i].setAttribute("id",tag_target[i].innerText)
     document.getElementById('tag').insertAdjacentHTML('beforeend','<a href="#'+tag_target[i].id+'">'+(i+1)+'.'+tag_target[i].id+'</a>\n')
 }
 document.getElementById('tag').insertAdjacentHTML('beforebegin','<h2>目次<h2>')
+}
 var img=document.getElementsByTagName('img')
 for(let i=0;i<img.length;i++){
     img[i].setAttribute('alt','画像の読み込みに失敗しました。')
