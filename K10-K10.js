@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', function() {
 document.getElementsByTagName('body')[0].innerHTML='<div id="main">'+document.getElementsByTagName('body')[0].innerHTML+'</div>'
 document.getElementsByTagName('body')[0].insertAdjacentHTML('afterbegin','<div id="header"></div>')
 document.getElementsByTagName('body')[0].insertAdjacentHTML('beforeend','<div id="footer"></div>')
+
 var tag_target=document.getElementsByTagName('h2')
 if(tag_target.length!=0){
 document.getElementsByTagName('h1')[0].insertAdjacentHTML('afterend','<div id="tag"></div>')
@@ -16,15 +17,19 @@ for (i=0;i<tag_target.length;i++){
 }
 document.getElementById('tag').insertAdjacentHTML('beforebegin','<h2>目次<h2>')
 }
+
 var img=document.getElementsByTagName('img')
 for(let i=0;i<img.length;i++){
     img[i].setAttribute('alt','画像の読み込みに失敗しました。')
 }
+
 let code_target=document.getElementsByTagName('pre')
 for(let i=0;i<code_target.length;i++){
     code_target[i].setAttribute('id','code'+i)
     document.getElementById('code'+i).insertAdjacentHTML('beforebegin','<div class="copy-button-box"><button class="copy-button" id="button'+i+'" onclick="copy('+i+')">copy</button></div>')
 }
+
+document.getElementsByTagName('head')[0].insertAdjacentHTML('beforeend','<link rel="shortcut icon" type="image/x-icon" href="https://github.com/k10-k10.png">')
 })
 function copy(target_id){
     var target=document.getElementById('code'+target_id)
