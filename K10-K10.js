@@ -31,6 +31,7 @@ for(let i=0;i<code_target.length;i++){
 
 document.getElementsByTagName('head')[0].insertAdjacentHTML('beforeend','<link rel="shortcut icon" type="image/x-icon" href="https://github.com/k10-k10.png">')
 })
+
 function copy(target_id){
     var target=document.getElementById('code'+target_id)
     navigator.clipboard.writeText(target.textContent)
@@ -39,6 +40,7 @@ function copy(target_id){
         document.getElementById('button'+target_id).textContent = 'copy'
     }, 1000)
 }
+
 function goToPage() {
-    window.location.href = 'https://k10-k10.github.io/';
+    window.location.href = 'https://k10-k10.github.io';
 }
