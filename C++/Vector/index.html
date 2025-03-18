@@ -13,12 +13,19 @@
     <p>使用時は初めに #include&lt;vector&gt; とヘッダーファイルをインクルードします</p>
     <br>
     <h3>vectorの宣言</h3>
-    <p>vector&lt;int&gt; a(5);//これでint型のサイズ5のvectorを宣言しています。</p>
-    <h3>vectorの使い方</h3>
-    <p>a[0] = 3;//これでaの0番目に3が代入されます。</p>
-    <br>
-    <p>ちなみに多くのプログラミング言語の配列は1番からでなく0番から始まります。</p>
-    <p>cout &lt;&lt; a[0];//これで3が出力されます。</p>
+    <pre class="code">
+#include &lt;vector&gt;
+#include &lt;iostream&gt;
+using namespace std;
+int main(){
+    vector&lt;int&gt; a(5);//これでint型のサイズ5のvectorを宣言しています
+
+    a[0] = 3;//これでaの0番目に3が代入されます。</p>
+    //ちなみに多くのプログラミング言語の配列は1番からでなく0番から始まります。
+    cout &lt;&lt; a[0];//これで3が出力されます。
+    return 0;
+}
+    </pre>
     <br>
     <br>
     <P>for(int i = 0;i &lt; 5;i++) {<br>cin &gt;&gt; a[i];<br>}//これでa[5]までの要素が入力される </P>
