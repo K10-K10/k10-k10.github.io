@@ -144,6 +144,16 @@ pre {
     background-color: #f8f8f8;
     border: #BBB solid 1.5px;
     box-shadow: 5px 5px #00669f;
+    code {
+        position: absolute;
+        margin: -16px 0 0 -16px;
+        padding: 2px 20px;
+        font-size: 13px;
+        line-height: 20px;
+        background-color: #E5E5E5;
+        border: #BBB solid 1.5px;
+        border-radius: 5px;
+    }
 }
 ul,li {
     font-family:  "ヒラギノ角ゴ ProN W3", HiraKakuProN-W3, 游ゴシック, "Yu Gothic", メイリオ, Meiryo, Verdana, Helvetica, Arial, sans-serif;
