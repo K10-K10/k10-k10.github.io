@@ -8,11 +8,11 @@
 
 <body>
     <h1>vector</h1>
-    <h3>vectorとは？</h3>
+    <h2>vectorとは？</h2>
     <p>vectorとは、配列のようなものですが、サイズを変更できるという特徴があります。</p>
     <p>使用時は初めに #include&lt;vector&gt; とヘッダーファイルをインクルードします</p>
     <br>
-    <h3>vectorの宣言</h3>
+    <h2>vectorの宣言</h2>
     <pre class="code">
 #include &lt;vector&gt;
 #include &lt;iostream&gt;
@@ -26,53 +26,41 @@ int main(){
     return 0;
 }
     </pre>
-    <br>
-    <br>
-    <P>for(int i = 0;i &lt; 5;i++) {<br>cin &gt;&gt; a[i];<br>}//これでa[5]までの要素が入力される </P>
-    <br>
-    <br>
-    <p>for(int i = 0;i &lt; 5;i++) {<br>cout &lt;&lt; a[i];<br>}//これでa[5]までの要素が出力される</p>
-    <br>
-    <br>
-    <h3>vectorのメソッド</h3>
-    <li>
-        <p>push_back() &lt;- これでvectorの最後に要素を追加できます。</p>
+    <h2>標準入出力</h2>
+    <p>標準入出力はcinとcoutを使います</p>
+    <Per>for(int i = 0;i &lt; 5;i++) {<br>cin &gt;&gt; a[i];<br>}//これでa[5]までの要素が入力される </Per>
+    <p>内容としては入力された値をa[i]文字目に代入するという操作を0&lt;=i&lt;5まで繰り返します</p>
+    <per>for(int i = 0;i &lt; 5;i++) {<br>cout &lt;&lt; a[i];<br>}//これでa[5]までの要素が出力される</per>
+    <p>入力と同様に0&lt;=i&lt;5まで繰り返し出力します。
+        ただし注意点として、cout &lt;&lt; a;としてもaの内容すべてが出力されるわけではありません。
+        これは入力についても同様です
+    </P>
+    <h2>vectorのメソッド</h2>
+    <li>vectorname.push_back() &lt;- これでvectorの最後に要素を追加できます。
     </li>
-    <li>
-        <p>pop_back() &lt;- これでvectorの最後の要素を削除できます。</p>
+    <li>.pop_back() &lt;- これでvectorの最後の要素を削除できます。
     </li>
-    <li>
-        <p>size() &lt;- これでvectorのサイズを取得できます。</p>
+    <li>.size() &lt;- これでvectorのサイズを取得できます。
     </li>
-    <li>
-        <p>clear() &lt;- これでvectorの中身を全て削除できます。</p>
+    <li>.clear() &lt;- これでvectorの中身を全て削除できます。
     </li>
-    <li>
-        <p>empty() &lt;- これでvectorが空かどうかを判定できます。</p>
+    <li>.empty() &lt;- これでvectorが空かどうかを判定できます。
     </li>
-    <li>
-        <p>begin() &lt;- これでvectorの先頭を取得できます。</p>
+    <li>.begin() &lt;- これでvectorの先頭を取得できます。
     </li>
-    <li>
-        <p>end() &lt;- これでvectorの末尾を取得できます。</p>
+    <li>.end() &lt;- これでvectorの末尾を取得できます。
     </li>
-    <li>
-        <p>insert() &lt;- これでvectorの指定した位置に要素を追加できます。</p>
+    <li>.insert() &lt;- これでvectorの指定した位置に要素を追加できます。
     </li>
-    <li>
-        <p>erase() &lt;- これでvectorの指定した位置の要素を削除できます。</p>
+    <li>.erase() &lt;- これでvectorの指定した位置の要素を削除できます。
     </li>
-    <li>
-        <p>sort(開始位置,終了位置) &lt;- これでvectorをソートできます。ex. sort(a.begin(),a.end());</p>
+    <li>.sort(開始位置,終了位置) &lt;- これでvectorをソートできます。ex. sort(a.begin(),a.end());
     </li>
-    <li>
-        <p>reverse(開始位置,終了位置) &lt;- これでvectorを逆順にできます。ex. reverse(a.begin(),a.end());</p>
+    <li>.reverse(開始位置,終了位置) &lt;- これでvectorを逆順にできます。ex. reverse(a.begin(),a.end());
     </li>
-    <li>
-        <p>find(開始位置,終了位置,要素) &lt;- これでvectorの指定した要素を検索できます。ex. find(a.begin(),a.end(),3);</p>
+    <li>.find(開始位置,終了位置,要素) &lt;- これでvectorの指定した要素を検索できます。ex. find(a.begin(),a.end(),3);
     </li>
-    <li>
-        <p>resize (サイズ) &lt;- これでvectorのサイズを変更できます。</p>
+    <li>.resize (サイズ) &lt;- これでvectorのサイズを変更できます。
     </li>
     <br>
     <br>
