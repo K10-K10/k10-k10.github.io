@@ -27,37 +27,33 @@
     </pre>
     <hr>
     <p>それでは解説です</p>
-    <p><strong>まず#include&lt;iostream&gt;</strong>とは、C++で用意されている標準ライブラリをインクルード、
+    <p>まず</p>
+    <p><strong>#include&lt;iostream&gt;</strong>とは、C++で用意されている標準ライブラリをインクルード、
         つまりプログラムで使用できるようにするためのコードです</p>
     <p><strong>iostream</strong>とは、その中の標準入出力ライブラリです</p>
     <a href="../Include/">iostreamについて</a>
-    <br>
-    <br>
+    <h4></h4>
     <p><strong>using namespace std;</strong>とは、標準的な名前空間を使用することを表しています。
         名前空間については、別のページで詳しく解説します。ここで<strong>cout</strong>などが定義されています。
     </p>
     <a href="../Namespace/">名前空間</a>
-    <br>
-    <br>
+    <h4></h4>
     <p><strong>int main()</strong>基本はこの中にコードを書いていくことになります。</p>
     <br>
     <br>
     <p><strong>cin</strong>とは、入力を受け取るためのものです。ここではaという変数に入力された値を入れるということです。
         なお、この<strong>a</strong>のことを変数、<strong>cin</strong>などのことを関数といいます
         また、C++では文末に<strong>;</strong>をつける決まりになっています。書き忘れると動かなくなります。</p>
-    <br>
-    <br>
+    <h4></h4>
     <p><strong>int a;</strong>とは、int(整数)型の変数aを作るためのコードです。この変数の型についても、別のページで解説します。</p>
     <a href="../Variable/">変数の型</a>
-    <br>
-    <br>
+    <h4></h4>
     <p><strong>cout&lt;&lt;a&lt;&lt;endl;</strong>は、aの値を出力するための関数です(厳密にいえばオブジェクト)。
         文末の<strong>endl</strong>strongは改行です。</p>
     <p>なお、C++では、文字を'、文字列を"で囲むことになっているので、</p>
     <p>cout&lt;&lt;"Hello World"&lt;&lt;;</p>
     <p>となります。このプログラムでは、Hello Worldが出力されます。</p>
-    <br>
-    <br>
+    <h4></h4>
     <hr>
     <h2>関数</h2>
     <p>関数とは、ある特定の処理をまとめたものです。</p>
@@ -73,8 +69,7 @@
         が実行されます。
         elseは、前のif文に当てはまら無い場合(この場合a&lt;=5)に<strong>{}</strong>内が実行されるものです。
         また、<strong>else if()</strong>と書くことで、前の条件に当てはまらないものをさらに細かく分けることができます。</p>
-    <br>
-    <br>
+    <h4></h4>
     <h4>for</h4>
     <pre>
         for(int i = 0;i&lt;a;i++){
@@ -83,8 +78,7 @@
     </pre>
     <p>for文は、<strong>for(int i = 始める数;i &lt;繰り返したい回数+1;i++)</strong>と書くことができ、任意の回数繰り返すことができます。
         最初のコードでは、a回(a - 0)Hello Worldが出力されます。</p>
-    <br>
-    <br>
+    <h4></h4>
     <h4>while</h4>
     <pre>
         int a = 0;
@@ -95,9 +89,7 @@
     </pre>
     <p>while文は<strong>while(条件式)</strong>と書き、条件がtureの場合、{}条件が外れるまで{}の操作を繰り返します。
         ()の条件が外れない場合、無限に操作が繰り返されます。無限ループを作れますが、予期せぬところでループに入らないように気をつけてください。</p>
-    <br>
-    <br>
-    <br>
+    <h3></h3>
     <p>2024/10/22</p>
     <button onclick="location.href='../'">戻る</button>
     <button onclick="goToPage()">Top</button>

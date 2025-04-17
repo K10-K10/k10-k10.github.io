@@ -1,0 +1,180 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Python::Timer</title>
+  <link rel="stylesheet" href="https://k10-k10.github.io/K10-K10.css">
+  <script src="https://k10-k10.github.io/K10-K10.js"></script>
+</head>
+
+<body>
+  <h1>Pythonでタイマー作成</h1>
+  <h2>実装内容</h2>
+  <p>ポモドーロテクニックのための25分-5分のタイマーを作成します</p>
+  <p>25分のタイマーを作成し、25分経過後に5分のタイマーが動作するようにします。</p>
+  <p>また、タイマーが終了した際に音を鳴らすようにします。</p>
+  <p>何セット続けているかも見れるようにしました。</p>
+  <h2>環境</h2>
+  <p>実行できる環境を作りましょう(Linux)</p>
+  <pre class="code">
+  sudo apt install python3
+  sudo apt install python3-tk
+  sudo apt update
+  sudo apt install libportaudio2 libportaudiocpp0 portaudio19-dev
+  sudo apt install python3-tk
+  pip install sounddevice numpy
+  </pre>
+  <h2>コード</h2>
+  <pre class="code">
+import tkinter as tk
+import time
+import numpy as np
+import sounddevice as sd
+
+root = tk.Tk()
+root.title("Timer")
+root.geometry("400x300")
+
+def push():
+  global minute
+  global mark
+  global second
+  global mode
+  global Time
+  global cnt_set
+  global mode2
+  Time = 25
+  if mode == 0 and mode2 == 0:
+    mode = 1
+  elif mode == 0 and mode2 == 1:
+    mode = 2
+  <else:></else:>
+    mode = 0
+  Button.config(text=u'Stop' if mode == 1 else u'Start')
+
+  while mode != 0:
+    while mode == 1:
+      if second == 0:
+        minute -= 1
+        second = 59
+      else:
+        second -= 1
+      time.sleep(1)
+      if minute == 0 and second == 0:
+        mode = 2
+        minute = 5
+        second = 0
+        cnt_set += 1
+        print_set.config(text = 'set:' + str(cnt_set))
+        print_set.update()
+        frequency = 2200
+        duration = 0.1
+        sound = generate_sound(frequency, duration)
+        sd.play(sound, samplerate=44100)
+        sd.wait()
+        time.sleep(0.075)
+        sound = generate_sound(frequency, duration)
+        sd.play(sound, samplerate=44100)
+        sd.wait()
+      Time = str(minute).zfill(2) + mark + str(second).zfill(2)
+      Timerdisplay.config(text = Time)
+      Timerdisplay.update()
+
+    while mode == 2:
+      mode2 = 1
+      if second == 0:
+        minute -= 1
+        second = 59
+      else:
+        second -= 1
+      time .sleep(1)
+      if minute == 0 and second == 0:
+        minute = 5
+        second = 0
+        mode = 1
+        mode2 = 0
+        frequency = 2200
+        duration = 0.1
+        sound = generate_sound(frequency, duration)
+        sd.play(sound, samplerate=44100)
+        sd.wait()
+        time.sleep(0.075)
+        sound = generate_sound(frequency, duration)
+        sd.play(sound, samplerate=44100)
+        sd.wait()
+      Time = str(minute).zfill(2) + mark + str(second).zfill(2)
+      Timerdisplay.config(text = Time)
+      Timerdisplay.update()
+
+  def clear():
+    global minute
+    global mark
+    global second
+    global Time
+    global mode
+
+    minute = 25
+    second = 0
+    mark = ':'
+
+    Time = str(minute) + mark + (str(second)).zfill(2)
+    Timerdisplay.config(text = Time)
+    mode = 0
+    Button.config(text=u'Start')
+
+  def quit():
+    root.quit()
+    root.destroy()
+
+
+  def generate_sound(frequency, duration, sample_rate=44100):
+      t = np.linspace(0, duration, int(sample_rate * duration), endpoint=False)
+      sound = 0.5 * np.sin(2 * np.pi * frequency * t)
+      return sound
+
+minute = int(25)
+mark = ':'
+second = int(0)
+Time = str(minute) + mark + (str(second)).zfill(2)
+cnt_set = 0
+mode = int(0)
+mode2 = int(0)
+
+Button = tk.Button(root,text=u'Start',command = push,width = 35,bg='blue',fg='white')
+Button.pack()
+
+Clear = tk.Button(root,text=u'Clear',command = clear,width = 35,bg='light blue',fg='blue')
+Clear.pack()
+
+
+print_set = tk.Label(root,text = 'Done set:' + str(cnt_set),width = 12,font=('Arial', 12))
+print_set.pack()
+
+
+Timerdisplay = tk.Label(root,text = Time,width = 100,font=('Arial', 32))
+Timerdisplay.place(x = 150,y = 100,anchor='center')
+Timerdisplay.pack()
+
+Quit = tk.Button(root,text=u'Quit',command = quit,bg ='red',fg='white')
+Quit.place(x = 350,y = 250,anchor='center')
+Quit.pack()
+
+root.mainloop()
+  </pre>
+  <h2>実行結果</h2>
+  <img src="../Img/Python_timer.png" alt="Python Timer" width="600" height="450">
+  <p>UIが終わっていることは気にせず、動けばOKです。</p>
+  <h4></h4>
+  <h2>まとめ</h2>
+  <p>GUIツールをつかうと、動いた感がでてきますね</p>
+  <p>ただ、自分のデザインセンスのなさには驚かされます（.place()がうまく動作しなかった）</p>
+  <p>Pythonを引いさしぶりに書きましたが、変数の扱いが難し買ったです。</p>
+  <h3></h3>
+  <p>2025/04/17</p>
+  <button onclick="location.href='../'">戻る</button>
+  <button onclick="goToPage()">Top</button>
+
+</body>
+
+</html>
