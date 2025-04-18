@@ -18,11 +18,8 @@
   <h2>環境</h2>
   <p>実行できる環境を作りましょう(Linux)</p>
   <pre class="code">
-  sudo apt install python3
-  sudo apt install python3-tk
-  sudo apt update
-  sudo apt install libportaudio2 libportaudiocpp0 portaudio19-dev
-  sudo apt install python3-tk
+  sudo apt update && \
+  sudo apt install -y python3 python3-tk libportaudio2 libportaudiocpp0 portaudio19-dev && \
   pip install sounddevice numpy
   </pre>
   <h2>コード</h2>
@@ -169,7 +166,7 @@ root.mainloop()
   <h2>まとめ</h2>
   <p>GUIツールをつかうと、動いた感がでてきますね</p>
   <p>ただ、自分のデザインセンスのなさには驚かされます（.place()がうまく動作しなかった）</p>
-  <p>Pythonを引いさしぶりに書きましたが、変数の扱いが難し買ったです。</p>
+  <p>Pythonをひさしぶりに書きましたが、変数の扱いが難しかったです。</p>
   <h3></h3>
   <p>2025/04/17</p>
   <button onclick="location.href='../'">戻る</button>
