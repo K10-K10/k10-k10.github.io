@@ -7,4 +7,4 @@ COPY . /usr/local/apache2/htdocs/
 EXPOSE 80
 
 # Start Apache in foreground mode
-CMD ["httpd-foreground"] 
+CMD ["httpd-foreground"]
