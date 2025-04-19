@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<title>AtCoder:ABC402</title>
+<link rel="stylesheet" href="/K10-K10.css">
+<script src="/K10-K10.js"></script>
+</head>
+
+<body>
+  <h1>Atcoder Beginner Contest 402</h1>
+  <h2>問題一覧</h2>
+  <li><a href="https://atcoder.jp/contests/abc402/tasks/abc402_a" target="_blank">A問題</a></li>
+  <li><a href="https://atcoder.jp/contests/abc402/tasks/abc402_b" target="_blank">B問題</a></li>
+  <li><a href="https://atcoder.jp/contests/abc402/tasks/abc402_c" target="_blank">C問題</a></li>
+  <li><a href="https://atcoder.jp/contests/abc402/tasks/abc402_d" target="_blank">D問題</a></li>
+  <h3></h3>
+  <h3></h3>
+  <h2>結果</h2>
+  <p>AC:3,WA:3,CE:2,RE:1</p>
+  <p>レート変化:-25 656</p>
+  <h3></h3>
+  <h3>それでは解説です</h3>
+  <h2>A問題</h2>
+  <p>6:34 AC,WA:1</p>
+  <p>大文字の判定は,issupper関数を使います</p>
+  <pre class="code">
+#include &lt;iostream>
+#include &lt;string>
+using namespace std;
+
+int main()
+{
+  string s;
+  cin >> s;
+
+  for (char c : s)
+  {
+    if (isupper(c))
+    {
+      cout &lt;&lt; c;
+    }
+  }
+
+  cout &lt;&lt; endl;
+  return 0;
+}</pre>
+  <h2>B問題</h2>
+  <p>29:32 AC,WA:2</p>
+  <p>queueに入れて、取り出せばOKです。</p>
+  <pre class="code">
+#include &lt;bits/stdc++.h>
+using namespace std;
+
+int main()
+{
+  int a;
+  cin >> a;
+
+  queue<int> q;
+  for (int i = 0; i &lt; a; i++)
+  {
+    int op;
+    cin >> op;
+
+    if (op == 1)
+    {
+      int m;
+      cin >> m;
+      q.push(m);
+    }
+    else if (op == 2)
+    {
+      if (!q.empty())
+      {
+        cout &lt;&lt; q.front() &lt;&lt; endl;
+        q.pop();
+      }
+    }
+  }
+
+  return 0;
+} </pre>
+  <h2>C問題</h2>
+  <p>96:54 AC,WA:1</p>
+  <p>嫌いなものの個数を数えます。</p>
+  <pre class="code">
+#include &lt;bits/stdc++.h>
+using namespace std;
+int main()
+{
+  int a, b;
+  cin >> a >> b;
+  unordered_map&lt;int, vector&lt;int>> id_to_event;
+
+  int n, m;
+  for (int i = 0; i &lt; b; i++)
+  {
+    cin >> n;
+    for (int j = 0; j &lt; n; j++)
+    {
+      cin >> m;
+      id_to_event[m].push_back(i);
+    }
+  }
+
+  vector<int> bat(a);
+  vector<int> last_seen_event(b, 0);
+  vector<int> day(a + 1, 0);
+
+  for (int i = 0; i &lt; a; i++)
+  {
+    cin >> bat[i];
+    if (id_to_event.count(bat[i]))
+    {
+      for (int j : id_to_event[bat[i]])
+      {
+        last_seen_event[j] = i;
+      }
+    }
+  }
+  for (int i = 0; i &lt; b; i++)
+  {
+    day[last_seen_event[i]]++;
+  }
+
+  int cnt = 0;
+  for (int i = 0; i &lt; a; i++)
+  {
+    cout &lt;&lt; cnt + day[i] &lt;&lt; endl;
+    cnt += day[i];
+  }
+
+  return 0;
+}</pre>
+  <h2>D問題</h2>
+  <p>コンテスト中は書き終わりませんでした、が5分で解けます(A問題より簡単です)。</p>
+  <p>全ての直線の組み合わせnP2から平行な直線全ての組み合わせを引けばよいです。</p>
+  <p>平行な直線はmodで判定できます。</p>
+  <pre class="code">
+#include &lt;bits/stdc++.h>
+using namespace std;
+int main()
+{
+  int a, b;
+  cin >> a >> b;
+  vector<long long> Line(a, 0);
+  int n, m;
+  for (int i = 0; i &lt; b; i++)
+  {
+    cin >> n >> m;
+    Line[(n + m) % a]++;
+  }
+  long long cnt = (long long)b * (b - 1) / 2;
+  for (auto i : Line)
+  {
+    cnt -= i * (i - 1) / 2;
+  }
+  cout &lt;&lt; cnt &lt;&lt; endl;
+  return 0;
+}</pre>
+  <h2>反省</h2>
+  <p>PCの充電がなくなり3回ほどシャットダウンされてしまいました。</p>
+  <p>そのため、スマホのターミナルで解こうとしましたがことごとく失敗しました。</p>
+  <p>また、D問題から解くべきでした。</p>
+  <p>過去問のC埋めを続けて行きます。</p>
+  <h3></h3>
+  <p>2025/04/19</p>
+  <button onclick="location.href='index.html'">戻る</button>
+  <button size="large" ,color=#0094FF, onclick="goToPage()">トップ</button>
+</body>
+
+</html>
