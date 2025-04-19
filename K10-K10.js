@@ -42,5 +42,5 @@ function copy(target_id){
 }
 
 function goToPage() {
-    window.location.href = 'https://k10-k10.github.io';
+    window.location.href = '/';
 }
