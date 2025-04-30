@@ -44,3 +44,7 @@ function copy(target_id){
 function goToPage() {
     window.location.href = '/';
 }
+
+function returnPage() {
+    window.location.herf = '../index.html';
+}
