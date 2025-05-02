@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
@@ -33,3 +34,33 @@ function App() {
 }
 
 export default App
+=======
+function App() {
+  return (
+    <div>
+      <h1>Hello, React from GitHub Pages!</h1>
+    </div>
+  );
+}
+
+function Top_Button() {
+  return (
+    <div>
+      <button type="button" size="large" onClick={() => alert('test')}>test</button>
+    </div>
+  )
+}
+function Back_Button() {
+  return (
+    <div>
+      <button type="button" size="large" onClick={() => alert('test')}>test</button>
+    </div>
+  );
+}
+
+
+
+export default App;
+export { Top_Button, Back_Button, Tests };
+
+>>>>>>> 28cccd64d39f3cb87ddf86f1ce3f7fd125c49611
