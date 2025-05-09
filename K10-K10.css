@@ -1,26 +1,41 @@
 /*
 @author hatuna-827
 2025/02/10
+Updated: 2024/03/21
 */
 
+:root {
+    --primary-color: #00669f;
+    --secondary-color: #dfb755;
+    --text-color: #000000;
+    --background-color: #fefefe;
+    --code-background: #f8f8f8;
+    --border-color: #BBB;
+    --button-color: #E5E5E5;
+    --button-hover: #ccc;
+    --shadow-color: #00669f;
+    --font-sans: "ヒラギノ角ゴ ProN W3", HiraKakuProN-W3, 游ゴシック, "Yu Gothic", メイリオ, Meiryo, Verdana, Helvetica, Arial, sans-serif;
+    --font-serif: '游明朝', 'Yu Mincho', 'YuMincho', 'Hiragino Mincho Pro', serif;
+}
+
 ::selection {
-    background-color: #dfb755;
-    color: #00669f;
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
 }
 
 body {
-    margin: 0px;
-    padding: 0px;
-    line-height: 0px;
-    font-family: "ヒラギノ角ゴ ProN W3", HiraKakuProN-W3, 游ゴシック, "Yu Gothic", メイリオ, Meiryo, Verdana, Helvetica, Arial, sans-serif;
-    background-color: #fefefe;
+    margin: 0;
+    padding: 0;
+    line-height: 0;
+    font-family: var(--font-sans);
+    background-color: var(--background-color);
 }
 
 #header,
 #footer {
-    font-family: '游明朝', 'Yu Mincho', 'YuMincho', 'Hiragino Mincho Pro', serif;
+    font-family: var(--font-serif);
     text-align: center;
-    background-color: #00669f;
+    background-color: var(--primary-color);
     color: #fff;
     width: 100%;
 }
@@ -30,16 +45,16 @@ body {
 }
 
 #header {
-    padding: 40px 0px;
+    padding: 40px 0;
     font-size: 50px;
-    line-height: 0px;
+    line-height: 0;
 }
 
 #footer {
     margin-top: 100px;
-    padding: 15px 0px;
+    padding: 15px 0;
     font-size: 15px;
-    line-height: 0px;
+    line-height: 0;
 }
 
 #header::after {
@@ -50,60 +65,54 @@ body {
     content: "© 2025 K10-K10 All Rights Reserved";
 }
 
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-sans);
+    color: var(--text-color);
+    line-height: 0;
+}
+
 h1 {
-    font-family: "ヒラギノ角ゴ ProN W3", HiraKakuProN-W3, 游ゴシック, "Yu Gothic", メイリオ, Meiryo, Verdana, Helvetica, Arial, sans-serif;
     margin: 30px 20px;
     font-size: 50px;
     line-height: 50px;
-    color: #000000;
 }
 
 h2 {
-    font-family: "ヒラギノ角ゴ ProN W3", HiraKakuProN-W3, 游ゴシック, "Yu Gothic", メイリオ, Meiryo, Verdana, Helvetica, Arial, sans-serif;
     margin: 25px 45px;
     font-size: 40px;
     line-height: 40px;
-    color: #000000;
 }
 
 h3 {
-    font-family: "ヒラギノ角ゴ ProN W3", HiraKakuProN-W3, 游ゴシック, "Yu Gothic", メイリオ, Meiryo, Verdana, Helvetica, Arial, sans-serif;
     margin: 20px 65px;
     font-size: 35px;
     line-height: 35px;
-    color: #000000;
 }
 
 h4 {
-    font-family: "ヒラギノ角ゴ ProN W3", HiraKakuProN-W3, 游ゴシック, "Yu Gothic", メイリオ, Meiryo, Verdana, Helvetica, Arial, sans-serif;
     margin: 15px 80px;
     font-size: 30px;
     line-height: 30px;
-    color: #000000;
 }
 
 h5 {
-    font-family: "ヒラギノ角ゴ ProN W3", HiraKakuProN-W3, 游ゴシック, "Yu Gothic", メイリオ, Meiryo, Verdana, Helvetica, Arial, sans-serif;
     margin: 10px 90px;
     font-size: 20px;
     line-height: 20px;
-    color: #000000;
 }
 
 h6 {
-    font-family: "ヒラギノ角ゴ ProN W3", HiraKakuProN-W3, 游ゴシック, "Yu Gothic", メイリオ, Meiryo, Verdana, Helvetica, Arial, sans-serif;
     margin: 5px 95px;
     font-size: 20px;
     line-height: 20px;
-    color: #000000;
 }
 
 a {
-    font-family: "ヒラギノ角ゴ ProN W3", HiraKakuProN-W3, 游ゴシック, "Yu Gothic", メイリオ, Meiryo, Verdana, Helvetica, Arial, sans-serif;
-    color: #00669f;
+    font-family: var(--font-sans);
+    color: var(--primary-color);
     text-decoration: none;
-    padding: 0px 65px;
-    margin: 0px;
+    padding: 0 65px;
+    margin: 0;
     font-size: 20px;
     line-height: 35px;
 }
@@ -114,92 +123,89 @@ a:hover {
 }
 
 a:active {
-    color: #dfb755;
+    color: var(--secondary-color);
 }
 
 p {
-    font-family: "ヒラギノ角ゴ ProN W3", HiraKakuProN-W3, 游ゴシック, "Yu Gothic", メイリオ, Meiryo, Verdana, Helvetica, Arial, sans-serif;
-    margin: 0px;
-    padding: 0px 65px;
+    font-family: var(--font-sans);
+    margin: 0;
+    padding: 0 65px;
     line-height: 35px;
-    color: #000000;
+    color: var(--text-color);
     font-size: 20px;
+}
 
-    a {
-        padding: 0px;
-    }
+p a {
+    padding: 0;
 }
 
 button {
-    font-family: "ヒラギノ角ゴ ProN W3", HiraKakuProN-W3, 游ゴシック, "Yu Gothic", メイリオ, Meiryo, Verdana, Helvetica, Arial, sans-serif;
+    font-family: var(--font-sans);
     min-width: 100px;
     width: auto;
     height: 35px;
     margin: 5px 75px;
-    line-height: 0px;
-    color: #000000;
+    line-height: 0;
+    color: var(--text-color);
     font-size: 20px;
     text-align: center;
-    padding: 0px 10px;
+    padding: 0 10px;
     border-radius: 5px;
-    border: 0px;
-    background-color: #E5E5E5;
+    border: 0;
+    background-color: var(--button-color);
 }
 
 button:hover {
-    background-color: #ccc;
+    background-color: var(--button-hover);
 }
 
 button:active {
-    color: #00669f;
+    color: var(--primary-color);
 }
 
 pre {
-    font-family: '游明朝', 'Yu Mincho', YuMincho, 'Hiragino Mincho Pro', serif;
+    font-family: var(--font-serif);
     margin: 10px 65px;
     padding: 15px;
     border-radius: 5px;
     white-space: pre-wrap;
     overflow: auto;
     line-height: 25px;
-    color: #000000;
+    color: var(--text-color);
     font-size: 17px;
-    background-color: #f8f8f8;
-    border: #BBB solid 1.5px;
-    box-shadow: 5px 5px #00669f;
-
-    code {
-        position: absolute;
-        margin: -16px 0 0 -16px;
-        padding: 2px 20px;
-        font-size: 13px;
-        line-height: 20px;
-        background-color: #E5E5E5;
-        border: #BBB solid 1.5px;
-        border-radius: 5px;
-    }
+    background-color: var(--code-background);
+    border: var(--border-color) solid 1.5px;
+    box-shadow: 5px 5px var(--shadow-color);
 }
 
-ul,
-li {
-    font-family: "ヒラギノ角ゴ ProN W3", HiraKakuProN-W3, 游ゴシック, "Yu Gothic", メイリオ, Meiryo, Verdana, Helvetica, Arial, sans-serif;
+pre code {
+    position: absolute;
+    margin: -16px 0 0 -16px;
+    padding: 2px 20px;
+    font-size: 13px;
+    line-height: 20px;
+    background-color: var(--button-color);
+    border: var(--border-color) solid 1.5px;
+    border-radius: 5px;
+}
+
+ul, li {
+    font-family: var(--font-sans);
     margin: 10px 75px;
     line-height: 30px;
-    color: #000000;
+    color: var(--text-color);
     font-size: 20px;
+}
 
-    li,
-    a,
-    p {
-        margin: 0px;
-        padding: 0px;
-    }
+ul li, ul a, ul p {
+    margin: 0;
+    padding: 0;
 }
 
 img {
-    font-family: "ヒラギノ角ゴ ProN W3", HiraKakuProN-W3, 游ゴシック, "Yu Gothic", メイリオ, Meiryo, Verdana, Helvetica, Arial, sans-serif;
+    font-family: var(--font-sans);
     margin: 20px 65px;
-    color: #000000;
+    color: var(--text-color);
     font-size: 15px;
     max-width: calc(100% - 130px);
     max-height: 50vh;
@@ -221,24 +227,23 @@ strong {
     border-radius: 5px;
     white-space: pre-wrap;
     overflow: auto;
-    background-color: #f8f8f8;
-    border: #BBB solid 1.5px;
+    background-color: var(--code-background);
+    border: var(--border-color) solid 1.5px;
+}
 
-    a {
-        margin: 0px 20px;
-        padding: 0px;
-        line-height: 30px;
-        color: #000000;
-        font-size: 20px;
-        font-family: '游明朝', 'Yu Mincho', 'YuMincho', 'Hiragino Mincho Pro', serif;
-        color: #000000;
-    }
+#tag a {
+    margin: 0 20px;
+    padding: 0;
+    line-height: 30px;
+    color: var(--text-color);
+    font-size: 20px;
+    font-family: var(--font-serif);
+}
 
-    a::selection,
-    a:hover {
-        text-decoration: underline .5px;
-        text-underline-offset: 3px;
-    }
+#tag a::selection,
+#tag a:hover {
+    text-decoration: underline 0.5px;
+    text-underline-offset: 3px;
 }
 
 .copy-button-box {
@@ -246,18 +251,18 @@ strong {
 }
 
 .copy-button {
-    font-family: '游明朝', 'Yu Mincho', 'YuMincho', 'Hiragino Mincho Pro', serif;
+    font-family: var(--font-serif);
     width: 90px;
     height: 30px;
     margin: -15px 65px;
-    line-height: 0px;
-    color: #000000;
+    line-height: 0;
+    color: var(--text-color);
     font-size: 17px;
     text-align: center;
     padding: 10px;
     border-radius: 5px;
-    border: 0px;
-    background-color: #E5E5E5;
+    border: 0;
+    background-color: var(--button-color);
 }
 
 @media screen and (max-width: 1000px) {
@@ -302,20 +307,20 @@ strong {
     }
 
     a {
-        padding: 0px 30px;
+        padding: 0 30px;
         font-size: 13px;
         line-height: 23px;
     }
 
     p {
-        margin: 0px;
-        padding: 0px 30px;
+        margin: 0;
+        padding: 0 30px;
         line-height: 23px;
         font-size: 13px;
+    }
 
-        a {
-            padding: 0px;
-        }
+    p a {
+        padding: 0;
     }
 
     button {
@@ -323,12 +328,12 @@ strong {
         width: auto;
         height: 20px;
         margin: 5px 30px;
-        line-height: 0px;
+        line-height: 0;
         font-size: 13px;
         text-align: center;
-        padding: 0px 10px;
+        padding: 0 10px;
         border-radius: 5px;
-        border: 0px;
+        border: 0;
     }
 
     pre {
@@ -339,11 +344,10 @@ strong {
         overflow: auto;
         line-height: 13px;
         font-size: 10px;
-        box-shadow: 3px 3px #00669f;
+        box-shadow: 3px 3px var(--shadow-color);
     }
 
-    ul,
-    li {
+    ul, li {
         margin: 3px 40px;
         line-height: 23px;
         font-size: 13px;
@@ -362,19 +366,19 @@ strong {
 
     strong {
         font-weight: bold;
-        text-decoration: underline .5px;
+        text-decoration: underline 0.5px;
         text-underline-offset: 2px;
     }
 
     #tag {
         margin: 5px 30px;
         padding: 10px;
+    }
 
-        a {
-            margin: 0px 10px;
-            line-height: 15px;
-            font-size: 12px;
-        }
+    #tag a {
+        margin: 0 10px;
+        line-height: 15px;
+        font-size: 12px;
     }
 
     .copy-button {
