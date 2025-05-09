@@ -189,17 +189,23 @@ pre code {
     border-radius: 5px;
 }
 
-ul, li {
-    font-family: var(--font-sans);
+ul {
+    list-style-type: none;
+    padding: 0;
     margin: 10px 75px;
+}
+
+ul li {
+    margin: 5px 0;
     line-height: 30px;
     color: var(--text-color);
     font-size: 20px;
 }
 
-ul li, ul a, ul p {
+ul li a {
     margin: 0;
     padding: 0;
+    display: inline-block;
 }
 
 img {
