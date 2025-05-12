@@ -1,9 +1,3 @@
-/*
-@author hatuna-827
-2025/02/10
-Updated: 2024/03/21
-*/
-
 :root {
     --primary-color: #00669f;
     --secondary-color: #dfb755;
@@ -14,6 +8,7 @@ Updated: 2024/03/21
     --button-color: #E5E5E5;
     --button-hover: #ccc;
     --shadow-color: #00669f;
+    --animation-time: 0.2s;
     --font-sans: "ヒラギノ角ゴ ProN W3", HiraKakuProN-W3, 游ゴシック, "Yu Gothic", メイリオ, Meiryo, Verdana, Helvetica, Arial, sans-serif;
     --font-serif: '游明朝', 'Yu Mincho', 'YuMincho', 'Hiragino Mincho Pro', serif;
 }
@@ -65,7 +60,12 @@ body {
     content: "© 2025 K10-K10 All Rights Reserved";
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-family: var(--font-sans);
     color: var(--text-color);
     line-height: 0px;
@@ -155,6 +155,21 @@ button {
     background-color: var(--button-color);
 }
 
+button:not(.copy-button) {
+    transition: var(--animation-time);
+}
+
+button:not(.copy-button):hover {
+    transform: translateX(-2px) translateY(-2px);
+    box-shadow: 3px 3px 1px #ddd;
+    transition: var(--animation-time);
+}
+
+button:not(.copy-button):active {
+    transform: none;
+    box-shadow: none;
+}
+
 button:hover {
     background-color: var(--button-hover);
 }
@@ -176,6 +191,12 @@ pre {
     background-color: var(--code-background);
     border: var(--border-color) solid 1.5px;
     box-shadow: 5px 5px var(--shadow-color);
+    transition: box-shadow var(--animation-time);
+}
+
+pre:hover {
+    box-shadow: 5px 5px var(--secondary-color);
+    transition: box-shadow var(--animation-time);
 }
 
 pre code {
@@ -189,13 +210,18 @@ pre code {
     border-radius: 5px;
 }
 
-ul {
-    list-style-type: disc;
+ul,
+ol {
     padding: 0px;
     margin: 10px 75px;
 }
 
-ul li {
+li {
+    margin: 0px 75px;
+}
+
+ul li,
+ol li {
     margin: 0px;
     padding: 0px;
     line-height: 30px;
@@ -203,7 +229,7 @@ ul li {
     font-size: 20px;
 }
 
-ul li a {
+li a {
     margin: 0px;
     padding: 0px;
     display: inline;
@@ -247,7 +273,6 @@ strong {
     font-family: var(--font-serif);
 }
 
-#tag a::selection,
 #tag a:hover {
     text-decoration: underline 0.5px;
     text-underline-offset: 3px;
@@ -270,6 +295,16 @@ strong {
     border-radius: 5px;
     border: 0px;
     background-color: var(--button-color);
+}
+
+#progressBar {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    height: 3px;
+    background-color: var(--primary-color);
+    transition: width 0.1s ease;
+    z-index: 1000;
 }
 
 @media screen and (max-width: 1000px) {
@@ -354,7 +389,8 @@ strong {
         box-shadow: 3px 3px var(--shadow-color);
     }
 
-    ul, li {
+    ul,
+    li {
         margin: 3px 40px;
         line-height: 23px;
         font-size: 13px;
