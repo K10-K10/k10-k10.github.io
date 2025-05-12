@@ -24,9 +24,9 @@ Updated: 2024/03/21
 }
 
 body {
-    margin: 0;
-    padding: 0;
-    line-height: 0;
+    margin: 0px;
+    padding: 0px;
+    line-height: 0px;
     font-family: var(--font-sans);
     background-color: var(--background-color);
 }
@@ -45,16 +45,16 @@ body {
 }
 
 #header {
-    padding: 40px 0;
+    padding: 40px 0px;
     font-size: 50px;
-    line-height: 0;
+    line-height: 0px;
 }
 
 #footer {
     margin-top: 100px;
-    padding: 15px 0;
+    padding: 15px 0px;
     font-size: 15px;
-    line-height: 0;
+    line-height: 0px;
 }
 
 #header::after {
@@ -68,7 +68,7 @@ body {
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-sans);
     color: var(--text-color);
-    line-height: 0;
+    line-height: 0px;
 }
 
 h1 {
@@ -111,8 +111,8 @@ a {
     font-family: var(--font-sans);
     color: var(--primary-color);
     text-decoration: none;
-    padding: 0 65px;
-    margin: 0;
+    padding: 0px 65px;
+    margin: 0px;
     font-size: 20px;
     line-height: 35px;
 }
@@ -128,15 +128,15 @@ a:active {
 
 p {
     font-family: var(--font-sans);
-    margin: 0;
-    padding: 0 65px;
+    margin: 0px;
+    padding: 0px 65px;
     line-height: 35px;
     color: var(--text-color);
     font-size: 20px;
 }
 
 p a {
-    padding: 0;
+    padding: 0px;
 }
 
 button {
@@ -145,13 +145,13 @@ button {
     width: auto;
     height: 35px;
     margin: 5px 75px;
-    line-height: 0;
+    line-height: 0px;
     color: var(--text-color);
     font-size: 20px;
     text-align: center;
-    padding: 0 10px;
+    padding: 0px 10px;
     border-radius: 5px;
-    border: 0;
+    border: 0px;
     background-color: var(--button-color);
 }
 
@@ -180,7 +180,7 @@ pre {
 
 pre code {
     position: absolute;
-    margin: -16px 0 0 -16px;
+    margin: -16px 0px 0px -16px;
     padding: 2px 20px;
     font-size: 13px;
     line-height: 20px;
@@ -190,22 +190,23 @@ pre code {
 }
 
 ul {
-    list-style-type: none;
-    padding: 0;
+    list-style-type: disc;
+    padding: 0px;
     margin: 10px 75px;
 }
 
 ul li {
-    margin: 5px 0;
+    margin: 0px;
+    padding: 0px;
     line-height: 30px;
     color: var(--text-color);
     font-size: 20px;
 }
 
 ul li a {
-    margin: 0;
-    padding: 0;
-    display: inline-block;
+    margin: 0px;
+    padding: 0px;
+    display: inline;
 }
 
 img {
@@ -238,8 +239,8 @@ strong {
 }
 
 #tag a {
-    margin: 0 20px;
-    padding: 0;
+    margin: 0px 20px;
+    padding: 0px;
     line-height: 30px;
     color: var(--text-color);
     font-size: 20px;
@@ -261,13 +262,13 @@ strong {
     width: 90px;
     height: 30px;
     margin: -15px 65px;
-    line-height: 0;
+    line-height: 0px;
     color: var(--text-color);
     font-size: 17px;
     text-align: center;
     padding: 10px;
     border-radius: 5px;
-    border: 0;
+    border: 0px;
     background-color: var(--button-color);
 }
 
@@ -313,20 +314,20 @@ strong {
     }
 
     a {
-        padding: 0 30px;
+        padding: 0px 30px;
         font-size: 13px;
         line-height: 23px;
     }
 
     p {
-        margin: 0;
-        padding: 0 30px;
+        margin: 0px;
+        padding: 0px 30px;
         line-height: 23px;
         font-size: 13px;
     }
 
     p a {
-        padding: 0;
+        padding: 0px;
     }
 
     button {
@@ -334,12 +335,12 @@ strong {
         width: auto;
         height: 20px;
         margin: 5px 30px;
-        line-height: 0;
+        line-height: 0px;
         font-size: 13px;
         text-align: center;
-        padding: 0 10px;
+        padding: 0px 10px;
         border-radius: 5px;
-        border: 0;
+        border: 0px;
     }
 
     pre {
@@ -382,7 +383,7 @@ strong {
     }
 
     #tag a {
-        margin: 0 10px;
+        margin: 0px 10px;
         line-height: 15px;
         font-size: 12px;
     }
