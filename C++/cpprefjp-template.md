@@ -41,10 +41,25 @@
 26. 関連項目: cpprefjp ないのリンク (省略可)
 27. 参照: 参考資料、その他のサイトのリンク (省略可)
 
+### その他のページテンプレート
+
+- [`class`](https://github.com/cpprefjp/site/blob/master/start_editing/class_template_page.md)
+- [`comparison_operatir`](https://github.com/cpprefjp/site/blob/master/start_editing/comparison_operator_template_page.md)
+- [`concept`](https://github.com/cpprefjp/site/blob/master/start_editing/concept_template_page.md)
+- [`cpo`](https://github.com/cpprefjp/site/blob/master/start_editing/cpo_template_page.md)
+- [`function`](https://github.com/cpprefjp/site/blob/master/start_editing/function_template_page.md)
+- [`header`](https://github.com/cpprefjp/site/blob/master/start_editing/header_template_page.md)
+- [`lang`](https://github.com/cpprefjp/site/blob/master/start_editing/lang_template_page.md)
+- [`module`](https://github.com/cpprefjp/site/blob/master/start_editing/module_template_page.md)
+- [`named_requirement`](https://github.com/cpprefjp/site/blob/master/start_editing/named_requirement_template_page.md)
+- [`type-type`](https://github.com/cpprefjp/site/blob/master/start_editing/type-type_template_page.md)
+
 ## markdown rules
 
 - ブロックコメントの禁止
 - 箇条書きのインデントは 4 スペースのみ
+- `.noink`で追加予定のリンクの保存
+- `<sup><a id="note_ref-1" href="#note-1">[注1]</a></sup>`で`<a id="note-t1-1" href="#note_ref-t1-1">[注1<]/a>`に移動
 
 ### タグルール
 
@@ -57,6 +72,53 @@
   - `[meta namespace]`: 所属する名前空間
   - `[meta class]`: 所属するクラス
   - `[meta cpp]`: 追加、非推奨、削除されたバージョン
+
     > cpp11[meta cpp] cpp11 で追加  
     > cpp11deprcated[meta cpp]cpp11 で非推奨  
     > cpp11 removed[meta cpp] cpp11 で削除
+
+  - [mathjax enable]: LaTeX形式での数式記述の許可
+
+## filename-rule
+
+- 機能名をページファイル名とする
+- マクロは小文字
+- 大文字+区切り文字+拡張子で構成されるファイルは無視される(README.md)など
+
+- 非メンバ関数は、`_free`をつける。
+
+## ディレクトリ構造
+
+> ### lang
+
+- cpp{version}.md 形式
+- 各バージョンの言語機能ページ
+- `future.md`: 導入予定、検討された機能を記述
+- `archive.md`: 廃案になった機能
+
+> ### reference / module
+
+- reference: ヘッダベース
+  - ヘッダページ
+    - 所属機能
+- module: モジュールベース
+
+  - モジュールページ
+    - 所属機能
+
+- `<exposition-only>`全体で使用するもの
+
+- クラス
+  - メンバ関数
+  - 型
+  - オーバーロードを意図している関数
+  - 演算子オーバーロード(左辺のクラス)
+
+> ### コンセプト階層
+
+- オーバーロード、特殊化
+
+> ## namespace
+
+基本導入しない
+例外: `std::this_thread`
