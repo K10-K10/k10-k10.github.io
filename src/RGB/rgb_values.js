@@ -12,6 +12,7 @@ function G_value({ G, setG}) {
 		</div>
   );
 }
+
 function R_value({ R, setR}) {
 
 	if(R > 255){setR(R = 255)}
