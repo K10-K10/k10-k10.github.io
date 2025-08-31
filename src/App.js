@@ -1,8 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import './App.css';
-import R_value from './r_value';
-import G_value from './g_value';
-import B_value from './b_value';
+import {R_value,G_value,B_value} from './RGB/rgb_values.js';
 
 function App() {
   const [R, setR] = useState(0);
@@ -29,5 +27,6 @@ function App() {
     </div>
   );
 }
+
 
 export default App;
