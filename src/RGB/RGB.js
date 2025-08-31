@@ -19,7 +19,7 @@ function RGB() {
 
   return (
     <div className="App">
-      <h1>Hello React</h1>
+      <h1>RGB & react checker</h1>
       <R_value R={R} setR={setR}/>
       <G_value G={G} setG={setG}/>
       <B_value B={B} setb={setB}/>
