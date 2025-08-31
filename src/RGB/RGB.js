@@ -1,8 +1,8 @@
 import { useState, useRef, useEffect } from 'react';
-import './App.css';
-import {R_value,G_value,B_value} from './RGB/rgb_values.js';
+import './../App.css';
+import {R_value,G_value,B_value} from './rgb_values.js';
 
-function App() {
+function RGB() {
   const [R, setR] = useState(0);
   const [G, setG] = useState(0);
   const [B, setB] = useState(0);
@@ -29,4 +29,4 @@ function App() {
 }
 
 
-export default App;
+export default RGB;
