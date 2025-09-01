@@ -1,8 +1,12 @@
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import RGB from './RGB/RGB';
+import Header from './header';
+import Footer from './footer';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <RGB />
+  <dev>
+    <Header/>
+    <Footer/>
+  </dev>
 );

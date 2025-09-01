@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from 'react';
-import './../App.css';
+import './rgb_values.css'
 import { R_value, G_value, B_value } from './rgb_values.js';
+
 
 function RGB() {
   const [R, setR] = useState(0);
