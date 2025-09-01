@@ -24,7 +24,7 @@ function RGB() {
       <G_value G={G} setG={setG}/>
       <B_value B={B} setb={setB}/>
 
-      <canvas id="myCanvas" ref={canvasRef} width={200} height={200} />
+      <canvas id="myCanvas" ref={canvasRef} width={100} height={100} />
     </div>
   );
 }

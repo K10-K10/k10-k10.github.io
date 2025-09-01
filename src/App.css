@@ -1,39 +1,18 @@
-.App {
-  text-align: center;
+:root {
+    --primary-color: #00669f;
+    --secondary-color: #dfb755;
+    --text-color: #000000;
+    --background-color: #fefefe;
+    --code-background: #f8f8f8;
+    --border-color: #BBB;
+    --button-color: #E5E5E5;
+    --button-hover: #ccc;
+    --shadow-color: #00669f;
+    --animation-time: 0.2s;
+    --font-sans: "ヒラギノ角ゴ ProN W3", HiraKakuProN-W3, 游ゴシック, "Yu Gothic", メイリオ, Meiryo, Verdana, Helvetica, Arial, sans-serif;
+    --font-serif: '游明朝', 'Yu Mincho', 'YuMincho', 'Hiragino Mincho Pro', serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
-  }
+button {
+    font-family: inherit;
 }
