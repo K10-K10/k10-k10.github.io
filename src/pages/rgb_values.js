@@ -1,5 +1,3 @@
-import './rgb_values.css'
-
 function R_value({ R, setR }) {
 	if (R > 255) { setR(R = 255) }
 	if (R < 0) { setR(R = 0) }

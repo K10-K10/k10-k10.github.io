@@ -1,23 +1,37 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 :root {
-    --primary-color: #1E3E75;
-    --secondary-color: #dfb755;
-    --text-color: #000000;
-    --background-color: #fefefe;
-    --code-background-color: #f8f8f8;
-    --border-color: #BBB;
-    --button-color: #E5E5E5;
-    --button-hover-color: #ccc;
-    --shadow-color: #00669f;
-		--font-main: "ubuntu mono";
-    --font-sans: "ヒラギノ角ゴ ProN W3", HiraKakuProN-W3, 游ゴシック, "Yu Gothic", メイリオ, Meiryo, Verdana, Helvetica, Arial, sans-serif;
-    --font-serif: '游明朝', 'Yu Mincho', 'YuMincho', 'Hiragino Mincho Pro', serif;
+	--primary-color: #1E3E75;
+	--secondary-color: #dfb755;
+	--black-color: #000000;
+	--white-color: #ffffff;
+	--background-color: #fefefe;
+	--code-background-color: #f8f8f8;
+	--border-color: #BBB;
+	--button-color: #E5E5E5;
+	--button-hover-color: #ccc;
+	--shadow-color: #00669f;
+	--font-main: "ubuntu mono";
+	--font-sans: "ヒラギノ角ゴ ProN W3", HiraKakuProN-W3, 游ゴシック, "Yu Gothic", メイリオ, Meiryo, Verdana, Helvetica, Arial, sans-serif;
+	--font-serif: '游明朝', 'Yu Mincho', 'YuMincho', 'Hiragino Mincho Pro', serif;
+	--header-height: 100px;
+	--footer-height: 170px;
+	--main-padding: 30px;
 }
 
 body {
 	margin: 0px;
 	background-color: var(--background-color);
 	font-size: 0px;
-	color: var(--text-color);
+	color: var(--black-color);
+}
+
+button,input,textarea {
+	font-family: inherit;
+}
+
+#main {
+	min-height: calc(100vh - (var(--header-height) + var(--footer-height) + var(--main-padding)*2));
+	padding: var(--main-padding) 0px;
+	font-family: var(--font-main);
 }

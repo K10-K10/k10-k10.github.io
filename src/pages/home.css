@@ -1,0 +1,9 @@
+#main {
+  text-align: center;
+}
+
+a {
+  font-size: 70px;
+  color: var(--primary-color);
+  text-decoration: none;
+}

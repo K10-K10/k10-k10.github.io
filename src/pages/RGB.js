@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
-import './rgb_values.css'
+import './RGB.css'
 import { R_value, G_value, B_value } from './rgb_values.js';
 
 
@@ -19,7 +19,7 @@ function RGB() {
 	}, [R, G, B]);
 
 	return (
-		<div className="App">
+		<div>
 			<h1>RGB & react checker</h1>
 			<R_value R={R} setR={setR}/>
 			<G_value G={G} setG={setG}/>
