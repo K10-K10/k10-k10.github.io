@@ -1,0 +1,16 @@
+header {
+	top: 0;
+	padding: 50px 0px;
+	height: 0px;
+	width: 100%;
+	text-align: left;
+	background-color: var(--primary-color);
+}
+
+.header_title {
+	padding: 0px 40px;
+	font-size: 40px;
+	line-height: 0px;
+	font-weight: 600;
+	color: white;
+}

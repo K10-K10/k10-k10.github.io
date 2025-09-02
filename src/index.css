@@ -1,56 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
 :root {
     --primary-color: #1E3E75;
     --secondary-color: #dfb755;
     --text-color: #000000;
     --background-color: #fefefe;
-    --code-background: #f8f8f8;
+    --code-background-color: #f8f8f8;
     --border-color: #BBB;
     --button-color: #E5E5E5;
-    --button-hover: #ccc;
+    --button-hover-color: #ccc;
     --shadow-color: #00669f;
-    --animation-time: 0.2s;
+		--font-main: "ubuntu mono";
     --font-sans: "ヒラギノ角ゴ ProN W3", HiraKakuProN-W3, 游ゴシック, "Yu Gothic", メイリオ, Meiryo, Verdana, Helvetica, Arial, sans-serif;
     --font-serif: '游明朝', 'Yu Mincho', 'YuMincho', 'Hiragino Mincho Pro', serif;
 }
 
 body {
 	margin: 0px;
-}
-
-header {
-	display: flex;
-	background-color: var(--primary-color);
-	padding: 30px 0px;
-	position: absolute;
-	top: 0;
-	width: 100%;
-}
-
-.header_title {
-	text-align: left;
-	font-size: 40px;
-	font-weight: 600;
-	color: white;
-}
-
-footer {
-	background: var(--primary-color);
-	padding: 20px 0px;
-	position: absolute;
-	bottom: 0;
-	width: 100%;
-	text-align: center;
-}
-
-.footer_info p{
-	font-weight: 200;
-	font-size: 20px;
-	margin: 0px;
-	color: white;
-}
-
-.footer_icon img{
-	margin: 10px;
-	width: 60px;
-	height: 60px;
+	background-color: var(--background-color);
+	font-size: 0px;
+	color: var(--text-color);
 }
