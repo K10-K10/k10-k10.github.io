@@ -1,7 +1,26 @@
+:root {
+    --primary-color: #1E3E75;
+    --secondary-color: #dfb755;
+    --text-color: #000000;
+    --background-color: #fefefe;
+    --code-background: #f8f8f8;
+    --border-color: #BBB;
+    --button-color: #E5E5E5;
+    --button-hover: #ccc;
+    --shadow-color: #00669f;
+    --animation-time: 0.2s;
+    --font-sans: "ヒラギノ角ゴ ProN W3", HiraKakuProN-W3, 游ゴシック, "Yu Gothic", メイリオ, Meiryo, Verdana, Helvetica, Arial, sans-serif;
+    --font-serif: '游明朝', 'Yu Mincho', 'YuMincho', 'Hiragino Mincho Pro', serif;
+}
+
+body {
+	margin: 0px;
+}
+
 header {
 	display: flex;
-	background-color: #1E3E75;
-	padding: 30px;
+	background-color: var(--primary-color);
+	padding: 30px 0px;
 	position: absolute;
 	top: 0;
 	width: 100%;
@@ -14,30 +33,24 @@ header {
 	color: white;
 }
 
-
 footer {
-	justify-content: center;
-	background: #1E3E75;
-	padding: 40px;
+	background: var(--primary-color);
+	padding: 20px 0px;
 	position: absolute;
 	bottom: 0;
 	width: 100%;
-	color: white;
 	text-align: center;
 }
 
-.footer_info {
-	display: grid;
+.footer_info p{
 	font-weight: 200;
 	font-size: 20px;
-	margin: 20px;
-	text-align: center;
+	margin: 0px;
 	color: white;
 }
 
-.footer_icon {
-	display: flex;
-	justify-content: center;
-	width: 100%;
-	hight: auto;
+.footer_icon img{
+	margin: 10px;
+	width: 60px;
+	height: 60px;
 }

@@ -1,12 +1,8 @@
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import Header from './header';
-import Footer from './footer';
+import App from './app';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <dev>
-    <Header/>
-    <Footer/>
-  </dev>
+	<App />
 );
