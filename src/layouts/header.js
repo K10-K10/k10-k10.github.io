@@ -2,7 +2,7 @@ import './header.css'
 function Header(){
 	return (
 		<header>
-			<div className="header_title">K10-K10</div>
+			<div ><a href="/home" className="header_title">K10-K10</a></div>
 		</header>
 	);
 }

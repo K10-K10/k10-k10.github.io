@@ -1,7 +1,10 @@
 import './home.css'
 function home() {
 	return (
-		<div><a href="/#/RGB">RGB</a></div>
+		<div>
+			<div><a href="/#/RGB">RGB checker</a></div>
+			<div><a href="/#/SE">SE</a></div>
+		</div>
 	)
 }
 
