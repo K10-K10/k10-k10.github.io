@@ -1,0 +1,38 @@
+#main {
+  text-align: center;
+}
+
+fieldset {
+  width: 70%;
+  margin: 20px 15%;
+}
+
+legend {
+  background-color: var(--primary-color);
+  color: var(--code-background-color);
+  padding: 3px 6px;
+  font-size: 20px;
+}
+
+input[type=radio] {
+  display: none;
+}
+
+label {
+  font-size: 20px;
+  display: inline-block;
+  margin: 5px;
+  width: 100px;
+  height: 30px;
+  padding: 0px 5px;
+  color: var(--primary-color);
+  line-height: 30px;
+  cursor: pointer;
+  border: 1.5px solid var(--primary-color);
+  border-radius: 5px;
+}
+
+label:has(input[type=radio]:checked ) {
+  background: var(--primary-color);
+  color: var(--code-background-color);
+}

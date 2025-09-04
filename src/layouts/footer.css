@@ -7,6 +7,10 @@ footer {
 	background: var(--primary-color);
 }
 
+footer a {
+	line-height: 0px;
+}
+
 .footer_info p{
 	margin: 0px;
 	font-size: 20px;
