@@ -23,7 +23,7 @@ function RGB() {
 
 	return (
 		<div>
-			<h1>RGB & react checker</h1>
+			<h1>RGB checker</h1>
 			<div>
 				<p className="RGB">R: {R}</p>
 				<button id="R_plus" className="RGB_button" onClick={() => setR(R + 5)}>R + 5</button>
