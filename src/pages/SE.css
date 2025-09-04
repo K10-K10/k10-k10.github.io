@@ -8,10 +8,11 @@ fieldset {
 }
 
 legend {
-  background-color: var(--primary-color);
-  color: var(--code-background-color);
   padding: 3px 6px;
   font-size: 20px;
+  background-color: var(--primary-color);
+  color: var(--code-background-color);
+  border-radius: 5px;
 }
 
 input[type=radio] {
@@ -19,17 +20,17 @@ input[type=radio] {
 }
 
 label {
-  font-size: 20px;
   display: inline-block;
   margin: 5px;
+  padding: 0px 5px;
   width: 100px;
   height: 30px;
-  padding: 0px 5px;
-  color: var(--primary-color);
+  font-size: 20px;
   line-height: 30px;
-  cursor: pointer;
+  color: var(--primary-color);
   border: 1.5px solid var(--primary-color);
   border-radius: 5px;
+  cursor: pointer;
 }
 
 label:has(input[type=radio]:checked ) {
