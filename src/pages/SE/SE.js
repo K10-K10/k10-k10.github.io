@@ -1,8 +1,8 @@
 import "./SE.css";
 
-function Se() {
+function SE() {
 	return (
-		<div>
+		<div id="SE">
 			<div>
 				<fieldset>
 					<legend>Sound-1</legend>
@@ -32,4 +32,4 @@ function Se() {
 	);
 }
 
-export default Se;
+export default SE;

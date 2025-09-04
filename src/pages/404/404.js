@@ -1,11 +1,11 @@
-import './404.css'
+import './404.css';
 function NotFound() {
   return (
-    <div>
+    <div id="NotFound">
       <h1>Error:404</h1>
       <h2>Page NotFound</h2>
     </div>
   )
 }
 
-export default NotFound
+export default NotFound;

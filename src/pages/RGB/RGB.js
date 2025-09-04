@@ -22,7 +22,7 @@ function RGB() {
 	}, [R, G, B]);
 
 	return (
-		<div>
+		<div id="RGB">
 			<h1>RGB checker</h1>
 			<div>
 				<p className="RGB">R: {R}</p>
