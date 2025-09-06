@@ -5,28 +5,24 @@ function SE() {
 		<div id="SE">
 			<div>
 				<fieldset>
-					<legend>Sound-1</legend>
-					<audio controls src="/sounds/sound1.mp3"></audio>
+					<legend>BGM</legend>
+					<audio controls src="/sounds/sound1.mp3"></audio> <p>開演前後用</p>
 				</fieldset>
 				<fieldset>
-					<legend>Sound-2</legend>
-					<audio controls src="/sounds/sound2.mp3"></audio>
+					<legend>滑ったとき</legend>
+					<audio controls src="/sounds/sound2.mp3"></audio> <p>?</p>
 				</fieldset>
 				<fieldset>
-					<legend>Sound-3</legend>
-					<audio controls src="/sounds/sound3.mp3"></audio>
+					<legend>深刻な場面用</legend>
+					<audio controls src="/sounds/sound3.mp3"></audio> <p>?</p>
 				</fieldset>
 				<fieldset>
-					<legend>Sound-4</legend>
-					<audio controls src="/sounds/sound4.mp3"></audio>
-				</fieldset>
-				<fieldset>
-					<legend>Sound-5</legend>
-					<audio controls src="/sounds/sound5.mp3"></audio>
+					<legend>コナンBGM</legend>
+					<audio controls src="/sounds/sound4.mp3"></audio> <p>"ラピス"わ、なんか急に暗くなった</p>
 				</fieldset>
 			</div>
 			<div>
-				<p>test</p>
+				<p className="story">test</p>
 			</div>
 		</div>
 	);
