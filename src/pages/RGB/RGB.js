@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import './RGB.css';
+import Button from "./../../components/Button/Button"
 
 function RGB() {
 	const [R, setR] = useState(0);
@@ -26,20 +27,19 @@ function RGB() {
 			<h1>RGB checker</h1>
 			<div>
 				<p className="RGB">R: {R}</p>
-				<button id="R_plus" className="RGB_button" onClick={() => setR(R + 5)}>R + 5</button>
-				<button id="R_minus" className="RGB_button" onClick={() => setR(R - 5)}>R - 5</button>
+				<Button children={"R + 5"} onClick={() => setR(R + 5)} />
+				<Button children={"R - 5"} onClick={() => setR(R - 5)} />
 			</div>
 			<div>
 				<p className="RGB">G: {G}</p>
-				<button id="G_plus" className="RGB_button" onClick={() => setG(G + 5)}>G + 5</button>
-				<button id="G_minus" className="RGB_button" onClick={() => setG(G - 5)}>G - 5</button>
+				<Button children={"G + 5"} onClick={() => setG(G + 5)} />
+				<Button children={"G - 5"} onClick={() => setG(G - 5)} />
 			</div>
 			<div>
 				<p className="RGB">B: {B}</p>
-				<button id="R_plus" className="RGB_button" onClick={() => setB(B + 5)}>B + 5</button>
-				<button id="R_minus" className="RGB_button" onClick={() => setB(B - 5)}>B - 5</button>
+				<Button children={"B + 5"} onClick={() => setB(B + 5)} />
+				<Button children={"B - 5"} onClick={() => setB(B - 5)} />
 			</div>
-
 			<canvas id="myCanvas" ref={canvasRef} width={100} height={100} />
 		</div>
 	);
