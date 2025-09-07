@@ -1,33 +1,28 @@
 import "./SE.css";
 import Audio from "./../../components/Audio/Audio"
+import Fieldset from "../../components/Fieldset/Fieldset";
+
 
 function SE() {
 	return (
 		<div id="SE">
 			<div>
-				<fieldset>
-					<legend>BGM</legend>
-					<Audio src={"/sounds/sound1.mp3"}/>
+				<Fieldset legend="BGM">
+					<audio controls src="/sounds/sound1.mp3" />
 					<p>開演前後用</p>
-				</fieldset>
-				<fieldset>
-					<legend>滑ったとき</legend>
+				</Fieldset>
+				<Fieldset legend={"滑ったとき"}>
 					<Audio src={"/sounds/sound1.mp3"}/>
 					<p>?</p>
-				</fieldset>
-				<fieldset>
-					<legend>深刻な場面用</legend>
+				</Fieldset>
+				<Fieldset legend={"深刻な場面用"}>
 					<Audio src={"/sounds/sound1.mp3"}/>
 					<p>?</p>
-				</fieldset>
-				<fieldset>
-					<legend>コナンBGM</legend>
+				</Fieldset>
+				<Fieldset legend={"コナンBGM"}>
 					<Audio src={"/sounds/sound1.mp3"}/>
 					<p>"ラピス"わ、なんか急に暗くなった</p>
-				</fieldset>
-			</div>
-			<div>
-				<p className="story">test</p>
+				</Fieldset>
 			</div>
 		</div>
 	);
