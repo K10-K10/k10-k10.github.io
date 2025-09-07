@@ -1,0 +1,25 @@
+User:
+  - id
+  - url
+  - blog
+  - company
+  - date
+  - all
+  - repo_num
+Repository:
+  - id
+  - name
+  - owner
+  - html_url
+  - ssh_url
+  - clone_url
+  - date
+  - language
+  - all
+Issues:
+
+PR:
+
+Action:
+
+Event:
