@@ -6,11 +6,11 @@ import dialog from "https://hatuna-827.github.io/dialog.js";
 
 function Github() {
 	const [name, setName] = useState("");
+	const [type, setType] = useState("");
 	const [repos, setRepos] = useState([]);
 
 	const handleClick = async () => {
 		if (!name) {
-			// alert("Please input user name");
 			await dialog({content:"Please input user name",main_color:"#1E3E75",bg_color:"#fefefe",font:"ubuntu mono"});
 			return;
 		}
