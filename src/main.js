@@ -5,6 +5,7 @@ import Home from './pages/home/home';
 import NotFound from './pages/404/404';
 import RGB from './pages/RGB/RGB';
 import SE from './pages/SE/SE';
+import Github from './pages/Github/Github'
 
 function main() {
 	return (
@@ -15,6 +16,7 @@ function main() {
 					<Route path="/" element={<Home />} />
 					<Route path="/RGB" element={<RGB />} />
 					<Route path="/SE" element={<SE />} />
+					<Route path="/Github" element={<Github />} />
 					<Route path="*" element={<NotFound />} />
 				</Routes>
 			</div>
