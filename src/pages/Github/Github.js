@@ -27,7 +27,7 @@ function Github() {
 	};
 
 	return (
-		<div>
+		<div className="github">
 			<Input
 				type="text"
 				label="Github User Name"
