@@ -4,7 +4,7 @@ function Header(){
 		<header>
 			<div >
 				<a href="/#/" className="header_title">K10-K10</a>
-				<a href="/#/About" className="header_title">about</a>
+				<a href="/#/About" className="header_topic">About</a>
 			</div>
 		</header>
 	);

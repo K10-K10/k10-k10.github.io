@@ -7,9 +7,23 @@ header {
 	background-color: var(--primary-color);
 }
 
+a:hover {
+	border-color: var(--white-color);
+	color: var(--shadow-color);
+}
+
 .header_title {
-	padding: 0px 40px;
+	padding: 0px 20px;
 	font-size: 40px;
+	line-height: 0px;
+	font-weight: 600;
+	color: white;
+	text-decoration: none;
+}
+
+.header_topic {
+	padding: 0px 0px;
+	font-size: 25px;
 	line-height: 0px;
 	font-weight: 600;
 	color: white;

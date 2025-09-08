@@ -2,7 +2,6 @@ import { useState } from "react";
 import './Github.css';
 import Input from './../../ui-parts/Input/Input';
 import Button from './../../ui-parts/Button/Button'
-import dialog from "https://hatuna-827.github.io/dialog.js";
 
 function Github() {
 	const [name, setName] = useState("");
@@ -10,10 +9,10 @@ function Github() {
 	const [repos, setRepos] = useState([]);
 
 	const handleClick = async () => {
-		if (!name) {
-			await dialog({content:"Please input user name",main_color:"#1E3E75",bg_color:"#fefefe",font:"ubuntu mono"});
-			return;
-		}
+		//if (!name) {
+		//	await dialog({content:"Please input user name",main_color:"#1E3E75",bg_color:"#fefefe",font:"ubuntu mono"});
+		//	return;
+		//}
 
 		try {
 			const response = await fetch(`https://api.github.com/users/${name}/repos`);
@@ -24,7 +23,7 @@ function Github() {
 			setRepos(data);
 		} catch (error) {
 			console.error("Request error:", error);
-			await dialog({content:"API failed",main_color:"#1E3E75",bg_color:"#fefefe",font:"ubuntu mono"});
+			//await dialog({content:"API failed",main_color:"#1E3E75",bg_color:"#fefefe",font:"ubuntu mono"});
 		}
 	};
 
