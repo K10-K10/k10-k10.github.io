@@ -5,7 +5,7 @@ import Fieldset from "../../components/Fieldset/Fieldset";
 
 function SE() {
 	return (
-		<div id="SE">
+		<div className="SE">
 			<div>
 				<Fieldset legend="BGM">
 					<audio controls src="/sounds/sound1.mp3" />
