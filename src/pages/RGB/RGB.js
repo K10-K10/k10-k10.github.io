@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect } from 'react';
 import './RGB.css';
-import Button from "./../../layouts/ui-parts/Button/Button"
+import Button from "./../../ui-parts/Button/Button"
 
 function RGB() {
 	const [R, setR] = useState(0);
