@@ -1,6 +1,6 @@
 import { HashRouter as Router, Route, Routes } from 'react-router-dom';
-import Header from './layouts/main/header';
-import Footer from './layouts/main/footer';
+import Header from './layouts/header';
+import Footer from './layouts/footer';
 import Home from './pages/home/home';
 import NotFound from './pages/404/404';
 import RGB from './pages/RGB/RGB';
