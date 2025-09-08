@@ -1,0 +1,28 @@
+.about {
+	display: flex;
+	flex-direction: column;
+	gap: 10px;
+}
+
+.user {
+	display: flex;
+	align-items: center;
+	gap: 10px;
+}
+
+
+.introduction {
+	display: flex;
+}
+
+.title {
+	margin: 0px 0px;
+	font-size: 40px;
+	font-weight: 600;
+}
+
+.user img {
+	padding: 20px;
+	border-radius: 50%;
+	width: 80px;
+}

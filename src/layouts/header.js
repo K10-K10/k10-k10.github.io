@@ -2,7 +2,10 @@ import './header.css';
 function Header(){
 	return (
 		<header>
-			<div ><a href="/#/" className="header_title">K10-K10</a></div>
+			<div >
+				<a href="/#/" className="header_title">K10-K10</a>
+				<a href="/#/About" className="header_title">about</a>
+			</div>
 		</header>
 	);
 }
