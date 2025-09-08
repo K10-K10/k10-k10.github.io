@@ -1,13 +1,13 @@
-import { useState, useRef, useEffect } from 'react';
-import './RGB.css';
-import Button from "./../../ui-parts/Button/Button"
+import { useState, useRef, useEffect } from "react";
+import "./RGB.css";
+import Button from "./../../ui-parts/Button";
 
 function RGB() {
 	const [R, setR] = useState(0);
 	const [G, setG] = useState(0);
 	const [B, setB] = useState(0);
 	if (R > 255) { setR(255) };
-	if (R < 0) { setR(0)};
+	if (R < 0) { setR(0) };
 	if (G > 255) { setG(255) };
 	if (G < 0) { setG(0) };
 	if (B > 255) { setB(255) };

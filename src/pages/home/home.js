@@ -1,4 +1,5 @@
-import './home.css';
+import "./home.css";
+
 function home() {
 	return (
 		<div id="home">

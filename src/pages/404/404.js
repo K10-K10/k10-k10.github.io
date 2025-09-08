@@ -1,4 +1,5 @@
-import './404.css';
+import "./404.css";
+
 function NotFound() {
   return (
     <div id="NotFound">

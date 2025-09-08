@@ -1,19 +1,6 @@
 #SE {
   text-align: left;
 
-  fieldset {
-    width: 70%;
-    margin: 20px 15%;
-  }
-
-  legend {
-    padding: 3px 6px;
-    font-size: 20px;
-    background-color: var(--primary-color);
-    color: var(--code-background-color);
-    border-radius: 5px;
-  }
-
   p {
     font-size: 20px;
   }
