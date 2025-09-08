@@ -1,5 +1,5 @@
 import './About.css';
-import Fieldset from '../../components/Fieldset/Fieldset';
+import Fieldset from './../../layouts/ui-parts/Fieldset/Fieldset'
 
 function About() {
 	return (

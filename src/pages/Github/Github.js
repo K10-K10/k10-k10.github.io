@@ -1,7 +1,7 @@
 import { useState } from "react";
 import './Github.css';
-import Input from "../../components/Input/Input";
-import Button from "../../components/Button/Button";
+import Input from './../../layouts/ui-parts/Input/Input';
+import Button from './../../layouts/ui-parts/Button/Button'
 import dialog from "https://hatuna-827.github.io/dialog.js";
 
 function Github() {

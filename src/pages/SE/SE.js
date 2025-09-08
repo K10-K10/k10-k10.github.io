@@ -1,6 +1,6 @@
 import "./SE.css";
-import Audio from "./../../components/Audio/Audio"
-import Fieldset from "../../components/Fieldset/Fieldset";
+import Audio from "./../../layouts/ui-parts/Audio/Audio"
+import Fieldset from "../../layouts/ui-parts/Fieldset/Fieldset";
 
 
 function SE() {
