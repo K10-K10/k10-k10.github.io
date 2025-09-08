@@ -1,53 +1,35 @@
-question: User
-  - id
-  - url
-  - blog
-  - company
-  - date
-  - all
-  - repo_num
- Repository:
-  - id
-  - name
-  - owner
-  - html_url
-  - ssh_url
-  - clone_url
-  - date
-  - language
-  - all
-{
+[
   {
     "Type": "User",
     "URL": "",
     "Second": [
       {
         "User ID": "id"
-      }
+      },
       {
         "Name": "name"
-      }
+      },
       {
         "User page": "html_url"
-      }
+      },
       {
         "Users blog": "blog"
-      }
+      },
       {
         "User email": "email"
-      }
+      },
       {
         "Public repository num": "public_repos"
-      }
+      },
       {
         "Public gists": "public_gists"
-      }
+      },
       {
         "Followers num": "followers"
-      }
+      },
       {
         "Following num": "following"
-      }
+      },
       {
         "Start day": "created_at"
       }
@@ -56,37 +38,37 @@ question: User
   {
     "Type": "Repository",
     "URL": "/repos",
-    [
+    "Second": [
       {
         "id": "id"
-      }
+      },
       {
         "Repository name": "name"
-      }
+      },
       {
         "Owner": "owner.login"
-      }
+      },
       {
         "Owner ID": "owner.id"
-      }
+      },
       {
         "Repository page": "html_url"
-      }
+      },
       {
         "Repository description": "description"
-      }
+      },
       {
         "Clone url(https)": "clone_url"
-      }
+      },
       {
         "Clone url(ssh)": "ssh_url"
-      }
+      },
       {
         "license": "license"
-      }
+      },
       {
         "language": "language"
-      }
+      },
       {
         "Open issues num": "open_issues"
       }
@@ -94,14 +76,18 @@ question: User
   },
   {
     "Type": "Issue",
+    "Second": []
   },
   {
     "Type": "PR",
+    "Second": []
   },
   {
     "Type": "Action",
+    "Second": []
   },
   {
     "Type": "Event",
-  },
-}
+    "Second": []
+  }
+]
