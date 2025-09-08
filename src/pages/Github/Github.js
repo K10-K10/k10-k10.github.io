@@ -24,7 +24,6 @@ function Github() {
 			setRepos(data);
 		} catch (error) {
 			console.error("Request error:", error);
-			// alert("API failed");
 			await dialog({content:"API failed",main_color:"#1E3E75",bg_color:"#fefefe",font:"ubuntu mono"});
 		}
 	};

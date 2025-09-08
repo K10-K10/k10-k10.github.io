@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 :root {
-	--primary-color: #1E3E75;
+	--primary-color: #4B69CD;
 	--secondary-color: #dfb755;
 	--black-color: #000000;
 	--white-color: #ffffff;
@@ -26,7 +26,9 @@ body {
 	color: var(--black-color);
 }
 
-button,input,textarea {
+button,
+input,
+textarea {
 	font-family: inherit;
 }
 
