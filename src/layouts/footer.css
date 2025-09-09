@@ -12,7 +12,7 @@ footer a {
 }
 
 .footer_info p {
-	margin: 20px;
+	margin: 0px;
 	font-size: 20px;
 	font-weight: 200;
 	color: var(--white-color);
