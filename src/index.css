@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
 
 :root {
-	--primary-color: #4B69CD;
+	--primary-color: #000000;
 	--secondary-color: #C8EFF4;
 	--primary-dork-color: #41558f;
 	--black-color: #000000;
@@ -17,7 +17,7 @@
 	--font-serif: '游明朝', 'Yu Mincho', 'YuMincho', 'Hiragino Mincho Pro', serif;
 	--header-height: 100px;
 	--footer-height: 170px;
-	--main-padding: 30px;
+	--main-padding: 0px;
 }
 
 body {
