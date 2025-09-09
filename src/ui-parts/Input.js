@@ -4,26 +4,24 @@ function Input({
 	value,
 	onChange,
 	tmp,
-	style: {
-			input_width = "200px",
-			input_padding = "10px",
-			input_fontSize = "20px",
-			label_fontSize = "25px",
-	}	= {} }) {
-	const style = {
+	style= {}
+	= {} }) {
+	const styles = {
 		input: {
-			width: input_width,
-			padding: input_padding,
-			fontSize: input_fontSize,
+			width: "200px",
+			padding: "10px",
+			fontSize: "25px",
+			...style,
 		},
 		label: {
-			fontSize: label_fontSize,
+			fontSize: "25px",
 		}
-	}
+	};
+
 	return (
 		<div>
-			<label style={style.label}>{label}: </label>
-			<input type={type} value={value} onChange={(e) => onChange(e.target.value)} placeholder={tmp} style={style.input} />
+			<label style={styles.label}>{label}: </label>
+			<input type={type} value={value} onChange={(e) => onChange(e.target.value)} placeholder={tmp} style={styles.input} />
 		</div>
 	);
 }

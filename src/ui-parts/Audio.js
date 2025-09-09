@@ -1,10 +1,12 @@
 function Audio({
 	src,
-	style: { }
+	style= { }
 	= {} }) {
-	const style = {}
+	const styles = {
+		...style
+	}
 	return (
-		<audio controls src={src} style={style}>
+		<audio controls src={src} style={styles}>
 		</audio>
 	)
 }

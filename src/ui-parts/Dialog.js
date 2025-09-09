@@ -1,0 +1,39 @@
+import Button from "./Button";
+
+function Dialog({ children, style = {} }) {
+	const styles = {
+		dialog: {
+			fontSize: "20px",
+			borderRadius: "16px",
+			padding: "16px",
+			border: "none",
+			boxShadow: "0 4px 12px rgba(0,0,0,0.2)",
+			position: "absolute",
+			top: "20px",
+			left: "50%",
+			transform: "translateX(-50%)",
+			background: "white",
+			...style,
+		},
+		closeButton: {
+			fontSize: "16px",
+			background: "var(--primary-color)",
+			height: "32px",
+			padding: "4px 12px",
+			borderRadius: "8px",
+			border: "none",
+			cursor: "pointer",
+		},
+	};
+
+	return (
+		<dialog open style={styles.dialog}>
+			{children}
+			<form method="dialog">
+				<Button style={styles.closeButton}>OK</Button>
+			</form>
+		</dialog>
+	);
+}
+
+export default Dialog;
