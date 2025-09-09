@@ -1,4 +1,4 @@
-header {
+.header {
 	top: 0;
 	padding: calc(var(--header-height)/2) 0px;
 	height: 0px;
@@ -7,9 +7,18 @@ header {
 	background-color: var(--primary-color);
 }
 
-a:hover {
+.header div {
+	display: flex;
+	align-items: center;
+	gap: 20px;
+}
+
+.header a:hover {
 	border-color: var(--white-color);
 	color: var(--shadow-color);
+	transform: translateY(-2px);
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+	transition: all 0.2s ease;
 }
 
 .header_title {
