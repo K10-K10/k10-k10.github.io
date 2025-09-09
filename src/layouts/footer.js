@@ -5,7 +5,7 @@ function Footer() {
 			<div className="footer_icon">
 				<a href="https://react.dev/"><img src="/react_logo.png" alt="React icon" /></a>
 				<a href="https://github.com/K10-K10/K10-K10.github.io"><img src="/github_logo.png" alt="Github icon" /></a>
-				<a href="https://vite.dev/"><img src="/vite_logo.svg" alt="vite icon"/></a>
+				<a href="https://vite.dev/"><img src="/vite_logo.png" alt="vite icon"/></a>
 			</div>
 			<div className="footer_info">
 				<p>2025</p>
