@@ -1,7 +1,7 @@
 import { useState } from "react";
-import './Github.css';
-import Input from './../../ui-parts/Input/Input';
-import Button from './../../ui-parts/Button/Button'
+import "./Github.css";
+import Input from "./../../ui-parts/Input";
+import Button from "./../../ui-parts/Button";
 
 function Github() {
 	const [name, setName] = useState("");

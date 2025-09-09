@@ -1,5 +1,5 @@
-import './header.css';
-function Header(){
+import "./header.css";
+function Header() {
 	return (
 		<header>
 			<div >
