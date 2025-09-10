@@ -8,4 +8,10 @@
   .story {
     text-align: center;
   }
+
+  video {
+    margin: 15px;
+    width: calc(100% - 30px);
+    height: auto;
+  }
 }
