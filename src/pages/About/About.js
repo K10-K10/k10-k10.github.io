@@ -4,6 +4,7 @@ function About() {
 	return (
 		<div className="about">
 			<div className="introduction">
+				<div className="introduction_contents">
 				<h1 className="title">About the site</h1>
 				<p>This site is my React practice site.</p>
 				<p>Content related to blogs, tools, games, and more will be added.</p>
@@ -12,6 +13,7 @@ function About() {
 					This site's source code
 				</a>
 			</div>
+		</div>
 
 			<div className="user">
 				<h1 className="title">About the Author</h1>

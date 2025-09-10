@@ -7,13 +7,16 @@
 
 .introduction {
 	background-color: #f4f4f4;
+	width: 100%;
 }
 
-.introduction,
+
+.introduction_contents,
 .user {
 	padding: 20px;
 	padding-bottom: 45px;
 	width: 80%;
+	margin: 0 auto;
 	max-width: 800px;
 	text-align: left;
 }
