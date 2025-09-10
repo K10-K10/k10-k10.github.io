@@ -23,7 +23,7 @@
 body {
 	margin: 0px;
 	background-color: var(--background-color);
-	font-size: 0px;
+	font-size: 0pt;
 	color: var(--black-color);
 }
 

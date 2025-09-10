@@ -3,7 +3,7 @@
 
 	h1 {
 		margin: 0px;
-		font-size: 50px;
+		font-size: 30pt;
 		padding: 40px 0px;
 		line-height: 0px;
 		color: cadetblue;
@@ -11,6 +11,6 @@
 
 	.RGB {
 		display: inline;
-		font-size: 30px;
+		font-size: 15pt;
 	}
 }

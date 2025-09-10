@@ -1,4 +1,5 @@
 import "./About.css";
+import Spacer from "./../../ui-parts/Spacer";
 import Talk from "./../../layouts/Talk/Talk";
 
 function About() {
@@ -7,6 +8,7 @@ function About() {
 		<Talk title="About the site"style_scope={{background: "#f4f4f4"}}>
 				<p>This site is my React practice site.</p>
 				<p>Content related to blogs, tools, games, and more will be added.</p>
+				<Spacer/>
 				<p>This site is powered by GitHub Pages, React and Vite.</p>
 				<a href="https://github.com/K10-K10/k10-k10.github.io">
 					This site's source code
@@ -27,6 +29,7 @@ function About() {
 		<p>At the same time, my father recommended Unity, and I started learning C#</p>
 		<p>I entered junior high school and started competitive programming and C++.</p>
 		<p>Recently, I haven't been able to join in competitions. Therefore, I want to join as much as possible.</p>
+		<Spacer/>
 		<p>I want to update this site as much as possible.</p>
 		<p>Thank you for Reading!</p>
 </Talk>
