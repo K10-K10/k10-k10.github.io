@@ -8,6 +8,8 @@ import MV5 from "./movie/5.mp4";
 import MV6 from "./movie/6.mp4";
 import MV7 from "./movie/7.mp4";
 import MV8 from "./movie/8.mp4";
+import MV9 from "./movie/9.mp4";
+import AU1 from "./movie/1.mp3";
 
 function SE() {
 	return (
@@ -28,6 +30,10 @@ function SE() {
 				<video src={MV4} controls />
 				<p></p>
 			</Fieldset>
+			<Fieldset legend="キラキラ輝く">
+				<audio src={AU1} controls />
+				<p></p>
+			</Fieldset>
 			<Fieldset legend="ノック音">
 				<video src={MV5} controls />
 				<p></p>
@@ -42,6 +48,10 @@ function SE() {
 			</Fieldset>
 			<Fieldset legend="カウントダウン＋爆発オチ">
 				<video src={MV8} controls />
+				<p></p>
+			</Fieldset>
+			<Fieldset legend="～蛍の光～閉店の時間">
+				<video src={MV9} controls />
 				<p></p>
 			</Fieldset>
 		</div>
