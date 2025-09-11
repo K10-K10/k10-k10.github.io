@@ -10,7 +10,7 @@ function Fieldset({
 		},
 		legend: {
 			backgroundColor: "var(--primary-color)",
-			color: "var(--code-background-color)",
+			color: "var(--cloudy_background-color)",
 			l_style,
 		}
 	};
