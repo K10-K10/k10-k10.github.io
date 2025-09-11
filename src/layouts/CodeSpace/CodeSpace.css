@@ -1,9 +1,8 @@
 .codespace {
 	counter-reset: line-number;
-	font-size: 15pt;
 	tab-size: 2;
 }
 
 .source {
-	background-color: #f8f8f8;
+	background-color: var(--code-background-color);
 }

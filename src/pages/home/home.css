@@ -2,7 +2,7 @@
   text-align: center;
 
   a {
-    font-size: 30pt;
+    font-size: var(--Max-FontSize);
     color: var(--primary-color);
     text-decoration: none;
   }

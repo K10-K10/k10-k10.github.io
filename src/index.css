@@ -3,35 +3,45 @@
 :root {
 	--primary-color: #000000;
 	--secondary-color: #C8EFF4;
-	--primary-dork-color: #41558f;
+	--primary-dark-color: #41558f;
+	--error-calor: #FF0F0F;
 	--black-color: #000000;
 	--white-color: #ffffff;
-	--background-color: #fefefe;
+	--cloudy_background-color: #fefefe;
 	--code-background-color: #f8f8f8;
 	--border-color: #BBB;
 	--button-color: #E5E5E5;
 	--button-hover-color: #ccc;
-	--shadow-color: #00669f;
+	--link-color: #00669f;
+	--shadow-color: #1e3e75;
+
+
 	--font-main: "ubuntu mono";
 	--font-sans: "ヒラギノ角ゴ ProN W3", HiraKakuProN-W3, 游ゴシック, "Yu Gothic", メイリオ, Meiryo, Verdana, Helvetica, Arial, sans-serif;
 	--font-serif: '游明朝', 'Yu Mincho', 'YuMincho', 'Hiragino Mincho Pro', serif;
+
 	--header-height: 100px;
 	--footer-height: 170px;
 	--main-padding: 0px;
+
+	--Max-FontSize: 30pt;
+	--Second-FontSize: 25pt;
+	--Third-FontSize: 20pt;
+	--Base-FontSize: 15pt;
+
+	--SiteTitle-FontWeight: 600;
+	--PageTitle-FontWeight: 400;
+	--Base-FontWeight: 200;
 }
 
 body {
 	margin: 0px;
 	background-color: var(--background-color);
-	font-size: 0pt;
+	font-size: var(--Base-FontSize);
+	font-weight: var(--Base-FontWeight);
 	color: var(--black-color);
 }
 
-button,
-input,
-textarea {
-	font-family: inherit;
-}
 
 #main {
 	min-height: calc(100vh - (var(--header-height) + var(--footer-height) + var(--main-padding)*2));

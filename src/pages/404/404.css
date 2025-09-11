@@ -2,12 +2,11 @@
 	text-align: center;
 
 	h1 {
-		font-size: 4rem;
-		color: red;
+		font-size: var(--Max-FontSize);
+		color: var(--primary-dark-color);
 	}
 
 	h2 {
-		font-size: 2rem;
-		color: gray;
+		font-size: var(--Second-FontSize);
 	}
 }

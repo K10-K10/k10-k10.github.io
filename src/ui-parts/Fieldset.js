@@ -9,7 +9,6 @@ function Fieldset({
 			f_style
 		},
 		legend: {
-			fontSize: "15pt",
 			backgroundColor: "var(--primary-color)",
 			color: "var(--code-background-color)",
 			l_style,

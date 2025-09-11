@@ -1,6 +1,6 @@
 footer {
 	bottom: 0;
-	height: 130px;
+	height: 170px;
 	width: 100%;
 	padding: calc((var(--footer-height) - 130px)/2) 0px;
 	text-align: center;
@@ -13,8 +13,6 @@ footer a {
 
 .footer_info p {
 	margin: 0px;
-	font-size: 15pt;
-	font-weight: 200;
 	color: var(--white-color);
 }
 

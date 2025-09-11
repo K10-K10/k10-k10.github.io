@@ -1,9 +1,8 @@
 import Button from "./Button";
 
-function Dialog({ children, style = {} }) {
+function Dialog({ children, dialog_style = {}, button_style = {}}) {
 	const styles = {
 		dialog: {
-			fontSize: "20px",
 			borderRadius: "16px",
 			padding: "16px",
 			border: "none",
@@ -13,16 +12,16 @@ function Dialog({ children, style = {} }) {
 			left: "50%",
 			transform: "translateX(-50%)",
 			background: "white",
-			...style,
+			...dialog_style,
 		},
 		closeButton: {
-			fontSize: "16px",
 			background: "var(--primary-color)",
 			height: "32px",
 			padding: "4px 12px",
 			borderRadius: "8px",
 			border: "none",
 			cursor: "pointer",
+			...button_style,
 		},
 	};
 

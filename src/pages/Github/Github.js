@@ -40,7 +40,7 @@ function Github() {
 			<Button onClick={handleClick}>API</Button>
 
 			{errors.map((msg, index) => (
-				<Dialog key={index} style={{color: "#d00" }}>
+				<Dialog key={index} button_style={{color: "var(--error-calor)" }}>
 					<p>{msg}</p>
 				</Dialog>
 			))}

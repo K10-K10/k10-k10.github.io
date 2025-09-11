@@ -3,15 +3,14 @@
 
 	h1 {
 		margin: 0px;
-		font-size: 30pt;
-		font-weight: 400;
+		font-size: var(--Max-FontSize);
+		font-weight: var(--PageTitle-FontWeight);
 		padding: 40px 0px;
 		line-height: 0px;
-		color: cadetblue;
+		color: var(--secondary-color);
 	}
 
 	.RGB {
 		display: inline;
-		font-size: 15pt;
 	}
 }

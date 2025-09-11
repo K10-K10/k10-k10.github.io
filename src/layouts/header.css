@@ -27,24 +27,20 @@
 .header .title {
 	margin-right: auto;
 	padding: 0px 20px;
-	font-size: 30pt;
-	line-height: 0px;
+	font-size: var(--Max-FontSize);
 	font-weight: 600;
-	color: white;
+	color: var(--white-color);
 	text-decoration: none;
 }
 
 .header .topic_scope {
-	margin: 0px 30px;
+	margin: 0px 50px;
 	margin-left: auto;
 }
 
 .header .topic {
 	margin: 0px 10px;
-	padding: 0px 0px;
-	font-size: 15pt;
-	line-height: 0px;
 	font-weight: 400;
-	color: white;
+	color: var(--white-color);
 	text-decoration: none;
 }

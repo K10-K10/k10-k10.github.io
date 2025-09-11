@@ -8,7 +8,6 @@ function Button({
     margin: "10px 10px",
     height: "50px",
     width: "200px",
-    fontSize: "30px",
     backgroundColor: "var(--button-color)",
     border: "1px solid var(--button-color)",
     borderRadius: "10px",

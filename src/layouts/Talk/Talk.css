@@ -1,8 +1,6 @@
 .talk-scope {
 	display: flex;
 	flex-direction: column;
-	font-size: 15pt;
-	font-weight: 200;
 	align-items: center;
 	width: 100%;
 }
@@ -24,7 +22,7 @@
 
 .talk-scope .title {
 	color: var(--black-color);
-	font-size: 30pt;
+	font-size: var(--Max-FontSize);
 	font-weight: 400;
 	text-align: center;
 	margin-top: 40px;

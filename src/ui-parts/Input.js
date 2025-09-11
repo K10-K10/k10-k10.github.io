@@ -8,14 +8,9 @@ function Input({
 	= {} }) {
 	const styles = {
 		input: {
-			width: "200px",
 			padding: "10px",
-			fontSize: "25px",
 			...style,
 		},
-		label: {
-			fontSize: "25px",
-		}
 	};
 
 	return (
