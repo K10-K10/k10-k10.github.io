@@ -2,9 +2,12 @@ import "./header.css";
 function Header() {
 	return (
 		<header className="header">
-			<div >
-				<a href="/#/" className="header_title">K10-K10</a>
-				<a href="/#/About" className="header_topic">About</a>
+				<a href="/#/" className="title">K10-K10</a>
+				<div className="topic_scope">
+				<a href="/#/About" className="topic">About</a>
+				<a href="/#/Tools" className="topic">Tools</a>
+				<a href="/#/Projects" className="topic">Projects</a>
+				<a href="/#/Blog" className="topic">Blog</a>
 			</div>
 		</header>
 	);

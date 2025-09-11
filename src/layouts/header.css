@@ -1,4 +1,7 @@
 .header {
+	display: flex;
+	flex-direction: left;
+	align-items: center;
 	top: 0;
 	padding: calc(var(--header-height)/2) 0px;
 	height: 0px;
@@ -21,7 +24,8 @@
 	transition: all 0.2s ease;
 }
 
-.header_title {
+.title {
+	margin-right: auto;
 	padding: 0px 20px;
 	font-size: 30pt;
 	line-height: 0px;
@@ -30,7 +34,13 @@
 	text-decoration: none;
 }
 
-.header_topic {
+.topic_scope {
+	margin: 0px 30px;
+	margin-left: auto;
+}
+
+.topic {
+	margin: 0px 10px;
 	padding: 0px 0px;
 	font-size: 15pt;
 	line-height: 0px;
