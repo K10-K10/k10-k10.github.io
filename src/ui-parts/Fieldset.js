@@ -6,16 +6,12 @@ function Fieldset({
 	}) {
 	const styles = {
 		fieldset: {
-			margin: "20px 15%",
-			width: "70%",
 			f_style
 		},
 		legend: {
-			padding: "3px 6px",
-			fontSize: "20px",
+			fontSize: "15pt",
 			backgroundColor: "var(--primary-color)",
 			color: "var(--code-background-color)",
-			borderRadius: "5px",
 			l_style,
 		}
 	};
