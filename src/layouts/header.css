@@ -18,8 +18,8 @@
 
 .header a:hover {
 	border-color: var(--white-color);
-	color: var(--shadow-color);
-	transform: translateY(-2px);
+	color: var(--link-color);
+	/*transform: translateY(-2px);*/
 	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 	transition: all 0.2s ease;
 }
@@ -38,9 +38,41 @@
 	margin-left: auto;
 }
 
-.header .topic {
+.header a {
 	margin: 0px 10px;
 	font-weight: 400;
 	color: var(--white-color);
 	text-decoration: none;
+}
+
+.header .topic_1:hover~.topic_2,
+.header .topic_1:hover~.topic_3,
+.header .topic_1:hover~.topic_4 {
+	color: var(--border-color);
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+	transition: all 0.2s ease;
+}
+
+.header .topic_2:hover~.topic_3,
+.header .topic_2:hover~.topic_4,
+.header .topic_2:hover~.topic_1 {
+	color: var(--border-color);
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+	transition: all 0.2s ease;
+}
+
+.header .topic_3:hover~.topic_4,
+.header .topic_3:hover~.topic_1,
+.header .topic_3:hover~.topic_2 {
+	color: var(--border-color);
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+	transition: all 0.2s ease;
+}
+
+.header .topic_4:hover~.topic_1,
+.header .topic_4:hover~.topic_2,
+.header .topic_4:hover~.topic_3 {
+	color: var(--border-color);
+	box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+	transition: all 0.2s ease;
 }
