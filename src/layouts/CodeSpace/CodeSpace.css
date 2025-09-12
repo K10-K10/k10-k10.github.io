@@ -1,8 +1,5 @@
 .codespace {
 	counter-reset: line-number;
 	tab-size: 2;
-}
-
-.source {
 	background-color: var(--cloudy_background-color);
 }
