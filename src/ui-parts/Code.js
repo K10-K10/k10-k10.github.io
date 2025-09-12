@@ -6,8 +6,8 @@ function Code ({
 	const styles = {
 		background: "var(--border-color)",
 		display: "inline-block",
-	  padding: "5px",
-		borderRadius: "15%",
+		padding: "5px 5px",
+		borderRadius: "8%",
 		...style,
 	};
 	return (
