@@ -7,7 +7,7 @@ function About() {
 	return (
 		<div className="about">
 			<Head title={"About"} link_title={"K10-K10 site - About page"}/>
-			<Talk title="About the site" style_scope={{ background: "#f4f4f4" }}>
+			<Talk title="About the site" style_scope={{ background: "var(--cloudy_background-color)" }}>
 				<p>This site is my React practice site.</p>
 				<p>Content related to blogs, tools, games, and more will be added.</p>
 				<Spacer />
