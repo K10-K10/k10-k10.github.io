@@ -1,13 +1,22 @@
-import "./Blog.css"
+import { posts } from "./posts";
+import BlogPost from "./../../layouts/BlogPost/BlogPost";
+import Talk from "./../../layouts/Talk/Talk";
 import Head from "./../../layouts/Head/Head";
 
-function Blog_home() {
+function Blog() {
 	return (
-		<div>
-			<Head title={"Blog"} link_title={"K10-K10 site - Blog top page"}/>
-			<p>Blog</p>
+		<div className="blogList">
+			<Head title={"Blog"}></Head>
+			<Talk title={"Blog"} style_scope={{background: "var(--cloudy_background-color)"}}>
+				{posts.map(posts => (
+					<li key={posts.id}>
+						<p>{posts.date}:<a href="./blogs.js">{posts.title}</a></p>
+					</li>
+					//<BlogPost key={posts.id} {...posts} />
+				))}
+			</Talk>
 		</div>
-	)
+	);
 }
 
-export default Blog_home;
+export default Blog;
