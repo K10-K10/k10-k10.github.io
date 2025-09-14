@@ -10,7 +10,7 @@ function Blog() {
 			<Talk title={"Blog"} style_scope={{background: "var(--cloudy_background-color)"}}>
 				{posts.map(posts => (
 					<li key={posts.id}>
-						<p>{posts.date}:<a href="./blogs.js">{posts.title}</a></p>
+						<p>{posts.date}:<a href="/#/BlogPost">{posts.title}</a></p>
 					</li>
 					//<BlogPost key={posts.id} {...posts} />
 				))}

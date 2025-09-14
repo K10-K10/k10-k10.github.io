@@ -22,7 +22,7 @@ function main() {
 					<Route path="/Github" element={<Github />} />
 					<Route path="/About" element={<About />} />
 					<Route path="/Blog" element={<Blog_home />} />
-					<Route path="/Blog/Blogs" element={<Blogs/>} />
+					<Route path="/BlogPost" element={<Blogs/>} />
 					<Route path="/Projects" element={<Projects_home />} />
 					<Route path="/Tools" element={<Tools_home />} />
 					<Route path="*" element={<NotFound />} />
