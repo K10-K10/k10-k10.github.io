@@ -1,22 +1,7 @@
 import "./header.css"
-import { useState } from "react";
 
 function Header() {
-	const [hoverIndex, setHoverIndex] = useState(null);
-	const topics = ["About", "Tools", "Projects", "Blog"];
-	const topicStyle = i => ({
-		color:
-			hoverIndex === i
-				? "var(--link-color)"
-				: hoverIndex !== null
-					? "var(--border-color)"
-					: "var(--white-color)",
-		boxShadow:
-			hoverIndex !== null && hoverIndex !== i
-				? "0 4px 8px rgba(0,0,0,0.2)"
-				: "none",
-		transition: "color 0.3s ease, box-shadow 0.3s ease",
-	});
+	const topics = ["Projects", "Tools", "Blog", "About"];
 
 	return (
 		<header className="header">
@@ -27,9 +12,6 @@ function Header() {
 						key={i}
 						href={`/#/${topic}`}
 						className="topic"
-						onMouseEnter={() => setHoverIndex(i)}
-						onMouseLeave={() => setHoverIndex(null)}
-						style={topicStyle(i)}
 					>
 						{topic}
 					</a>
