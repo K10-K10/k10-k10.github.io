@@ -4,7 +4,6 @@ import Footer from "./layouts/footer";
 import Home from "./pages/home/home";
 import NotFound from "./pages/404/404";
 import RGB from "./pages/RGB/RGB";
-import SE from "./pages/SE/SE";
 import Github from "./pages/Github/Github"
 import About from "./pages/About/About";
 import Projects_home from "./pages/Projects/Projects";
@@ -19,7 +18,6 @@ function main() {
 				<Routes>
 					<Route path="/" element={<Home />} />
 					<Route path="/RGB" element={<RGB />} />
-					<Route path="/SE" element={<SE />} />
 					<Route path="/Github" element={<Github />} />
 					<Route path="/About" element={<About />} />
 					<Route path="/Blog" element={<Blog_home />} />
