@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import "./RGB.css";
 import Button from "./../../ui-parts/Button";
+import Head from "./../../layouts/Head/Head";
 
 function RGB() {
 	const [R, setR] = useState(0);
@@ -24,6 +25,7 @@ function RGB() {
 
 	return (
 		<div id="RGB">
+			<Head title={"React Test"} link_title={"K10-K10 site - React test page"}/>
 			<h1>RGB checker</h1>
 			<div>
 				<p className="RGB">R: {R}</p>

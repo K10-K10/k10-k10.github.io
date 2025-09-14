@@ -3,6 +3,7 @@ import "./Github.css";
 import Input from "./../../ui-parts/Input";
 import Button from "./../../ui-parts/Button";
 import Dialog from "./../../ui-parts/Dialog";
+import Head from "./../../layouts/Head/Head";
 
 function Github() {
 	const [name, setName] = useState("");
@@ -30,6 +31,7 @@ function Github() {
 
 	return (
 		<div className="github">
+			<Head title={"Github API"} link_title={"K10-K10 site - Use Github-API"}/>
 			<Input
 				type="text"
 				label="Github User Name"

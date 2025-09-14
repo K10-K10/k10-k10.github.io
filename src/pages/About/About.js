@@ -1,10 +1,12 @@
 import "./About.css";
 import Spacer from "./../../ui-parts/Spacer";
 import Talk from "./../../layouts/Talk/Talk";
+import Head from "./../../layouts/Head/Head";
 
 function About() {
 	return (
 		<div className="about">
+			<Head title={"About"} link_title={"K10-K10 site - About page"}/>
 			<Talk title="About the site" style_scope={{ background: "#f4f4f4" }}>
 				<p>This site is my React practice site.</p>
 				<p>Content related to blogs, tools, games, and more will be added.</p>
