@@ -1,12 +1,12 @@
-function Spacer ({style = {},}) {
+function Spacer({ style = {}, }) {
 	const styles = {
 		spacer: {
-		padding: "15px",
-		...style
+			padding: "15px",
+			...style
 		},
 	};
 	return (
-	<div style={(styles.spacer)}/>
+		<div style={(styles.spacer)} />
 	);
 }
 

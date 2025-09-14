@@ -1,6 +1,6 @@
 import Button from "./Button";
 
-function Dialog({ children, dialog_style = {}, button_style = {}}) {
+function Dialog({ children, dialog_style = {}, button_style = {} }) {
 	const styles = {
 		dialog: {
 			borderRadius: "16px",

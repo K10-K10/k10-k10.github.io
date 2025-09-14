@@ -1,9 +1,9 @@
 function Fieldset({
 	children,
 	legend,
-	f_style = { } = {},
-	l_style = { } = {}
-	}) {
+	f_style = {} = {},
+	l_style = {} = {}
+}) {
 	const styles = {
 		fieldset: {
 			f_style

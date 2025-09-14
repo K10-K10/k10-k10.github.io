@@ -1,29 +1,29 @@
 function Button({
-  children,
-  onClick,
-  disabled = false,
-  style = {}
+	children,
+	onClick,
+	disabled = false,
+	style = {}
 }) {
-  const styles = {
-    margin: "10px 10px",
-    height: "50px",
-    width: "200px",
-    backgroundColor: "var(--button-color)",
-    border: "1px solid var(--button-color)",
-    borderRadius: "10px",
-    ...style,
-  };
+	const styles = {
+		margin: "10px 10px",
+		height: "50px",
+		width: "200px",
+		backgroundColor: "var(--button-color)",
+		border: "1px solid var(--button-color)",
+		borderRadius: "10px",
+		...style,
+	};
 
-  return (
-    <button
-      className="button"
-      onClick={onClick}
-      disabled={disabled}
-      style={styles}
-    >
-      {children}
-    </button>
-  );
+	return (
+		<button
+			className="button"
+			onClick={onClick}
+			disabled={disabled}
+			style={styles}
+		>
+			{children}
+		</button>
+	);
 }
 
 export default Button;

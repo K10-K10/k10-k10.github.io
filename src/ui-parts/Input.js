@@ -4,7 +4,7 @@ function Input({
 	value,
 	onChange,
 	tmp,
-	style= {}
+	style = {}
 	= {} }) {
 	const styles = {
 		input: {

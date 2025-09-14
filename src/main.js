@@ -22,9 +22,9 @@ function main() {
 					<Route path="/SE" element={<SE />} />
 					<Route path="/Github" element={<Github />} />
 					<Route path="/About" element={<About />} />
-					<Route path="/Blog" element={<Blog_home/>}/>
-					<Route path="/Projects" element={<Projects_home/>}/>
-					<Route path="/Tools" element={<Tools_home/>}/>
+					<Route path="/Blog" element={<Blog_home />} />
+					<Route path="/Projects" element={<Projects_home />} />
+					<Route path="/Tools" element={<Tools_home />} />
 					<Route path="*" element={<NotFound />} />
 				</Routes>
 			</div>

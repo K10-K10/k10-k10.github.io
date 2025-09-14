@@ -1,6 +1,6 @@
 function Audio({
 	src,
-	style= { }
+	style = {}
 	= {} }) {
 	const styles = {
 		...style

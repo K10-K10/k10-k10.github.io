@@ -1,11 +1,11 @@
 import "./Tools.css"
 import CodeSpace from "./../../layouts/CodeSpace/CodeSpace";
 
-function Tools_home (){
-	return(
+function Tools_home() {
+	return (
 		<div className="tools">
-		<CodeSpace filename={"test.cpp"}>
-			{`#include <iostream>
+			<CodeSpace filename={"test.cpp"}>
+				{`#include <iostream>
 using namespace std;
 
 int main() {
@@ -13,9 +13,9 @@ int main() {
 	return 0;
 }`}
 			</CodeSpace>
-		<p>Tools</p>
+			<p>Tools</p>
 		</div>
-)
+	)
 }
 
 export default Tools_home;
