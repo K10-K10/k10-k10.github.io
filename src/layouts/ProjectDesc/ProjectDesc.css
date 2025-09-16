@@ -1,0 +1,15 @@
+.projectDesc .url {
+	font-size: var(--Base-FontSize);
+	margin: 10px;
+}
+
+.projectDesc .contents {
+	padding-bottom: 45px;
+	width: 80%;
+	margin: 0 auto;
+	max-width: 800px;
+	text-align: left;
+	flex: 1;
+	line-height: 20px;
+	word-wrap: break-word;
+}

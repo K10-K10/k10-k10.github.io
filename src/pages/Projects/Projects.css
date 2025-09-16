@@ -1,0 +1,6 @@
+.project-home h1 {
+	text-align: center;
+	margin: 40px 0;
+	font-size: var(--Max-FontSize);
+	font-weight: var(--PageTitle-FontWeight);
+}
