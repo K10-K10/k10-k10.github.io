@@ -1,13 +1,17 @@
-.blogList li {
-	list-style: none;
-	padding-left: 0;
-	margin: 20px 0;
+.blog-post .date {
+	display: block;
+	text-align: center;
+	margin: 10px 0;
+	color: var(--gray-color);
+	font-size: 0.9rem;
 }
 
-.blogList li a {
-	color: var(--black-color)
+.blog-link {
+	color: var(--black-color);
+	text-decoration: none;
+	transition: color 0.2s ease;
 }
 
-.blogList li a:hover {
-	color: var(--black-hover-color)
+.blog-link:hover {
+	color: var(--black-hover-color);
 }

@@ -1,0 +1,7 @@
+.data {
+	/*text-align: center;*/
+	/*display: block;*/
+	margin: 8px 0;
+	font-size: 0.9rem;
+	color: var(--gray-color);
+}

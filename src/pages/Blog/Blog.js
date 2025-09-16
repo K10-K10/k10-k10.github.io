@@ -1,18 +1,20 @@
 import { posts } from "./posts";
-import BlogPost from "./../../layouts/BlogPost/BlogPost";
+import { Link } from "react-router-dom";
 import Talk from "./../../layouts/Talk/Talk";
-import Head from "./../../layouts/Head/Head";
 
 function Blog() {
 	return (
-		<div className="blogList">
-			<Head title={"Blog"}></Head>
-			<Talk title={"Blog"} style_scope={{background: "var(--cloudy_background-color)"}}>
-				{posts.map(posts => (
-					<li key={posts.id}>
-						<p>{posts.date}:<a href="/#/BlogPost">{posts.title}</a></p>
-					</li>
-					//<BlogPost key={posts.id} {...posts} />
+		<div className="blog-home">
+			<Talk title={"Blog"}>
+				{posts.map(post => (
+					<div key={post.id}>
+						<p className="blog-list">
+							{post.date} :{" "}
+							<Link className="blog-link" to={`/blog/${post.id}`}>
+								{post.title}
+							</Link>
+						</p>
+					</div>
 				))}
 			</Talk>
 		</div>

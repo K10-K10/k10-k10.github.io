@@ -8,7 +8,7 @@ import Github from "./pages/Github/Github"
 import About from "./pages/About/About";
 import Projects_home from "./pages/Projects/Projects";
 import Blog_home from "./pages/Blog/Blog";
-import Blogs from "./pages/Blog/blogs";
+import BlogPost from "./layouts/BlogPost/BlogPost";
 import Tools_home from "./pages/Tools/Tools";
 
 function main() {
@@ -22,7 +22,7 @@ function main() {
 					<Route path="/Github" element={<Github />} />
 					<Route path="/About" element={<About />} />
 					<Route path="/Blog" element={<Blog_home />} />
-					<Route path="/BlogPost" element={<Blogs/>} />
+					<Route path="/Blog/:id" element={<BlogPost/>} />
 					<Route path="/Projects" element={<Projects_home />} />
 					<Route path="/Tools" element={<Tools_home />} />
 					<Route path="*" element={<NotFound />} />

@@ -42,7 +42,6 @@ body {
 	color: var(--black-color);
 }
 
-
 #main {
 	min-height: calc(100vh - (var(--header-height) + var(--footer-height) + var(--main-padding)*2));
 	padding: var(--main-padding) 0px;
