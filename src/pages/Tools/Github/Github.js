@@ -1,9 +1,9 @@
 import { useState } from "react";
 import "./Github.css";
-import Input from "./../../../ui-parts/Input";
+import Input from '@parts/Input';
+import Dialog from '@parts/Dialog';
+import Head from '@layouts/Head/Head';
 import Button from "./../../../ui-parts/Button";
-import Dialog from "./../../../ui-parts/Dialog";
-import Head from "./../../../layouts/Head/Head";
 
 function Github() {
 	const [name, setName] = useState("");

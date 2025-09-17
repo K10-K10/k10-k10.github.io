@@ -3,10 +3,12 @@ import { Link } from "react-router-dom";
 import Talk from "./../../layouts/Talk/Talk";
 
 function Blog() {
+	const sortedPosts = [...posts].sort((a, b) => b.id - a.id);
+
 	return (
 		<div className="blog-home">
-			<Talk title={"Blog"}>
-				{posts.map(post => (
+			<Talk title="Blog">
+				{sortedPosts.map(post => (
 					<div key={post.id}>
 						<p className="blog-list">
 							{post.date} :{" "}
