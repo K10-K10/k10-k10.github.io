@@ -3,8 +3,8 @@ import Header from "./layouts/header";
 import Footer from "./layouts/footer";
 import Home from "./pages/home/home";
 import NotFound from "./pages/404/404";
-import RGB from "./pages/RGB/RGB";
-import Github from "./pages/Github/Github"
+import RGB from "./pages/Tools/RGB/RGB";
+import Github from "./pages/Tools/Github/Github"
 import About from "./pages/About/About";
 import Projects_home from "./pages/Projects/Projects";
 import Blog_home from "./pages/Blog/Blog";
@@ -18,8 +18,8 @@ function main() {
 			<div id="main">
 				<Routes>
 					<Route path="/" element={<Home />} />
-					<Route path="/RGB" element={<RGB />} />
-					<Route path="/Github" element={<Github />} />
+					<Route path="/Tools/RGB" element={<RGB />} />
+					<Route path="/Tools/Github" element={<Github />} />
 					<Route path="/About" element={<About />} />
 					<Route path="/Blog" element={<Blog_home />} />
 					<Route path="/Blog/:id" element={<BlogPost/>} />
