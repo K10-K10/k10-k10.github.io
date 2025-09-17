@@ -1,8 +1,8 @@
 import { useState } from "react";
 import "./Github.css";
-import Input from '@parts/Input';
-import Dialog from '@parts/Dialog';
-import Head from '@layouts/Head/Head';
+import Input from './../../../ui-parts/Input';
+import Dialog from './../../../ui-parts/Dialog';
+import Head from './../../../layouts/Head/Head';
 import Button from "./../../../ui-parts/Button";
 
 function Github() {

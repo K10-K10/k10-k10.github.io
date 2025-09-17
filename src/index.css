@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
-
 :root {
+	--background-color: #ffffff;
+	--text-color: #000000;
 	--primary-color: #000000;
 	--secondary-color: #C8EFF4;
 	--primary-dark-color: #41558f;
-	--error-calor: #FF0F0F;
+	--error-color: #FF0F0F;
 	--black-color: #000000;
 	--white-color: #ffffff;
 	--black-hover-color: #666666;
@@ -15,8 +15,7 @@
 	--link-color: #00669f;
 	--shadow-color: #1e3e75;
 
-
-	--font-main: "ubuntu mono";
+	--font-main: "Ubuntu Mono", monospace;
 	--font-sans: "ヒラギノ角ゴ ProN W3", HiraKakuProN-W3, 游ゴシック, "Yu Gothic", メイリオ, Meiryo, Verdana, Helvetica, Arial, sans-serif;
 	--font-serif: '游明朝', 'Yu Mincho', 'YuMincho', 'Hiragino Mincho Pro', serif;
 
@@ -34,16 +33,27 @@
 	--Base-FontWeight: 200;
 }
 
+[data-theme="dark"] {
+	--background-color: #808484;
+	--secondary-color: #909090;
+	--button-color: #333;
+	--button-hover-color: #555;
+	--link-color: #4da6ff;
+	--cloudy_background-color: #707474;
+	--border-color: #444;
+	--shadow-color: #000000;
+}
+
 body {
 	margin: 0px;
 	background-color: var(--background-color);
 	font-size: var(--Base-FontSize);
 	font-weight: var(--Base-FontWeight);
-	color: var(--black-color);
+	color: var(--text-color);
 }
 
 #main {
-	min-height: calc(100vh - (var(--header-height) + var(--footer-height) + var(--main-padding)*2));
+	min-height: calc(100vh - (var(--header-height) + var(--footer-height) + var(--main-padding) * 2));
 	padding: var(--main-padding) 0px;
 	font-family: var(--font-main);
 }
