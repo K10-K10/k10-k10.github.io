@@ -1,6 +1,6 @@
 import { HashRouter as Router, Route, Routes } from "react-router-dom";
-import Header from "./layouts/header";
-import Footer from "./layouts/footer";
+import Header from "./layouts/Header/header";
+import Footer from "./layouts/Footer/footer";
 import Home from "./pages/home/home";
 import NotFound from "./pages/404/404";
 import RGB from "./pages/Tools/RGB/RGB";
@@ -22,7 +22,7 @@ function main() {
 					<Route path="/Tools/Github" element={<Github />} />
 					<Route path="/About" element={<About />} />
 					<Route path="/Blog" element={<Blog_home />} />
-					<Route path="/Blog/:id" element={<BlogPost/>} />
+					<Route path="/Blog/:id" element={<BlogPost />} />
 					<Route path="/Projects" element={<Projects_home />} />
 					<Route path="/Tools" element={<Tools_home />} />
 					<Route path="*" element={<NotFound />} />

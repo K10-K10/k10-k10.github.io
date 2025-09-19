@@ -1,17 +1,17 @@
 function Fieldset({
 	children,
 	legend,
-	f_style = {} = {},
-	l_style = {} = {}
-}) {
+	f_style = {},
+	l_style = {}
+} = {}) {
 	const styles = {
 		fieldset: {
-			f_style
+			...f_style
 		},
 		legend: {
 			backgroundColor: "var(--primary-color)",
 			color: "var(--cloudy_background-color)",
-			l_style,
+			...l_style,
 		}
 	};
 	return (

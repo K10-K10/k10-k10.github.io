@@ -1,8 +1,7 @@
 function Code({
 	children,
 	style = {},
-}
-) {
+} = {}) {
 	const styles = {
 		background: "var(--border-color)",
 		display: "inline-block",

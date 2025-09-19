@@ -4,12 +4,17 @@ function Input({
 	value,
 	onChange,
 	tmp,
-	style = {}
-	= {} }) {
+	label_style = {},
+	input_style = {}
+} = {}) {
 	const styles = {
+		label: {
+			...label_style
+		},
 		input: {
+			backgroundColor: "var(--background-color)",
 			padding: "10px",
-			...style,
+			...input_style,
 		},
 	};
 

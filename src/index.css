@@ -11,6 +11,7 @@
 	--cloudy_background-color: #f0f0f0;
 	--border-color: #BBB;
 	--button-color: #E5E5E5;
+	--button-text-color: #000;
 	--button-hover-color: #ccc;
 	--link-color: #00669f;
 	--shadow-color: #1e3e75;
@@ -37,6 +38,7 @@
 	--background-color: #808484;
 	--secondary-color: #909090;
 	--button-color: #333;
+	--button-text-color: #fff;
 	--button-hover-color: #555;
 	--link-color: #4da6ff;
 	--cloudy_background-color: #707474;
@@ -47,6 +49,7 @@
 body {
 	margin: 0px;
 	background-color: var(--background-color);
+	font-family: var(--font-main);
 	font-size: var(--Base-FontSize);
 	font-weight: var(--Base-FontWeight);
 	color: var(--text-color);
@@ -55,5 +58,4 @@ body {
 #main {
 	min-height: calc(100vh - (var(--header-height) + var(--footer-height) + var(--main-padding) * 2));
 	padding: var(--main-padding) 0px;
-	font-family: var(--font-main);
 }

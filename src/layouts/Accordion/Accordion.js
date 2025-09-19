@@ -6,7 +6,7 @@ function Accordion({ title, children }) {
 
 	return (
 		<div className="accordion">
-			<button
+			<div
 				className={`accordion-title ${isOpen ? "active" : ""}`}
 				onClick={() => setIsOpen(!isOpen)}
 			>
@@ -15,7 +15,7 @@ function Accordion({ title, children }) {
 					{/*{isOpen ? "v" : "<"}*/}
 					&lt;
 				</span>
-			</button>
+			</div>
 			<div className={`panel ${isOpen ? "open" : ""}`}>
 				{children}
 			</div>

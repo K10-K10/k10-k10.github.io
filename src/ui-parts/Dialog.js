@@ -3,11 +3,12 @@ import Button from "./Button";
 function Dialog({ children, dialog_style = {}, button_style = {} }) {
 	const styles = {
 		dialog: {
-			borderRadius: "16px",
+			position: "absolute",
+			margin: "0px",
 			padding: "16px",
+			borderRadius: "16px",
 			border: "none",
 			boxShadow: "0 4px 12px rgba(0,0,0,0.2)",
-			position: "absolute",
 			top: "20px",
 			left: "50%",
 			transform: "translateX(-50%)",

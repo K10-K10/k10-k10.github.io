@@ -1,5 +1,5 @@
 import "./header.css";
-import Button from "./../ui-parts/Button";
+import Button from "../../ui-parts/Button";
 import { useState, useEffect } from "react";
 
 function Header() {
@@ -33,8 +33,8 @@ function Header() {
 					</a>
 				))}
 			</div>
-			<Button onClick={modeButton} style={{margin: "0px", with:"10px"}}>
-					{mode === "dark" ? "Light" : "Dark"}
+			<Button onClick={modeButton} style={{ with: "10px" }}>
+				{mode === "dark" ? "Light" : "Dark"}
 			</Button>
 		</header>
 	);

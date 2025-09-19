@@ -7,9 +7,9 @@ function Projects_home() {
 		<div className="project-home">
 			<Head title={"Projects"} link_title={"K10-K10 site - Projects home  page"}></Head>
 			<h1>Projects List</h1>
-			<ProjectDesc title={"Profile"} url={"https://github.com/K10-K10/K10-K10"}>{
-			"Manage my GitHub profile"
-			}</ProjectDesc>
+			<ProjectDesc title={"Profile"} url={"https://github.com/K10-K10/K10-K10"}>
+				Manage my GitHub profile
+			</ProjectDesc>
 		</div>
 	)
 }

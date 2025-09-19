@@ -6,7 +6,7 @@ import Head from "./../../layouts/Head/Head";
 function About() {
 	return (
 		<div className="about">
-			<Head title={"About"} link_title={"K10-K10 site - About page"}/>
+			<Head title={"About"} link_title={"K10-K10 site - About page"} />
 			<Talk title="About the site" style_scope={{ background: "var(--cloudy_background-color)" }}>
 				<p>This site is my React practice site.</p>
 				<p>Content related to blogs, tools, games, and more will be added.</p>
@@ -18,7 +18,7 @@ function About() {
 			</Talk>
 			<Talk title="About the Author">
 				<div className="user-wrapper">
-					<img src="/my_icon.png" alt="author icon" />
+					<img src="/favicon.ico" alt="author icon" />
 					<div className="user-info">
 						<p>Hello! I'm K10-K10. I'm junior high school student</p>
 						<a href="https://github.com/K10-K10">My GitHub Account</a>

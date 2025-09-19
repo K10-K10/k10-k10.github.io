@@ -1,4 +1,4 @@
-function Spacer({ style = {}, }) {
+function Spacer({ style = {} } = {}) {
 	const styles = {
 		spacer: {
 			padding: "15px",

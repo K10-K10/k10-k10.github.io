@@ -13,8 +13,8 @@ function BlogPost() {
 	return (
 		<div className="blog-post">
 			<Talk title={post.title}>
-				<small  style={{ textAlign: "center", display: "block",marginBottom: "30px" }}className="data">{post.date}</small>
-				<pre style={{lineHeight: "150%"}}>{post.content}</pre>
+				<small style={{ textAlign: "center", display: "block", marginBottom: "30px" }} className="data">{post.date}</small>
+				<pre style={{ lineHeight: "150%" }}>{post.content}</pre>
 			</Talk>
 		</div>
 	);

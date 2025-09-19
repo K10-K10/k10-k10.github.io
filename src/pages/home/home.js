@@ -1,5 +1,4 @@
 import "./home.css";
-import Head from "./../../layouts/Head/Head";
 
 function home() {
 	return (
