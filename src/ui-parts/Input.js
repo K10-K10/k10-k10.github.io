@@ -12,8 +12,8 @@ function Input({
 			...label_style
 		},
 		input: {
-			backgroundColor: "var(--background-color)",
-			padding: "10px",
+			backgroundColor: 'var(--background-color)',
+			padding: '10px',
 			...input_style,
 		},
 	};

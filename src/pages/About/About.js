@@ -1,29 +1,29 @@
-import "./About.css";
-import Spacer from "@parts/Spacer";
-import Talk from "@layout/Talk/Talk";
-import Head from "@layout/Head/Head";
+import './About.css';
+import Spacer from '@parts/Spacer';
+import Talk from '@layouts/Talk/Talk';
+import Head from '@layouts/Head/Head';
 
 function About() {
 	return (
-		<div className="about">
-			<Head title={"About"} link_title={"K10-K10 site - About page"} />
-			<Talk title="About the site" style_scope={{ background: "var(--cloudy_background-color)" }}>
+		<div className='about'>
+			<Head title={'About'} link_title={'K10-K10 site - About page'} />
+			<Talk title='About the site' style_scope={{ background: 'var(--cloudy_background-color)' }}>
 				<p>This site is my React practice site.</p>
 				<p>Content related to blogs, tools, games, and more will be added.</p>
 				<Spacer />
 				<p>This site is powered by GitHub Pages and React.</p>
-				<a href="https://github.com/K10-K10/k10-k10.github.io">
+				<a href='https://github.com/K10-K10/k10-k10.github.io'>
 					This site's source code
 				</a>
 			</Talk>
-			<Talk title="About the Author">
-				<div className="user-wrapper">
-					<img src="/favicon.ico" alt="author icon" />
-					<div className="user-info">
+			<Talk title='About the Author'>
+				<div className='user-wrapper'>
+					<img src='/favicon.ico' alt='author icon' />
+					<div className='user-info'>
 						<p>Hello! I'm K10-K10. I'm junior high school student</p>
-						<a href="https://github.com/K10-K10">My GitHub Account</a>
+						<a href='https://github.com/K10-K10'>My GitHub Account</a>
 						<p>I primarily use C++, and belong to a robotics team.</p>
-						<a href="https://techno-robocup.github.io/">Robot team's blogs</a>
+						<a href='https://techno-robocup.github.io/'>Robot team's blogs</a>
 					</div>
 				</div>
 

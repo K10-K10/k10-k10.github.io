@@ -3,10 +3,10 @@ function Code({
 	style = {},
 } = {}) {
 	const styles = {
-		background: "var(--border-color)",
-		display: "inline-block",
-		padding: "5px 5px",
-		borderRadius: "8%",
+		background: 'var(--border-color)',
+		display: 'inline-block',
+		padding: '5px 5px',
+		borderRadius: '8%',
 		...style,
 	};
 	return (

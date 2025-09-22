@@ -1,7 +1,7 @@
 function Spacer({ style = {} } = {}) {
 	const styles = {
 		spacer: {
-			padding: "15px",
+			padding: '15px',
 			...style
 		},
 	};

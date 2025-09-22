@@ -1,11 +1,11 @@
-import "./CodeSpace.css";
-import Fieldset from "@parts/Fieldset";
+import './CodeSpace.css';
+import Fieldset from '@parts/Fieldset';
 
 function CodeSpace({ children, filename }) {
 	return (
-		<div className="codespace">
+		<div className='codespace'>
 			<Fieldset legend={filename}>
-				<pre className="source">
+				<pre className='source'>
 					<code>{children}</code>
 				</pre>
 			</Fieldset>

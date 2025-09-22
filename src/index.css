@@ -16,8 +16,8 @@
 	--link-color: #00669f;
 	--shadow-color: #1e3e75;
 
-	--font-main: "Ubuntu Mono", monospace;
-	--font-sans: "ヒラギノ角ゴ ProN W3", HiraKakuProN-W3, 游ゴシック, "Yu Gothic", メイリオ, Meiryo, Verdana, Helvetica, Arial, sans-serif;
+	--font-main: 'Ubuntu Mono', monospace;
+	--font-sans: 'ヒラギノ角ゴ ProN W3', HiraKakuProN-W3, 游ゴシック, 'Yu Gothic', メイリオ, Meiryo, Verdana, Helvetica, Arial, sans-serif;
 	--font-serif: '游明朝', 'Yu Mincho', 'YuMincho', 'Hiragino Mincho Pro', serif;
 
 	--header-height: 100px;
@@ -34,7 +34,7 @@
 	--Base-FontWeight: 200;
 }
 
-[data-theme="dark"] {
+[data-theme='dark'] {
 	--background-color: #808484;
 	--secondary-color: #909090;
 	--button-color: #333;

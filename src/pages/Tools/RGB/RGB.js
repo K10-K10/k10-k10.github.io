@@ -1,7 +1,7 @@
-import { useState, useRef, useEffect } from "react";
-import "./RGB.css";
-import Button from "@parts/Button";
-import Head from "@layout/Head/Head";
+import { useState, useRef, useEffect } from 'react';
+import './RGB.css';
+import Button from '@parts/Button';
+import Head from '@layouts/Head/Head';
 
 function RGB() {
 	const [R, setR] = useState(0);
@@ -17,32 +17,32 @@ function RGB() {
 	const canvasRef = useRef(null);
 	useEffect(() => {
 		if (canvasRef.current) {
-			const ctx = canvasRef.current.getContext("2d");
+			const ctx = canvasRef.current.getContext('2d');
 			ctx.fillStyle = `rgb(${R},${G},${B})`;
 			ctx.fillRect(0, 0, 100, 100);
 		}
 	}, [R, G, B]);
 
 	return (
-		<div id="RGB">
-			<Head title={"React Test"} link_title={"K10-K10 site - React test page"} />
+		<div id='RGB'>
+			<Head title={'React Test'} link_title={'K10-K10 site - React test page'} />
 			<h1>RGB checker</h1>
 			<div>
-				<p className="RGB">R: {R}</p>
-				<Button children={"R + 5"} onClick={() => setR(R + 5)} />
-				<Button children={"R - 5"} onClick={() => setR(R - 5)} />
+				<p className='RGB'>R: {R}</p>
+				<Button children={'R + 5'} onClick={() => setR(R + 5)} />
+				<Button children={'R - 5'} onClick={() => setR(R - 5)} />
 			</div>
 			<div>
-				<p className="RGB">G: {G}</p>
-				<Button children={"G + 5"} onClick={() => setG(G + 5)} />
-				<Button children={"G - 5"} onClick={() => setG(G - 5)} />
+				<p className='RGB'>G: {G}</p>
+				<Button children={'G + 5'} onClick={() => setG(G + 5)} />
+				<Button children={'G - 5'} onClick={() => setG(G - 5)} />
 			</div>
 			<div>
-				<p className="RGB">B: {B}</p>
-				<Button children={"B + 5"} onClick={() => setB(B + 5)} />
-				<Button children={"B - 5"} onClick={() => setB(B - 5)} />
+				<p className='RGB'>B: {B}</p>
+				<Button children={'B + 5'} onClick={() => setB(B + 5)} />
+				<Button children={'B - 5'} onClick={() => setB(B - 5)} />
 			</div>
-			<canvas id="myCanvas" ref={canvasRef} width={100} height={100} />
+			<canvas id='myCanvas' ref={canvasRef} width={100} height={100} />
 		</div>
 	);
 }

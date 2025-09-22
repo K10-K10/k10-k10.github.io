@@ -1,4 +1,4 @@
-import './Talk.css'
+import './Talk.css';
 
 function Talk({
 	title,
@@ -7,9 +7,9 @@ function Talk({
 	style_contents = {}
 }) {
 	return (
-		<div className="talk-scope" style={style_scope}>
-			<div className="title">{title}</div>
-			<div className="talk-contents" style={style_contents}>
+		<div className='talk-scope' style={style_scope}>
+			<div className='title'>{title}</div>
+			<div className='talk-contents' style={style_contents}>
 				{children}
 			</div>
 		</div>

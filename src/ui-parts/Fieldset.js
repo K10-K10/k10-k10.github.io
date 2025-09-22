@@ -9,8 +9,8 @@ function Fieldset({
 			...f_style
 		},
 		legend: {
-			backgroundColor: "var(--primary-color)",
-			color: "var(--cloudy_background-color)",
+			backgroundColor: 'var(--primary-color)',
+			color: 'var(--cloudy_background-color)',
 			...l_style,
 		}
 	};

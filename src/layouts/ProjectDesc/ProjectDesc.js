@@ -1,6 +1,6 @@
-import "./ProjectDesc.css"
-import Accordion from "../Accordion/Accordion"
-import Spacer from "@parts/Spacer";
+import './ProjectDesc.css';
+import Accordion from '@layouts/Accordion/Accordion';
+import Spacer from '@parts/Spacer';
 
 function ProjectDesc({
 	title,
@@ -8,14 +8,14 @@ function ProjectDesc({
 	children
 } = {}) {
 	return (
-		<div className="projectDesc">
+		<div className='projectDesc'>
 			<Accordion title={title}>
-				<div className="contents">
-					<div className="url">
+				<div className='contents'>
+					<div className='url'>
 						Github Repository:<a href={url}>{url}</a>
 					</div>
 					<Spacer />
-					<div className="children">
+					<div className='children'>
 						<pre>{children}</pre>
 					</div>
 				</div>
