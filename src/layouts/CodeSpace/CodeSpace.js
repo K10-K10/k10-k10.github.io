@@ -1,5 +1,5 @@
 import "./CodeSpace.css";
-import Fieldset from "./../../ui-parts/Fieldset";
+import Fieldset from "@parts/Fieldset";
 
 function CodeSpace({ children, filename }) {
 	return (

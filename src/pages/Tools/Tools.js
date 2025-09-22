@@ -1,6 +1,6 @@
 import "./Tools.css"
-import CodeSpace from "./../../layouts/CodeSpace/CodeSpace";
-import Head from "./../../layouts/Head/Head";
+import CodeSpace from "@layout/CodeSpace/CodeSpace";
+import Head from "@layout/Head/Head";
 
 function Tools_home() {
 	return (

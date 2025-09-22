@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import "./RGB.css";
-import Button from "./../../../ui-parts/Button";
-import Head from "./../../../layouts/Head/Head";
+import Button from "@parts/Button";
+import Head from "@layout/Head/Head";
 
 function RGB() {
 	const [R, setR] = useState(0);

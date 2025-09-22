@@ -1,7 +1,6 @@
 import { posts } from "./posts";
 import { Link } from "react-router-dom";
-import Talk from "./../../layouts/Talk/Talk";
-import Head from "./../../layouts/Head/Head"
+import Talk from "@layout/Talk/Talk";
 
 function Blog() {
 	const sortedPosts = [...posts].sort((a, b) => b.id - a.id);

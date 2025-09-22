@@ -1,6 +1,6 @@
 import "./Projects.css"
-import Head from "./../../layouts/Head/Head";
-import ProjectDesc from "./../../layouts/ProjectDesc/ProjectDesc";
+import Head from "@layout/Head/Head";
+import ProjectDesc from "@layout/ProjectDesc/ProjectDesc";
 
 function Projects_home() {
 	return (

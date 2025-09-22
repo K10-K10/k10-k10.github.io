@@ -1,7 +1,7 @@
 import "./About.css";
-import Spacer from "./../../ui-parts/Spacer";
-import Talk from "./../../layouts/Talk/Talk";
-import Head from "./../../layouts/Head/Head";
+import Spacer from "@parts/Spacer";
+import Talk from "@layout/Talk/Talk";
+import Head from "@layout/Head/Head";
 
 function About() {
 	return (
@@ -11,7 +11,7 @@ function About() {
 				<p>This site is my React practice site.</p>
 				<p>Content related to blogs, tools, games, and more will be added.</p>
 				<Spacer />
-				<p>This site is powered by GitHub Pages, React and Vite.</p>
+				<p>This site is powered by GitHub Pages and React.</p>
 				<a href="https://github.com/K10-K10/k10-k10.github.io">
 					This site's source code
 				</a>

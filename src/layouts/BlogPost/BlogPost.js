@@ -1,8 +1,8 @@
 import { useParams } from "react-router-dom";
-import { posts } from "../../pages/Blog/posts";
+import { posts } from "@pages/Blog/posts";
 import { Link } from "react-router-dom";
 import Talk from "../Talk/Talk";
-import Button from "./../../ui-parts/Button";
+import Button from "@parts/Button";
 
 function BlogPost() {
 	const { id } = useParams();

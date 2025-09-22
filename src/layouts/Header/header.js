@@ -1,5 +1,5 @@
 import "./header.css";
-import Button from "../../ui-parts/Button";
+import Button from "@parts/Button";
 import { useState, useEffect } from "react";
 
 function Header() {

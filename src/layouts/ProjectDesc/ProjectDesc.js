@@ -1,6 +1,6 @@
 import "./ProjectDesc.css"
 import Accordion from "../Accordion/Accordion"
-import Spacer from "./../../ui-parts/Spacer";
+import Spacer from "@parts/Spacer";
 
 function ProjectDesc({
 	title,
