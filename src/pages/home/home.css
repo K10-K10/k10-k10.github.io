@@ -1,9 +1,9 @@
 #home {
-  text-align: center;
+	text-align: center;
 
-  a {
-    font-size: var(--Max-FontSize);
-    color: var(--primary-color);
-    text-decoration: none;
-  }
+	a {
+		font-size: var(--Max-FontSize);
+		color: var(--primary-color);
+		text-decoration: none;
+	}
 }

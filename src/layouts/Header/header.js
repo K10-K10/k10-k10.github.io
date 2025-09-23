@@ -33,7 +33,7 @@ function Header() {
 					</a>
 				))}
 			</div>
-			<Button onClick={modeButton} style={{ with: '10px' }}>
+			<Button onClick={modeButton} style={{ width:'var(--width)',fontSize:'var(--font-size)' }}>
 				{mode === 'dark' ? 'Light' : 'Dark'}
 			</Button>
 		</header>

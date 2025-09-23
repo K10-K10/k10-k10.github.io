@@ -7,6 +7,8 @@
 	height: 0px;
 	width: 100%;
 	background-color: var(--primary-color);
+	--width: 200px;
+	--font-size: var(--Base-FontSize);
 }
 
 .header a {
@@ -22,7 +24,7 @@
 
 .header .title {
 	margin: 0px auto 0px 10px;
-	padding: 0px 20px;
+	padding: 0px 5px 0px 20px;
 	font-size: var(--Max-FontSize);
 	font-weight: 600;
 }
@@ -30,7 +32,7 @@
 .header .topic_scope {
 	display: flex;
 	gap: 40px;
-	margin: 0px 30px;
+	margin: 0px 30px 0px 5px;
 	font-weight: 400;
 }
 
@@ -40,4 +42,34 @@
 
 .header .topic_scope .topic:hover {
 	color: var(--link-color);
+}
+
+@media screen and (max-width:815px) {
+	.header {
+		--width: 100px;
+		--font-size: 20px;
+	}
+
+	.header .title {
+		font-size: 30px;
+	}
+
+	.header .topic_scope {
+		gap: 10px;
+	}
+
+	.header .topic_scope .topic {
+		font-size: 15px;
+	}
+}
+
+
+@media screen and (max-width:495px) {
+	.header .title {
+		font-size: 20px;
+	}
+
+	.header .topic_scope .topic {
+		font-size: 10px;
+	}
 }

@@ -12,6 +12,7 @@ function Input({
 			...label_style
 		},
 		input: {
+			fontFamily: 'inherit',
 			backgroundColor: 'var(--background-color)',
 			padding: '10px',
 			...input_style,
@@ -20,8 +21,8 @@ function Input({
 
 	return (
 		<div>
-			<label style={styles.label}>{label}: </label>
-			<input type={type} value={value} onChange={(e) => onChange(e.target.value)} placeholder={tmp} style={styles.input} />
+			<label style={styles.label} for={label}>{label}: </label>
+			<input type={type} value={value} onChange={(e) => onChange(e.target.value)} placeholder={tmp} style={styles.input} id={label} />
 		</div>
 	);
 }
