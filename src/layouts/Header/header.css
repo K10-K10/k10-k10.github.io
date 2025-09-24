@@ -48,9 +48,6 @@
 	display: none;
 }
 
-.header #topic_scope_bg {
-	pointer-events: none;
-}
 
 @media screen and (max-width:815px) {
 	.header {
