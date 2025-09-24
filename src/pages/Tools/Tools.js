@@ -1,5 +1,4 @@
 import './Tools.css';
-import CodeSpace from '@layouts/CodeSpace/CodeSpace';
 import Head from '@layouts/Head/Head';
 
 function Tools_home() {

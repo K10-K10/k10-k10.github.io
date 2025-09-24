@@ -7,7 +7,8 @@ function Header() {
 	const [mode, setMode] = useState('light');
 
 	useEffect(() => {
-		const savedMode = localStorage.getItem('mode') || 'light';
+		const browser_setting = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+		const savedMode = localStorage.getItem('mode') || browser_setting;
 		setMode(savedMode);
 		document.body.setAttribute('data-theme', savedMode);
 	}, []);
@@ -19,21 +20,28 @@ function Header() {
 		document.body.setAttribute('data-theme', newMode);
 	};
 
+
 	return (
 		<header className='header'>
 			<a href='/#/' className='title'>K10-K10</a>
-			<div className='topic_scope'>
-				{topics.map((topic, i) => (
-					<a
-						key={i}
-						href={`/#/${topic}`}
-						className='topic'
-					>
-						{topic}
-					</a>
-				))}
-			</div>
-			<Button onClick={modeButton} style={{ width:'var(--width)',fontSize:'var(--font-size)' }}>
+			<label id="hamburger-menu">
+				<input id="menu" type="checkbox" />
+				<div id='topic_scope_bg'>
+					<div id='topic_scope'>
+						{topics.map((topic, i) => (
+							<a
+								key={i}
+								href={`/#/${topic}`}
+								className='topic'
+							>
+								{topic}
+							</a>
+						))}
+					</div>
+				</div>
+				<div id="box"><span id="bar"></span></div>
+			</label>
+			<Button onClick={modeButton} style={{ width: 'var(--width)', fontSize: 'var(--font-size)' }}>
 				{mode === 'dark' ? 'Light' : 'Dark'}
 			</Button>
 		</header>

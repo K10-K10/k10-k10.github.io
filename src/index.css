@@ -1,20 +1,12 @@
 :root {
-	--background-color: #ffffff;
 	--text-color: #000000;
 	--primary-color: #000000;
-	--secondary-color: #C8EFF4;
 	--primary-dark-color: #41558f;
 	--error-color: #FF0F0F;
 	--black-color: #000000;
 	--white-color: #ffffff;
 	--black-hover-color: #666666;
-	--cloudy_background-color: #f0f0f0;
-	--border-color: #BBB;
-	--button-color: #E5E5E5;
-	--button-text-color: #000;
-	--button-hover-color: #ccc;
-	--link-color: #00669f;
-	--shadow-color: #1e3e75;
+	--button-t\ext-color: #000;
 
 	--font-main: 'Ubuntu Mono', monospace;
 	--font-sans: 'ヒラギノ角ゴ ProN W3', HiraKakuProN-W3, 游ゴシック, 'Yu Gothic', メイリオ, Meiryo, Verdana, Helvetica, Arial, sans-serif;
@@ -34,15 +26,27 @@
 	--Base-FontWeight: 200;
 }
 
+[data-theme='light'] {
+	--background-color: #ffffff;
+	--secondary-color: #C8EFF4;
+	--cloudy_background-color: #f0f0f0;
+	--border-color: #BBB;
+	--button-color: #E5E5E5;
+	--button-text-color: #000;
+	--button-hover-color: #ccc;
+	--link-color: #00669f;
+	--shadow-color: #1e3e75;
+}
+
 [data-theme='dark'] {
 	--background-color: #808484;
 	--secondary-color: #909090;
+	--cloudy_background-color: #707474;
+	--border-color: #444;
 	--button-color: #333;
 	--button-text-color: #fff;
 	--button-hover-color: #555;
 	--link-color: #4da6ff;
-	--cloudy_background-color: #707474;
-	--border-color: #444;
 	--shadow-color: #000000;
 }
 

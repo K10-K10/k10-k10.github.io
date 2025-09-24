@@ -29,19 +29,27 @@
 	font-weight: 600;
 }
 
-.header .topic_scope {
+.header #topic_scope {
 	display: flex;
 	gap: 40px;
 	margin: 0px 30px 0px 5px;
 	font-weight: 400;
 }
 
-.header .topic_scope:hover .topic {
+.header #topic_scope:hover .topic {
 	color: var(--border-color);
 }
 
-.header .topic_scope .topic:hover {
+.header #topic_scope .topic:hover {
 	color: var(--link-color);
+}
+
+.header #menu {
+	display: none;
+}
+
+.header #topic_scope_bg {
+	pointer-events: none;
 }
 
 @media screen and (max-width:815px) {
@@ -54,22 +62,100 @@
 		font-size: 30px;
 	}
 
-	.header .topic_scope {
+	.header #topic_scope {
 		gap: 10px;
 	}
 
-	.header .topic_scope .topic {
+	.header #topic_scope .topic {
 		font-size: 15px;
 	}
 }
 
 
 @media screen and (max-width:495px) {
-	.header .title {
-		font-size: 20px;
+	.header #box {
+		display: flex;
+		position: absolute;
+		top: calc(var(--header-height)/2 - 20px);
+		right: 130px;
+		width: 40px;
+		height: 40px;
+		box-sizing: border-box;
+		background-color: var(--black-color);
+		border: 1px solid var(--white-color);
+		border-radius: 3px;
+		justify-content: center;
+		align-items: center;
 	}
 
-	.header .topic_scope .topic {
-		font-size: 10px;
+	.header #bar,
+	.header #bar:before,
+	.header #bar:after {
+		content: '';
+		display: block;
+		height: 2px;
+		width: 23px;
+		border-radius: 2px;
+		background-color: #ffffff;
+		position: absolute;
+		transition: all 0.5s;
+	}
+
+	.header #bar:before {
+		bottom: 8px;
+	}
+
+	.header #bar:after {
+		top: 8px;
+	}
+
+	.header #menu:checked~#box #bar {
+		background-color: rgba(255, 255, 255, 0);
+		transition: all 0.5s;
+	}
+
+	.header #menu:checked~#box #bar::before {
+		bottom: 0;
+		transform: rotate(45deg);
+		transition: all 0.5s;
+	}
+
+	.header #menu:checked~#box #bar::after {
+		top: 0;
+		transform: rotate(-45deg);
+		transition: all 0.5s;
+	}
+
+	.header #menu:checked~#topic_scope_bg {
+		position: fixed;
+		top: 0px;
+		left: 0px;
+		height: 100vh;
+		width: 100vw;
+		pointer-events: auto;
+	}
+
+	.header #topic_scope {
+		position: absolute;
+		display: block;
+		margin: 0px;
+		top: calc(var(--header-height)/2 - 20px);
+		right: 180px;
+		height: 0px;
+		width: 80px;
+		overflow: hidden;
+		background-color: var(--primary-color);
+		border-radius: 5px;
+		text-align: center;
+	}
+
+	.header #menu:checked~#topic_scope_bg #topic_scope {
+		height: auto;
+		border: 1px solid var(--white-color);
+	}
+
+	.header .topic {
+		display: block;
+		line-height: 20px;
 	}
 }
