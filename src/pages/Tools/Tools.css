@@ -1,5 +1,6 @@
 .tools h1 {
-	padding: 10px;
+	font-weight: var(--Max-FontSize);
+	padding: 40px;
 	margin: 0px;
 	text-align: center;
 }
