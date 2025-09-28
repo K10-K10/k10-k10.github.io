@@ -1,0 +1,14 @@
+.ants {
+	margin: 0px;
+	padding: 40px;
+
+	h1 {
+		text-align: center;
+		font-weight: var(--Max-FontSize);
+	}
+
+	.ants_cmds {
+		justify-content: center;
+		display: flex;
+	}
+}
