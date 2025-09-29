@@ -8,6 +8,7 @@ function Tools_home() {
 			<h1>Tools</h1>
 			<a href='#/Tools/Github'>Github API</a>
 			<a href='#/Tools/RGB'>RGB checker</a>
+			<a href='#/Tools/Ants'>Langton's Ant</a>
 		</div>
 	)
 }
