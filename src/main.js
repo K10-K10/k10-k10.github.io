@@ -18,14 +18,14 @@ import Tools_home from '@pages/Tools/Tools';
 function main() {
 	return (
 		<Router>
-			<Head title={"Home"} link_title={"K10-K10's site top page"}/>
+			<Head title={"Home"} link_title={"K10-K10's site top page"} />
 			<Header />
 			<div id='main'>
 				<Routes>
 					<Route path='/' element={<Home />} />
 					<Route path='/Tools/RGB' element={<RGB />} />
 					<Route path='/Tools/Github' element={<Github />} />
-					<Route path='/Tools/Ants' element={<Ant />}/>
+					<Route path='/Tools/Ants' element={<Ant />} />
 					<Route path='/About' element={<About />} />
 					<Route path='/Blog' element={<Blog_home />} />
 					<Route path='/Blog/:id' element={<BlogPost />} />
