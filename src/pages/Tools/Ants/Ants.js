@@ -1,110 +1,93 @@
-import { useState, useRef, useEffect } from 'react';
+import { useState, useRef, useEffect } from "react";
 import './Ants.css';
 import Head from '@layouts/Head/Head';
 
 import Button from '@parts/Button';
 
-function Ant() {
-	const [direction, setDirection] = useState(0);//U:0, R:1, D:2, L:3
-	const [ant_y, setant_y] = useState(0);
-	const [ant_x, setant_x] = useState(0);
-	const [is_move, setIs_Move] = useState(false);
+const SIZE = 100;
+const CELL = 5;
 
-	const [grid_colour, setGrid_colour] = useState(
-		Array.from({ length: 21 }, () => Array(21).fill(false))
+function Ants() {
+	const canvasRef = useRef(null);
+	const gridRef = useRef(
+		Array.from({ length: SIZE }, () => Array(SIZE).fill(false))
 	);
 
+	const [antX, setAntX] = useState(Math.floor(SIZE / 2));
+	const [antY, setAntY] = useState(Math.floor(SIZE / 2));
+	const [direction, setDirection] = useState(0); // 0=Up,1=Right,2=Down,3=Left
 
-	function ant_begin() {
-		const newGrid = Array.from({ length: 21 }, () => Array(21).fill(false));
-
+	function reset() {
+		gridRef.current = Array.from({ length: SIZE }, () => Array(SIZE).fill(false));
+		const startX = Math.floor(SIZE / 2);
+		const startY = Math.floor(SIZE / 2);
+		setAntX(startX);
+		setAntY(startY);
 		setDirection(0);
-		setant_y(10);
-		setant_x(10);
-		setGrid_colour(newGrid);
+
+		const ctx = canvasRef.current.getContext("2d");
+		ctx.fillStyle = "white";
+		ctx.fillRect(0, 0, SIZE * CELL, SIZE * CELL);
+
+		ctx.fillStyle = "red";
+		ctx.fillRect(startX * CELL, startY * CELL, CELL, CELL);
 	}
 
-	function ant_next() {
-		const newGrid = grid_colour.map(row => [...row]);
+	function step() {
+		const ctx = canvasRef.current.getContext("2d");
+		const grid = gridRef.current;
+		let d = direction;
+		let x = antX;
+		let y = antY;
 
-		let newDirection = direction;
-		if (newGrid[ant_y][ant_x]) {
-			newGrid[ant_y][ant_x] = false;
-			newDirection = (direction + 3) % 4;
+		if (grid[y][x]) {
+			d = (d + 3) % 4;
+			grid[y][x] = false;
+			ctx.fillStyle = "white";
 		} else {
-			newGrid[ant_y][ant_x] = true;
-			newDirection = (direction + 1) % 4;
+			d = (d + 1) % 4;
+			grid[y][x] = true;
+			ctx.fillStyle = "black";
+		}
+		ctx.fillRect(x * CELL, y * CELL, CELL, CELL);
+
+		switch (d) {
+			case 0: y = (y - 1 + SIZE) % SIZE; break;
+			case 1: x = (x + 1) % SIZE; break;
+			case 2: y = (y + 1) % SIZE; break;
+			case 3: x = (x - 1 + SIZE) % SIZE; break;
+			default: break;
 		}
 
-		let newX = ant_y;
-		let newY = ant_x;
+		ctx.fillStyle = "red";
+		ctx.fillRect(x * CELL, y * CELL, CELL, CELL);
 
-		switch (newDirection) {
-			case 0:
-				newY -= 1;
-				break;
-			case 1:
-				newX += 1;
-				break;
-			case 2:
-				newY += 1;
-				break;
-			case 3:
-				newX -= 1;
-				break;
-			default:
-				break;
-		}
-
-		newX = (newX + 21) % 21;
-		newY = (newY + 21) % 21;
-
-		setGrid_colour(newGrid);
-		setant_y(newX);
-		setant_x(newY);
-		setDirection(newDirection);
+		setAntX(x);
+		setAntY(y);
+		setDirection(d);
 	}
+
+	useEffect(() => {
+		reset();
+	}, []);
 
 	return (
 		<div className="ants">
 			<Head title={"Langton's ant"} link_title={"Langton's ant simulator"} />
-			<h1>Langton's ant</h1>
-			<div className="ants_grid">
-				<table>
-					<tbody>
-						{grid_colour.map((row, y) => (
-							<tr key={y}>
-								{row.map((cell, x) => (
-									<td
-										key={x}
-										style={{
-											width: "20px",
-											height: "20px",
-											backgroundColor:
-												x === ant_x && y === ant_y
-													? "red"
-													: cell
-														? "black"
-														: "white",
-											border: "1px solid #ccc",
-										}}
-									/>
-								))}
-							</tr>
-						))}
-					</tbody>
-				</table>
+			<h1 className="ants-title">Langton's ant</h1>
+			<canvas className="ants-canvas"
+				ref={canvasRef}
+				width={SIZE * CELL}
+				height={SIZE * CELL}
+				style={{ border: "1px solid black" }}
+			/>
+			<div className="ants-controls">
+				<Button onClick={reset}>Reset</Button>
+				<Button onClick={step}>Step</Button>
 			</div>
-			<div className="ants_cmds">
-				{/*<Button onClick={ant_begin}>Back</Button>*/}
-				<p className="ants_position">{ant_y} {ant_x}</p>
-				<Button onClick={ant_begin}>Reset</Button>
-				<Button onClick={() => setIs_Move(true)} style={{ width: "100px" }}>start</Button>
-				<Button onClick={ant_next}>check</Button>
-			</div>
+			<p className="ants-position">Ant Position: ({antX}, {antY}), Direction: {direction}</p>
 		</div>
-	)
+	);
 }
 
-export default Ant;
-
+export default Ants;
