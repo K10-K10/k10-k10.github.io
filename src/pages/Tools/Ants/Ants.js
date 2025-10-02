@@ -12,6 +12,7 @@ function Ants() {
 		Array.from({ length: SIZE }, () => Array(SIZE).fill(false))
 	);
 
+	const cnt = useRef(0);
 	const antXRef = useRef(Math.floor(SIZE / 2));
 	const antYRef = useRef(Math.floor(SIZE / 2));
 	const directionRef = useRef(0); // 0=Up,1=Right,2=Down,3=Left
@@ -20,6 +21,7 @@ function Ants() {
 	const [_, setTick] = useState(0);
 
 	function reset() {
+		cnt.current = 0;
 		gridRef.current = Array.from({ length: SIZE }, () => Array(SIZE).fill(false));
 
 		antXRef.current = Math.floor(SIZE / 2);
@@ -35,6 +37,7 @@ function Ants() {
 	}
 
 	function step() {
+		cnt.current = cnt.current + 1;
 		const ctx = canvasRef.current.getContext("2d");
 		const grid = gridRef.current;
 
@@ -101,7 +104,7 @@ function Ants() {
 				</Button>
 			</div>
 			<p className="ants-position">
-				Ant Position: ({antXRef.current}, {antYRef.current}), Direction: {directionRef.current}
+				Ant Position: ({antXRef.current}, {antYRef.current}), Direction: {directionRef.current}, count {cnt.current}
 			</p>
 		</div>
 	);
