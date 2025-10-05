@@ -14,7 +14,7 @@ function Blog() {
 					<div key={post.id}>
 						<p className='blog-list'>
 							{post.date} :{' '}
-							<Link className='blog-link' to={`/blog/${post.id}`}>
+							<Link className='blog-link' to={`/blog/${post.headName}`}>
 								{post.title}
 							</Link>
 						</p>

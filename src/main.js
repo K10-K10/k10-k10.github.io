@@ -28,7 +28,7 @@ function main() {
 					<Route path='/Tools/Ants' element={<Ant />} />
 					<Route path='/About' element={<About />} />
 					<Route path='/Blog' element={<Blog_home />} />
-					<Route path='/Blog/:id' element={<BlogPost />} />
+					<Route path='/Blog/:headName' element={<BlogPost />} />
 					<Route path='/Projects' element={<Projects_home />} />
 					<Route path='/Tools' element={<Tools_home />} />
 					<Route path='*' element={<NotFound />} />

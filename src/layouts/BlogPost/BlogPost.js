@@ -4,8 +4,9 @@ import Talk from '@layouts/Talk/Talk';
 import Button from '@parts/Button';
 
 function BlogPost() {
-	const { id } = useParams();
-	const post = posts.find(p => p.id === Number(id));
+	const { headName } = useParams();
+	const post = posts.find((p) => p.headName === headName);
+	
 
 	if (!post) return (<h2>Not Found</h2>);
 
