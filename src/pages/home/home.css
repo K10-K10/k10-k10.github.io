@@ -1,9 +1,31 @@
 #home {
-	text-align: center;
+	padding-bottom: 45px;
+	width: 80%;
+	margin: 0 auto;
+	max-width: 800px;
+
+	h1 {
+		text-align: center;
+		padding: 20px;
+	}
+
+	h2 {
+		padding-top: 40px;
+		padding-bottom: 20px;
+	}
+
+
+	ul {
+		list-style-type: none;
+	}
+
+	ul li {
+		padding-bottom: 10px;
+	}
 
 	a {
-		font-size: var(--Max-FontSize);
-		color: var(--primary-color);
-		text-decoration: none;
+		padding-left: 20px;
+		font-size: var(--Base-FontSize);
+		text-align: left;
 	}
 }
