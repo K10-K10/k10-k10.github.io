@@ -1,3 +1,5 @@
+// Make posts.js from Post files
+
 #include <iostream>
 #include <filesystem>
 #include <fstream>
@@ -5,8 +7,8 @@
 #include <vector>
 #include <algorithm>
 
-const std::string POSTS_DIR = "./posts/";
-const std::string JSON_PATH = "./posts.js";
+const std::string POSTS_DIR = "./../src/pages/Blog/posts/";
+const std::string JSON_PATH = "./../src/pages/Blog/posts.js";
 const std::string FIRST_LINE = "export const posts = [";
 const std::string JSON_KEY[5] = {"id:", "title:", "headName:", "date:", "content:"};
 
