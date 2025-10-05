@@ -12,13 +12,17 @@ const std::string JSON_PATH = "./../src/pages/Blog/posts.js";
 const std::string FIRST_LINE = "export const posts = [";
 const std::string JSON_KEY[5] = {"id:", "title:", "headName:", "date:", "content:"};
 
+int skipped_cnt = 0, failed_cnt = 0;
+
+std::vector<bool> id_map(999, false);
+
 struct Post_Data
 {
 	int id;
 	std::string title, headName, date, content;
 };
 
-std::string check_char(std::string &line)
+std::string check_char(const std::string &line)
 {
 	std::string new_line;
 	for (auto c : line)
@@ -51,21 +55,58 @@ bool readPost(const std::string &fileName, const std::string &stem, Post_Data &p
 		case 0:
 			if (line == "no---")
 			{
-				std::cout << stem << " is private, skipped\n";
+				skipped_cnt++;
 				return false;
 			}
 			break;
+
 		case 1:
-			post.id = std::stoi(line);
+		{
+			int id = 0;
+			try
+			{
+				id = std::stoi(line);
+			}
+			catch (...)
+			{
+				std::cerr << "Invalid ID (not number): " << stem << std::endl;
+				failed_cnt++;
+				return false;
+			}
+			if (id < 0 || id >= (int)id_map.size())
+			{
+				std::cerr << "Invalid ID range: " << stem << std::endl;
+				failed_cnt++;
+				return false;
+			}
+			if (id_map[id])
+			{
+				std::cerr << "ID is duplicated: " << stem << std::endl;
+				failed_cnt++;
+				return false;
+			}
+			post.id = id;
+			id_map[id] = true;
 			break;
+		}
+
 		case 2:
 			post.date = check_char(line);
+			if (post.date.size() != 11)
+			{
+				std::cerr << "Date format is wrong: " << stem << std::endl;
+				failed_cnt++;
+				return false;
+			}
 			break;
+
 		case 3:
 			post.title = check_char(line);
 			break;
+
 		case 4:
 			break;
+
 		default:
 			if (!post.content.empty())
 				post.content += "\\n";
@@ -110,6 +151,9 @@ int main()
 	jsonFile << "];\n";
 	jsonFile.close();
 
-	std::cout << "Generated " << posts.size() << " posts successfully.\n";
+	std::cout << "---" << std::endl;
+	std::cout << posts.size() << " posts generated.\n";
+	std::cout << skipped_cnt << " posts skipped.\n";
+	std::cout << failed_cnt << " posts failed.\n";
 	return 0;
 }
