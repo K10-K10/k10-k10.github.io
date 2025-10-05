@@ -20,7 +20,7 @@ Title
 ---
 
 I had never used a file system library before,
-and handling “\n” was difficult.
+and handling “\\n” was difficult.
 
 I wish to add elements such as “title” and “table”.
 Ultimately, I want to be able to write in Markdown format.
