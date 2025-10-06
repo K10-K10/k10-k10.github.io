@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect } from 'react';
 import './Ants.css';
 import Head from '@layouts/Head/Head';
 import Button from '@parts/Button';
@@ -28,17 +28,17 @@ function Ants() {
 		antYRef.current = Math.floor(SIZE / 2);
 		directionRef.current = 0;
 
-		const ctx = canvasRef.current.getContext("2d");
-		ctx.fillStyle = "white";
+		const ctx = canvasRef.current.getContext('2d');
+		ctx.fillStyle = 'white';
 		ctx.fillRect(0, 0, SIZE * CELL, SIZE * CELL);
 
-		ctx.fillStyle = "red";
+		ctx.fillStyle = 'red';
 		ctx.fillRect(antXRef.current * CELL, antYRef.current * CELL, CELL, CELL);
 	}
 
 	function step() {
 		cnt.current = cnt.current + 1;
-		const ctx = canvasRef.current.getContext("2d");
+		const ctx = canvasRef.current.getContext('2d');
 		const grid = gridRef.current;
 
 		let x = antXRef.current;
@@ -48,11 +48,11 @@ function Ants() {
 		if (grid[y][x]) {
 			d = (d + 3) % 4;
 			grid[y][x] = false;
-			ctx.fillStyle = "white";
+			ctx.fillStyle = 'white';
 		} else {
 			d = (d + 1) % 4;
 			grid[y][x] = true;
-			ctx.fillStyle = "black";
+			ctx.fillStyle = 'black';
 		}
 
 		ctx.fillRect(x * CELL, y * CELL, CELL, CELL);
@@ -64,7 +64,7 @@ function Ants() {
 			case 3: x = (x - 1 + SIZE) % SIZE; break;
 		}
 
-		ctx.fillStyle = "red";
+		ctx.fillStyle = 'red';
 		ctx.fillRect(x * CELL, y * CELL, CELL, CELL);
 
 		antXRef.current = x;
@@ -86,24 +86,24 @@ function Ants() {
 	}, []);
 
 	return (
-		<div className="ants">
+		<div className='ants'>
 			<Head title={"Langton's ant"} link_title={"Langton's ant simulator"} />
-			<h1 className="ants-title">Langton's ant</h1>
+			<h1 className={"ants-title"}>Langton's ant</h1>
 			<canvas
-				className="ants-canvas"
+				className='ants-canvas'
 				ref={canvasRef}
 				width={SIZE * CELL}
 				height={SIZE * CELL}
-				style={{ border: "1px solid black" }}
+				style={{ border: '1px solid black' }}
 			/>
-			<div className="ants-controls" style={{ marginTop: "10px" }}>
+			<div className='ants-controls' style={{ marginTop: '10px' }}>
 				<Button onClick={reset}>Reset</Button>
 				<Button onClick={step}>Step</Button>
 				<Button onClick={() => setIsRunning(!isRunning)}>
-					{isRunning ? "Stop" : "Start"}
+					{isRunning ? 'Stop' : 'Start'}
 				</Button>
 			</div>
-			<p className="ants-position">
+			<p className='ants-position'>
 				Ant Position: ({antXRef.current}, {antYRef.current}), Direction: {directionRef.current}, count {cnt.current}
 			</p>
 		</div>

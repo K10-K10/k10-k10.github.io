@@ -11,14 +11,14 @@ function home() {
 				<p>
 					New `langton's ant`
 				</p>
-			<h2>Latest Blog Posts</h2>
-			<ul>
-				{posts.slice(-3).reverse().map(p => (
-					<li key={p.headName}>
-						<a href={`/#/Blog/${p.headName}`}>{p.title}</a>
-					</li>
-				))}
-			</ul>
+				<h2>Latest Blog Posts</h2>
+				<ul>
+					{posts.slice(-3).reverse().map(p => (
+						<li key={p.headName}>
+							<a href={`/#/Blog/${p.headName}`}>{p.title}</a>
+						</li>
+					))}
+				</ul>
 			</div>
 		</div>
 	)

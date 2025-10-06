@@ -24,8 +24,8 @@ function Header() {
 	return (
 		<header className='header'>
 			<a href='/#/' className='title'>K10-K10</a>
-			<label id="hamburger-menu">
-				<input id="menu" type="checkbox" />
+			<label id='hamburger-menu'>
+				<input id='menu' type='checkbox' />
 				<div id='topic_scope_bg'>
 					<div id='topic_scope'>
 						{topics.map((topic, i) => (
@@ -39,7 +39,7 @@ function Header() {
 						))}
 					</div>
 				</div>
-				<div id="box"><span id="bar"></span></div>
+				<div id='box'><span id='bar'></span></div>
 			</label>
 			<Button onClick={modeButton} style={{ width: 'var(--width)', fontSize: 'var(--font-size)' }}>
 				{mode === 'dark' ? 'Light' : 'Dark'}
