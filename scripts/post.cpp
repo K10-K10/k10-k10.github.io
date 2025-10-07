@@ -109,7 +109,7 @@ bool readPost(const std::string &fileName, const std::string &stem, Post_Data &p
 
 		default:
 			if (!post.content.empty())
-				post.content += "\\n";
+				post.content += "\\\n\\n";
 			post.content += check_char(line);
 			break;
 		}
