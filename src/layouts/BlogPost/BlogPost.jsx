@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom';
+//import { useParams } from 'react-router-dom';
 import { posts } from '@pages/Blog/posts';
 import Talk from '@layouts/Talk/Talk';
 import Button from '@parts/Button';

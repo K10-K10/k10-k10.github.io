@@ -1,5 +1,5 @@
 import { posts } from './posts';
-import { Link } from 'react-router-dom';
+//import { Link } from 'react-router-dom';
 import Talk from '@layouts/Talk/Talk';
 import Head from '@layouts/Head/Head';
 
