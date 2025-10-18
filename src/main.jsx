@@ -1,4 +1,4 @@
-//import { HashRouter as Router, Route, Routes } from 'react-router-dom';
+import { HashRouter as Router, Route, Routes } from 'react-router-dom';
 
 import Header from '@layouts/Header/header';
 import Footer from '@layouts/Footer/footer';
@@ -15,7 +15,7 @@ import Blog_home from '@pages/Blog/Blog';
 import BlogPost from '@layouts/BlogPost/BlogPost';
 import Tools_home from '@pages/Tools/Tools';
 
-function main() {
+export default function Main() {
 	return (
 		<Router>
 			<Head title={"Home"} link_title={"K10-K10's site top page"} />
@@ -38,5 +38,3 @@ function main() {
 		</Router>
 	)
 }
-
-export default main;
