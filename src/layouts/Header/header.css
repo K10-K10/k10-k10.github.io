@@ -48,6 +48,9 @@
 	display: none;
 }
 
+.header .theme {
+	margin-right: 20px;
+}
 
 @media screen and (max-width:815px) {
 	.header {

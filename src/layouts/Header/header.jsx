@@ -41,10 +41,13 @@ function Header() {
 				</div>
 				<div id='box'><span id='bar'></span></div>
 			</label>
-			<Button onClick={modeButton} style={{ width: 'var(--width)', fontSize: 'var(--font-size)' }}>
-				{mode === 'dark' ? 'Light' : 'Dark'}
-			</Button>
-		</header>
+			{/*<Button onClick={modeButton} style={{ width: 'var(--width)', fontSize: 'var(--font-size)' }}>*/}
+			<div className="theme" onClick={modeButton}>
+				{mode === 'dark' ? <img src="/SVG-icons/svg/moon-w.svg"></img> : <img src="/SVG-icons/svg/sun-w.svg"></img>
+				}
+			</div >
+			{/*</Button>*/}
+		</header >
 	);
 }
 
