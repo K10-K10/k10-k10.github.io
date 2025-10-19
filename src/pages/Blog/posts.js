@@ -36,6 +36,21 @@ export const posts = [
 \nUltimately, I want to be able to write in Markdown format.'
   },
   {
+    id: 4,
+    title: 'Transitioned from `Create React App` to `Vite`',
+    headName: 'vite',
+    date: '19-Oct-2025',
+    content: 'On February 14, 2025, `Create React App` was officially deprecated.\
+\nI learnt about this from a comment on Qiita.\
+\nI thank the person who told me.\
+\n\
+\nSo, I decided to migrate to `Vite`, a fast and modern build tool.\
+\nI thought it would be complicated, but it turned out to be very simple.\
+\n\
+\nSo far, I haven’t encountered any issues.\
+\n'
+  },
+  {
     id: 2,
     title: 'Added langton\'s ant',
     headName: 'langton',
