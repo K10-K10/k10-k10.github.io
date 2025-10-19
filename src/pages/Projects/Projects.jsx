@@ -10,6 +10,9 @@ function Projects_home() {
 			<ProjectDesc title={'Profile'} url={'https://github.com/K10-K10/K10-K10'}>
 				Manage my GitHub profile
 			</ProjectDesc>
+			<ProjectDesc title={'SVG'} url={'https://github.com/K10-K10/SVG-icons'}>
+				The SVG icon library used on this website.
+			</ProjectDesc>
 		</div>
 	)
 }
