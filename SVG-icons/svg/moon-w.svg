@@ -1,11 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" x="0" y="0" width="24" height="24" viewBox="0 0 100 100" stroke="#000"
-	stroke-width="1" fill="none">
-	<defs>
-		<mask id="moonMask">
-			<circle cx="45" cy="48" r="30" fill="white" />
-			<circle cx="35" cy="38" r="30" fill="black" />
-		</mask>
-	</defs>
-	<circle cx="50" cy="43" r="30" fill="white" mask="url(#moonMask)" />
+<svg xmlns="http://www.w3.org/2000/svg" x="0" y="0" width="24" height="24" viewBox="0 0 100 100" stroke="#FFF"
+	stroke-width="1" fill="#FFF">
+	<path d="M 65,20 A 1,1,0,0,1,30,80  S 79,79 65,20" />
 </svg>
-
