@@ -30,7 +30,15 @@ I had never used a file system library before,
 and handling “\\n” was difficult.
 
 I wish to add elements such as “title” and “table”.
-Ultimately, I want to be able to write in Markdown format.`},{id:2,title:`Added langton's ant`,headName:`langton`,date:`04-Oct-2025`,content:`I added a new page about Langton's Ant.
+Ultimately, I want to be able to write in Markdown format.`},{id:4,title:"Transitioned from `Create React App` to `Vite`",headName:`vite`,date:`19-Oct-2025`,content:`On February 14, 2025, \`Create React App\` was officially deprecated.
+I learnt about this from a comment on Qiita.
+I thank the person who told me.
+
+So, I decided to migrate to \`Vite\`, a fast and modern build tool.
+I thought it would be complicated, but it turned out to be very simple.
+
+So far, I haven’t encountered any issues.
+`},{id:2,title:`Added langton's ant`,headName:`langton`,date:`04-Oct-2025`,content:`I added a new page about Langton's Ant.
 It was my first time creating a program using JavaScript,
 and I learned a lot from it.
 It was difficult to make it display quickly.
