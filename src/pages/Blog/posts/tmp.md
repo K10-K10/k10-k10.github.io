@@ -1,6 +1,6 @@
 no---
 ID
-Date(DD-MMM-YYYY)
+Date(DD-Mmm-YYYY)
 Title
 ---
 Contents
