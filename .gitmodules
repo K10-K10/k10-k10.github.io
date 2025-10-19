@@ -1,0 +1,3 @@
+[submodule "SVG-icons"]
+	path = SVG-icons
+	url = git@github.com:K10-K10/SVG-icons.git
