@@ -18,7 +18,7 @@ import Tools_home from '@pages/Tools/Tools';
 export default function Main() {
 	return (
 		<Router>
-			<Head title={"Home"} link_title={"K10-K10's site top page"} />
+			<Head title={'Home'} link_title={"K10-K10's site top page"} />
 			<Header />
 			<div id='main'>
 				<Routes>
