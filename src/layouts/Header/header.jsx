@@ -1,5 +1,5 @@
 import './header.css';
-import Button from '@parts/Button';
+import Icon from '@parts/Icon';
 import { useState, useEffect } from 'react';
 
 function Header() {
@@ -42,7 +42,7 @@ function Header() {
 				<div id='box'><span id='bar'></span></div>
 			</label>
 			<div className='theme' onClick={modeButton}>
-				{mode === 'dark' ? <img src='/SVG-icons/svg/moon-w.svg' /> : <img src='/SVG-icons/svg/sun-w.svg' />
+				{mode === 'dark' ? <Icon iconName="moon" theme="light" /> : <Icon iconName="sun" theme="light" />
 
 				}
 			</div >
