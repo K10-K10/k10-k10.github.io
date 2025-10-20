@@ -88,7 +88,7 @@ function Ants() {
 	return (
 		<div className='ants'>
 			<Head title={"Langton's ant"} link_title={"Langton's ant simulator"} />
-			<h1 className={"ants-title"}>Langton's ant</h1>
+			<h1 className={'ants-title'}>Langton's ant</h1>
 			<canvas
 				className='ants-canvas'
 				ref={canvasRef}

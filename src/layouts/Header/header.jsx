@@ -41,7 +41,7 @@ function Header() {
 				</div>
 				<div id='box'><span id='bar'></span></div>
 			</label>
-			<div className="theme" onClick={modeButton}>
+			<div className='theme' onClick={modeButton}>
 				{mode === 'dark' ? <img src='/SVG-icons/svg/moon-w.svg' /> : <img src='/SVG-icons/svg/sun-w.svg' />
 
 				}
