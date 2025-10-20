@@ -25,6 +25,11 @@
 		gap: 10px;
 	}
 
+	.ants-controls img {
+		width: 24px;
+		height: 24px;
+	}
+
 	.ants-position {
 		text-align: center;
 	}

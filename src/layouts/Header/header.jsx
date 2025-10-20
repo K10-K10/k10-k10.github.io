@@ -42,7 +42,7 @@ function Header() {
 				<div id='box'><span id='bar'></span></div>
 			</label>
 			<div className='theme' onClick={modeButton}>
-				{mode === 'dark' ? <Icon iconName="moon" theme="light" /> : <Icon iconName="sun" theme="light" />
+				{mode === 'dark' ? <Icon name="moon" theme="light" /> : <Icon name="sun" theme="light" />
 
 				}
 			</div >

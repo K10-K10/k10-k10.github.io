@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from 'react';
 import './Ants.css';
 import Head from '@layouts/Head/Head';
 import Button from '@parts/Button';
+import Icon from '@parts/Icon';
 
 const SIZE = 100;
 const CELL = 5;
@@ -100,7 +101,7 @@ function Ants() {
 				<Button onClick={reset}>Reset</Button>
 				<Button onClick={step}>Step</Button>
 				<Button onClick={() => setIsRunning(!isRunning)}>
-					{isRunning ? 'Stop' : 'Start'}
+					{isRunning ? <Icon name="stop" theme="re" /> : <Icon name="start" theme="re" />}
 				</Button>
 			</div>
 			<p className='ants-position'>
