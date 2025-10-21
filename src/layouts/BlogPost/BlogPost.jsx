@@ -1,8 +1,10 @@
 import { useParams, useNavigate } from 'react-router-dom';
+import './BlogPost.css'
 import { posts } from '@pages/Blog/posts';
 import Talk from '@layouts/Talk/Talk';
 import Button from '@parts/Button';
 import NotFound from '@pages/404/404';
+import Icon from '@parts/Icon';
 
 export default function BlogPost() {
 	const { headName } = useParams();
@@ -42,18 +44,14 @@ export default function BlogPost() {
 					{post.content}
 				</pre>
 
-				<Button onClick={handleForward}>
-					Forward
-				</Button>
-				<a href='#/Blog' className='list-button'>
-					<Button style={{ margin: '40px 0px 20px' }}>
-						Back to Blog List
+				<div className="blog-buttons">
+					<Button className="forwardBlog" onClick={handleForward}>
+						<Icon name="left" theme="re" />
 					</Button>
-				</a>
-
-				<Button onClick={handleNext}>
-					Next
-				</Button>
+					<Button className="nextBlog" onClick={handleNext}>
+						<Icon name="right" theme="re" />
+					</Button>
+				</div>
 			</Talk>
 		</div >
 	);
