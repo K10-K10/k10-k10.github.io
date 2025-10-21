@@ -1,27 +1,32 @@
 import { useState, useEffect } from "react";
 
-export default function Icon({ name, theme } = {}) {
-	const [tMode, setTMode] = useState("light");
+export default function Icon({ name, theme, style } = {}) {
+	let [color, setColor] = useState();
+	const [svgContent, setSvgContent] = useState();
+	const src = `/SVG-icons/svg/${name}.svg`;
 
 	useEffect(() => {
-		const browser_setting = "light";
-		let mode;
-
-		if (theme === "none" || !theme) {
-			mode = localStorage.getItem("mode") || browser_setting;
-		} else if (theme === "re") {
-			const dMode = localStorage.getItem("mode") || browser_setting;
-			mode = dMode === "light" ? "dark" : "light";
+		if (theme == 'light') {
+			color = 'var(--white-color)';
+		} else if (theme == 'dark') {
+			color = 'var(--black-color)';
+		} else if (theme == 're') {
+			color = 'var(--reverse-color)';
 		} else {
-			mode = theme === "light" ? "light" : "dark";
+			color = document.body.dataset.theme == 'dark' ? 'var(--black-color)' : 'var(--white-color)';
 		}
-		setTMode(mode);
-	}, [theme, localStorage.getItem("mode")]);
-	const fileName = `/SVG-icons/svg/${name}${tMode === "light" ? "-w.svg" : ".svg"}`;
+		setColor(color)
+
+		fetch(src)
+			.then((res) => res.text())
+			.then((text) => setSvgContent(text))
+			.catch(console.error);
+	}, [src, theme]);
 
 	return (
-		<div>
-			<img src={fileName} alt={name} />
-		</div>
-	);
+		<div
+			style={{ color: color, margin: 'auto', height: '24px', width: '24px', ...style }}
+			dangerouslySetInnerHTML={{ __html: svgContent }}
+		/>
+	)
 }

@@ -14,6 +14,7 @@ function Button({
 		borderRadius: '10px',
 		fontFamily: 'inherit',
 		fontSize: 'var(--Base-FontSize)',
+		textAlign: 'center',
 		...style,
 	};
 

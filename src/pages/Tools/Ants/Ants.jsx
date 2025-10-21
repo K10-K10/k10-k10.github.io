@@ -101,7 +101,7 @@ function Ants() {
 				<Button onClick={reset}>Reset</Button>
 				<Button onClick={step}>Step</Button>
 				<Button onClick={() => setIsRunning(!isRunning)}>
-					{isRunning ? <Icon name="stop" theme="re" /> : <Icon name="start" theme="re" />}
+					<Icon name={isRunning ? 'stop' : 'start'} theme="re" />
 				</Button>
 			</div>
 			<p className='ants-position'>

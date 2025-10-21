@@ -4,20 +4,16 @@ import { useState, useEffect } from 'react';
 
 function Header() {
 	const topics = ['Projects', 'Tools', 'Blog', 'About'];
-	const [mode, setMode] = useState('light');
+	const [mode, setMode] = useState(window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+	localStorage.removeItem('mode');
 
 	useEffect(() => {
-		const browser_setting = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-		const savedMode = localStorage.getItem('mode') || browser_setting;
-		setMode(savedMode);
-		document.body.setAttribute('data-theme', savedMode);
-	}, []);
+		document.body.setAttribute('data-theme', mode);
+	}, [mode]);
 
 	const modeButton = () => {
-		const newMode = mode === 'dark' ? 'light' : 'dark';
-		setMode(newMode);
-		localStorage.setItem('mode', newMode);
-		document.body.setAttribute('data-theme', newMode);
+		document.body.setAttribute('data-theme', mode === 'dark' ? 'light' : 'dark');
+		setMode(document.body.dataset.theme);
 	};
 
 
@@ -42,9 +38,7 @@ function Header() {
 				<div id='box'><span id='bar'></span></div>
 			</label>
 			<div className='theme' onClick={modeButton}>
-				{mode === 'dark' ? <Icon name="moon" theme="light" /> : <Icon name="sun" theme="light" />
-
-				}
+				<Icon name={mode === 'dark' ? 'moon' : 'sun'} theme='light' style={{ height: '24px', width: '24px' }} />
 			</div >
 		</header >
 	);

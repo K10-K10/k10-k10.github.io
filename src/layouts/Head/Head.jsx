@@ -15,8 +15,8 @@ function Head({ linkTitle, link_title, description }) {
 		linkTitle = 'K10-K10';
 	}
 	return (
-		<head>
-			<meta charset='UTF-8' />
+		<div>
+			<meta charSet='UTF-8' />
 			<meta name='viewport' content='width=device-width, initial-scale=1.0' />
 			<meta name='description' content={link_title} />
 			<link rel='icon' href='https://K10-K10.github.io/favicon.ico' />
@@ -31,7 +31,7 @@ function Head({ linkTitle, link_title, description }) {
 			<meta name='twitter:linkTitle' content={linkTitle} />
 			<meta name='twitter:description' content={description} />
 			<meta name='theme-color' content='#00323C' />
-		</head>
+		</div>
 	)
 }
 
