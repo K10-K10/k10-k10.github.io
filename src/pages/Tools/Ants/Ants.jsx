@@ -98,8 +98,8 @@ function Ants() {
 				style={{ border: '1px solid black' }}
 			/>
 			<div className='ants-controls' style={{ marginTop: '10px' }}>
-				<Button onClick={reset}>Reset</Button>
-				<Button onClick={step}>Step</Button>
+				<Button onClick={reset}><Icon name="reset" theme="re" /></Button>
+				<Button onClick={step}><Icon name="jump" theme="re" /></Button>
 				<Button onClick={() => setIsRunning(!isRunning)}>
 					<Icon name={isRunning ? 'stop' : 'start'} theme="re" />
 				</Button>
