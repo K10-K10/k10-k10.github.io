@@ -1,17 +1,12 @@
-function Code({
-	children,
-	style = {},
-} = {}) {
-	const styles = {
-		background: 'var(--border-color)',
-		display: 'inline-block',
-		padding: '5px 5px',
-		borderRadius: '8%',
-		...style,
-	};
+import './Code.css'
+
+export default function Code({ lang, children }) {
 	return (
-		<div style={styles}>{children}</div>
+		<div className="Code">
+			<p className="Code-desc">{lang}</p>
+			<pre className="Code-txt">
+				<code>{children}</code>
+			</pre>
+		</div>
 	);
 }
-
-export default Code;
