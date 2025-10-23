@@ -88,7 +88,7 @@ function Ants() {
 
 	return (
 		<div className='ants'>
-			<Head title={"Langton's ant"} link_title={"Langton's ant simulator"} />
+			<Head title={"Langton's ant"} linkTitle={'Ants'} description={"K10-K10 site - Langton's ant simulator"} />
 			<h1 className={'ants-title'}>Langton's ant</h1>
 			<canvas
 				className='ants-canvas'

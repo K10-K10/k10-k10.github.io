@@ -31,7 +31,7 @@ function Github() {
 
 	return (
 		<div className='github'>
-			<Head title={'Github API'} link_title={'K10-K10 site - Use Github-API'} />
+			<Head title={'Github API'} linkTitle={'Github'} description={'K10-K10 site - Use Github-API'} />
 			<Input
 				type='text'
 				label='Github User Name'

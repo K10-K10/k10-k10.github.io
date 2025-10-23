@@ -8,7 +8,7 @@ function Blog() {
 
 	return (
 		<div className='blog-home'>
-			<Head title='Blog' />
+			<Head title={'Blog Top Page'} linkTitle={'Blog'} description={'K10-K10 site - Blog top page'} />
 			<Talk title='Blog'>
 				{sortedPosts.map(post => (
 					<div key={post.id}>

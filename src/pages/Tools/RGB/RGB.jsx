@@ -25,7 +25,7 @@ function RGB() {
 
 	return (
 		<div id='RGB'>
-			<Head title={'React Test'} link_title={'K10-K10 site - React test page'} />
+			<Head title={'React Test'} linkTitle={'RGB'} description={'K10-K10 site - React test page'} />
 			<h1>RGB checker</h1>
 			<div>
 				<p className='RGB'>R: {R}</p>

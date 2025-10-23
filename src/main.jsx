@@ -19,7 +19,7 @@ import Docs from '@pages/Docs/Docs';
 export default function Main() {
 	return (
 		<Router>
-			<Head title={'Home'} link_title={"K10-K10's site top page"} />
+			<Head title={'Home'} linkTitle={'Home'} description={"K10-K10 site - top page"} />
 			<Header />
 			<div id='main'>
 				<Routes>
