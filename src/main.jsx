@@ -14,6 +14,7 @@ import Projects_home from '@pages/Projects/Projects';
 import Blog_home from '@pages/Blog/Blog';
 import BlogPost from '@layouts/BlogPost/BlogPost';
 import Tools_home from '@pages/Tools/Tools';
+import Docs from '@pages/Docs/Docs';
 
 export default function Main() {
 	return (
@@ -32,6 +33,7 @@ export default function Main() {
 					<Route path='/Projects' element={<Projects_home />} />
 					<Route path='/Tools' element={<Tools_home />} />
 					<Route path='*' element={<NotFound />} />
+					<Route path='/Docs' element={<Docs />} />
 				</Routes>
 			</div>
 			<Footer />
