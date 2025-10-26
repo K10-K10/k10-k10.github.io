@@ -1,0 +1,53 @@
+{
+  "compilerOptions": {
+    "rootDir": "./src",
+    "outDir": "./dist",
+    // Environment
+    "module": "esnext",
+    "target": "esnext",
+    "lib": [
+      "esnext",
+      "dom"
+    ],
+    "moduleResolution": "bundler",
+    // Type definitions
+    "types": [
+      "react",
+      "react-dom"
+    ],
+    // Output
+    "sourceMap": true,
+    "declaration": true,
+    "declarationMap": true,
+    // Strict type checking
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "exactOptionalPropertyTypes": true,
+    // JSX
+    "jsx": "react-jsx",
+    // Aliases
+    "baseUrl": "src",
+    "paths": {
+      "@parts/*": [
+        "ui-parts/*"
+      ],
+      "@pages/*": [
+        "pages/*"
+      ],
+      "@layouts/*": [
+        "layouts/*"
+      ]
+    },
+    // Performance & compatibility
+    "skipLibCheck": true,
+    "isolatedModules": true,
+    "moduleDetection": "auto"
+  },
+  "include": [
+    "src"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
+}
