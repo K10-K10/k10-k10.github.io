@@ -1,8 +1,9 @@
-import { useState } from 'react';
+import { useState, ReactNode } from 'react';
 import './Accordion.css';
 
-function Accordion({ title, children }) {
-	const [isOpen, setIsOpen] = useState(false);
+type AccordionProps = { title: string; children: ReactNode; }
+export default function Accordion({ title, children }: AccordionProps) {
+	const [isOpen, setIsOpen] = useState<boolean>(false);
 
 	return (
 		<div className='accordion'>
@@ -22,5 +23,3 @@ function Accordion({ title, children }) {
 		</div>
 	);
 }
-
-export default Accordion;

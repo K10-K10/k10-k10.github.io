@@ -1,7 +1,8 @@
 import './Head.css';
 import { useEffect } from 'react';
 
-function Head({ linkTitle, title, description }) {
+type HeadProps = { linkTitle: string; title: string; description: string; }
+export default function Head({ linkTitle, title, description }: HeadProps) {
 	useEffect(() => {
 		if (linkTitle) {
 			linkTitle = `K10-K10 | ${linkTitle}`;
@@ -30,5 +31,3 @@ function Head({ linkTitle, title, description }) {
 		</div>
 	)
 }
-
-export default Head;

@@ -1,5 +1,5 @@
-import './footer.css';
-function Footer() {
+import './Footer.css';
+export default function Footer() {
 	return (
 		<footer>
 			<div className='footer_icon'>
@@ -14,5 +14,3 @@ function Footer() {
 		</footer>
 	);
 }
-
-export default Footer;

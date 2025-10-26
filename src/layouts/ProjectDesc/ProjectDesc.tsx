@@ -2,11 +2,12 @@ import './ProjectDesc.css';
 import Accordion from '@layouts/Accordion/Accordion';
 import Spacer from '@parts/Spacer';
 
-function ProjectDesc({
+type ProjectDescProps = { title: string; url: string; children: React.ReactNode; }
+export default function ProjectDesc({
 	title,
 	url,
 	children
-} = {}) {
+}: ProjectDescProps) {
 	return (
 		<div className='projectDesc'>
 			<Accordion title={title}>
@@ -23,5 +24,3 @@ function ProjectDesc({
 		</div>
 	);
 }
-
-export default ProjectDesc;

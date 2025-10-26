@@ -1,7 +1,9 @@
+import { ReactNode } from 'react';
 import './CodeSpace.css';
 import Fieldset from '@parts/Fieldset';
 
-function CodeSpace({ children, filename }) {
+type CodeSpaceProps = { filename: string; children: ReactNode; }
+export default function CodeSpace({ filename, children }: CodeSpaceProps) {
 	return (
 		<div className='codespace'>
 			<Fieldset legend={filename}>
@@ -12,5 +14,3 @@ function CodeSpace({ children, filename }) {
 		</div>
 	);
 }
-
-export default CodeSpace;

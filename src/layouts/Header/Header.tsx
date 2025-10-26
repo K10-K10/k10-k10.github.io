@@ -1,21 +1,20 @@
-import './header.css';
+import './Header.css';
 import Icon from '@parts/Icon';
 import { useState, useEffect } from 'react';
 
-function Header() {
+export default function Header() {
 	const topics = ['Projects', 'Tools', 'Blog', 'About'];
-	const [mode, setMode] = useState(window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+	const [mode, setMode] = useState<'light' | 'dark'>(window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
 	localStorage.removeItem('mode');
 
 	useEffect(() => {
 		document.body.setAttribute('data-theme', mode);
+		localStorage.setItem('mode', mode);
 	}, [mode]);
 
 	const modeButton = () => {
-		document.body.setAttribute('data-theme', mode === 'dark' ? 'light' : 'dark');
-		setMode(document.body.dataset.theme);
+		setMode(prev => (prev === 'dark' ? 'light' : 'dark'));
 	};
-
 
 	return (
 		<header className='header'>
@@ -43,5 +42,3 @@ function Header() {
 		</header >
 	);
 }
-
-export default Header;

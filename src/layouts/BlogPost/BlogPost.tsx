@@ -1,6 +1,6 @@
 import { useParams, useNavigate } from 'react-router-dom';
 import './BlogPost.css'
-import { posts } from '@pages/Blog/posts';
+import { Post, posts } from '@pages/Blog/posts';
 import Talk from '@layouts/Talk/Talk';
 import Button from '@parts/Button';
 import NotFound from '@pages/404/404';
@@ -9,12 +9,12 @@ import Icon from '@parts/Icon';
 export default function BlogPost() {
 	const { headName } = useParams();
 	const navigate = useNavigate();
-	const post = posts.find((p) => p.headName === headName);
+	const post: Post | undefined = posts.find((p: Post) => p.headName === headName);
 
 	if (!post) return <NotFound />;
 
 	const handleNext = () => {
-		const nextPost = posts.find(item => item.id === post.id + 1);
+		const nextPost = posts.find((item: Post) => item.id === post.id + 1);
 		if (nextPost) {
 			navigate(`/Blog/${nextPost.headName}`);
 		} else {
@@ -22,7 +22,7 @@ export default function BlogPost() {
 		}
 	};
 	const handleForward = () => {
-		const nextPost = posts.find(item => item.id === post.id - 1);
+		const nextPost = posts.find((item: Post) => item.id === post.id - 1);
 		if (nextPost) {
 			navigate(`/Blog/${nextPost.headName}`);
 		} else {
