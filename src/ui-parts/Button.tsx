@@ -1,9 +1,13 @@
-function Button({
+type ButtonProps = {
+	onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void; style?: React.CSSProperties; disabled: boolean; children: React.ReactNode;
+}
+
+export default function Button({
 	children,
 	onClick,
 	disabled = false,
 	style = {}
-} = {}) {
+}: ButtonProps) {
 	const styles = {
 		margin: '10px',
 		height: '50px',
@@ -14,7 +18,7 @@ function Button({
 		borderRadius: '10px',
 		fontFamily: 'inherit',
 		fontSize: 'var(--Base-FontSize)',
-		textAlign: 'center',
+		textAlign: 'center' as const,
 		...style,
 	};
 
@@ -29,5 +33,3 @@ function Button({
 		</button>
 	);
 }
-
-export default Button;

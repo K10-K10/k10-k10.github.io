@@ -1,9 +1,10 @@
-function Fieldset({
+type FieldsetProps = { legend: React.ReactNode; children: React.ReactNode; f_style: React.CSSProperties; l_style: React.CSSProperties; }
+export default function Fieldset({
 	children,
 	legend,
 	f_style = {},
 	l_style = {}
-} = {}) {
+}: FieldsetProps) {
 	const styles = {
 		fieldset: {
 			...f_style
@@ -23,5 +24,3 @@ function Fieldset({
 		</fieldset>
 	)
 }
-
-export default Fieldset;

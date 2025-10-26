@@ -1,10 +1,17 @@
+import React from 'react';
 import Button from './Button';
 
-function Dialog({ children, dialog_style = {}, button_style = {} }) {
-	const styles = {
+type DialogProps = {
+	dialog_style?: React.CSSProperties;
+	button_style?: React.CSSProperties;
+	children: React.ReactNode;
+};
+
+function Dialog({ children, dialog_style = {}, button_style = {} }: DialogProps) {
+	const styles: { dialog: React.CSSProperties; closeButton: React.CSSProperties } = {
 		dialog: {
 			position: 'absolute',
-			margin: '0px',
+			margin: 0,
 			padding: '16px',
 			borderRadius: '16px',
 			border: 'none',
@@ -30,9 +37,9 @@ function Dialog({ children, dialog_style = {}, button_style = {} }) {
 		<dialog open style={styles.dialog}>
 			{children}
 			<form method='dialog'>
-				<Button style={styles.closeButton}>OK</Button>
+				<Button style={styles.closeButton} disabled={false}>OK</Button>
 			</form>
-		</dialog>
+		</dialog >
 	);
 }
 

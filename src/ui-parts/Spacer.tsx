@@ -1,4 +1,4 @@
-function Spacer({ style = {} } = {}) {
+export default function Spacer({ style = {} } = {}) {
 	const styles = {
 		spacer: {
 			padding: '15px',
@@ -9,5 +9,3 @@ function Spacer({ style = {} } = {}) {
 		<div style={(styles.spacer)} />
 	);
 }
-
-export default Spacer;

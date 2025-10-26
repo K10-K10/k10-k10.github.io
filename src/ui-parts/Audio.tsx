@@ -1,7 +1,8 @@
-function Audio({
+type AudioProps = { src: string; style: React.CSSProperties }
+export default function Audio({
 	src,
 	style = {}
-} = {}) {
+}: AudioProps) {
 	const styles = {
 		...style
 	}
@@ -10,5 +11,3 @@ function Audio({
 		</audio>
 	)
 }
-
-export default Audio;
