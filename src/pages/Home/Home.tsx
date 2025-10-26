@@ -1,4 +1,4 @@
-import './home.css';
+import './Home.css';
 import { posts } from '@pages/Blog/posts';
 
 function home() {

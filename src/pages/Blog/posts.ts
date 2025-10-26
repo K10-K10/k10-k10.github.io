@@ -1,4 +1,12 @@
-export const posts = [
+export interface Post {
+  id: number;
+  headName: string;
+  title: string;
+  date: string;
+  content: string;
+}
+
+export const posts: Post[] = [
   {
     id: 1,
     title: 'First blog',
