@@ -45,10 +45,10 @@ export default function BlogPost() {
 				</pre>
 
 				<div className="blog-buttons">
-					<Button className="forwardBlog" onClick={handleForward}>
+					<Button className="forwardBlog" onClick={handleForward} disabled={true}>
 						<Icon name="left" theme="re" />
 					</Button>
-					<Button className="nextBlog" onClick={handleNext}>
+					<Button className="nextBlog" onClick={handleNext} disabled={true}>
 						<Icon name="right" theme="re" />
 					</Button>
 				</div>

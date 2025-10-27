@@ -29,18 +29,18 @@ function RGB() {
 			<h1>RGB checker</h1>
 			<div>
 				<p className='RGB'>R: {R}</p>
-				<Button children={'R + 5'} onClick={() => setR(R + 5)} />
-				<Button children={'R - 5'} onClick={() => setR(R - 5)} />
+				<Button children={'R + 5'} onClick={() => setR(R + 5)} disabled={false} />
+				<Button children={'R - 5'} onClick={() => setR(R - 5)} disabled={false} />
 			</div>
 			<div>
 				<p className='RGB'>G: {G}</p>
-				<Button children={'G + 5'} onClick={() => setG(G + 5)} />
-				<Button children={'G - 5'} onClick={() => setG(G - 5)} />
+				<Button children={'G + 5'} onClick={() => setG(G + 5)} disabled={false} />
+				<Button children={'G - 5'} onClick={() => setG(G - 5)} disabled={false} />
 			</div>
 			<div>
 				<p className='RGB'>B: {B}</p>
-				<Button children={'B + 5'} onClick={() => setB(B + 5)} />
-				<Button children={'B - 5'} onClick={() => setB(B - 5)} />
+				<Button children={'B + 5'} onClick={() => setB(B + 5)} disabled={false} />
+				<Button children={'B - 5'} onClick={() => setB(B - 5)} disabled={false} />
 			</div>
 			<canvas id='myCanvas' ref={canvasRef} width={100} height={100} />
 		</div>
