@@ -1,5 +1,5 @@
 import { useParams, useNavigate } from 'react-router-dom';
-import './BlogPost.css'
+import './BlogPost.css';
 import { Post, posts } from '@pages/Blog/posts';
 import Talk from '@layouts/Talk/Talk';
 import Button from '@parts/Button';

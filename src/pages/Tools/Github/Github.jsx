@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import './Github.css';
 import Input from '@parts/Input';
-import Dialog from '@parts/Dialog';
+import Snackbar from 'https://hatuna-827.github.io/module/snackbar.js';
 import Head from '@layouts/Head/Head';
 import Button from '@parts/Button';
 
@@ -12,7 +12,7 @@ function Github() {
 
 	const handleClick = async () => {
 		if (!name) {
-			setErrors((prev) => [...prev, 'Error: name is required']);
+			Snackbar({ context: 'Error: name is required', type: 'Err' });
 			return;
 		}
 
@@ -25,7 +25,7 @@ function Github() {
 			setRepos(data);
 		} catch (error) {
 			console.error('Request error:', error);
-			setErrors((prev) => [...prev, 'API failed']);
+			Snackbar({ context: 'API failed', type: "Err" });
 		}
 	};
 
@@ -40,12 +40,6 @@ function Github() {
 				tmp='Input'
 			/>
 			<Button onClick={handleClick}>API</Button>
-
-			{errors.map((msg, index) => (
-				<Dialog key={index} button_style={{ color: 'var(--error-color)', }}>
-					<p>{msg}</p>
-				</Dialog>
-			))}
 
 			<ul>
 				{repos.map((repo) => (

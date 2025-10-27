@@ -24,6 +24,7 @@ export default function Input({
 			...label_style
 		},
 		input: {
+			fontSize: 'var(--Base-FontSize)',
 			fontFamily: 'inherit',
 			backgroundColor: 'var(--background-color)',
 			padding: '10px',

@@ -9,7 +9,6 @@ export default function Header() {
 
 	useEffect(() => {
 		document.body.setAttribute('data-theme', mode);
-		localStorage.setItem('mode', mode);
 	}, [mode]);
 
 	const modeButton = () => {
