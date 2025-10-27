@@ -13,7 +13,8 @@
     // Type definitions
     "types": [
       "react",
-      "react-dom"
+      "react-dom",
+      "vite/client"
     ],
     // Output
     "sourceMap": true,
@@ -44,7 +45,8 @@
     "moduleDetection": "auto"
   },
   "include": [
-    "src"
+    "src",
+    "src/types"
   ],
   "exclude": [
     "node_modules",
