@@ -5,7 +5,7 @@ import { useState, useEffect } from 'react';
 export default function Header() {
 	const topics = ['Projects', 'Tools', 'Blog', 'About'];
 	const [mode, setMode] = useState<'light' | 'dark'>(window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
-	localStorage.removeItem('mode');
+	//localStorage.removeItem('mode');
 
 	useEffect(() => {
 		document.body.setAttribute('data-theme', mode);
