@@ -3,7 +3,6 @@
     "rootDir": "./src",
     "outDir": "./dist",
     "jsxImportSource": "@emotion/react",
-    "jsx": "react-jsx",
     // Environment
     "module": "esnext",
     "target": "esnext",
