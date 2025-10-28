@@ -1,3 +1,4 @@
+import { css } from "@emotion/react";
 type ButtonProps = {
 	onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
 	style?: React.CSSProperties;
@@ -13,7 +14,7 @@ export default function Button({
 	style = {},
 	className
 }: ButtonProps) {
-	const styles = {
+	const styles = css({
 		margin: '10px',
 		height: '50px',
 		width: '200px',
@@ -25,16 +26,16 @@ export default function Button({
 		fontSize: 'var(--Base-FontSize)',
 		textAlign: 'center' as const,
 		...style,
-	};
-
+	})
 	return (
 		<button
 			className={'button' + className}
 			onClick={onClick}
 			disabled={disabled}
-			style={styles}
+			css={styles}
 		>
 			{children}
 		</button>
 	);
 }
+
