@@ -44,8 +44,7 @@
     // Performance & compatibility
     "skipLibCheck": true,
     "isolatedModules": true,
-    "moduleDetection": "auto",
-    "ignoreDeprecations": "6.0"
+    "moduleDetection": "auto"
   },
   "include": [
     "src",
