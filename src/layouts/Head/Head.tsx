@@ -1,7 +1,11 @@
 import './Head.css';
 import { useEffect } from 'react';
 
-type HeadProps = { linkTitle: string; title: string; description: string; }
+type HeadProps = {
+	linkTitle: string;
+	title: string;
+	description: string;
+}
 export default function Head({ linkTitle, title, description }: HeadProps) {
 	useEffect(() => {
 		if (linkTitle) {
@@ -11,7 +15,7 @@ export default function Head({ linkTitle, title, description }: HeadProps) {
 		}
 	}, [linkTitle]);
 	return (
-		<div>
+		<head>
 			<meta charSet='UTF-8' />
 			<title>{title}</title>
 			<meta name='viewport' content='width=device-width, initial-scale=1.0' />
@@ -28,6 +32,6 @@ export default function Head({ linkTitle, title, description }: HeadProps) {
 			<meta name='twitter:linkTitle' content={linkTitle} />
 			<meta name='twitter:description' content={description} />
 			<meta name='theme-color' content='#00323C' />
-		</div>
+		</head>
 	)
 }

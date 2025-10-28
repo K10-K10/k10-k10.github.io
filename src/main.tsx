@@ -32,8 +32,8 @@ export default function Main() {
 					<Route path='/Blog/:headName' element={<BlogPost />} />
 					<Route path='/Projects' element={<Projects_home />} />
 					<Route path='/Tools' element={<Tools_home />} />
-					<Route path='*' element={<NotFound />} />
 					<Route path='/Docs' element={<Docs />} />
+					<Route path='*' element={<NotFound />} />
 				</Routes>
 			</div>
 			<Footer />

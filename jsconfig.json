@@ -11,6 +11,7 @@
 			"@layouts/*": [
 				"layouts/*"
 			]
-		}
+		},
+    "ignoreDeprecations": "6.0"
 	}
 }

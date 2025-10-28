@@ -2,7 +2,11 @@ import './ProjectDesc.css';
 import Accordion from '@layouts/Accordion/Accordion';
 import Spacer from '@parts/Spacer';
 
-type ProjectDescProps = { title: string; url: string; children: React.ReactNode; }
+type ProjectDescProps = {
+	title: string;
+	url: string;
+	children: React.ReactNode;
+}
 export default function ProjectDesc({
 	title,
 	url,

@@ -8,7 +8,7 @@ const SIZE = 200;
 const CELL = 5;
 
 function Ants() {
-	const canvasRef = useRef(null);
+	const canvasRef = useRef<HTMLCanvasElement>(null!);
 	const gridRef = useRef(
 		Array.from({ length: SIZE }, () => Array(SIZE).fill(false))
 	);
@@ -30,6 +30,7 @@ function Ants() {
 		directionRef.current = 0;
 
 		const ctx = canvasRef.current.getContext('2d');
+		if (!ctx) {return}
 		ctx.fillStyle = 'white';
 		ctx.fillRect(0, 0, SIZE * CELL, SIZE * CELL);
 
@@ -40,19 +41,20 @@ function Ants() {
 	function step() {
 		cnt.current = cnt.current + 1;
 		const ctx = canvasRef.current.getContext('2d');
-		const grid = gridRef.current;
+		if (!ctx) {return}
+		const grid:Boolean[][]= gridRef.current;
 
 		let x = antXRef.current;
 		let y = antYRef.current;
 		let d = directionRef.current;
 
-		if (grid[y][x]) {
+		if (grid[y]![x]) {
 			d = (d + 3) % 4;
-			grid[y][x] = false;
+			grid[y]![x] = false;
 			ctx.fillStyle = 'white';
 		} else {
 			d = (d + 1) % 4;
-			grid[y][x] = true;
+			grid[y]![x] = true;
 			ctx.fillStyle = 'black';
 		}
 
@@ -98,9 +100,9 @@ function Ants() {
 				style={{ border: '1px solid black' }}
 			/>
 			<div className='ants-controls' style={{ marginTop: '10px' }}>
-				<Button onClick={reset}><Icon name="reset" theme="re" /></Button>
-				<Button onClick={step}><Icon name="jump" theme="re" /></Button>
-				<Button onClick={() => setIsRunning(!isRunning)}>
+				<Button onClick={reset} disabled={false}><Icon name="reset" theme="re" /></Button>
+				<Button onClick={step} disabled={false}><Icon name="jump" theme="re" /></Button>
+				<Button onClick={() => setIsRunning(!isRunning)} disabled={false}>
 					<Icon name={isRunning ? 'stop' : 'start'} theme="re" />
 				</Button>
 			</div>

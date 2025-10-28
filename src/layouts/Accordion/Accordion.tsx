@@ -1,7 +1,10 @@
 import { useState, ReactNode } from 'react';
 import './Accordion.css';
 
-type AccordionProps = { title: string; children: ReactNode; }
+type AccordionProps = {
+	title: string;
+	children: ReactNode;
+}
 export default function Accordion({ title, children }: AccordionProps) {
 	const [isOpen, setIsOpen] = useState<boolean>(false);
 
@@ -13,7 +16,6 @@ export default function Accordion({ title, children }: AccordionProps) {
 			>
 				<span>{title}</span>
 				<span className='accordion-arrow'>
-					{/*{isOpen ? 'v' : '<'}*/}
 					&lt;
 				</span>
 			</div>

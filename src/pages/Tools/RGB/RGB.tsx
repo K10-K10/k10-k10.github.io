@@ -14,10 +14,11 @@ function RGB() {
 	if (B > 255) { setB(255) };
 	if (B < 0) { setB(0) };
 
-	const canvasRef = useRef(null);
+	const canvasRef = useRef<HTMLCanvasElement>(null);
 	useEffect(() => {
 		if (canvasRef.current) {
 			const ctx = canvasRef.current.getContext('2d');
+			if (!ctx) { return }
 			ctx.fillStyle = `rgb(${R},${G},${B})`;
 			ctx.fillRect(0, 0, 100, 100);
 		}

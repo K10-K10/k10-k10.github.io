@@ -7,8 +7,8 @@ import Button from '@parts/Button';
 
 function Github() {
 	const [name, setName] = useState('');
-	const [repos, setRepos] = useState([]);
-	const [errors, setErrors] = useState([]);
+	const [repos, setRepos] = useState<{ id: number, html_url: string, name: string }[]>([]);
+	const [errors, setErrors] = useState<string[]>([]);
 
 	const handleClick = async () => {
 		if (!name) {
@@ -39,7 +39,7 @@ function Github() {
 				onChange={setName}
 				tmp='Input'
 			/>
-			<Button onClick={handleClick}>API</Button>
+			<Button onClick={handleClick} disabled={false}>API</Button>
 
 			{errors.map((msg, index) => (
 				<Dialog key={index} button_style={{ color: 'var(--error-color)', }}>

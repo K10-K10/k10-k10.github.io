@@ -1,6 +1,11 @@
 import './Talk.css';
 
-type TalkProps = { title: string; children: React.ReactNode; style_scope: React.CSSProperties; style_contents: React.CSSProperties; }
+type TalkProps = {
+	title: string;
+	children?: React.ReactNode;
+	style_scope?: React.CSSProperties;
+	style_contents?: React.CSSProperties;
+}
 export default function Talk({
 	title,
 	children,

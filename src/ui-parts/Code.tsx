@@ -1,5 +1,8 @@
 import './Code.css';
-type CodeProps = { lang: string; children: React.ReactNode; }
+type CodeProps = {
+	lang: string;
+	children: React.ReactNode;
+}
 export default function Code({ lang, children }: CodeProps) {
 	return (
 		<div className="Code">

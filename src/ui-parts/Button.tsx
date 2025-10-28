@@ -1,12 +1,17 @@
 type ButtonProps = {
-	onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void; style?: React.CSSProperties; disabled: boolean; children: React.ReactNode;
+	onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
+	style?: React.CSSProperties;
+	className?: String;
+	disabled: boolean;
+	children: React.ReactNode;
 }
 
 export default function Button({
 	children,
 	onClick,
 	disabled = false,
-	style = {}
+	style = {},
+	className
 }: ButtonProps) {
 	const styles = {
 		margin: '10px',
@@ -24,7 +29,7 @@ export default function Button({
 
 	return (
 		<button
-			className='button'
+			className={'button' + className}
 			onClick={onClick}
 			disabled={disabled}
 			style={styles}

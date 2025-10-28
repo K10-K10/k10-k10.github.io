@@ -1,4 +1,9 @@
-type FieldsetProps = { legend: React.ReactNode; children: React.ReactNode; f_style: React.CSSProperties; l_style: React.CSSProperties; }
+type FieldsetProps = {
+	legend: React.ReactNode;
+	children: React.ReactNode;
+	f_style?: React.CSSProperties;
+	l_style?: React.CSSProperties;
+}
 export default function Fieldset({
 	children,
 	legend,
