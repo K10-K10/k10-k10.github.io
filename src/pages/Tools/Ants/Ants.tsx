@@ -4,7 +4,7 @@ import Head from '@layouts/Head/Head';
 import Button from '@parts/Button';
 import Icon from '@parts/Icon';
 
-const SIZE = 200;
+const SIZE = 400;
 const CELL = 5;
 
 function Ants() {
@@ -80,7 +80,7 @@ function Ants() {
 	useEffect(() => {
 		if (!isRunning) return;
 
-		const interval = setInterval(step, 20);
+		const interval = setInterval(step, 8);
 		return () => clearInterval(interval);
 	}, [isRunning]);
 
