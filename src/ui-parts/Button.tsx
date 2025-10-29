@@ -3,7 +3,7 @@ type ButtonProps = {
 	onClick?: (event: React.MouseEvent<HTMLButtonElement>) => void;
 	style?: React.CSSProperties;
 	className?: String;
-	disabled: boolean;
+	disabled?: boolean;
 	children: React.ReactNode;
 }
 

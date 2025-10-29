@@ -2,7 +2,7 @@ import React from 'react';
 
 type InputProps = {
 	type?: string;
-	label: string;
+	label?: string;
 	value: string;
 	onChange: (value: string) => void;
 	tmp?: string;
