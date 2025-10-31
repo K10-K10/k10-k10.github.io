@@ -2,7 +2,7 @@ import './Projects.css';
 import Head from '@layouts/Head/Head';
 import ProjectDesc from '@layouts/ProjectDesc/ProjectDesc';
 
-function Projects_home() {
+export default function Projects_home() {
 	return (
 		<div className='project-home'>
 			<Head title={'Project'} linkTitle={'Projects'} description={'K10-K10 site - Projects home  page'}></Head>
@@ -16,5 +16,3 @@ function Projects_home() {
 		</div>
 	)
 }
-
-export default Projects_home;

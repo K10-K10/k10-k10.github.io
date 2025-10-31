@@ -1,7 +1,7 @@
 import './Home.css';
 import { posts } from '@pages/Blog/posts';
 
-function home() {
+export function home() {
 	return (
 		<div id='home'>
 			<h1>Hello,World!</h1>
@@ -23,5 +23,3 @@ function home() {
 		</div>
 	)
 }
-
-export default home;

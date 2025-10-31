@@ -1,5 +1,5 @@
 type AudioProps = {
-	src: string;
+	src?: string;
 	style?: React.CSSProperties
 }
 export default function Audio({

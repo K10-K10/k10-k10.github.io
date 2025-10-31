@@ -30,7 +30,7 @@ function Ants() {
 		directionRef.current = 0;
 
 		const ctx = canvasRef.current.getContext('2d');
-		if (!ctx) {return}
+		if (!ctx) { return }
 		ctx.fillStyle = 'white';
 		ctx.fillRect(0, 0, SIZE * CELL, SIZE * CELL);
 
@@ -41,8 +41,8 @@ function Ants() {
 	function step() {
 		cnt.current = cnt.current + 1;
 		const ctx = canvasRef.current.getContext('2d');
-		if (!ctx) {return}
-		const grid:Boolean[][]= gridRef.current;
+		if (!ctx) { return }
+		const grid: Boolean[][] = gridRef.current;
 
 		let x = antXRef.current;
 		let y = antYRef.current;

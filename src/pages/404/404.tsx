@@ -1,6 +1,6 @@
 import './404.css';
 
-function NotFound() {
+export default function NotFound() {
 	return (
 		<div id='NotFound'>
 			<h1>Error:404</h1>
@@ -8,5 +8,3 @@ function NotFound() {
 		</div>
 	)
 }
-
-export default NotFound;

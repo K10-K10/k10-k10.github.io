@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import Talk from '@layouts/Talk/Talk';
 import Head from '@layouts/Head/Head';
 
-function Blog() {
+export default function Blog() {
 	const sortedPosts = [...posts].sort((a, b) => b.id - a.id);
 
 	return (
@@ -24,5 +24,3 @@ function Blog() {
 		</div>
 	);
 }
-
-export default Blog;

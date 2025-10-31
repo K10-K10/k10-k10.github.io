@@ -3,7 +3,7 @@ import Spacer from '@parts/Spacer';
 import Talk from '@layouts/Talk/Talk';
 import Head from '@layouts/Head/Head';
 
-function About() {
+export default function About() {
 	return (
 		<div className='about'>
 			<Head title={'About Site&Author'} linkTitle={'About'} description={'K10-K10 site - About page'} />
@@ -38,5 +38,3 @@ function About() {
 		</div>
 	)
 }
-
-export default About;
