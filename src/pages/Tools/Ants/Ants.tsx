@@ -4,7 +4,7 @@ import Head from '@layouts/Head/Head';
 import Button from '@parts/Button';
 import Icon from '@parts/Icon';
 
-const SIZE = 400;
+const SIZE = 200;
 const CELL = 5;
 
 function Ants() {
