@@ -1,4 +1,5 @@
 import { css } from '@emotion/react';
+import CopyButton from './Copy';
 
 type CodeProps = {
 	lang?: string | null;
@@ -9,6 +10,7 @@ export default function Code({ lang, children }: CodeProps) {
 	return (
 		<div css={code}>
 			<p css={codeLang}>{lang}</p>
+			<CopyButton css={codeCopyButton} textToCopy={children} />
 			<pre css={codeTxt}>
 				<code>{children}</code>
 			</pre>
@@ -41,4 +43,9 @@ const codeTxt = css({
 	whiteSpace: 'pre-wrap',
 	fontFamily: 'monospace',
 	tabSize: 4,
+});
+
+const codeCopyButton = css({
+	marginRight: '80%',
+	color: ''
 });
