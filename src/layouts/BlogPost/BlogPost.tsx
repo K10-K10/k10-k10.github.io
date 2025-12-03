@@ -44,14 +44,14 @@ export default function BlogPost() {
 					{post.content}
 				</pre>
 
-				<div className="blog-buttons">
+				{/*<div className="blog-buttons">
 					<Button className="forwardBlog" onClick={handleForward} disabled={true}>
 						<Icon name="left" theme="re" />
 					</Button>
 					<Button className="nextBlog" onClick={handleNext} disabled={true}>
 						<Icon name="right" theme="re" />
 					</Button>
-				</div>
+				</div>*/}
 			</Talk>
 		</div >
 	);
