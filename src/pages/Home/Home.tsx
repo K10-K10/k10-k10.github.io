@@ -5,7 +5,7 @@ export default function Home() {
 	return (
 		<div id='home'>
 			<h1>Hello,World!</h1>
-			<h2>See you 2026</h2>
+			<h2>Happy New year!!</h2>
 			<div className='information'>
 				<h2>Projects</h2>
 				<h2>Tools</h2>
