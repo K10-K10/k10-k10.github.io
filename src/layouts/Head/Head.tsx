@@ -5,33 +5,83 @@ type HeadProps = {
 	linkTitle: string;
 	title: string;
 	description: string;
+	pageUrl?: string;
 }
-export default function Head({ linkTitle, title, description }: HeadProps) {
+
+export default function Head({ linkTitle, title, description, pageUrl }: HeadProps) {
 	useEffect(() => {
+		// Set page title
+		let pageTitle = 'K10-K10';
 		if (linkTitle) {
-			linkTitle = `K10-K10 | ${linkTitle}`;
-		} else {
-			linkTitle = 'K10-K10';
+			pageTitle = `K10-K10 | ${linkTitle}`;
 		}
-	}, [linkTitle]);
-	return (
-		<head>
-			<meta charSet='UTF-8' />
-			<title>{title}</title>
-			<meta name='viewport' content='width=device-width, initial-scale=1.0' />
-			<meta name='description' content={description} />
-			<link rel='icon' href='https://K10-K10.github.io/favicon.ico' />
-			<link rel='apple-touch-icon' href='/favicon.ico' />
-			<link rel='shortcut icon' type='image/x-icon' href='/favicon.ico' />
-			<meta property='og:type' content='website' />
-			<meta name='twitter:domain' content='K10-K10.github.io' />
-			<meta property='og:title' content={linkTitle} />
-			<meta property='og:description' content={description} />
-			<meta property='og:site_name' content={linkTitle} />
-			<meta name='twitter:card' content='summary_large_image' />
-			<meta name='twitter:linkTitle' content={linkTitle} />
-			<meta name='twitter:description' content={description} />
-			<meta name='theme-color' content='#00323C' />
-		</head>
-	)
+		document.title = pageTitle;
+
+		// Update or create meta description
+		let metaDescription = document.querySelector('meta[name="description"]');
+		if (!metaDescription) {
+			metaDescription = document.createElement('meta');
+			metaDescription.setAttribute('name', 'description');
+			document.head.appendChild(metaDescription);
+		}
+		metaDescription.setAttribute('content', description);
+
+		// Update OG title
+		let ogTitle = document.querySelector('meta[property="og:title"]');
+		if (!ogTitle) {
+			ogTitle = document.createElement('meta');
+			ogTitle.setAttribute('property', 'og:title');
+			document.head.appendChild(ogTitle);
+		}
+		ogTitle.setAttribute('content', pageTitle);
+
+		// Update OG description
+		let ogDescription = document.querySelector('meta[property="og:description"]');
+		if (!ogDescription) {
+			ogDescription = document.createElement('meta');
+			ogDescription.setAttribute('property', 'og:description');
+			document.head.appendChild(ogDescription);
+		}
+		ogDescription.setAttribute('content', description);
+
+		// Update OG URL (if provided)
+		if (pageUrl) {
+			let ogUrl = document.querySelector('meta[property="og:url"]');
+			if (!ogUrl) {
+				ogUrl = document.createElement('meta');
+				ogUrl.setAttribute('property', 'og:url');
+				document.head.appendChild(ogUrl);
+			}
+			ogUrl.setAttribute('content', pageUrl);
+
+			// Update canonical URL
+			let canonical = document.querySelector('link[rel="canonical"]');
+			if (!canonical) {
+				canonical = document.createElement('link');
+				canonical.setAttribute('rel', 'canonical');
+				document.head.appendChild(canonical);
+			}
+			canonical.setAttribute('href', pageUrl);
+		}
+
+		// Update Twitter card
+		let twitterTitle = document.querySelector('meta[name="twitter:title"]');
+		if (!twitterTitle) {
+			twitterTitle = document.createElement('meta');
+			twitterTitle.setAttribute('name', 'twitter:title');
+			document.head.appendChild(twitterTitle);
+		}
+		twitterTitle.setAttribute('content', pageTitle);
+
+		let twitterDescription = document.querySelector('meta[name="twitter:description"]');
+		if (!twitterDescription) {
+			twitterDescription = document.createElement('meta');
+			twitterDescription.setAttribute('name', 'twitter:description');
+			document.head.appendChild(twitterDescription);
+		}
+		twitterDescription.setAttribute('content', description);
+	}, [linkTitle, title, description, pageUrl]);
+
+	// This component doesn't render anything visible
+	return null;
 }

@@ -7,9 +7,10 @@ export default function About() {
 	return (
 		<div className="about">
 			<Head
-				title={"About Site&Author"}
+				title={"K10-K10 - About"}
 				linkTitle={"About"}
-				description={"K10-K10 site - About page"}
+				description={"Learn about K10-K10 - a junior high school developer passionate about C++, competitive programming, and robotics. Explore portfolio and projects."}
+				pageUrl="https://K10-K10.github.io/#/About"
 			/>
 			<Talk
 				title="About the site"

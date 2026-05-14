@@ -19,7 +19,7 @@ import Docs from '@pages/Docs/Docs';
 export default function Main() {
 	return (
 		<Router>
-			<Head title={'Home'} linkTitle={'Home'} description={"K10-K10 site - top page"} />
+			<Head title={'K10-K10 - Home'} linkTitle={'Home'} description={"K10-K10 - Personal portfolio, projects, tools, and blog. Explore software development work and creative projects."} pageUrl="https://K10-K10.github.io/" />
 			<Header />
 			<div id='main'>
 				<Routes>

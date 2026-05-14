@@ -9,9 +9,10 @@ export default function Blog() {
 	return (
 		<div className="blog-home">
 			<Head
-				title={"Blog Top Page"}
+				title={"K10-K10 - Blog"}
 				linkTitle={"Blog"}
-				description={"K10-K10 site - Blog top page"}
+				description={"K10-K10 Blog - Read articles about programming, robotics, competitive programming, and software development projects."}
+				pageUrl="https://K10-K10.github.io/#/Blog"
 			/>
 			<Talk title="Blog">
 				{sortedPosts.map((post) => (
