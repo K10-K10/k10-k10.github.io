@@ -2,14 +2,9 @@ import './Footer.css';
 export default function Footer() {
 	return (
 		<footer>
-			<div className='footer_icon'>
-				<a href='https://react.dev/'><img src='/react_logo.png' alt='React icon' /></a>
-				<a href='https://vite.dev'><img src='/Vite.js.svg' alt='Vite icon' /></a>
-				<a href='https://github.com/K10-K10/K10-K10.github.io'><img src='/github_logo.png' alt='Github icon' /></a>
-			</div>
 			<div className='footer_info'>
-				<p>2025</p>
-				<p>React + Vite & Github Pages</p>
+				<p>&copy; {new Date().getFullYear()} K10-K10</p>
+				<p>Powered by React, Vite &amp; GitHub Pages</p>
 			</div>
 		</footer>
 	);
