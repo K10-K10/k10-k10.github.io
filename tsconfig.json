@@ -28,18 +28,18 @@
     // JSX
     "jsx": "react-jsx",
     // Aliases
-    "baseUrl": "src",
     "paths": {
       "@parts/*": [
-        "ui-parts/*"
+        "./src/ui-parts/*"
       ],
       "@pages/*": [
-        "pages/*"
+        "./src/pages/*"
       ],
       "@layouts/*": [
-        "layouts/*"
+        "./src/layouts/*"
       ]
     },
+    "include": ["src/**/*"],
     // Performance & compatibility
     "skipLibCheck": true,
     "isolatedModules": true,
