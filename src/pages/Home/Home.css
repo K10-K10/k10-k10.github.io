@@ -24,6 +24,7 @@
 	}
 
 	a {
+		color: var(--link-color);
 		padding-left: 20px;
 		font-size: var(--Base-FontSize);
 		text-align: left;

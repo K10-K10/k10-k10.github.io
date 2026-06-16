@@ -21,7 +21,7 @@
 }
 
 .talk-scope .title {
-	color: var(--black-color);
+	color: var(--text-color);
 	font-size: var(--Max-FontSize);
 	font-weight: 400;
 	text-align: center;

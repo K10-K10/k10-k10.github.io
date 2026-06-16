@@ -10,7 +10,7 @@
 }
 
 .tools a {
-	color: var(--black-color);
+	color: var(--text-color);
 	padding: 10px;
 	margin: 0px;
 	text-align: center;
