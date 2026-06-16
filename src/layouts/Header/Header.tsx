@@ -3,7 +3,7 @@ import Icon from '@parts/Icon';
 import { useState, useEffect } from 'react';
 
 export default function Header() {
-	const topics = ['Projects', 'Tools', 'Blog', 'About'];
+	const topics = ['Docs', 'Tools', 'Blog', 'About'];
 	const [mode, setMode] = useState<'light' | 'dark'>(window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
 	//localStorage.removeItem('mode');
 
