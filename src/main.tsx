@@ -18,9 +18,10 @@ import Docs from '@pages/Docs/Docs';
 export default function Main() {
 	return (
 		<Router>
+			<div id="app-layout">
 			<Head title={'K10-K10 - Home'} linkTitle={'Home'} description={"K10-K10 - Personal portfolio, projects, tools, and blog. Explore software development work and creative projects."} pageUrl="https://K10-K10.github.io/" />
 			<Header />
-			<div id='main'>
+			<main>
 				<Routes>
 					<Route path='/' element={<Home />} />
 					<Route path='/Tools/RGB' element={<RGB />} />
@@ -33,8 +34,9 @@ export default function Main() {
 					<Route path='/Docs' element={<Docs />} />
 					<Route path='*' element={<NotFound />} />
 				</Routes>
-			</div>
+			</main>
 			<Footer />
+			</div>
 		</Router>
 	)
 }

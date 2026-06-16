@@ -1,8 +1,8 @@
 footer {
 	bottom: 0;
-	height: 60px;
+	height: 40px;
 	width: 100%;
-	padding: calc((var(--footer-height) - 60px)/2) 0px;
+	padding: calc((var(--footer-height) - 40px)/4) 0px;
 	text-align: center;
 	background: var(--primary-color);
 }
