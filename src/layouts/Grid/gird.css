@@ -1,0 +1,36 @@
+.grid-item {
+  background-color: var(--secondary-color);
+  padding-top: 10px;
+  padding-bottom: 10px;
+  height: 8%;
+  margin-bottom: 20px;
+  border-radius: 7px;
+  box-sizing: border-box;
+  border: 1px solid var(--text-color);
+}
+
+.grid-content {
+  margin-left: 20px;
+  display: flex;
+  align-items: center;
+  height: 100px;
+}
+
+.grid-image {
+  display: block;
+  height: 80%;
+  object-fit: cover;
+  margin-right: 15px;
+}
+
+.grid-text {
+  display: flex;
+  gap: 5px;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.grid-title,
+.grid-description {
+  margin: 0;
+}
