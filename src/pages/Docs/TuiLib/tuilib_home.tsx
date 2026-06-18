@@ -21,22 +21,26 @@ export default function TuiDocs() {
       <Talk title="">
         <div></div>
         <Markdown 
-          remarkPlugins={[remarkGfm]}
-          components={{
-            code({ node, className, children, ...props }) {
-              const match = /language-(\w+)/.exec(className || '');
-              // const language = match ? match[1] : '';
+      remarkPlugins={[remarkGfm]}
+      components={{
+        code({ node, inline, className, children, ...props }) {
+          const match = /language-(\w+)/.exec(className || '');
+          const language = match ? match[1] : 'text';
 
-              return (
-                <Code>
-                  {String(children).replace(/\n$/, '')}
-                </Code>
-              )
-            }
-          }}
-        >
-          {readme}
-        </Markdown>
+          return !inline ? (
+            <Code lang={language}>
+              {children}
+            </Code>
+          ) : (
+            <code className={className} {...props}>
+              {children}
+            </code>
+          );
+        }
+      }}
+      >
+      {readme}
+      </Markdown>
       </Talk>
     </div>
   );

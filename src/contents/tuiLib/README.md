@@ -24,7 +24,7 @@ This library is header-only, so you can simply download the source code and incl
 You can use Cmake's `FetchContent` module to include the TUI library in your procejt.
 Add the following lines to your `CMakeLists.txt`
 
-```
+```cmake
 include(FetchContent)
 
 FetchContent_Declare(
@@ -51,7 +51,7 @@ You can directluy include header file:
 
 ## Example
 
-```
+```cpp
 #include <K10-K10/terminal.h>
 
 using namespace terminal;
