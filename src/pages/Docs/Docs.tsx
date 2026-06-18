@@ -16,8 +16,8 @@ export default function Docs() {
       />
       <Talk title="K10-K10 Documentation">
         <Grid
-          title="test"
-          description="This is a test grid item."
+          title="Terminal-library"
+          description="C++ library to make TUI tools."
           imageUrl="/github_logo.png"
           link="/Docs/TUIlib"
         />
