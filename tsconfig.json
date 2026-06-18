@@ -39,7 +39,9 @@
         "./src/layouts/*"
       ]
     },
-    "include": ["src/**/*"],
+    "include": [
+      "src/**/*"
+    ],
     // Performance & compatibility
     "skipLibCheck": true,
     "isolatedModules": true,
