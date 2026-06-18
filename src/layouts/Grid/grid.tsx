@@ -12,7 +12,7 @@ export default function Grid({
   link?: string;
 }) {
   return (
-    <div className="grid-item" onClick={() => link && window.open(link, "_blank")}>
+    <div className="grid-item" onClick={() => window.location.href = link || './'}>
       <div className="grid-content">
         {imageUrl && <img src={imageUrl} alt={title} className="grid-image" />}
         <div className="grid-text">
