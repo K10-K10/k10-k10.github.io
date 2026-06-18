@@ -1,8 +1,18 @@
-import './gird.css';
+import "./gird.css";
 
-export default function Grid({ title, description, imageUrl, link }: { title: string, description: string, imageUrl?: string, link?: string }) {
+export default function Grid({
+  title,
+  description,
+  imageUrl,
+  link,
+}: {
+  title: string;
+  description: string;
+  imageUrl?: string;
+  link?: string;
+}) {
   return (
-    <div className="grid-item" onClick={() => link && window.open(link, '_blank')}>
+    <div className="grid-item" onClick={() => link && window.open(link, "_blank")}>
       <div className="grid-content">
         {imageUrl && <img src={imageUrl} alt={title} className="grid-image" />}
         <div className="grid-text">

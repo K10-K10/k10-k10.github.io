@@ -1,17 +1,17 @@
 footer {
-	bottom: 0;
-	height: 40px;
-	width: 100%;
-	padding: calc((var(--footer-height) - 40px)/4) 0px;
-	text-align: center;
-	background: var(--primary-color);
+  bottom: 0;
+  height: 40px;
+  width: 100%;
+  padding: calc((var(--footer-height) - 40px) / 4) 0px;
+  text-align: center;
+  background: var(--primary-color);
 }
 
 footer a {
-	line-height: 0px;
+  line-height: 0px;
 }
 
 .footer_info p {
-	margin: 0px;
-	color: var(--white-color);
+  margin: 0px;
+  color: var(--white-color);
 }

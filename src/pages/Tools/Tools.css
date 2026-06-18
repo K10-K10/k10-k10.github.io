@@ -1,17 +1,17 @@
 .tools h1 {
-	font-weight: var(--Max-FontSize);
-	padding: 40px;
-	margin: 0px;
-	text-align: center;
+  font-weight: var(--Max-FontSize);
+  padding: 40px;
+  margin: 0px;
+  text-align: center;
 }
 
 .tools {
-	display: block;
+  display: block;
 }
 
 .tools a {
-	color: var(--text-color);
-	padding: 10px;
-	margin: 0px;
-	text-align: center;
+  color: var(--text-color);
+  padding: 10px;
+  margin: 0px;
+  text-align: center;
 }

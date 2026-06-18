@@ -3,6 +3,7 @@
 04-Oct-2025
 Added langton's ant
 ---
+
 I added a new page about Langton's Ant.
 It was my first time creating a program using JavaScript,
 and I learned a lot from it.

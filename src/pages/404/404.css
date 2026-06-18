@@ -1,12 +1,12 @@
 #NotFound {
-	text-align: center;
+  text-align: center;
 
-	h1 {
-		font-size: var(--Max-FontSize);
-		color: var(--primary-dark-color);
-	}
+  h1 {
+    font-size: var(--Max-FontSize);
+    color: var(--primary-dark-color);
+  }
 
-	h2 {
-		font-size: var(--Second-FontSize);
-	}
+  h2 {
+    font-size: var(--Second-FontSize);
+  }
 }

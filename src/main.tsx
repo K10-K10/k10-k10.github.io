@@ -1,42 +1,49 @@
-import { HashRouter as Router, Route, Routes } from 'react-router-dom';
+import { HashRouter as Router, Route, Routes } from "react-router-dom";
 
-import Header from '@layouts/Header/Header';
-import Footer from '@layouts/Footer/Footer';
-import Head from '@layouts/Head/Head';
+import Header from "@layouts/Header/Header";
+import Footer from "@layouts/Footer/Footer";
+import Head from "@layouts/Head/Head";
 
-import Home from '@pages/Home/Home';
-import NotFound from '@pages/404/404';
-import RGB from '@pages/Tools/RGB/RGB';
-import Github from '@pages/Tools/Github/Github';
-import Ant from '@pages/Tools/Ants/Ants';
-import About from '@pages/About/About';
-import Blog_home from '@pages/Blog/Blog';
-import BlogPost from '@layouts/BlogPost/BlogPost';
-import Tools_home from '@pages/Tools/Tools';
-import Docs from '@pages/Docs/Docs';
+import Home from "@pages/Home/Home";
+import NotFound from "@pages/404/404";
+import RGB from "@pages/Tools/RGB/RGB";
+import Github from "@pages/Tools/Github/Github";
+import Ant from "@pages/Tools/Ants/Ants";
+import About from "@pages/About/About";
+import Blog_home from "@pages/Blog/Blog";
+import BlogPost from "@layouts/BlogPost/BlogPost";
+import Tools_home from "@pages/Tools/Tools";
+import Docs from "@pages/Docs/Docs";
 
 export default function Main() {
-	return (
-		<Router>
-			<div id="app-layout">
-			<Head title={'K10-K10 - Home'} linkTitle={'Home'} description={"K10-K10 - Personal portfolio, projects, tools, and blog. Explore software development work and creative projects."} pageUrl="https://K10-K10.github.io/" />
-			<Header />
-			<main>
-				<Routes>
-					<Route path='/' element={<Home />} />
-					<Route path='/Tools/RGB' element={<RGB />} />
-					<Route path='/Tools/Github' element={<Github />} />
-					<Route path='/Tools/Ants' element={<Ant />} />
-					<Route path='/About' element={<About />} />
-					<Route path='/Blog' element={<Blog_home />} />
-					<Route path='/Blog/:headName' element={<BlogPost />} />
-					<Route path='/Tools' element={<Tools_home />} />
-					<Route path='/Docs' element={<Docs />} />
-					<Route path='*' element={<NotFound />} />
-				</Routes>
-			</main>
-			<Footer />
-			</div>
-		</Router>
-	)
+  return (
+    <Router>
+      <div id="app-layout">
+        <Head
+          title={"K10-K10 - Home"}
+          linkTitle={"Home"}
+          description={
+            "K10-K10 - Personal portfolio, projects, tools, and blog. Explore software development work and creative projects."
+          }
+          pageUrl="https://K10-K10.github.io/"
+        />
+        <Header />
+        <main>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/Tools/RGB" element={<RGB />} />
+            <Route path="/Tools/Github" element={<Github />} />
+            <Route path="/Tools/Ants" element={<Ant />} />
+            <Route path="/About" element={<About />} />
+            <Route path="/Blog" element={<Blog_home />} />
+            <Route path="/Blog/:headName" element={<BlogPost />} />
+            <Route path="/Tools" element={<Tools_home />} />
+            <Route path="/Docs" element={<Docs />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
+    </Router>
+  );
 }

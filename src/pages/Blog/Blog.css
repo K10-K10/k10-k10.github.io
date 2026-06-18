@@ -1,17 +1,17 @@
 .blog-post .date {
-	display: block;
-	text-align: center;
-	margin: 10px 0;
-	color: var(--gray-color);
-	font-size: 0.9rem;
+  display: block;
+  text-align: center;
+  margin: 10px 0;
+  color: var(--gray-color);
+  font-size: 0.9rem;
 }
 
 .blog-link {
-	color: var(--black-color);
-	text-decoration: none;
-	transition: color 0.2s ease;
+  color: var(--black-color);
+  text-decoration: none;
+  transition: color 0.2s ease;
 }
 
 .blog-link:hover {
-	color: var(--black-hover-color);
+  color: var(--black-hover-color);
 }

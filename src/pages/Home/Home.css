@@ -1,32 +1,31 @@
 #home {
-	padding-bottom: 45px;
-	width: 80%;
-	margin: 0 auto;
-	max-width: 800px;
+  padding-bottom: 45px;
+  width: 80%;
+  margin: 0 auto;
+  max-width: 800px;
 
-	h1 {
-		text-align: center;
-		padding: 20px;
-	}
+  h1 {
+    text-align: center;
+    padding: 20px;
+  }
 
-	h2 {
-		padding-top: 40px;
-		padding-bottom: 20px;
-	}
+  h2 {
+    padding-top: 40px;
+    padding-bottom: 20px;
+  }
 
+  ul {
+    list-style-type: none;
+  }
 
-	ul {
-		list-style-type: none;
-	}
+  ul li {
+    padding-bottom: 10px;
+  }
 
-	ul li {
-		padding-bottom: 10px;
-	}
-
-	a {
-		color: var(--link-color);
-		padding-left: 20px;
-		font-size: var(--Base-FontSize);
-		text-align: left;
-	}
+  a {
+    color: var(--link-color);
+    padding-left: 20px;
+    font-size: var(--Base-FontSize);
+    text-align: left;
+  }
 }

@@ -1,14 +1,14 @@
 .user-wrapper {
-	display: flex;
-	align-items: center;
-	gap: 20px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
 
 .user-wrapper img {
-	width: 120px;
-	border-radius: 50%;
+  width: 120px;
+  border-radius: 50%;
 }
 
 .user-info {
-	flex-direction: column;
+  flex-direction: column;
 }

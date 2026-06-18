@@ -1,95 +1,97 @@
 :root {
-	--text-color: #000000;
-	--primary-color: #000000;
-	--primary-dark-color: #41558f;
-	--error-color: #FF0F0F;
-	--black-color: #000000;
-	--white-color: #ffffff;
-	--black-hover-color: #666666;
-	--button-text-color: #000;
+  --text-color: #000000;
+  --primary-color: #000000;
+  --primary-dark-color: #41558f;
+  --error-color: #ff0f0f;
+  --black-color: #000000;
+  --white-color: #ffffff;
+  --black-hover-color: #666666;
+  --button-text-color: #000;
 
-	--font-main: 'Ubuntu Mono', monospace;
-	--font-sans: 'ヒラギノ角ゴ ProN W3', HiraKakuProN-W3, 游ゴシック, 'Yu Gothic', メイリオ, Meiryo, Verdana, Helvetica, Arial, sans-serif;
-	--font-serif: '游明朝', 'Yu Mincho', 'YuMincho', 'Hiragino Mincho Pro', serif;
+  --font-main: "Ubuntu Mono", monospace;
+  --font-sans:
+    "ヒラギノ角ゴ ProN W3", HiraKakuProN-W3, 游ゴシック, "Yu Gothic", メイリオ, Meiryo, Verdana,
+    Helvetica, Arial, sans-serif;
+  --font-serif: "游明朝", "Yu Mincho", "YuMincho", "Hiragino Mincho Pro", serif;
 
-	--header-height: 100px;
-	--footer-height: 150px;
-	--main-padding: 0px;
+  --header-height: 100px;
+  --footer-height: 150px;
+  --main-padding: 0px;
 
-	--Max-FontSize: 30pt;
-	--Second-FontSize: 25pt;
-	--Third-FontSize: 20pt;
-	--Base-FontSize: 15pt;
+  --Max-FontSize: 30pt;
+  --Second-FontSize: 25pt;
+  --Third-FontSize: 20pt;
+  --Base-FontSize: 15pt;
 
-	--SiteTitle-FontWeight: 600;
-	--PageTitle-FontWeight: 400;
-	--Base-FontWeight: 200;
+  --SiteTitle-FontWeight: 600;
+  --PageTitle-FontWeight: 400;
+  --Base-FontWeight: 200;
 }
 
-[data-theme='light'] {
-	--background-color: #EfEfEf;
-	--secondary-color: #30a8b8;
-	--cloudy_background-color: #f0f0f0;
-	--border-color: #BBB;
-	--button-color: #E5E5E5;
-	--button-text-color: #000;
-	--button-hover-color: #ccc;
-	--link-color: #00669f;
-	--shadow-color: #1e3e75;
-	--theme-color: #fff;
-	--reverse-color: #000;
+[data-theme="light"] {
+  --background-color: #efefef;
+  --secondary-color: #30a8b8;
+  --cloudy_background-color: #f0f0f0;
+  --border-color: #bbb;
+  --button-color: #e5e5e5;
+  --button-text-color: #000;
+  --button-hover-color: #ccc;
+  --link-color: #00669f;
+  --shadow-color: #1e3e75;
+  --theme-color: #fff;
+  --reverse-color: #000;
 }
 
-[data-theme='dark'] {
-	--background-color: #121212;
-	--cloudy_background-color: #1e1e1e;
-	--secondary-color: #2a2a2a;
+[data-theme="dark"] {
+  --background-color: #121212;
+  --cloudy_background-color: #1e1e1e;
+  --secondary-color: #2a2a2a;
 
-	--text-color: #e0e0e0;
-	--reverse-color: #121212;
-	--border-color: #333333;
-	--button-color: #2c2c2c;
-	--button-text-color: #ffffff;
-	--button-hover-color: #404040;
+  --text-color: #e0e0e0;
+  --reverse-color: #121212;
+  --border-color: #333333;
+  --button-color: #2c2c2c;
+  --button-text-color: #ffffff;
+  --button-hover-color: #404040;
 
-	--link-color: #66b3ff;
+  --link-color: #66b3ff;
 
-	--shadow-color: rgba(0, 0, 0, 0.5);
-	--theme-color: #ffffff;
+  --shadow-color: rgba(0, 0, 0, 0.5);
+  --theme-color: #ffffff;
 }
 
 body {
-	margin: 0px;
-	background-color: var(--background-color);
-	font-family: var(--font-main);
-	font-size: var(--Base-FontSize);
-	font-weight: var(--Base-FontWeight);
-	color: var(--text-color);
+  margin: 0px;
+  background-color: var(--background-color);
+  font-family: var(--font-main);
+  font-size: var(--Base-FontSize);
+  font-weight: var(--Base-FontWeight);
+  color: var(--text-color);
 }
 
 #app-layout {
-	display: flex;
-	flex-direction: column;
-	min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
 a,
 a:visited {
-	color: var(--link-color);
-	text-decoration: none;
+  color: var(--link-color);
+  text-decoration: none;
 }
 
 a:hover {
-	color: var(--button-hover-color);
-	text-decoration: underline;
+  color: var(--button-hover-color);
+  text-decoration: underline;
 }
 
 main {
-	flex: 1;
-	padding: var(--main-padding) 0px;
+  flex: 1;
+  padding: var(--main-padding) 0px;
 }
 
 * {
-	margin: 0px;
-	padding: 0px;
+  margin: 0px;
+  padding: 0px;
 }

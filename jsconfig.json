@@ -1,17 +1,11 @@
 {
-	"compilerOptions": {
-		"baseUrl": "src",
-		"paths": {
-			"@parts/*": [
-				"ui-parts/*"
-			],
-			"@pages/*": [
-				"pages/*"
-			],
-			"@layouts/*": [
-				"layouts/*"
-			]
-		},
-		"ignoreDeprecations": "6.0"
-	}
+  "compilerOptions": {
+    "baseUrl": "src",
+    "paths": {
+      "@parts/*": ["ui-parts/*"],
+      "@pages/*": ["pages/*"],
+      "@layouts/*": ["layouts/*"]
+    },
+    "ignoreDeprecations": "6.0"
+  }
 }

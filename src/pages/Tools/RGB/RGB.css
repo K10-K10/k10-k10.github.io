@@ -1,16 +1,16 @@
 #RGB {
-	text-align: center;
+  text-align: center;
 
-	h1 {
-		margin: 0px;
-		font-size: var(--Max-FontSize);
-		font-weight: var(--PageTitle-FontWeight);
-		padding: 40px 0px;
-		line-height: 0px;
-		color: var(--secondary-color);
-	}
+  h1 {
+    margin: 0px;
+    font-size: var(--Max-FontSize);
+    font-weight: var(--PageTitle-FontWeight);
+    padding: 40px 0px;
+    line-height: 0px;
+    color: var(--secondary-color);
+  }
 
-	.RGB {
-		display: inline;
-	}
+  .RGB {
+    display: inline;
+  }
 }

@@ -3,6 +3,7 @@
 05-Oct-2025
 Create a script for this blog
 ---
+
 Until now, this blog written directly into JSON files.
 However, that was a faff. Because it should have escape characters.
 
@@ -14,9 +15,11 @@ File name -> Page header name
 First, describe the page data
 
 ---
+
 ID
 Date
 Title
+
 ---
 
 I had never used a file system library before,

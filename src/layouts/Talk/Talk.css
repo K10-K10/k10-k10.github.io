@@ -1,30 +1,30 @@
 .talk-scope {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
 }
 
 .talk-contents {
-	padding-bottom: 45px;
-	width: 80%;
-	margin: 0 auto;
-	max-width: 800px;
-	text-align: left;
-	flex: 1;
-	line-height: 20px;
-	word-wrap: break-word;
+  padding-bottom: 45px;
+  width: 80%;
+  margin: 0 auto;
+  max-width: 800px;
+  text-align: left;
+  flex: 1;
+  line-height: 20px;
+  word-wrap: break-word;
 }
 
 .talk-contents p {
-	margin: 5px 0;
+  margin: 5px 0;
 }
 
 .talk-scope .title {
-	color: var(--text-color);
-	font-size: var(--Max-FontSize);
-	font-weight: 400;
-	text-align: center;
-	margin-top: 40px;
-	margin-bottom: 40px;
+  color: var(--text-color);
+  font-size: var(--Max-FontSize);
+  font-weight: 400;
+  text-align: center;
+  margin-top: 40px;
+  margin-bottom: 40px;
 }

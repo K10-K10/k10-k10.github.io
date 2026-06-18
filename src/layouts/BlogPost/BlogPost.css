@@ -1,9 +1,9 @@
 .data {
-	margin: 8px 0;
-	font-size: 0.9rem;
-	color: var(--gray-color);
+  margin: 8px 0;
+  font-size: 0.9rem;
+  color: var(--gray-color);
 }
 
 .blog-post .blog-buttons {
-	padding-top: 100px;
+  padding-top: 100px;
 }

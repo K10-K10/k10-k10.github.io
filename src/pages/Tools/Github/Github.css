@@ -1,30 +1,30 @@
 .github {
-	ul {
-		list-style-type: none;
-		padding: 0;
-		margin: 0px 0;
-	}
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0px 0;
+  }
 
-	ul li {
-		margin: 0px 0;
-		padding: 10px;
-		border: 1px solid var(--border-color);
-		border-radius: 6px;
-		transition: background 0.2s ease;
-	}
+  ul li {
+    margin: 0px 0;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    transition: background 0.2s ease;
+  }
 
-	ul li:hover {
-		background: var(--secondary-color);
-	}
+  ul li:hover {
+    background: var(--secondary-color);
+  }
 
-	ul li a {
-		text-decoration: none;
-		color: var(--link-color);
-		font-weight: bold;
-	}
+  ul li a {
+    text-decoration: none;
+    color: var(--link-color);
+    font-weight: bold;
+  }
 
-	ul li a:hover {
-		color: var(--shadow-color);
-		text-decoration: underline;
-	}
+  ul li a:hover {
+    color: var(--shadow-color);
+    text-decoration: underline;
+  }
 }
