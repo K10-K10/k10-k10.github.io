@@ -19,7 +19,7 @@ export default function Header() {
 
   return (
     <header className="header">
-      <a href="/#/" className="title">
+      <a href="/" className="title">
         K10-K10
       </a>
       <label id="hamburger-menu">
@@ -27,7 +27,7 @@ export default function Header() {
         <div id="topic_scope_bg">
           <div id="topic_scope">
             {topics.map((topic, i) => (
-              <a key={i} href={`/#/${topic}`} className="topic">
+              <a key={i} href={`/${topic}`} className="topic">
                 {topic}
               </a>
             ))}

@@ -25,7 +25,7 @@ export default function Home() {
             .reverse()
             .map((p) => (
               <li key={p.headName}>
-                <a href={`/#/Blog/${p.headName}`}>{p.title}</a>
+                <a href={`/Blog/${p.headName}`}>{p.title}</a>
               </li>
             ))}
         </ul>

@@ -1,5 +1,4 @@
-import { HashRouter as Router, Route, Routes } from "react-router-dom";
-
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Header from "@layouts/Header/Header";
 import Footer from "@layouts/Footer/Footer";
 import Head from "@layouts/Head/Head";
@@ -15,9 +14,15 @@ import BlogPost from "@layouts/BlogPost/BlogPost";
 import Tools_home from "@pages/Tools/Tools";
 import Docs from "@pages/Docs/Docs";
 
+const redirect = sessionStorage.getItem("redirect");
+if (redirect) {
+    sessionStorage.removeItem("redirect");
+    window.history.replaceState(null, "", redirect);
+}
+
 export default function Main() {
   return (
-    <Router>
+    <Router basename="/">
       <div id="app-layout">
         <Head
           title={"K10-K10 - Home"}
@@ -42,6 +47,7 @@ export default function Main() {
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
+        
         <Footer />
       </div>
     </Router>

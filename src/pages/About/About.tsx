@@ -12,7 +12,7 @@ export default function About() {
         description={
           "Learn about K10-K10 - a junior high school developer passionate about C++, competitive programming, and robotics. Explore portfolio and projects."
         }
-        pageUrl="https://K10-K10.github.io/#/About"
+        pageUrl="https://K10-K10.github.io/About"
       />
       <Talk title="About the site" style_scope={{ background: "var(--cloudy_background-color)" }}>
         <p>This site is my React practice site.</p>

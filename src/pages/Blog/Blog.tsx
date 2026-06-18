@@ -14,7 +14,7 @@ export default function Blog() {
         description={
           "K10-K10 Blog - Read articles about programming, robotics, competitive programming, and software development projects."
         }
-        pageUrl="https://K10-K10.github.io/#/Blog"
+        pageUrl="https://K10-K10.github.io/Blog"
       />
       <Talk title="Blog">
         {sortedPosts.map((post) => (

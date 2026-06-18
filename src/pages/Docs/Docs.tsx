@@ -12,7 +12,7 @@ export default function Docs() {
         description={
           "K10-K10 Documentation - Technical documentation and guides for K10-K10 projects and tools."
         }
-        pageUrl="https://K10-K10.github.io/#/Docs"
+        pageUrl="https://K10-K10.github.io/Docs"
       />
       <Talk title="K10-K10 Documentation">
         <Grid
