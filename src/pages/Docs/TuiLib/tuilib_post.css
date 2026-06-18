@@ -1,0 +1,21 @@
+.TuiDocs-main h1,
+h2,
+h3,
+h4 {
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
+
+.TuiDocs-main p {
+  line-height: 1.7;
+  margin-bottom: 16px;
+}
+
+.TuiDocs-main ul {
+  padding-left: 20px;
+  list-style-type: disc;
+}
+
+.TuiDocs-main li {
+  margin-bottom: 4px;
+}
