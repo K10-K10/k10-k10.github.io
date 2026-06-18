@@ -18,7 +18,7 @@ export default function Docs() {
         <Grid
           title="test"
           description="This is a test grid item."
-          imageUrl="/public/github_logo.png"
+          imageUrl="/github_logo.png"
           link="https://example.com"
         />
       </Talk>
