@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, useRoutes, RouteObject } from "react-router-dom";
 import Header from "@layouts/Header/Header";
 import Footer from "@layouts/Footer/Footer";
 import Head from "@layouts/Head/Head";
@@ -20,36 +20,53 @@ if (redirect) {
     window.history.replaceState(null, "", redirect);
 }
 
-export default function Main() {
+const routesConfig: RouteObject[] = [
+  { path: "/", element: <Home /> },
+  { path: "/About", element: <About /> },
+  { path: "/Blog", element: <Blog_home /> },
+  { path: "/Blog/:headName", element: <BlogPost /> },
+  { path: "/Docs", element: <Docs /> },
+  
+  {
+    path: "/Tools",
+    children: [
+      { path: "", element: <Tools_home /> },
+      { path: "RGB", element: <RGB /> },
+      { path: "Github", element: <Github /> },
+      { path: "Ants", element: <Ant /> },
+    ]
+  },
+  
+  { path: "*", element: <NotFound /> }
+];
+
+function AppContent() {
+  const element = useRoutes(routesConfig);
   return (
-    <Router basename="/">
-      <div id="app-layout">
-        <Head
-          title={"K10-K10 - Home"}
-          linkTitle={"Home"}
-          description={
-            "K10-K10 - Personal portfolio, projects, tools, and blog. Explore software development work and creative projects."
-          }
-          pageUrl="https://K10-K10.github.io/"
-        />
-        <Header />
-        <main>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/Tools/RGB" element={<RGB />} />
-            <Route path="/Tools/Github" element={<Github />} />
-            <Route path="/Tools/Ants" element={<Ant />} />
-            <Route path="/About" element={<About />} />
-            <Route path="/Blog" element={<Blog_home />} />
-            <Route path="/Blog/:headName" element={<BlogPost />} />
-            <Route path="/Tools" element={<Tools_home />} />
-            <Route path="/Docs" element={<Docs />} />
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </main>
-        
-        <Footer />
-      </div>
+    <div id="app-layout">
+      <Head
+        title={"K10-K10 - Home"}
+        linkTitle={"Home"}
+        description={
+          "K10-K10 - Personal portfolio, projects, tools, and blog. Explore software development work and creative projects."
+        }
+        pageUrl="https://K10-K10.github.io/"
+      />
+      <Header />
+      <main>
+        {element}
+      </main>
+      <Footer />
+    </div>
+  );
+}
+
+export default function Main() {
+  const baseName = import.meta.env.BASE_URL;
+
+  return (
+    <Router basename={baseName}>
+      <AppContent />
     </Router>
   );
 }
