@@ -4,6 +4,7 @@ import Head from "@layouts/Head/Head";
 import Markdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import Code from '@parts/Code';
+import { Link } from "react-router-dom";
 
 import readme from '@contents/tuiLib/README.md?raw';
 
@@ -18,8 +19,8 @@ export default function TuiDocs() {
         }
         pageUrl="https://K10-K10.github.io/Docs/TuiLib"
       />
-      <Talk title="">
-        <div></div>
+      <Talk title="README">
+      <Link to={`https://github.com/k10-k10/terminal-library`} >Github Repository</Link>
         <Markdown 
       remarkPlugins={[remarkGfm]}
       components={{
