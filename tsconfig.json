@@ -24,7 +24,8 @@
     "paths": {
       "@parts/*": ["./src/ui-parts/*"],
       "@pages/*": ["./src/pages/*"],
-      "@layouts/*": ["./src/layouts/*"]
+      "@layouts/*": ["./src/layouts/*"],
+      "@contents/*": ["./src/contents/*"]
     },
     "include": ["src/**/*"],
     // Performance & compatibility

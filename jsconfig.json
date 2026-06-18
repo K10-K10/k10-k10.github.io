@@ -4,7 +4,8 @@
     "paths": {
       "@parts/*": ["ui-parts/*"],
       "@pages/*": ["pages/*"],
-      "@layouts/*": ["layouts/*"]
+      "@layouts/*": ["layouts/*"],
+      "@contents/*": ["contents/*"]
     },
     "ignoreDeprecations": "6.0"
   }

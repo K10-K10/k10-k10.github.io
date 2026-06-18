@@ -13,6 +13,9 @@ import Blog_home from "@pages/Blog/Blog";
 import BlogPost from "@layouts/BlogPost/BlogPost";
 import Tools_home from "@pages/Tools/Tools";
 import Docs from "@pages/Docs/Docs";
+import TuiDocs from "@pages/Docs/TuiLib/tuilib_home"
+import TuiPost from "@pages/Docs/TuiLib/tuilib_post"
+import { Children } from "react";
 
 const redirect = sessionStorage.getItem("redirect");
 if (redirect) {
@@ -26,6 +29,13 @@ const routesConfig: RouteObject[] = [
   { path: "/Blog", element: <Blog_home /> },
   { path: "/Blog/:headName", element: <BlogPost /> },
   { path: "/Docs", element: <Docs /> },
+  {
+    path: "/Docs/TuiLib",
+    children: [
+      { path: "", element: <TuiDocs /> },
+      { path: "*", element: <TuiPost /> }
+    ]
+  },
   
   {
     path: "/Tools",
