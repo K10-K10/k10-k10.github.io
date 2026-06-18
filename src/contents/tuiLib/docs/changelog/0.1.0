@@ -1,0 +1,12 @@
+# ver 0.1.0
+
+- commithash: `43abce017582b159d8f7eb3e0fa752caf6473a6b`
+- date: 05/06/2026
+
+## [Added]
+- New object `TextField` for multiline and input text fields.
+
+## [Changed]
+
+## [Removed]
+- `pop` and `push` function is removed from `Text` object. Use `TextField` instead.
