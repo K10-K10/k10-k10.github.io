@@ -19,7 +19,7 @@ export default function Docs() {
           title="test"
           description="This is a test grid item."
           imageUrl="/github_logo.png"
-          link="https://example.com"
+          link="/Docs/TUIlib"
         />
       </Talk>
     </div>
