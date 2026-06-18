@@ -26,6 +26,8 @@
   --SiteTitle-FontWeight: 600;
   --PageTitle-FontWeight: 400;
   --Base-FontWeight: 200;
+
+  --code-color: #171717;
 }
 
 [data-theme="light"] {
