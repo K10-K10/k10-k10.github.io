@@ -1,5 +1,6 @@
 :root {
   --text-color: #000000;
+  --text-right-color: #e0e0e0;
   --primary-color: #000000;
   --primary-dark-color: #41558f;
   --error-color: #ff0f0f;
@@ -49,6 +50,7 @@
   --cloudy_background-color: #1e1e1e;
   --secondary-color: #2a2a2a;
 
+  --reverse-text-color: #0000000;
   --text-color: #e0e0e0;
   --reverse-color: #121212;
   --border-color: #333333;
