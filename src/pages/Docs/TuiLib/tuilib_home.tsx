@@ -8,6 +8,25 @@ import { Link } from "react-router-dom";
 
 import readme from "@contents/tuiLib/README.md?raw";
 
+const createId = (children: React.ReactNode): string => {
+  if (typeof children === "string") {
+    return children
+      .toLowerCase()
+      .trim()
+      .replace(/\s+/g, "-")
+      .replace(".", "-")
+      .replace("(", "")
+      .replace(")", "");
+  }
+  if (Array.isArray(children)) {
+    return children.map((child) => createId(child)).join("");
+  }
+  if (children && typeof children === "object" && "props" in children) {
+    return createId((children as any).props.children);
+  }
+  return "";
+};
+
 export default function TuiDocs() {
   return (
     <div className="TuiDocs-main">
@@ -34,16 +53,26 @@ export default function TuiDocs() {
         <Markdown
           remarkPlugins={[remarkGfm]}
           components={{
-            code({ node, inline, className, children, ...props }) {
+            code({ node, className, children, ...props }) {
               const match = /language-(\w+)/.exec(className || "");
               const language = match ? match[1] : "text";
 
-              return !inline ? (
-                <Code lang={language}>{children}</Code>
-              ) : (
-                <code className={className} {...props}>
+              const isInline = !className && !String(children).includes("\n");
+
+              return (
+                <Code lang={language} inline={isInline}>
                   {children}
-                </code>
+                </Code>
+              );
+            },
+
+            h2({ children, ...props }) {
+              const headingId = createId(children);
+
+              return (
+                <h2 id={headingId} {...props}>
+                  {children}
+                </h2>
               );
             },
 
@@ -61,12 +90,67 @@ export default function TuiDocs() {
                 );
               }
 
-              const cleanHref = href.replace(/^\.\//, "").replace(/\.md$/, "");
+              const cleanHref = href
+                .replace(/^\.\.\//, "")
+                .replace(/^\.\//, "")
+                .replace(/\.md$/, "");
+              const targetUrl = `/Docs/TuiLib/${cleanHref}`.replace(/\/+/g, "/");
 
               return (
-                <Link to={`/Docs/TuiLib/${cleanHref}`} {...props}>
+                <Link to={targetUrl} {...props}>
                   {children}
                 </Link>
+              );
+            },
+            img({ src, alt, ...props }) {
+              if (!src || src.startsWith("http") || src.startsWith("data:")) {
+                return (
+                  <img
+                    src={src}
+                    alt={alt}
+                    style={{ maxWidth: "100%", height: "auto", borderRadius: "8px" }}
+                    {...props}
+                  />
+                );
+              }
+
+              const cleanSrc = src.replace(/^\.\.\//, "").replace(/^\.\//, "");
+              const currentSegments = location.pathname.split("/");
+              currentSegments.pop();
+              const basePath = currentSegments.join("/");
+
+              const targetSrc =
+                `/src/contents/tuiLib/docs/${basePath.replace("TuiLib/docs", "")}/${cleanSrc}`.replace(
+                  /\/+/g,
+                  "/",
+                );
+
+              return (
+                <span style={{ display: "block", textAlign: "center", margin: "20px 0" }}>
+                  <img
+                    src={targetSrc}
+                    alt={alt}
+                    style={{
+                      maxWidth: "100%",
+                      height: "auto",
+                      borderRadius: "8px",
+                      boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
+                    }}
+                    {...props}
+                  />
+                  {alt && (
+                    <span
+                      style={{
+                        display: "block",
+                        fontSize: "0.85rem",
+                        color: "#888",
+                        marginTop: "8px",
+                      }}
+                    >
+                      {alt}
+                    </span>
+                  )}
+                </span>
               );
             },
           }}

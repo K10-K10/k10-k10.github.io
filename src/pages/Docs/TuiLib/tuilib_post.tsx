@@ -7,6 +7,25 @@ import Head from "@layouts/Head/Head";
 
 const mdFiles = import.meta.glob("/src/contents/tuiLib/**/*.md", { query: "?raw", eager: true });
 
+const createId = (children: React.ReactNode): string => {
+  if (typeof children === "string") {
+    return children
+      .toLowerCase()
+      .trim()
+      .replace(/\s+/g, "-")
+      .replace(".", "-")
+      .replace("(", "")
+      .replace(")", "");
+  }
+  if (Array.isArray(children)) {
+    return children.map((child) => createId(child)).join("");
+  }
+  if (children && typeof children === "object" && "props" in children) {
+    return createId((children as any).props.children);
+  }
+  return "";
+};
+
 export default function TuiPost() {
   const { "*": docPath } = useParams();
 
@@ -99,6 +118,84 @@ export default function TuiPost() {
                   <Link to={targetUrl} {...props}>
                     {children}
                   </Link>
+                );
+              },
+              h2({ children, ...props }) {
+                const headingId = createId(children);
+
+                return (
+                  <h2 id={headingId} {...props}>
+                    {children}
+                  </h2>
+                );
+              },
+              h3({ children, ...props }) {
+                const headingId = createId(children);
+
+                return (
+                  <h2 id={headingId} {...props}>
+                    {children}
+                  </h2>
+                );
+              },
+              h4({ children, ...props }) {
+                const headingId = createId(children);
+
+                return (
+                  <h2 id={headingId} {...props}>
+                    {children}
+                  </h2>
+                );
+              },
+              img({ src, alt, ...props }) {
+                if (!src || src.startsWith("http") || src.startsWith("data:")) {
+                  return (
+                    <img
+                      src={src}
+                      alt={alt}
+                      style={{ maxWidth: "100%", height: "auto", borderRadius: "8px" }}
+                      {...props}
+                    />
+                  );
+                }
+
+                const cleanSrc = src.replace(/^\.\.\//, "").replace(/^\.\//, "");
+                const currentSegments = location.pathname.split("/");
+                currentSegments.pop();
+                const basePath = currentSegments.join("/");
+
+                const targetSrc =
+                  `/src/contents/tuiLib/${basePath.replace("/Docs/TuiLib", "")}/${cleanSrc}`.replace(
+                    /\/+/g,
+                    "/",
+                  );
+
+                return (
+                  <span style={{ display: "block", textAlign: "center", margin: "20px 0" }}>
+                    <img
+                      src={targetSrc}
+                      alt={alt}
+                      style={{
+                        maxWidth: "100%",
+                        height: "auto",
+                        borderRadius: "8px",
+                        boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
+                      }}
+                      {...props}
+                    />
+                    {alt && (
+                      <span
+                        style={{
+                          display: "block",
+                          fontSize: "0.85rem",
+                          color: "#888",
+                          marginTop: "8px",
+                        }}
+                      >
+                        {alt}
+                      </span>
+                    )}
+                  </span>
                 );
               },
             }}

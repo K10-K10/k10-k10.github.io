@@ -73,7 +73,7 @@ int main() {
 
 It will display like this:
 
-[![counter](counter.gif)](counter.gif)
+[![counter](./counter.gif)](counter.gif)
 
 ---
 
