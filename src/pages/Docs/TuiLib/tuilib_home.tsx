@@ -20,28 +20,48 @@ export default function TuiDocs() {
         pageUrl="https://K10-K10.github.io/Docs/TuiLib"
       />
       <Talk title="README">
-      <Link to={`https://github.com/k10-k10/terminal-library`} >Github Repository</Link>
-        <Markdown 
-      remarkPlugins={[remarkGfm]}
-      components={{
-        code({ node, inline, className, children, ...props }) {
-          const match = /language-(\w+)/.exec(className || '');
-          const language = match ? match[1] : 'text';
+        <div style={{ marginBottom: '20px', display: 'flex', gap: '15px', flexDirection: 'column' }}>
+          <a href="https://github.com/k10-k10/terminal-library" target="_blank" rel="noreferrer" className="github-link">
+            Github Repository
+          </a>
 
-          return !inline ? (
-            <Code lang={language}>
-              {children}
-            </Code>
-          ) : (
-            <code className={className} {...props}>
-              {children}
-            </code>
-          );
-        }
-      }}
-      >
-      {readme}
-      </Markdown>
+        </div>
+
+        <Markdown 
+          remarkPlugins={[remarkGfm]}
+          components={{
+            code({ node, inline, className, children, ...props }) {
+              const match = /language-(\w+)/.exec(className || '');
+              const language = match ? match[1] : 'text';
+
+              return !inline ? (
+                <Code lang={language}>
+                  {children}
+                </Code>
+              ) : (
+                <code className={className} {...props}>
+                  {children}
+                </code>
+              );
+            },
+            
+            a({ href, children, ...props }) {
+              if (!href || href.startsWith('http') || href.startsWith('#')) {
+                return <a href={href} target={href?.startsWith('http') ? "_blank" : undefined} rel="noreferrer" {...props}>{children}</a>;
+              }
+
+              const cleanHref = href.replace(/^\.\//, '').replace(/\.md$/, '');
+              
+              return (
+                <Link to={`/Docs/TuiLib/${cleanHref}`} {...props}>
+                  {children}
+                </Link>
+              );
+            }
+          }}
+        >
+          {readme}
+        </Markdown>
       </Talk>
     </div>
   );

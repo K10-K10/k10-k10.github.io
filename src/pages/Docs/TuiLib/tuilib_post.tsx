@@ -1,22 +1,32 @@
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom'; // 💡 Link をインポートに追加
 import Markdown from 'react-markdown';
-import Code from '@parts/Code'; // 💡 ビルド解決のため相対パスに変更
+import remarkGfm from 'remark-gfm';
+import Code from '@parts/Code';
+import Talk from "@layouts/Talk/Talk";
+import Head from "@layouts/Head/Head";
 
-// 💡 読み込みフォルダを /src/contents/tuiLib/ に統一
 const mdFiles = import.meta.glob('/src/contents/tuiLib/**/*.md', { query: '?raw', eager: true });
 
 export default function TuiPost() {
   const { "*" : docPath } = useParams(); 
 
-  // 💡 検索用のキー（ターゲットパス）を /src/contents/tuiLib/ に修正して一致させます
-  const targetKey = `/src/contents/tuiLib/${docPath}.md`;
+  let cleanPath = docPath?.replace(/^\/?(tuiLib|tuilib)\//i, '') || '';
+  
+  const targetKey = `/src/contents/tuiLib/docs/${cleanPath}.md`;
+
+  console.log("【詳細ページ】探しているキー:", targetKey);
+  console.log("【詳細ページ】存在する全ファイル:", Object.keys(mdFiles));
+
   const file = mdFiles[targetKey];
 
   if (!file) {
     return (
       <div style={{ padding: '20px' }}>
         <h2>Document not found.</h2>
-        <p style={{ color: 'gray', fontSize: '14px' }}>パス: {docPath}</p>
+        <p style={{ color: 'gray', fontSize: '14px' }}>
+          お探しのドキュメントが見つかりませんでした。<br />
+          システムキー: {targetKey}
+        </p>
       </div>
     );
   }
@@ -43,32 +53,61 @@ export default function TuiPost() {
   }
 
   return (
-    <article className="tui-post-container" style={{ padding: '20px', maxWidth: '800px', margin: '0 auto' }}>
-      {titleFromMeta && <h1 className="post-title">{titleFromMeta}</h1>}
+    <div className="TuiDocs-main">
+      <Head
+        title={titleFromMeta ? `K10-K10 - ${titleFromMeta}` : "K10-K10 - TUI Docs"}
+        linkTitle="tui"
+        description="K10-K10 Documentation - TUI library in C++ documentation."
+        pageUrl={`https://K10-K10.github.io/Docs/TuiLib/${docPath}`}
+      />
       
-      {/* 💡 Markdownにカスタムコンポーネントのレンダラーを渡します */}
-      <Markdown
-        components={{
-          code({ node, inline, className, children, ...props }) {
-            const match = /language-(\w+)/.exec(className || '');
-            const language = match ? match[1] : '';
+      <Talk title={titleFromMeta || "Documentation"}>
+        <article className="tui-post-container" style={{ maxWidth: '800px', margin: '0 auto' }}>
+          
+          <Markdown 
+            remarkPlugins={[remarkGfm]}
+            components={{
+              code({ node, inline, className, children, ...props }) {
+                const match = /language-(\w+)/.exec(className || '');
+                const language = match ? match[1] : 'text';
 
-            return !inline ? (
-              // 💡 複数行のコードブロックをカスタムの Code コンポーネントで囲う
-              <Code language={language} {...props}>
-                {String(children).replace(/\n$/, '')}
-              </Code>
-            ) : (
-              // インラインコードは通常のタグを使用
-              <code className={className} {...props}>
-                {children}
-              </code>
-            );
-          }
-        }}
-      >
-        {bodyContent}
-      </Markdown>
-    </article>
+                return !inline ? (
+                  <Code lang={language}>
+                    {children}
+                  </Code>
+                ) : (
+                  <code className={className} {...props}>
+                    {children}
+                  </code>
+                );
+              },
+              
+              a({ href, children, ...props }) {
+                if (!href || href.startsWith('http') || href.startsWith('#')) {
+                  return <a href={href} target={href?.startsWith('http') ? "_blank" : undefined} rel="noreferrer" {...props}>{children}</a>;
+                }
+
+                const cleanHref = href
+                  .replace(/^\.\.\//, '')
+                  .replace(/^\.\//, '')
+                  .replace(/\.md$/, '');
+                const currentSegments = location.pathname.split('/');
+                currentSegments.pop();
+                const basePath = currentSegments.join('/');
+                const targetUrl = `${basePath}/${cleanHref}`.replace(/\/+/g, '/');
+
+                return (
+                  <Link to={targetUrl} {...props}>
+                    {children}
+                  </Link>
+                );
+              }
+            }}
+          >
+            {bodyContent}
+          </Markdown>
+        </article>
+      </Talk>
+    </div>
   );
 }

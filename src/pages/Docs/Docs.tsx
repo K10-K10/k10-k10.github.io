@@ -14,7 +14,7 @@ export default function Docs() {
         }
         pageUrl="https://K10-K10.github.io/Docs"
       />
-      <Talk title="K10-K10 Documentation">
+      <Talk title="Documentation">
         <Grid
           title="Terminal-library"
           description="C++ library to make TUI tools."
