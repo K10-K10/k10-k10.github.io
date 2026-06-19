@@ -115,15 +115,22 @@ export default function TuiDocs() {
               }
 
               const cleanSrc = src.replace(/^\.\.\//, "").replace(/^\.\//, "");
-              const currentSegments = location.pathname.split("/");
-              currentSegments.pop();
-              const basePath = currentSegments.join("/");
+              const currentPath = location.pathname.toLowerCase();
 
-              const targetSrc =
-                `/src/contents/tuiLib/docs/${basePath.replace("TuiLib/docs", "")}/${cleanSrc}`.replace(
-                  /\/+/g,
-                  "/",
-                );
+              let targetSrc = "";
+
+              if (currentPath === "/docs/tuilib" || currentPath === "/docs/tuilib/") {
+                targetSrc = `/src/contents/tuiLib/${cleanSrc}`;
+              } else {
+                const currentSegments = location.pathname.split("/");
+                currentSegments.pop(); // 現在のファイル名を削る
+                const basePath = currentSegments.join("/"); // 例: /Docs/TuiLib/docs
+
+                const subFolder = basePath.replace(/^\/Docs\/TuiLib/i, "");
+                targetSrc = `/src/contents/tuiLib/${subFolder}/${cleanSrc}`;
+              }
+
+              targetSrc = targetSrc.replace(/\/+/g, "/");
 
               return (
                 <span style={{ display: "block", textAlign: "center", margin: "20px 0" }}>
