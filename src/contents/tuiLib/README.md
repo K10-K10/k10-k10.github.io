@@ -105,4 +105,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-__version__: 1.1.0  | __author__: *K10-K10* |  __update__: 11/06/2026
+**version**: 1.1.0 | **author**: _K10-K10_ | **update**: 11/06/2026

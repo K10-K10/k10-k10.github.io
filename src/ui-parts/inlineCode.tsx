@@ -47,7 +47,7 @@ export default function Code({ lang, inline, children }: CodeProps) {
 
 const inlineCode = css({
   background: "var(--code-color)",
-  color: "var(--text-color)",
+  color: "var(--white-color)",
   padding: "2px 6px",
   borderRadius: "4px",
   fontSize: "0.95em",

@@ -6,7 +6,8 @@ type CodeSpaceProps = {
   filename: string;
   children: ReactNode;
 };
-export default function CodeSpace({ filename, children }: CodeSpaceProps) {
+
+export function CodeSpace({ filename, children }: CodeSpaceProps) {
   return (
     <div className="codespace">
       <Fieldset legend={filename}>
@@ -14,6 +15,14 @@ export default function CodeSpace({ filename, children }: CodeSpaceProps) {
           <code>{children}</code>
         </pre>
       </Fieldset>
+    </div>
+  );
+}
+
+export function InlineCode(contents: string) {
+  return (
+    <div className="inlineCode">
+      <code>{contents}</code>
     </div>
   );
 }

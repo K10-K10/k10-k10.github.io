@@ -25,7 +25,7 @@ The `List` object provides chainable methods to customize its visual appearance:
 - [`highlight_bg(bg)`](#14-highlight_bgbg): Sets the background color for the currently selected item.
 - [`highlight_fg(fg)`](#15-highlight_fgfg): Sets the text color for the currently selected item.
 
-*Note: Color methods accept either `int` values or enum values from `utils::FillColor` / `utils::TextColor`.*
+_Note: Color methods accept either `int` values or enum values from `utils::FillColor` / `utils::TextColor`._
 
 ## Example
 
@@ -34,10 +34,10 @@ The `List` object provides chainable methods to customize its visual appearance:
 
 int main() {
   terminal::app.init();
-  
+
   terminal::List list;
   terminal::Rect rect{2, 2, 20, 5}; // x, y, width, height
-  
+
   // Method chaining setup
   list.position(rect)
       .items({"Option 1", "Option 2", "Option 3"})
@@ -69,9 +69,9 @@ int main() {
 List& position(const Rect& r);
 ```
 
-- __Arguments__: `r: const terminal::Rect&` (A Rect object defining the list's bounding box)
+- **Arguments**: `r: const terminal::Rect&` (A Rect object defining the list's bounding box)
 
-- __Return__: `List&` (Reference to the current object for method chaining)
+- **Return**: `List&` (Reference to the current object for method chaining)
 
 Sets the position and size of the list.
 
@@ -81,9 +81,9 @@ Sets the position and size of the list.
 List& items(std::vector<std::string> items);
 ```
 
-- __Arguments__: `items: std::vector<std::string>` (A vector of strings to populate the list)
+- **Arguments**: `items: std::vector<std::string>` (A vector of strings to populate the list)
 
-- __Return__: List& (Reference to the current object for method chaining)
+- **Return**: List& (Reference to the current object for method chaining)
 
 Replaces the current list items with the provided vector of strings.
 
@@ -93,9 +93,9 @@ Replaces the current list items with the provided vector of strings.
 const std::vector<std::string>& items() const;
 ```
 
-- __Arguments__: None
+- **Arguments**: None
 
-- __Return__: `const std::vector<std::string>&` (A constant reference to the internal items vector)
+- **Return**: `const std::vector<std::string>&` (A constant reference to the internal items vector)
 
 Returns the entire collection of items currently stored in the list.
 
@@ -105,9 +105,9 @@ Returns the entire collection of items currently stored in the list.
 List& add_item(const std::string& s);
 ```
 
-- __Arguments__: s: const std::string& (The text of the item to add)
+- **Arguments**: s: const std::string& (The text of the item to add)
 
-- __Return__: List& (Reference to the current object for method chaining)
+- **Return**: List& (Reference to the current object for method chaining)
 
 Appends a new string item to the end of the list.
 
@@ -117,9 +117,9 @@ Appends a new string item to the end of the list.
 const std::string selected_item() const;
 ```
 
-- __Arguments__: None
+- **Arguments**: None
 
-- __Return__: const std::string (The text content of the selected item)
+- **Return**: const std::string (The text content of the selected item)
 
 Returns the string content of the item that is currently highlighted/selected.
 
@@ -129,8 +129,8 @@ Returns the string content of the item that is currently highlighted/selected.
 void move_up();
 ```
 
-- __Arguments__: None
-- __Return__: None
+- **Arguments**: None
+- **Return**: None
 
 Decrements the internal selection index to move the cursor up. This includes boundary checks to prevent underflow.
 
@@ -140,8 +140,8 @@ Decrements the internal selection index to move the cursor up. This includes bou
 void move_down();
 ```
 
-- __Arguments__: None
-- __Return__: None
+- **Arguments**: None
+- **Return**: None
 
 Increments the internal selection index to move the cursor down. This includes boundary checks based on the total number of items.
 
@@ -151,9 +151,9 @@ Increments the internal selection index to move the cursor down. This includes b
 int selected_index() const;
 ```
 
-- __Arguments__: None
+- **Arguments**: None
 
-- __Return__: int (The 0-based index of the active item)
+- **Return**: int (The 0-based index of the active item)
 
 Returns the numeric index of the currently selected item.
 
@@ -163,8 +163,8 @@ Returns the numeric index of the currently selected item.
 void draw() override;
 ```
 
-- __Arguments__: None
-- __Return__: None
+- **Arguments**: None
+- **Return**: None
 
 Overrides the Object::draw() method. Renders the entire list component, including the background, unselected text, the active selector symbol, and the highlighted item within the specified Rect boundary.
 
@@ -176,8 +176,8 @@ Overrides the Object::draw() method. Renders the entire list component, includin
 List& selector(const std::string& symbol);
 ```
 
-- __Arguments__: `symbol: const std::string&` (The string to use as the selection indicator)
-- __Return__: List& (Reference to the current object for method chaining)
+- **Arguments**: `symbol: const std::string&` (The string to use as the selection indicator)
+- **Return**: List& (Reference to the current object for method chaining)
 
 Sets the selection indicator prefix that appears before the currently selected item. The default symbol is `">"`.
 
@@ -188,8 +188,8 @@ List& field_color(terminal::Color bg);
 List& field_color(int bg);
 ```
 
-- __Arguments__: `bg: terminal::Color` / `int` (The color to use for the list's background field)
-- __Return__: List& (Reference to the current object for method chaining)
+- **Arguments**: `bg: terminal::Color` / `int` (The color to use for the list's background field)
+- **Return**: List& (Reference to the current object for method chaining)
 
 Sets the background color of the list field.
 
@@ -200,8 +200,8 @@ List& text_color(terminal::Color fg);
 List& text_color(int fg);
 ```
 
-- __Arguments__: `fg: terminal::Color` / `int` (The color to use for unselected item text)
-- __Return__: List& (Reference to the current object for method chaining)
+- **Arguments**: `fg: terminal::Color` / `int` (The color to use for unselected item text)
+- **Return**: List& (Reference to the current object for method chaining)
 
 Sets the text color for unselected items in the list.
 
@@ -212,8 +212,8 @@ List& selector_color(terminal::Color fg);
 List& selector_color(int fg);
 ```
 
-- __Arguments__: `fg: terminal::Color` / `int` (The color to use for the selector symbol)
-- __Return__: List& (Reference to the current object for method chaining)
+- **Arguments**: `fg: terminal::Color` / `int` (The color to use for the selector symbol)
+- **Return**: List& (Reference to the current object for method chaining)
 
 Sets the color of the selector symbol that indicates the currently selected item.
 
@@ -224,9 +224,9 @@ List& highlight_bg(terminal::Color bg);
 List& highlight_bg(int bg);
 ```
 
-- __Arguments__: `bg: terminal::Color` / `int` (The color to use
-for the background of the highlighted item)
-- __Return__: List& (Reference to the current object for method chaining)
+- **Arguments**: `bg: terminal::Color` / `int` (The color to use
+  for the background of the highlighted item)
+- **Return**: List& (Reference to the current object for method chaining)
 
 Sets the background color for the currently selected item in the list.
 
@@ -237,12 +237,12 @@ List& highlight_fg(terminal::Color fg);
 List& highlight_fg(int fg);
 ```
 
-- __Arguments__: `fg: terminal::Color` / `int` (The color to use
-for the text of the highlighted item)
-- __Return__: List& (Reference to the current object for method chaining)
+- **Arguments**: `fg: terminal::Color` / `int` (The color to use
+  for the text of the highlighted item)
+- **Return**: List& (Reference to the current object for method chaining)
 
 Sets the text color for the currently selected item in the list.
 
 ---
 
-__version__: *0.2.0* | __author__: *K10-K10* | __update__: 11/06/2026
+**version**: _0.2.0_ | **author**: _K10-K10_ | **update**: 11/06/2026

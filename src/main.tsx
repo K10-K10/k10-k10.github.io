@@ -13,14 +13,14 @@ import Blog_home from "@pages/Blog/Blog";
 import BlogPost from "@layouts/BlogPost/BlogPost";
 import Tools_home from "@pages/Tools/Tools";
 import Docs from "@pages/Docs/Docs";
-import TuiDocs from "@pages/Docs/TuiLib/tuilib_home"
-import TuiPost from "@pages/Docs/TuiLib/tuilib_post"
+import TuiDocs from "@pages/Docs/TuiLib/tuilib_home";
+import TuiPost from "@pages/Docs/TuiLib/tuilib_post";
 import { Children } from "react";
 
 const redirect = sessionStorage.getItem("redirect");
 if (redirect) {
-    sessionStorage.removeItem("redirect");
-    window.history.replaceState(null, "", redirect);
+  sessionStorage.removeItem("redirect");
+  window.history.replaceState(null, "", redirect);
 }
 
 const routesConfig: RouteObject[] = [
@@ -33,10 +33,10 @@ const routesConfig: RouteObject[] = [
     path: "/Docs/TuiLib",
     children: [
       { path: "", element: <TuiDocs /> },
-      { path: "docs*", element: <TuiPost /> }
-    ]
+      { path: "docs*", element: <TuiPost /> },
+    ],
   },
-  
+
   {
     path: "/Tools",
     children: [
@@ -44,10 +44,10 @@ const routesConfig: RouteObject[] = [
       { path: "RGB", element: <RGB /> },
       { path: "Github", element: <Github /> },
       { path: "Ants", element: <Ant /> },
-    ]
+    ],
   },
-  
-  { path: "*", element: <NotFound /> }
+
+  { path: "*", element: <NotFound /> },
 ];
 
 function AppContent() {
@@ -63,9 +63,7 @@ function AppContent() {
         pageUrl="https://K10-K10.github.io/"
       />
       <Header />
-      <main>
-        {element}
-      </main>
+      <main>{element}</main>
       <Footer />
     </div>
   );

@@ -3,7 +3,9 @@
 This example demonstrates a simple counter application using the Terminal Library. The application displays a counter value that can be incremented or decremented using the UP and DOWN arrow keys, respectively. Pressing 'q' will quit the application.
 
 ## What's in the Code?
+
 The main components of the code include:
+
 - **Text Object**: Displays the current value of the counter.
 - **Border Object**: Provides a visual border around the counter display.
 - **Event Loop**: Continuously listens for user input to update the counter or exit the application.
@@ -44,24 +46,25 @@ int main() {
       int value = std::stoi(counter.get_text());
       value++;
       counter.contents(std::to_string(value));
-    } 
+    }
     else if (key_code == terminal::input::KeyCode::DOWN) {
       int value = std::stoi(counter.get_text());
       if (value > 0){
         value--;
       }
       counter.contents(std::to_string(value));
-    } 
+    }
     else if (key_code == terminal::input::KeyCode::CHAR && terminal::input::key.getCurrentChar() == 'q') {
       terminal::app.stop();
-    }     
+    }
   });
 
   return 0;
 }
 ```
 
-## Key bindings 
+## Key bindings
+
 - **UP Arrow**: Increment the counter value.
 - **DOWN Arrow**: Decrement the counter value (not going below 0).
 - **'q' Key**: Quit the application.
@@ -74,4 +77,4 @@ It will display like this:
 
 ---
 
-__version__: *0.2.0* | __author__: *K10-K10* | __update__: 12/06/2026
+**version**: _0.2.0_ | **author**: _K10-K10_ | **update**: 12/06/2026

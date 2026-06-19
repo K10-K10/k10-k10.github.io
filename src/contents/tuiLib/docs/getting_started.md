@@ -89,4 +89,4 @@ example code can be found in the [Examples](examples.md) section of the document
 
 ---
 
-__version__: *0.2.0* | __author__: *K10-K10* | __update__: 11/06/2026
+**version**: _0.2.0_ | **author**: _K10-K10_ | **update**: 11/06/2026

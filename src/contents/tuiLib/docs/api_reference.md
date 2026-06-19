@@ -27,4 +27,4 @@ All functions are include in the `terminal` namespace.
 
 ---
 
-**version**: *0.2.0* | **author**: *K10-K10* | **update**: 11/06/2026
+**version**: _0.2.0_ | **author**: _K10-K10_ | **update**: 11/06/2026

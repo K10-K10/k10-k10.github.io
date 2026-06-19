@@ -37,8 +37,8 @@ int main() {
 Text& position(const Rect& r);
 ```
 
-- __Arguments__: `rect: terminal::Rect` (a `Rect` object that defines the position and size of the text)
-- __Return__: None
+- **Arguments**: `rect: terminal::Rect` (a `Rect` object that defines the position and size of the text)
+- **Return**: None
 
 Sets the position and size of the text.
 
@@ -48,8 +48,8 @@ Sets the position and size of the text.
 Text& content(const std::string& text);
 ```
 
-- __Arguments__: `content: std::string` (a string containing the text to display)
-- __Return__: None
+- **Arguments**: `content: std::string` (a string containing the text to display)
+- **Return**: None
 
 Sets the text content of the `Text` object.
 
@@ -59,8 +59,8 @@ Sets the text content of the `Text` object.
 std::string get_text() const;
 ```
 
-- __Arguments__: None
-- __Return__: `std::string` : A string containing the current text content of the `Text` object.
+- **Arguments**: None
+- **Return**: `std::string` : A string containing the current text content of the `Text` object.
 
 Returns the current text content of the `Text` object.
 
@@ -70,11 +70,11 @@ Returns the current text content of the `Text` object.
 void draw() const;
 ```
 
-- __Arguments__: None
-- __Return__: None
+- **Arguments**: None
+- **Return**: None
 
 Draws the text on the terminal at the specified position and with the specified styles.
 
 ---
 
-__version__: *0.2.0* | __author__: *K10-K10* | __update__: 11/06/2026
+**version**: _0.2.0_ | **author**: _K10-K10_ | **update**: 11/06/2026

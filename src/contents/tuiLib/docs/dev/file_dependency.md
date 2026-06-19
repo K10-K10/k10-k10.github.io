@@ -9,19 +9,19 @@ flowchart LR
 
     subgraph OBJ ["UI Objects"]
         objh["obj/obj.h"]
-        
+
         blockc["obj/block.c"]
         blockh["obj/block.h"]
-        
+
         inputc["obj/input.c"]
         inputh["obj/input.h"]
-        
+
         listc["obj/list.c"]
         listh["obj/list.h"]
-        
+
         textc["obj/text.c"]
         texth["obj/text.h"]
-        
+
         colorc["obj/color.c"]
         colorh["obj/color.h"]
     end
@@ -52,7 +52,7 @@ flowchart LR
         baseh["utils/base.h"]
     end
 
-    %% header 
+    %% header
     appc --> apph
     blockc --> blockh
     inputc --> inputh
@@ -98,4 +98,4 @@ flowchart LR
 
 ---
 
-__version__: *0.2.0* | __author__: *K10-K10* | __update__: 11/06/2026
+**version**: _0.2.0_ | **author**: _K10-K10_ | **update**: 11/06/2026

@@ -3,3 +3,8 @@
   tab-size: 2;
   background-color: var(--cloudy_background-color);
 }
+
+.inlineCode {
+  tab-size: 2;
+  background-color: var(--cloudy_background-color);
+}

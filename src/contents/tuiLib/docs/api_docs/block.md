@@ -12,7 +12,7 @@
 - [`border_type(border)`](#3-borderborder): Sets the border style of the block.
 - [`borders(type)`](#4-bordersborder): Specifies the drawing direction of the block's border.
 - [`border_color(color)`](#5-bordercolorcolor): Sets the color of the block's border.
-- [`field_color(color)`](#6-fieldcol  orcolor): Sets the background color of the block.
+- [`field_color(color)`](#6-fieldcol orcolor): Sets the background color of the block.
 
 ## Example
 
@@ -45,8 +45,8 @@ int main() {
 Block& position(const Rect& r);
 ```
 
-- __Arguments__: `rect: terminal::Rect` (a `Rect` object that defines the position and size of the block)
-- __Return__: None
+- **Arguments**: `rect: terminal::Rect` (a `Rect` object that defines the position and size of the block)
+- **Return**: None
 
 Sets the position and size of the block.
 
@@ -56,8 +56,8 @@ Sets the position and size of the block.
 void draw();
 ```
 
-- __Arguments__: None
-- __Return__: None
+- **Arguments**: None
+- **Return**: None
 
 Draws the block on the terminal at the specified position and with the specified border style.
 
@@ -67,8 +67,8 @@ Draws the block on the terminal at the specified position and with the specified
 Block& border_type(terminal::BorderType border);
 ```
 
-- __Arguments__: `border: terminal::BorderType` (Specifies the border style)
-- __Return__: None
+- **Arguments**: `border: terminal::BorderType` (Specifies the border style)
+- **Return**: None
 
 Sets the border style of the block. The [`BorderType`](#bordertype) can be one of the following:
 
@@ -78,8 +78,8 @@ Sets the border style of the block. The [`BorderType`](#bordertype) can be one o
 Block& borders(terminal::EdgeType type);
 ```
 
-- __Arguments__: `type: terminal::EdgeType` (Specifies the drawing direction)
-- __Return__: None
+- **Arguments**: `type: terminal::EdgeType` (Specifies the drawing direction)
+- **Return**: None
 
 Specifies the drawing direction of the block's border. The [`EdgeType`](#edgetype) can be one of the following:
 
@@ -90,8 +90,8 @@ Block& border_color(terminal::Color color);
 Block& border_color(int color);
 ```
 
-- __Arguments__: `color: terminal::Color` / `int` (Specifies the color of the border)
-- __Return__: None
+- **Arguments**: `color: terminal::Color` / `int` (Specifies the color of the border)
+- **Return**: None
 
 Sets the color of the block's border.
 
@@ -102,8 +102,8 @@ Block& field_color(terminal::Color color);
 Block& field_color(int color);
 ```
 
-- __Arguments__: `color: terminal::Color` / `int` (Specifies the color of the background)
-- __Return__: None
+- **Arguments**: `color: terminal::Color` / `int` (Specifies the color of the background)
+- **Return**: None
 
 Sets the background color of the block.
 
@@ -135,4 +135,4 @@ The `EdgeType` enum defines the edges of the block where the border should be dr
 
 ---
 
-__version__: *0.2.0* | __author__: *K10-K10* | __update__: 11/06/2026
+**version**: _0.2.0_ | **author**: _K10-K10_ | **update**: 11/06/2026
