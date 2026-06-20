@@ -79,7 +79,7 @@ export default function TuiPost() {
             components={{
               code({ node, className, children, ...props }) {
                 const match = /language-(\w+)/.exec(className || "");
-                const language  = match ? match[1] : "text";
+                const language = match ? match[1] : "text";
                 const isInline = !className && !String(children).includes("\n");
 
                 return (
@@ -108,7 +108,7 @@ export default function TuiPost() {
                 const handleScrollToTop = () => {
                   setTimeout(() => {
                     window.scrollTo(0, 0);
-                    
+
                     const scrollContainer = document.querySelector(".TuiDocs-main");
                     if (scrollContainer) {
                       scrollContainer.scrollTop = 0;
@@ -133,15 +133,27 @@ export default function TuiPost() {
 
               h2({ children, ...props }) {
                 const headingId = createId(children);
-                return <h2 id={headingId} {...props}>{children}</h2>;
+                return (
+                  <h2 id={headingId} {...props}>
+                    {children}
+                  </h2>
+                );
               },
               h3({ children, ...props }) {
                 const headingId = createId(children);
-                return <h3 id={headingId} {...props}>{children}</h3>; // tagをh2からh3に修正
+                return (
+                  <h3 id={headingId} {...props}>
+                    {children}
+                  </h3>
+                ); // tagをh2からh3に修正
               },
               h4({ children, ...props }) {
                 const headingId = createId(children);
-                return <h4 id={headingId} {...props}>{children}</h4>; // tagをh2からh4に修正
+                return (
+                  <h4 id={headingId} {...props}>
+                    {children}
+                  </h4>
+                ); // tagをh2からh4に修正
               },
 
               img({ src, alt, ...props }) {
