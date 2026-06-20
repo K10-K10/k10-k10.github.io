@@ -1,3 +1,8 @@
+---
+version: 0.3.0
+date: 19/06/2026
+---
+
 # Points to Note
 
 Here are some important points to note when using the TUI library:
@@ -8,8 +13,4 @@ Here are some important points to note when using the TUI library:
 
 3. **If process stopped by `Ctrl + C`**: This library has a signal handler for `SIGINT`, and when the process is stopped by `Ctrl + C`, auto call `app.stop()`, so the terminal will be restored to its original state.
 
-4. **Order of Drawing**: The order of drawing objects matters. Objects drawn later will be displayed on top of objects drawn earlier. Make sure to draw background elements first and foreground elements later. I'll add more options to control the order of drawing later.
-
----
-
-**version**: _0.2.0_ | **author**: _K10-K10_ | **update**: 11/06/2026
+4. **Order of Drawing**: The order of drawing objects matters. Objects drawn later will be displayed on top of objects drawn earlier. Make sure to draw background elements first and foreground elements later.  I'll add more options to control the order of drawing later.

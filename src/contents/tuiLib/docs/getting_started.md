@@ -1,3 +1,8 @@
+---
+version: 0.3.0
+date: 19/06/2026
+---
+
 # Getting Started
 
 This document will guide you through the process of setting up and using the TUI library in your C++ projects. Follow the steps below to get started.
@@ -14,15 +19,15 @@ You can use CMake's `FetchContent` module to include the TUI library in your pro
 include(FetchContent)
 
 FetchContent_Declare(
-    terminal_library
-    GIT_REPOSITORY https://github.com/K10-K10/Terminal-Library.git
+    krowTUI
+    GIT_REPOSITORY https://github.com/K10-K10/KrowTUI
     GIT_TAG main # We suport only latest version, so use main branch
 )
 
-FetchContent_MakeAvailable(terminal_library)
+FetchContent_MakeAvailable(krowTUI)
 
 add_executable(your_app main.cpp)
-target_link_libraries(your_app PRIVATE K10-K10::terminal)
+target_link_libraries(your_app PRIVATE K10-K10::krow)
 ```
 
 ### Method 2: Via Git Submodule
@@ -32,7 +37,7 @@ Alternatively, you can add the TUI library as a git submodule in your project:
 1. Add the submodule to your repository:
 
 ```bash
-git submodule add [https://github.com/your_github_username/Terminal-Library.git](https://github.com/your_github_username/Terminal-Library.git) lib/Terminal-Library
+git submodule add [https://github.com/your_github_username/KrowTUI.git](https://github.com/your_github_username/KrowTUI.git) lib/KrowTUI
 git submodule update --init --recursive
 ```
 
@@ -40,21 +45,21 @@ git submodule update --init --recursive
 
 ```cmake
 # Add the submodule directory
-add_subdirectory(lib/Terminal-Library)
+add_subdirectory(lib/KrowTUI)
 
 # Your executable
 add_executable(my_app src/main.cpp)
 
 # Link the library
-target_link_libraries(my_app PRIVATE K10-K10::terminal)
+target_link_libraries(my_app PRIVATE K10-K10::krow)
 ```
 
 ## Usage
 
-This library is header-only, so you can directly include the header file`K10-K10/terminal.h` in your project.
+This library is header-only, so you can directly include the header file`K10-K10/krow.h` in your project.
 
 ```cpp
-#include <K10-K10/terminal.h>
+#include <K10-K10/krow.h>
 ```
 
 ## How to Use
@@ -68,7 +73,7 @@ app.init();
 Then, you can create and manipulate terminal elements as needed. For example, to create a simple text element:
 
 ```cpp
-terminal::Text text("Hello, World!");
+krow::Text text("Hello, World!");
 ```
 
 Finally, draw the terminal to see the changes:
@@ -86,7 +91,3 @@ app.stop();
 ```
 
 example code can be found in the [Examples](examples.md) section of the documentation.
-
----
-
-**version**: _0.2.0_ | **author**: _K10-K10_ | **update**: 11/06/2026

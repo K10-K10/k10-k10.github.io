@@ -1,7 +1,6 @@
 ---
-title: "TUI Library API Reference"
-date: 2026-06-11
-order: 2
+version: 0.3.0
+date: 19/06/2026
 ---
 
 # Examples
@@ -9,9 +8,9 @@ order: 2
 Here are some examples of how to use the TUI library in C++.
 
 ```cpp
-#include <K10-K10/terminal.h>
+#include <K10-K10/krow.h>
 
-using namespace terminal;
+using namespace krow;
 int main() {
   app.init();
   Text text;
@@ -58,16 +57,16 @@ project(app LANGUAGES CXX)
 include(FetchContent)
 
 FetchContent_Declare(
-  terminal_library
-  GIT_REPOSITORY https://github.com/K10-K10/Terminal-Library.git
+  KrowTUI
+  GIT_REPOSITORY https://github.com/K10-K10/KrowTUI
   GIT_TAG        main
 )
 
-FetchContent_MakeAvailable(terminal_library)
+FetchContent_MakeAvailable(KrowTUI)
 
 add_executable(app src/main.cpp)
 
-target_link_libraries(app PRIVATE K10-K10::terminal)
+target_link_libraries(app PRIVATE K10-K10::krow)
 ```
 
 ![Example Output](example_output.png)
@@ -77,7 +76,3 @@ target_link_libraries(app PRIVATE K10-K10::terminal)
 - `UP`: Move up in the list
 - `DOWN`: Move down in the list
 - `q`: Quit the application
-
----
-
-**version**: _0.2.0_ | **author**: _K10-K10_ | **update**: 11/06/2026
