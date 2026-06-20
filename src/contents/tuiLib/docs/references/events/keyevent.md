@@ -66,8 +66,8 @@ int main() {
 KeyCode getKeyCode();
 ```
 
-- __Arguments__: None
-- __Returns__: The key code of the key event.
+- **Arguments**: None
+- **Returns**: The key code of the key event.
 
 Returns the key code of the key event, which can be used to determine which key was pressed or released.
 
@@ -77,8 +77,8 @@ Returns the key code of the key event, which can be used to determine which key 
 char getCurrentChar();
 ```
 
-- __Arguments__: None
-- __Returns__: The character associated with the key event.
+- **Arguments**: None
+- **Returns**: The character associated with the key event.
 
 Returns the character associated with the key event, which is useful for handling character input.
 
@@ -88,7 +88,7 @@ Returns the character associated with the key event, which is useful for handlin
 void read();
 ```
 
-- __Arguments__: None
-- __Returns__: None
+- **Arguments**: None
+- **Returns**: None
 
 Reads the next key event from the input stream and updates the internal state of the `Key` object accordingly.

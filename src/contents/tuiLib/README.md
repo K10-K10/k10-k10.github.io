@@ -1,5 +1,5 @@
 ---
-version: 1.1.0 
+version: 1.1.0
 update: 19/06/2026
 ---
 
@@ -9,9 +9,9 @@ update: 19/06/2026
 
 [![build](https://github.com/K10-K10/krowTUI/actions/workflows/build.yml/badge.svg)](https://github.com/K10-K10/krowTUI/actions/workflows/build.yml)
 [![Lint](https://github.com/K10-K10/krowTUI/actions/workflows/lint.yml/badge.svg)](https://github.com/K10-K10/krowTUI/actions/workflows/lint.yml)
-[![GitHub Release Date](https://img.shields.io/github/release-date/K10-K10/krowTUI)](<https://github.com/K10-K10/krowTUI/releases>)
+[![GitHub Release Date](https://img.shields.io/github/release-date/K10-K10/krowTUI)](https://github.com/K10-K10/krowTUI/releases)
 [![GitHub Releases](https://img.shields.io/github/release/K10-K10/krowTUI.svg)](https://github.com/K10-K10/krowTUI/releases)
-[![GitHub License](https://img.shields.io/github/license/K10-K10/krowTUI)](<https://github.com/K10-K10/krowTUI/blob/main/LICENSE>)
+[![GitHub License](https://img.shields.io/github/license/K10-K10/krowTUI)](https://github.com/K10-K10/krowTUI/blob/main/LICENSE)
 
 ## Quick start
 
