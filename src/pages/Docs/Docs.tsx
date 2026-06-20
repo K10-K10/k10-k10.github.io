@@ -16,7 +16,7 @@ export default function Docs() {
       />
       <Talk title="Documentation">
         <Grid
-          title="Terminal-library"
+          title="KrowTUI"
           description="C++ library to make TUI tools."
           imageUrl="/github_logo.png"
           link="/Docs/TUIlib"

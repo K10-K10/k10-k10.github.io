@@ -15,7 +15,6 @@ export default function Home() {
       />
       <h1>Hello,World!</h1>
       <div className="information">
-        <h2>Projects</h2>
         <h2>Tools</h2>
         <p>New `langton's ant`</p>
         <h2>Latest Blog Posts</h2>

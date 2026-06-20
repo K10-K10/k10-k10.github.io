@@ -41,7 +41,7 @@ export default function TuiDocs() {
           style={{ marginBottom: "20px", display: "flex", gap: "15px", flexDirection: "column" }}
         >
           <a
-            href="https://github.com/k10-k10/terminal-library"
+            href="https://github.com/k10-k10/KrowTUI"
             target="_blank"
             rel="noreferrer"
             className="github-link"
@@ -123,8 +123,8 @@ export default function TuiDocs() {
                 targetSrc = `/src/contents/tuiLib/${cleanSrc}`;
               } else {
                 const currentSegments = location.pathname.split("/");
-                currentSegments.pop(); // 現在のファイル名を削る
-                const basePath = currentSegments.join("/"); // 例: /Docs/TuiLib/docs
+                currentSegments.pop();
+                const basePath = currentSegments.join("/");
 
                 const subFolder = basePath.replace(/^\/Docs\/TuiLib/i, "");
                 targetSrc = `/src/contents/tuiLib/${subFolder}/${cleanSrc}`;
