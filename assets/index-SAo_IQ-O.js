@@ -37,7 +37,7 @@ I want to be able to change the speed and display size.
 I might also add the “Game of Life.”
 But, I don't know how to change colour in touched grid;;
 I should have to learn more...`}];function C(){return p(`div`,{id:`home`,children:[u(x,{title:`K10-K10 - Personal Portfolio & Projects`,linkTitle:`Home`,description:`K10-K10 - Personal portfolio featuring software development projects, interactive tools, and blog posts. Explore my work in programming and creative projects.`,pageUrl:`https://K10-K10.github.io/`}),u(`h1`,{children:`Hello,World!`}),p(`div`,{className:`information`,children:[u(`h2`,{children:`Tools`}),u(`p`,{children:"New `langton's ant`"}),u(`h2`,{children:`Latest Blog Posts`}),u(`ul`,{children:S.slice(-3).reverse().map(e=>u(`li`,{children:u(`a`,{href:`/Blog/${e.headName}`,children:e.title})},e.headName))})]})]})}function w(){return p(`div`,{id:`NotFound`,children:[u(x,{title:`K10-K10 - Page Not Found`,linkTitle:`404`,description:`Page not found. The requested page does not exist on K10-K10 website.`}),u(`h1`,{children:`Error:404`}),u(`h2`,{children:`Page NotFound`})]})}function T({children:e,onClick:t,disabled:r=!1,style:i={},className:a}){let o=n({margin:`10px`,height:`50px`,width:`200px`,color:`var(--button-text-color)`,backgroundColor:`var(--button-color)`,border:`1px solid var(--button-color)`,borderRadius:`10px`,fontFamily:`inherit`,fontSize:`var(--Base-FontSize)`,textAlign:`center`,...i});return u(`button`,{className:`button`+a,onClick:t,disabled:r,css:o,children:e})}function ee(){let[e,t]=(0,_.useState)(0),[n,r]=(0,_.useState)(0),[i,a]=(0,_.useState)(0);e>255&&t(255),e<0&&t(0),n>255&&r(255),n<0&&r(0),i>255&&a(255),i<0&&a(0);let o=(0,_.useRef)(null);return(0,_.useEffect)(()=>{if(o.current){let t=o.current.getContext(`2d`);if(!t)return;t.fillStyle=`rgb(${e},${n},${i})`,t.fillRect(0,0,100,100)}},[e,n,i]),p(`div`,{id:`RGB`,children:[u(x,{title:`React Test`,linkTitle:`RGB`,description:`K10-K10 site - React test page`}),u(`h1`,{children:`RGB checker`}),p(`div`,{children:[p(`p`,{className:`RGB`,children:[`R: `,e]}),u(T,{children:`R + 5`,onClick:()=>t(e+5),disabled:!1}),u(T,{children:`R - 5`,onClick:()=>t(e-5),disabled:!1})]}),p(`div`,{children:[p(`p`,{className:`RGB`,children:[`G: `,n]}),u(T,{children:`G + 5`,onClick:()=>r(n+5),disabled:!1}),u(T,{children:`G - 5`,onClick:()=>r(n-5),disabled:!1})]}),p(`div`,{children:[p(`p`,{className:`RGB`,children:[`B: `,i]}),u(T,{children:`B + 5`,onClick:()=>a(i+5),disabled:!1}),u(T,{children:`B - 5`,onClick:()=>a(i-5),disabled:!1})]}),u(`canvas`,{id:`myCanvas`,ref:o,width:100,height:100})]})}var te=ee;function ne({type:e=`text`,label:t,value:n,onChange:r,tmp:i=``,label_style:a={},input_style:o={}}){let s={label:{...a},input:{fontSize:`var(--Base-FontSize)`,fontFamily:`inherit`,backgroundColor:`var(--background-color)`,padding:`10px`,...o}};return p(`div`,{children:[p(`label`,{style:s.label,htmlFor:t,children:[t,`:`,` `]}),u(`input`,{type:e,value:n,onChange:e=>r(e.target.value),placeholder:i,style:s.input,id:t})]})}function re({children:e,dialog_style:t={},button_style:n={}}){let r={dialog:{position:`absolute`,margin:0,padding:`16px`,borderRadius:`16px`,border:`none`,boxShadow:`0 4px 12px rgba(0,0,0,0.2)`,top:`20px`,left:`50%`,transform:`translateX(-50%)`,background:`white`,...t},closeButton:{background:`var(--primary-color)`,height:`32px`,padding:`4px 12px`,borderRadius:`8px`,border:`none`,cursor:`pointer`,...n}};return p(`dialog`,{open:!0,style:r.dialog,children:[e,u(`form`,{method:`dialog`,children:u(T,{style:r.closeButton,disabled:!1,children:`OK`})})]})}var ie=re;function ae(){let[e,t]=(0,_.useState)(``),[n,r]=(0,_.useState)([]),[i,a]=(0,_.useState)([]);return p(`div`,{className:`github`,children:[u(x,{title:`Github API`,linkTitle:`Github`,description:`K10-K10 site - Use Github-API`}),u(ne,{type:`text`,label:`Github User Name`,value:e,onChange:t,tmp:`Input`}),u(T,{onClick:async()=>{if(!e){a(e=>[...e,`Error: name is required`]);return}try{let t=await fetch(`https://api.github.com/users/${e}/repos`);if(!t.ok)throw Error(`User is not found`);let n=await t.json();r(n)}catch(e){console.error(`Request error:`,e),a(e=>[...e,`API failed`])}},disabled:!1,children:`API`}),i.map((e,t)=>u(ie,{button_style:{color:`var(--error-color)`},children:u(`p`,{children:e})},t)),u(`ul`,{children:n.map(e=>u(`li`,{children:u(`a`,{href:e.html_url,target:`_blank`,rel:`noreferrer`,children:e.name})},e.id))})]})}var E=ae,D=200,O=5;function k(){let e=(0,_.useRef)(null),t=(0,_.useRef)(Array.from({length:D},()=>Array(D).fill(!1))),n=(0,_.useRef)(0),r=(0,_.useRef)(Math.floor(D/2)),i=(0,_.useRef)(Math.floor(D/2)),a=(0,_.useRef)(0),[o,s]=(0,_.useState)(!1),[c,l]=(0,_.useState)(0);function d(){n.current=0,t.current=Array.from({length:D},()=>Array(D).fill(!1)),r.current=Math.floor(D/2),i.current=Math.floor(D/2),a.current=0;let o=e.current.getContext(`2d`);o&&(o.fillStyle=`white`,o.fillRect(0,0,D*O,D*O),o.fillStyle=`red`,o.fillRect(r.current*O,i.current*O,O,O))}function f(){n.current+=1;let o=e.current.getContext(`2d`);if(!o)return;let s=t.current,c=r.current,u=i.current,d=a.current;switch(s[u][c]?(d=(d+3)%4,s[u][c]=!1,o.fillStyle=`white`):(d=(d+1)%4,s[u][c]=!0,o.fillStyle=`black`),o.fillRect(c*O,u*O,O,O),d){case 0:u=(u-1+D)%D;break;case 1:c=(c+1)%D;break;case 2:u=(u+1)%D;break;case 3:c=(c-1+D)%D;break}o.fillStyle=`red`,o.fillRect(c*O,u*O,O,O),r.current=c,i.current=u,a.current=d,l(e=>e+1)}return(0,_.useEffect)(()=>{if(!o)return;let e=setInterval(f,8);return()=>clearInterval(e)},[o]),(0,_.useEffect)(()=>{d()},[]),p(`div`,{className:`ants`,children:[u(x,{title:`Langton's ant`,linkTitle:`Ants`,description:`K10-K10 site - Langton's ant simulator`}),u(`h1`,{className:`ants-title`,children:`Langton's ant`}),u(`canvas`,{className:`ants-canvas`,ref:e,width:D*O,height:D*O,style:{border:`1px solid black`}}),p(`div`,{className:`ants-controls`,style:{marginTop:`10px`},children:[u(T,{onClick:d,disabled:!1,children:u(v,{name:`reset`,theme:`re`})}),u(T,{onClick:f,disabled:!1,children:u(v,{name:`jump`,theme:`re`})}),u(T,{onClick:()=>s(!o),disabled:!1,children:u(v,{name:o?`stop`:`start`,theme:`re`})})]}),p(`p`,{className:`ants-position`,children:[`Ant Position: (`,r.current,`, `,i.current,`), Direction: `,a.current,`, count `,n.current]})]})}var A=k;function j({style:e={}}={}){let t={spacer:{padding:`15px`,...e}};return u(`div`,{style:t.spacer})}function M({title:e,children:t,style_scope:n={},style_contents:r={}}){return p(`div`,{className:`talk-scope`,style:n,children:[u(`div`,{className:`title`,children:e}),u(`div`,{className:`talk-contents`,style:r,children:t})]})}function N(){return p(`div`,{className:`about`,children:[u(x,{title:`K10-K10 - About`,linkTitle:`About`,description:`Learn about K10-K10 - a junior high school developer passionate about C++, competitive programming, and robotics. Explore portfolio and projects.`,pageUrl:`https://K10-K10.github.io/About`}),p(M,{title:`About the site`,style_scope:{background:`var(--cloudy_background-color)`},children:[u(`p`,{children:`This site is my React practice site.`}),u(`p`,{children:`Content related to blogs, tools, games, and more will be added.`}),u(j,{}),u(`p`,{children:`This site is powered by GitHub Pages and React.`}),u(`a`,{href:`https://github.com/K10-K10/k10-k10.github.io`,children:`This site's source code`})]}),p(M,{title:`About the Author`,children:[p(`div`,{className:`user-wrapper`,children:[u(`img`,{src:`/favicon.ico`,alt:`author icon`}),p(`div`,{className:`user-info`,children:[u(`p`,{children:`Hello! I'm K10-K10. I'm junior high school student`}),u(`a`,{href:`https://github.com/K10-K10`,children:`My GitHub Account`}),u(`p`,{children:`I primarily use C++, and belong to a robotics team.`}),u(`a`,{href:`https://techno-robocup.github.io/`,children:`Robot team's blogs`})]})]}),u(`p`,{children:`I started programming in first grade and attended robotics classes.`}),u(`p`,{children:`At the same time, my father recommended Unity, and I started learning C#`}),u(`p`,{children:`I entered junior high school and started competitive programming and C++.`}),u(`p`,{children:`Recently, I haven't been able to join in competitions. Therefore, I want to join as much as possible.`}),u(j,{}),u(`p`,{children:`I want to update this site as much as possible.`}),u(`p`,{children:`Thank you for Reading!`})]})]})}function P(){let e=[...S].sort((e,t)=>t.id-e.id);return p(`div`,{className:`blog-home`,children:[u(x,{title:`K10-K10 - Blog`,linkTitle:`Blog`,description:`K10-K10 Blog - Read articles about programming, robotics, competitive programming, and software development projects.`,pageUrl:`https://K10-K10.github.io/Blog`}),u(M,{title:`Blog`,children:e.map(e=>u(`div`,{children:p(`p`,{className:`blog-list`,children:[e.date,` :`,` `,u(s,{className:`blog-link`,to:`/blog/${e.headName}`,children:e.title})]})},e.id))})]})}function F(){let{headName:e}=i();h();let t=S.find(t=>t.headName===e);return t?u(`div`,{className:`blog-post`,children:p(M,{title:t.title,children:[u(`small`,{style:{textAlign:`center`,display:`block`,marginBottom:`30px`},className:`data`,children:t.date}),u(`pre`,{style:{lineHeight:`150%`,whiteSpace:`pre-wrap`},children:t.content})]})}):u(w,{})}function I(){return p(`div`,{className:`tools`,children:[u(x,{title:`K10-K10 - Tools`,linkTitle:`Tools`,description:`K10-K10 Tools - Interactive tools including GitHub API viewer, RGB color checker, and Langton's Ant simulator.`,pageUrl:`https://K10-K10.github.io/Tools`}),u(`h1`,{children:`Tools`}),u(`a`,{href:`Tools/Github`,children:`Github API`}),u(`a`,{href:`Tools/RGB`,children:`RGB checker`}),u(`a`,{href:`Tools/Ants`,children:`Langton's Ant`})]})}var L=I;function R({title:e,description:t,imageUrl:n,link:r}){return u(`div`,{className:`grid-item`,onClick:()=>window.location.href=r||`./`,children:p(`div`,{className:`grid-content`,children:[n&&u(`img`,{src:n,alt:e,className:`grid-image`}),p(`div`,{className:`grid-text`,children:[u(`h2`,{className:`grid-title`,children:e}),u(`p`,{className:`grid-description`,children:t})]})]})})}function z(){return p(`div`,{className:`Docs-home`,children:[u(x,{title:`K10-K10 - Documentation`,linkTitle:`Docs`,description:`K10-K10 Documentation - Technical documentation and guides for K10-K10 projects and tools.`,pageUrl:`https://K10-K10.github.io/Docs`}),u(M,{title:`Documentation`,children:u(R,{title:`KrowTUI`,description:`C++ library to make TUI tools.`,imageUrl:`/github_logo.png`,link:`/Docs/TUIlib`})})]})}function B({textToCopy:e}){let[t,n]=(0,_.useState)(!1);return u(`div`,{children:u(`button`,{onClick:async()=>{try{await navigator.clipboard.writeText(e),n(!0),setTimeout(()=>n(!1),1e3)}catch(e){console.error(`Failed to copy: `,e),alert(`Failed to copy text.`)}},children:t?`Copied!`:`Copy`})})}var V=B;function H({lang:e,inline:t,children:n}){let r=e?e.replace(`language-`,``):`text`;return t?u(`code`,{css:U,children:n}):p(`div`,{css:W,children:[u(`p`,{css:G,children:r}),u(`div`,{css:K,children:u(V,{textToCopy:String(n)})}),u(l,{language:r,style:m,customStyle:{background:`transparent`,padding:0,margin:0,fontSize:`1rem`},codeTagProps:{style:{fontFamily:`monospace`,tabSize:4}},children:String(n).replace(/\n$/,``)})]})}var U=n({background:`var(--code-color)`,color:`var(--text-right-color)`,padding:`2px 6px`,borderRadius:`4px`,fontSize:`0.95em`,fontFamily:`monospace`,wordBreak:`break-word`,display:`inline-block`}),W=n({position:`relative`,marginTop:`10px`,marginBottom:`10px`,display:`block`,width:`100%`,textAlign:`left`,padding:`15px`,background:`var(--code-color)`,borderRadius:`10px`,overflowX:`auto`}),G=n({color:`#aaa`,fontSize:`0.9rem`,marginBottom:`8px`,textTransform:`uppercase`}),K=n({position:`absolute`,top:`10px`,right:`10px`,zIndex:10}),q=e({default:()=>J}),J=`---
-version: 1.1.0 
+version: 0.3.0
 update: 19/06/2026
 ---
 
@@ -137,6 +137,7 @@ int main() {
 - [Examples](docs/examples.md)
 - [Points to Note](docs/points.md)
 - [Samples](docs/samples.md)
+- [Changelog](docs/changelog.md)
 
 ## License
 
@@ -1352,7 +1353,7 @@ Here are some important points to note when using the TUI library:
 
 3. **If process stopped by \`Ctrl + C\`**: This library has a signal handler for \`SIGINT\`, and when the process is stopped by \`Ctrl + C\`, auto call \`app.stop()\`, so the terminal will be restored to its original state.
 
-4. **Order of Drawing**: The order of drawing objects matters. Objects drawn later will be displayed on top of objects drawn earlier. Make sure to draw background elements first and foreground elements later.  I'll add more options to control the order of drawing later.
+4. **Order of Drawing**: The order of drawing objects matters. Objects drawn later will be displayed on top of objects drawn earlier. Make sure to draw background elements first and foreground elements later. I'll add more options to control the order of drawing later.
 `,Ve=e({default:()=>He}),He=`---
 version: 0.3.0
 date: 19/06/2026
@@ -1392,8 +1393,8 @@ int main() {
 void init(int fps = 60);
 \`\`\`
 
-- __Arguments__: \`fps: int\` (the desired frames per second) - __Default__: 60
-- __Return__: None
+- **Arguments**: \`fps: int\` (the desired frames per second) - **Default**: 60
+- **Return**: None
 
 Initializes the application. This function must be called before any other functions are used.
 When this function is called, the terminal enter the alternate screen and hide the cursor.
@@ -1404,8 +1405,8 @@ When this function is called, the terminal enter the alternate screen and hide t
 void loop(std::function<void()> frame);
 \`\`\`
 
-- __Arguments__: \`frame: std::function<void()>\` (the function to be called in each loop iteration)
-- __Return__: None
+- **Arguments**: \`frame: std::function<void()>\` (the function to be called in each loop iteration)
+- **Return**: None
 
 Starts the main loop of the application. The provided function will be called in each iteration of the loop, allowing you to update the UI and handle user input.
 
@@ -1413,8 +1414,8 @@ It's received only one function, but you can use lambda functions to call multip
 
 ### 3. \`app.stop()\`
 
-- __Arguments__: None
-- __Return__: None
+- **Arguments**: None
+- **Return**: None
 
 Stops the main loop and exits from alternate screen.
 You should call this function when you want to exit the application.
@@ -1486,8 +1487,8 @@ int main() {
 KeyCode getKeyCode();
 \`\`\`
 
-- __Arguments__: None
-- __Returns__: The key code of the key event.
+- **Arguments**: None
+- **Returns**: The key code of the key event.
 
 Returns the key code of the key event, which can be used to determine which key was pressed or released.
 
@@ -1497,8 +1498,8 @@ Returns the key code of the key event, which can be used to determine which key 
 char getCurrentChar();
 \`\`\`
 
-- __Arguments__: None
-- __Returns__: The character associated with the key event.
+- **Arguments**: None
+- **Returns**: The character associated with the key event.
 
 Returns the character associated with the key event, which is useful for handling character input.
 
@@ -1508,8 +1509,8 @@ Returns the character associated with the key event, which is useful for handlin
 void read();
 \`\`\`
 
-- __Arguments__: None
-- __Returns__: None
+- **Arguments**: None
+- **Returns**: None
 
 Reads the next key event from the input stream and updates the internal state of the \`Key\` object accordingly.
 `,Ge=e({default:()=>Ke}),Ke=`---
@@ -1555,7 +1556,6 @@ version: 0.3.0
 date: 19/06/2026
 ---
 
-
 # Layout
 
 This section describes the layout-related components of the TUI library.
@@ -1576,7 +1576,7 @@ The coordinates in the terminal are represented as (x, y), where x is the column
 The \`Rect\` class represents a rectangular area in the terminal. It is defined by its position (x, y) and its size (width, height). The \`Rect\` class provides methods for manipulating and querying the rectangle's properties.
 
 - [Rect Class Reference](rect.md)
-`,Ze=e({default:()=>Qe}),Qe="---\nversion: 0.3.0\ndate: 20/06/2026\n---\n\n# Block\n\n`Block` is an object that can render a rectangular frame with a border. It can be used to create sections or containers in your app's interface.\n\n## Methods\n\n- [`position(rect)`](#1-positionrect): Sets the position and size of the block.\n- [`draw()`](#2-draw): Draws the block on the terminal at the specified position and with the specified border style.\n- [`title(text)`](#3-titletext): Sets the title of the block, which will be displayed at the top center of the block.\n- [`bottom_title(text)`](#4-bottom_titletext): Sets the bottom title of the block, which will be displayed at the bottom center of the block.\n\n### Style Methods\n\n- [`border_type(border)`](#1-border_typeborder): Sets the border style presets of the block.\n- [`borders(mask)`](#2-bordersmask): Specifies which edges of the block's border should be drawn using a bitmask.\n- [`border_color(color)`](#3-border_colorcolor): Sets the color of the block's border.\n- [`field_color(color)`](#4-field_colorcolor): Sets the background color of the block.\n\n## Example\n\n```cpp\n#include <K10-K10/krow.h>\n\nint main() {\n    krow::app.init();\n    krow::Block block;\n    \n    // Configure block layout and border styles\n    block.position({1, 1, 20, 10})\n         .border_type(krow::style::SINGLE)\n         .borders(krow::style::Borders::ALL)\n         .border_color(krow::style::Color(krow::style::BasicColor::Red))\n         .field_color(krow::style::Color(krow::style::BasicColor::Blue));\n\n    krow::app.loop([&]() {\n        block.draw();\n    });\n\n    krow::app.stop();\n    return 0;\n}\n\n```\n\n## Method Details\n\n### 1. `position(rect)`\n\n```cpp\nBlock& position(const Rect& r);\n\n```\n\n- **Arguments**: `r: const krow::Rect&` (A `Rect` object that defines the position and size of the block)\n- **Return**: `Block&` (Reference to the block for method chaining)\n\nSets the position and size of the block.\n\n### 2. `draw()`\n\n```cpp\nvoid draw();\n\n```\n\n- **Arguments**: None\n- **Return**: None\n\nDraws the block on the terminal at the specified position and with the specified border style.\n\n### 3. `title(text)`\n\n```cpp\nBlock& title(const Text& text);\n\n```\n\n- **Arguments**: `text: const krow::Text&` (A `Text` structure that defines the content and style of the title)\n- **Return**: `Block&` (Reference to the block for method chaining)\n\nSets the title of the block, which will be displayed at the top center of the block.\n\n### 4. `bottom_title(text)`\n\n```cpp\nBlock& bottom_title(const Text& text);\n\n```\n\n- **Arguments**: `text: const krow::Text&` (A `Text` structure that defines the content and style of the bottom title)\n- **Return**: `Block&` (Reference to the block for method chaining)\n\nSets the bottom title of the block, which will be displayed at the bottom center of the block.\n\n---\n\n### 1. `border_type(border)`\n\n```cpp\nBlock& border_type(const krow::style::Border& border);\n\n```\n\n- **Arguments**: `border: const krow::style::Border&` (Specifies the character set configuration for the border layout)\n- **Return**: `Block&` (Reference to the block for method chaining)\n\nSets the character style configuration of the block's layout frame. See [Border Presets](https://www.google.com/search?q=%23border-presets) for available configurations.\n\n### 2. `borders(mask)`\n\n```cpp\nBlock& borders(krow::style::Borders mask);\n\n```\n\n- **Arguments**: `mask: krow::style::Borders` (A bitmask that specifies the drawing edges)\n- **Return**: `Block&` (Reference to the block for method chaining)\n\nSpecifies which edges of the block's border should be rendered. Supports bitwise operators (`|` and `&`). See [Borders Bitmask Flags](https://www.google.com/search?q=%23borders-bitmask-flags) for details.\n\n### 3. `border_color(color)`\n\n```cpp\nBlock& border_color(const krow::style::Color& color);\nBlock& border_color(int color);\n\n```\n\n- **Arguments**: `color: const krow::style::Color&` / `int` (Specifies the color of the border lines)\n- **Return**: `Block&` (Reference to the block for method chaining)\n\nSets the visual color layout utilized to draw the frame lines.\n\n### 4. `field_color(color)`\n\n```cpp\nBlock& field_color(const krow::style::Color& color);\nBlock& field_color(int color);\n\n```\n\n- **Arguments**: `color: const krow::style::Color&` / `int` (Specifies the background color fill)\n- **Return**: `Block&` (Reference to the block for method chaining)\n\nSets the background color layer bound to the internal grid region of the block.\n\n---\n\n## Border Presets\n\nThe library provides predefined `krow::style::Border` instances representing distinct line styling definitions:\n\n| Constant Name | Box Appearance Type Description | Style Representation (`tl`, `tr`, `bl`, `br`, `h`, `v`) |\n| --- | --- | --- |\n| `krow::style::SINGLE` | Standard single-line box layouts. | `┌`, `┐`, `└`, `┘`, `─`, `│` |\n| `krow::style::ROUNDED` | Single-line box layouts utilizing rounded corners. | `╭`, `╮`, `╰`, `╯`, `─`, `│` |\n| `krow::style::BOLD` | Thick/Heavy line container style layouts. | `┏`, `┓`, `┗`, `┛`, `━`, `┃` |\n| `krow::style::DOUBLE` | Standard double-line character container layouts. | `╔`, `╗`, `╚`, `╝`, `═`, `║` |\n\n## Borders Bitmask Flags\n\nThe `Borders` enum represents a bitmask used to filter which edges should be active during the render cycle:\n\n| Flag Constant | Bitmask Shift | Description Value |\n| --- | --- | --- |\n| `Borders::NONE` | `0` | No layout edges are drawn. |\n| `Borders::TOP` | `1 << 0` | Draws only the top horizontal frame row. |\n| `Borders::BOTTOM` | `1 << 1` | Draws only the bottom horizontal frame row. |\n| `Borders::LEFT` | `1 << 2` | Draws only the left vertical frame column. |\n| `Borders::RIGHT` | `1 << 3` | Draws only the right vertical frame column. |\n| `Borders::ALL` | `TOP | BOTTOM | LEFT | RIGHT` | Draws all bounding frame edges (Default behavior). |\n",$e=e({default:()=>et}),et=`---
+`,Ze=e({default:()=>Qe}),Qe="---\nversion: 0.3.0\ndate: 20/06/2026\n---\n\n# Block\n\n`Block` is an object that can render a rectangular frame with a border. It can be used to create sections or containers in your app's interface.\n\n## Methods\n\n- [`position(rect)`](#1-positionrect): Sets the position and size of the block.\n- [`draw()`](#2-draw): Draws the block on the terminal at the specified position and with the specified border style.\n- [`title(text)`](#3-titletext): Sets the title of the block, which will be displayed at the top center of the block.\n- [`bottom_title(text)`](#4-bottom_titletext): Sets the bottom title of the block, which will be displayed at the bottom center of the block.\n\n### Style Methods\n\n- [`border_type(border)`](#1-border_typeborder): Sets the border style presets of the block.\n- [`borders(mask)`](#2-bordersmask): Specifies which edges of the block's border should be drawn using a bitmask.\n- [`border_color(color)`](#3-border_colorcolor): Sets the color of the block's border.\n- [`field_color(color)`](#4-field_colorcolor): Sets the background color of the block.\n\n## Example\n\n```cpp\n#include <K10-K10/krow.h>\n\nint main() {\n    krow::app.init();\n    krow::Block block;\n\n    // Configure block layout and border styles\n    block.position({1, 1, 20, 10})\n         .border_type(krow::style::SINGLE)\n         .borders(krow::style::Borders::ALL)\n         .border_color(krow::style::Color(krow::style::BasicColor::Red))\n         .field_color(krow::style::Color(krow::style::BasicColor::Blue));\n\n    krow::app.loop([&]() {\n        block.draw();\n    });\n\n    krow::app.stop();\n    return 0;\n}\n\n```\n\n## Method Details\n\n### 1. `position(rect)`\n\n```cpp\nBlock& position(const Rect& r);\n\n```\n\n- **Arguments**: `r: const krow::Rect&` (A `Rect` object that defines the position and size of the block)\n- **Return**: `Block&` (Reference to the block for method chaining)\n\nSets the position and size of the block.\n\n### 2. `draw()`\n\n```cpp\nvoid draw();\n\n```\n\n- **Arguments**: None\n- **Return**: None\n\nDraws the block on the terminal at the specified position and with the specified border style.\n\n### 3. `title(text)`\n\n```cpp\nBlock& title(const Text& text);\n\n```\n\n- **Arguments**: `text: const krow::Text&` (A `Text` structure that defines the content and style of the title)\n- **Return**: `Block&` (Reference to the block for method chaining)\n\nSets the title of the block, which will be displayed at the top center of the block.\n\n### 4. `bottom_title(text)`\n\n```cpp\nBlock& bottom_title(const Text& text);\n\n```\n\n- **Arguments**: `text: const krow::Text&` (A `Text` structure that defines the content and style of the bottom title)\n- **Return**: `Block&` (Reference to the block for method chaining)\n\nSets the bottom title of the block, which will be displayed at the bottom center of the block.\n\n---\n\n### 1. `border_type(border)`\n\n```cpp\nBlock& border_type(const krow::style::Border& border);\n\n```\n\n- **Arguments**: `border: const krow::style::Border&` (Specifies the character set configuration for the border layout)\n- **Return**: `Block&` (Reference to the block for method chaining)\n\nSets the character style configuration of the block's layout frame. See [Border Presets](https://www.google.com/search?q=%23border-presets) for available configurations.\n\n### 2. `borders(mask)`\n\n```cpp\nBlock& borders(krow::style::Borders mask);\n\n```\n\n- **Arguments**: `mask: krow::style::Borders` (A bitmask that specifies the drawing edges)\n- **Return**: `Block&` (Reference to the block for method chaining)\n\nSpecifies which edges of the block's border should be rendered. Supports bitwise operators (`|` and `&`). See [Borders Bitmask Flags](https://www.google.com/search?q=%23borders-bitmask-flags) for details.\n\n### 3. `border_color(color)`\n\n```cpp\nBlock& border_color(const krow::style::Color& color);\nBlock& border_color(int color);\n\n```\n\n- **Arguments**: `color: const krow::style::Color&` / `int` (Specifies the color of the border lines)\n- **Return**: `Block&` (Reference to the block for method chaining)\n\nSets the visual color layout utilized to draw the frame lines.\n\n### 4. `field_color(color)`\n\n```cpp\nBlock& field_color(const krow::style::Color& color);\nBlock& field_color(int color);\n\n```\n\n- **Arguments**: `color: const krow::style::Color&` / `int` (Specifies the background color fill)\n- **Return**: `Block&` (Reference to the block for method chaining)\n\nSets the background color layer bound to the internal grid region of the block.\n\n---\n\n## Border Presets\n\nThe library provides predefined `krow::style::Border` instances representing distinct line styling definitions:\n\n| Constant Name          | Box Appearance Type Description                    | Style Representation (`tl`, `tr`, `bl`, `br`, `h`, `v`) |\n| ---------------------- | -------------------------------------------------- | ------------------------------------------------------- |\n| `krow::style::SINGLE`  | Standard single-line box layouts.                  | `┌`, `┐`, `└`, `┘`, `─`, `│`                            |\n| `krow::style::ROUNDED` | Single-line box layouts utilizing rounded corners. | `╭`, `╮`, `╰`, `╯`, `─`, `│`                            |\n| `krow::style::BOLD`    | Thick/Heavy line container style layouts.          | `┏`, `┓`, `┗`, `┛`, `━`, `┃`                            |\n| `krow::style::DOUBLE`  | Standard double-line character container layouts.  | `╔`, `╗`, `╚`, `╝`, `═`, `║`                            |\n\n## Borders Bitmask Flags\n\nThe `Borders` enum represents a bitmask used to filter which edges should be active during the render cycle:\n\n| Flag Constant     | Bitmask Shift | Description Value                           |\n| ----------------- | ------------- | ------------------------------------------- | ---- | ------ | -------------------------------------------------- |\n| `Borders::NONE`   | `0`           | No layout edges are drawn.                  |\n| `Borders::TOP`    | `1 << 0`      | Draws only the top horizontal frame row.    |\n| `Borders::BOTTOM` | `1 << 1`      | Draws only the bottom horizontal frame row. |\n| `Borders::LEFT`   | `1 << 2`      | Draws only the left vertical frame column.  |\n| `Borders::RIGHT`  | `1 << 3`      | Draws only the right vertical frame column. |\n| `Borders::ALL`    | `TOP          | BOTTOM                                      | LEFT | RIGHT` | Draws all bounding frame edges (Default behavior). |\n",$e=e({default:()=>et}),et=`---
 version: 0.3.0
 date: 20/06/2026
 ---
@@ -1614,14 +1614,14 @@ The \`List\` object provides chainable methods to customize its visual appearanc
 
 int main() {
   krow::app.init();
-  
+
   krow::List list;
   krow::Rect rect{2, 2, 20, 5}; // x, y, width, height
-  
+
   // Custom styles
   krow::style::Style standard_style;
   standard_style.fg(krow::utils::TextColor::White);
-  
+
   krow::style::Style select_style;
   select_style.bg(krow::utils::FillColor::Blue).fg(krow::utils::TextColor::White);
 
@@ -1645,7 +1645,7 @@ int main() {
       list.move_down();
     }
   });
-  
+
   krow::app.stop();
   return 0;
 }
@@ -1867,17 +1867,17 @@ The \`style\` namespace provides comprehensive tools for managing colors and tex
 
 The \`BasicColor\` enum class defines the standard 8 terminal colors.
 
-| Enum Value | Description |
-|:---|:---|
+| Enum Value            | Description                  |
+| :-------------------- | :--------------------------- |
 | \`BasicColor::Default\` | The terminal's default color |
-| \`BasicColor::Black\` | Black |
-| \`BasicColor::Red\` | Red |
-| \`BasicColor::Green\` | Green |
-| \`BasicColor::Yellow\` | Yellow |
-| \`BasicColor::Blue\` | Blue |
-| \`BasicColor::Magenta\` | Magenta |
-| \`BasicColor::Cyan\` | Cyan |
-| \`BasicColor::White\` | White |
+| \`BasicColor::Black\`   | Black                        |
+| \`BasicColor::Red\`     | Red                          |
+| \`BasicColor::Green\`   | Green                        |
+| \`BasicColor::Yellow\`  | Yellow                       |
+| \`BasicColor::Blue\`    | Blue                         |
+| \`BasicColor::Magenta\` | Magenta                      |
+| \`BasicColor::Cyan\`    | Cyan                         |
+| \`BasicColor::White\`   | White                        |
 
 ---
 
@@ -1961,7 +1961,7 @@ int main() {
              .underline();
 
   // Apply alert_style inside components or text streams as supported...
-  
+
   krow::app.stop();
   return 0;
 }
@@ -2057,6 +2057,7 @@ All functions are include in the \`krow\` namespace.
 version: 0.3.0
 date: 20/06/2026
 ---
+
 # Color Palette
 
 This sample demonstrates the use of different color palettes in a terminal application using the Krow library. It showcases three types of color palettes: Basic, Code256, and RGB.
@@ -2236,7 +2237,6 @@ int main() {
 version: 0.3.0
 date: 20/06/2026
 ---
-
 
 # Counter Example
 
