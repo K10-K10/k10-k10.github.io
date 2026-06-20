@@ -13,9 +13,8 @@ const createId = (children: React.ReactNode): string => {
       .toLowerCase()
       .trim()
       .replace(/\s+/g, "-")
-      .replace(".", "-")
-      .replace("(", "")
-      .replace(")", "");
+      .replace(/\./g, "-")
+      .replace(/\(\)/g, "");
   }
   if (Array.isArray(children)) {
     return children.map((child) => createId(child)).join("");
@@ -80,8 +79,7 @@ export default function TuiPost() {
             components={{
               code({ node, className, children, ...props }) {
                 const match = /language-(\w+)/.exec(className || "");
-                const language = match ? match[1] : "text";
-
+                const language  = match ? match[1] : "text";
                 const isInline = !className && !String(children).includes("\n");
 
                 return (
@@ -92,11 +90,13 @@ export default function TuiPost() {
               },
 
               a({ href, children, ...props }) {
-                if (!href || href.startsWith("http") || href.startsWith("#")) {
+                if (!href) return null;
+
+                if (href.startsWith("http") || href.startsWith("#")) {
                   return (
                     <a
                       href={href}
-                      target={href?.startsWith("http") ? "_blank" : undefined}
+                      target={href.startsWith("http") ? "_blank" : undefined}
                       rel="noreferrer"
                       {...props}
                     >
@@ -105,6 +105,16 @@ export default function TuiPost() {
                   );
                 }
 
+                const handleScrollToTop = () => {
+                  setTimeout(() => {
+                    window.scrollTo(0, 0);
+                    
+                    const scrollContainer = document.querySelector(".TuiDocs-main");
+                    if (scrollContainer) {
+                      scrollContainer.scrollTop = 0;
+                    }
+                  }, 50);
+                };
                 const cleanHref = href
                   .replace(/^\.\.\//, "")
                   .replace(/^\.\//, "")
@@ -115,38 +125,25 @@ export default function TuiPost() {
                 const targetUrl = `${basePath}/${cleanHref}`.replace(/\/+/g, "/");
 
                 return (
-                  <Link to={targetUrl} {...props}>
+                  <Link to={targetUrl} onClick={handleScrollToTop} {...props}>
                     {children}
                   </Link>
                 );
               },
+
               h2({ children, ...props }) {
                 const headingId = createId(children);
-
-                return (
-                  <h2 id={headingId} {...props}>
-                    {children}
-                  </h2>
-                );
+                return <h2 id={headingId} {...props}>{children}</h2>;
               },
               h3({ children, ...props }) {
                 const headingId = createId(children);
-
-                return (
-                  <h2 id={headingId} {...props}>
-                    {children}
-                  </h2>
-                );
+                return <h3 id={headingId} {...props}>{children}</h3>; // tagをh2からh3に修正
               },
               h4({ children, ...props }) {
                 const headingId = createId(children);
-
-                return (
-                  <h2 id={headingId} {...props}>
-                    {children}
-                  </h2>
-                );
+                return <h4 id={headingId} {...props}>{children}</h4>; // tagをh2からh4に修正
               },
+
               img({ src, alt, ...props }) {
                 if (!src || src.startsWith("http") || src.startsWith("data:")) {
                   return (

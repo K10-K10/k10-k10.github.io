@@ -76,32 +76,48 @@ export default function TuiDocs() {
               );
             },
 
-            a({ href, children, ...props }) {
-              if (!href || href.startsWith("http") || href.startsWith("#")) {
+             a({ href, children, ...props }) {
+                if (!href) return null;
+
+                if (href.startsWith("http") || href.startsWith("#")) {
+                  return (
+                    <a
+                      href={href}
+                      target={href.startsWith("http") ? "_blank" : undefined}
+                      rel="noreferrer"
+                      {...props}
+                    >
+                      {children}
+                    </a>
+                  );
+                }
+
+                const handleScrollToTop = () => {
+                  setTimeout(() => {
+                    window.scrollTo(0, 0);
+                    
+                    const scrollContainer = document.querySelector(".TuiDocs-main");
+                    if (scrollContainer) {
+                      scrollContainer.scrollTop = 0;
+                    }
+                  }, 50);
+                };
+                const cleanHref = href
+                  .replace(/^\.\.\//, "")
+                  .replace(/^\.\//, "")
+                  .replace(/\.md$/, "");
+                const currentSegments = location.pathname.split("/");
+                currentSegments.pop();
+                const basePath = currentSegments.join("/");
+                const targetUrl = `${basePath}/TUILib/${cleanHref}`.replace(/\/+/g, "/");
+
                 return (
-                  <a
-                    href={href}
-                    target={href?.startsWith("http") ? "_blank" : undefined}
-                    rel="noreferrer"
-                    {...props}
-                  >
+                  <Link to={targetUrl} onClick={handleScrollToTop} {...props}>
                     {children}
-                  </a>
+                  </Link>
                 );
-              }
+              },
 
-              const cleanHref = href
-                .replace(/^\.\.\//, "")
-                .replace(/^\.\//, "")
-                .replace(/\.md$/, "");
-              const targetUrl = `/Docs/TuiLib/${cleanHref}`.replace(/\/+/g, "/");
-
-              return (
-                <Link to={targetUrl} {...props}>
-                  {children}
-                </Link>
-              );
-            },
             img({ src, alt, ...props }) {
               if (!src || src.startsWith("http") || src.startsWith("data:")) {
                 return (
