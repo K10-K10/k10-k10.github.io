@@ -38,8 +38,8 @@ int main() {
 void init(int fps = 60);
 ```
 
-- **Arguments**: `fps: int` (the desired frames per second) - **Default**: 60
-- **Return**: None
+- __Arguments__: `fps: int` (the desired frames per second) - __Default__: 60
+- __Return__: None
 
 Initializes the application. This function must be called before any other functions are used.
 When this function is called, the terminal enter the alternate screen and hide the cursor.
@@ -50,8 +50,8 @@ When this function is called, the terminal enter the alternate screen and hide t
 void loop(std::function<void()> frame);
 ```
 
-- **Arguments**: `frame: std::function<void()>` (the function to be called in each loop iteration)
-- **Return**: None
+- __Arguments__: `frame: std::function<void()>` (the function to be called in each loop iteration)
+- __Return__: None
 
 Starts the main loop of the application. The provided function will be called in each iteration of the loop, allowing you to update the UI and handle user input.
 
@@ -59,8 +59,8 @@ It's received only one function, but you can use lambda functions to call multip
 
 ### 3. `app.stop()`
 
-- **Arguments**: None
-- **Return**: None
+- __Arguments__: None
+- __Return__: None
 
 Stops the main loop and exits from alternate screen.
 You should call this function when you want to exit the application.

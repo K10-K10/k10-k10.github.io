@@ -71,8 +71,8 @@ int main() {
 KeyCode getKeyCode();
 ```
 
-- **Arguments**: None
-- **Returns**: The key code of the key event.
+- __Arguments__: None
+- __Returns__: The key code of the key event.
 
 Returns the key code of the key event, which can be used to determine which key was pressed or released.
 When you call this method, keyCode will be set to None. So you must set for variable to store the value of keyCode before calling this method.
@@ -83,8 +83,8 @@ When you call this method, keyCode will be set to None. So you must set for vari
 char getCurrentChar();
 ```
 
-- **Arguments**: None
-- **Returns**: The character associated with the key event.
+- __Arguments__: None
+- __Returns__: The character associated with the key event.
 
 Returns the character associated with the key event, which is useful for handling character input.
 When you call this method, the current char is set to None(`\0`). So you must set for variable to store the value of keyCode before calling this method.
@@ -95,7 +95,7 @@ When you call this method, the current char is set to None(`\0`). So you must se
 void read();
 ```
 
-- **Arguments**: None
-- **Returns**: None
+- __Arguments__: None
+- __Returns__: None
 
 Reads the next key event from the input stream and updates the internal state of the `Key` object accordingly.

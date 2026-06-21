@@ -3,6 +3,7 @@ version: 0.3.0
 date: 19/06/2026
 ---
 
+
 # Layout
 
 This section describes the layout-related components of the TUI library.
