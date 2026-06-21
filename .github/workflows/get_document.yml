@@ -1,7 +1,7 @@
 name: Get Krow Documents
 on:
   schedule:
-    - cron: '0 0 * * 1,5'
+    - cron: "0 0 * * 1,5"
   workflow_dispatch:
 
 jobs:
@@ -10,7 +10,6 @@ jobs:
     permissions:
       contents: write
     steps:
-
       - name: Checkout Own Repository
         uses: actions/checkout@v4
 
@@ -26,15 +25,14 @@ jobs:
       - name: Checkout External Repository
         uses: actions/checkout@v4
         with:
-          repository: 'K10-K10/krowtui'
-          path: 'krow-repo'
+          repository: "K10-K10/krowtui"
+          path: "krow-repo"
           fetch-depth: 0
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
-
+          node-version: "20"
 
       - name: Get Diff
         run: |
@@ -78,7 +76,6 @@ jobs:
             done < <(find docs -type f)
           fi
 
-
       - name: Commit and Push
         run: |
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
@@ -92,14 +89,13 @@ jobs:
             git push
           fi
 
-
       - name: Run deploy
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ACTIONS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           npm install
-          npm run deploy
-
+          npm run build
+          npx gh-pages -d dist --repo "https://x-access-token:${ACTIONS_TOKEN}@github.com/${{ github.repository }}.git"
 
       - name: Save value to cache
         uses: actions/cache/save@v4
