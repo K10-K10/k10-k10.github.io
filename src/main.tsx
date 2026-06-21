@@ -41,9 +41,9 @@ const routesConfig: RouteObject[] = [
     path: "/tools",
     children: [
       { path: "", element: <Tools_home /> },
-      { path: "RGB", element: <RGB /> },
-      { path: "Github", element: <Github /> },
-      { path: "Ants", element: <Ant /> },
+      { path: "rgb", element: <RGB /> },
+      { path: "github", element: <Github /> },
+      { path: "ants", element: <Ant /> },
     ],
   },
 
