@@ -1,5 +1,5 @@
 import "./Home.css";
-import { posts } from "@pages/Blog/posts";
+import { posts } from "@pages/blog/posts";
 import Head from "@layouts/Head/Head";
 
 export default function Home() {
@@ -24,7 +24,7 @@ export default function Home() {
             .reverse()
             .map((p) => (
               <li key={p.headName}>
-                <a href={`/Blog/${p.headName}`}>{p.title}</a>
+                <a href={`/blog/${p.headName}`}>{p.title}</a>
               </li>
             ))}
         </ul>

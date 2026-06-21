@@ -19,7 +19,7 @@ export default function Docs() {
           title="KrowTUI"
           description="C++ library to make TUI tools."
           imageUrl="/github_logo.png"
-          link="/Docs/TUIlib"
+          link="/docs/tuilib"
         />
       </Talk>
     </div>

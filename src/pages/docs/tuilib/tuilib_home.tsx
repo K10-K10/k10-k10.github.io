@@ -6,7 +6,7 @@ import remarkGfm from "remark-gfm";
 import Code from "@parts/Code";
 import { Link } from "react-router-dom";
 
-import readme from "@contents/tuiLib/README.md?raw";
+import readme from "@contents/tuilib/README.md?raw";
 
 const createId = (children: React.ReactNode): string => {
   if (typeof children === "string") {
@@ -34,7 +34,7 @@ export default function TuiDocs() {
         title={"K10-K10 - TUI Docs"}
         linkTitle="tui"
         description={"K10-K10 Documentation - TUI library in C++ documentation."}
-        pageUrl="https://K10-K10.github.io/Docs/TuiLib"
+        pageUrl="https://K10-K10.github.io/docs/tuilib"
       />
       <Talk title="README">
         <div
@@ -109,7 +109,7 @@ export default function TuiDocs() {
               const currentSegments = location.pathname.split("/");
               currentSegments.pop();
               const basePath = currentSegments.join("/");
-              const targetUrl = `${basePath}/TUILib/${cleanHref}`.replace(/\/+/g, "/");
+              const targetUrl = `${basePath}/tuilib/${cleanHref}`.replace(/\/+/g, "/");
 
               return (
                 <Link to={targetUrl} onClick={handleScrollToTop} {...props}>
@@ -136,14 +136,14 @@ export default function TuiDocs() {
               let targetSrc = "";
 
               if (currentPath === "/docs/tuilib" || currentPath === "/docs/tuilib/") {
-                targetSrc = `/src/contents/tuiLib/${cleanSrc}`;
+                targetSrc = `/src/contents/tuilib/${cleanSrc}`;
               } else {
                 const currentSegments = location.pathname.split("/");
                 currentSegments.pop();
                 const basePath = currentSegments.join("/");
 
-                const subFolder = basePath.replace(/^\/Docs\/TuiLib/i, "");
-                targetSrc = `/src/contents/tuiLib/${subFolder}/${cleanSrc}`;
+                const subFolder = basePath.replace(/^\/Docs\/tuilib/i, "");
+                targetSrc = `/src/contents/tuilib/${subFolder}/${cleanSrc}`;
               }
 
               targetSrc = targetSrc.replace(/\/+/g, "/");

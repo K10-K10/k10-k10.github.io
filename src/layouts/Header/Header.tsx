@@ -3,7 +3,7 @@ import Icon from "@parts/Icon";
 import { useState, useEffect } from "react";
 
 export default function Header() {
-  const topics = ["Docs", "Tools", "Blog", "About"];
+  const topics = [["Documents", "docs"], ["Tools","tools"], ["Blog", "blog"], ["About", "about"]];
   const [mode, setMode] = useState<"light" | "dark">(
     window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light",
   );
@@ -27,8 +27,8 @@ export default function Header() {
         <div id="topic_scope_bg">
           <div id="topic_scope">
             {topics.map((topic, i) => (
-              <a key={i} href={`/${topic}`} className="topic">
-                {topic}
+              <a key={i} href={`/${topic.at(1)}`} className="topic">
+                {topic.at(0)}
               </a>
             ))}
           </div>

@@ -1,6 +1,6 @@
 import { useParams, useNavigate } from "react-router-dom";
 import "./BlogPost.css";
-import { Post, posts } from "@pages/Blog/posts";
+import { Post, posts } from "@pages/blog/posts";
 import Talk from "@layouts/Talk/Talk";
 import Button from "@parts/Button";
 import NotFound from "@pages/404/404";

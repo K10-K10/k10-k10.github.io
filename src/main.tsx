@@ -3,18 +3,18 @@ import Header from "@layouts/Header/Header";
 import Footer from "@layouts/Footer/Footer";
 import Head from "@layouts/Head/Head";
 
-import Home from "@pages/Home/Home";
+import Home from "@pages/home/Home";
 import NotFound from "@pages/404/404";
-import RGB from "@pages/Tools/RGB/RGB";
-import Github from "@pages/Tools/Github/Github";
-import Ant from "@pages/Tools/Ants/Ants";
-import About from "@pages/About/About";
-import Blog_home from "@pages/Blog/Blog";
+import RGB from "@pages/tools/rgb/RGB";
+import Github from "@pages/tools/github/Github";
+import Ant from "@pages/tools/ants/Ants";
+import About from "@pages/about/About";
+import Blog_home from "@pages/blog/Blog";
 import BlogPost from "@layouts/BlogPost/BlogPost";
-import Tools_home from "@pages/Tools/Tools";
-import Docs from "@pages/Docs/Docs";
-import TuiDocs from "@pages/Docs/TuiLib/tuilib_home";
-import TuiPost from "@pages/Docs/TuiLib/tuilib_post";
+import Tools_home from "@pages/tools/Tools";
+import Docs from "@pages/docs/Docs";
+import TuiDocs from "@pages/docs/tuilib/tuilib_home";
+import TuiPost from "@pages/docs/tuilib/tuilib_post";
 import { Children } from "react";
 
 const redirect = sessionStorage.getItem("redirect");
@@ -25,12 +25,12 @@ if (redirect) {
 
 const routesConfig: RouteObject[] = [
   { path: "/", element: <Home /> },
-  { path: "/About", element: <About /> },
-  { path: "/Blog", element: <Blog_home /> },
-  { path: "/Blog/:headName", element: <BlogPost /> },
-  { path: "/Docs", element: <Docs /> },
+  { path: "/about", element: <About /> },
+  { path: "/blog", element: <Blog_home /> },
+  { path: "/blog/:headName", element: <BlogPost /> },
+  { path: "/docs", element: <Docs /> },
   {
-    path: "/Docs/TuiLib",
+    path: "/docs/tuilib",
     children: [
       { path: "", element: <TuiDocs /> },
       { path: "docs*", element: <TuiPost /> },
@@ -38,7 +38,7 @@ const routesConfig: RouteObject[] = [
   },
 
   {
-    path: "/Tools",
+    path: "/tools",
     children: [
       { path: "", element: <Tools_home /> },
       { path: "RGB", element: <RGB /> },

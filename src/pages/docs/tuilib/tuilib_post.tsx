@@ -69,7 +69,7 @@ export default function TuiPost() {
         title={titleFromMeta ? `K10-K10 - ${titleFromMeta}` : "K10-K10 - TUI Docs"}
         linkTitle="tui"
         description="K10-K10 Documentation - TUI library in C++ documentation."
-        pageUrl={`https://K10-K10.github.io/Docs/TuiLib/${docPath}`}
+        pageUrl={`https://K10-K10.github.io/docs/tuilib/${docPath}`}
       />
 
       <Talk title={titleFromMeta || "Documentation"}>
@@ -174,7 +174,7 @@ export default function TuiPost() {
                 const basePath = currentSegments.join("/");
 
                 const targetSrc =
-                  `/src/contents/tuiLib/${basePath.replace("/Docs/TuiLib", "")}/${cleanSrc}`.replace(
+                  `/src/contents/tuiLib/${basePath.replace("/docs/tuilib", "")}/${cleanSrc}`.replace(
                     /\/+/g,
                     "/",
                   );
