@@ -13,13 +13,19 @@
   overflow-y: auto;
 }
 
+@media (max-width: 768px) {
+  .tui-sidebar {
+    display: none !important;
+  }
+}
+
 .tui-sidebar-list,
 .tui-sidebar-sub-list,
 .tui-sidebar-grand-list {
-  list-style: none;
+  list-style: none !important;
+  list-style-type: none !important;
   padding: 0;
   margin: 0;
-  list-style-type: none;
 }
 
 .tui-sidebar-item {
@@ -34,6 +40,7 @@
   text-decoration: none;
   color: var(--link-color);
   transition: color 0.2s ease;
+  display: inline-block;
 }
 
 .tui-sidebar-link:hover {
@@ -47,14 +54,13 @@
 
 .tui-sidebar-group-title {
   font-weight: bold;
-  color: var(--link-color);
+  color: var(--black-hover-color);
   margin-bottom: 5px;
 }
 
 .tui-sidebar-sub-list {
   padding-left: 12px;
-  border-left: 1px solid var(--tex-color);
-  list-style-type: none;
+  border-left: 1px solid var(--text-color);
 }
 
 .tui-sidebar-sub-item {
@@ -81,7 +87,6 @@
 }
 
 .tui-sidebar-grand-list {
-  list-style-type: none;
   padding-left: 10px;
   border-left: 1px dashed var(--text-color);
 }
