@@ -33,7 +33,7 @@ const routesConfig: RouteObject[] = [
     path: "/docs/tuilib",
     children: [
       { path: "", element: <TuiDocs /> },
-      { path: "docs/*", element: <TuiPost /> },
+      { path: "*", element: <TuiPost /> },
     ],
   },
 

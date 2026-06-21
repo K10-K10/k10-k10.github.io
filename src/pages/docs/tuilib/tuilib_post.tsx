@@ -28,7 +28,7 @@ const createId = (children: React.ReactNode): string => {
 export default function TuiPost() {
   const { "*": docPath } = useParams();
 
-  const targetKey = `/src/contents/tuilib/docs/${docPath}.md`.replace(/\/+/g, "/");
+  const targetKey = `/src/contents/tuilib/${docPath}.md`.replace(/\/+/g, "/");
 
   const file = mdFiles[targetKey];
 
@@ -36,11 +36,11 @@ export default function TuiPost() {
     return (
       <div style={{ padding: "20px", color: "#ff4d4f" }}>
         <h2>Document not found.</h2>
-        {/* <p>
+        <p>
           探したパス (Searched): <code>{targetKey}</code>
         </p>
         <p>Viteが認識しているパス一覧 (Available):</p>
-        <pre>{Object.keys(mdFiles).join("\n")}</pre> */}
+        <pre>{Object.keys(mdFiles).join("\n")}</pre>
       </div>
     );
   }
