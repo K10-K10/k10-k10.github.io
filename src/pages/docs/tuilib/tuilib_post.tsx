@@ -25,6 +25,30 @@ const createId = (children: React.ReactNode): string => {
   return "";
 };
 
+const parseFrontMatter = (rawText: string) => {
+  const meta: Record<string, string> = { title: "", version: "", date: "", namespace: "" };
+  let bodyContent = rawText;
+
+  if (rawText && rawText.startsWith("---")) {
+    const parts = rawText.split("---");
+    if (parts.length >= 3) {
+      bodyContent = parts.slice(2).join("---").trim();
+
+      const lines = parts[1].split("\n");
+      lines.forEach((line) => {
+        const [key, ...valueParts] = line.split(":");
+        if (key && valueParts.length > 0) {
+          const cleanKey = key.trim();
+          const cleanValue = valueParts.join(":").trim().replace(/['"]/g, "");
+          meta[cleanKey] = cleanValue;
+        }
+      });
+    }
+  }
+
+  return { data: meta, bodyContent };
+};
+
 export default function TuiPost() {
   const { "*": docPath } = useParams();
 
@@ -36,11 +60,6 @@ export default function TuiPost() {
     return (
       <div style={{ padding: "20px", color: "#ff4d4f" }}>
         <h2>Document not found.</h2>
-        <p>
-          探したパス (Searched): <code>{targetKey}</code>
-        </p>
-        <p>Viteが認識しているパス一覧 (Available):</p>
-        <pre>{Object.keys(mdFiles).join("\n")}</pre>
       </div>
     );
   }
@@ -48,23 +67,12 @@ export default function TuiPost() {
   const contentObj = file as any;
   const rawText = typeof contentObj.default === "string" ? contentObj.default : "";
 
-  let bodyContent = rawText;
-  let titleFromMeta = "";
+  const { data, bodyContent } = parseFrontMatter(rawText);
 
-  if (rawText && rawText.startsWith("---")) {
-    const parts = rawText.split("---");
-    if (parts.length >= 3) {
-      bodyContent = parts.slice(2).join("---").trim();
-
-      const frontMatterLines = parts[1]?.split("\n") || [];
-      frontMatterLines.forEach((line: string) => {
-        const [key, ...valueParts] = line.split(":");
-        if (key && key.trim() === "title" && valueParts.length > 0) {
-          titleFromMeta = valueParts.join(":").trim().replace(/['"]/g, "");
-        }
-      });
-    }
-  }
+  const titleFromMeta = data.title;
+  const version = data.version;
+  const date = data.date;
+  const namespace = data.namespace;
 
   return (
     <div className="TuiDocs-main">
@@ -77,6 +85,38 @@ export default function TuiPost() {
 
       <Talk title={titleFromMeta || "Documentation"}>
         <article className="tui-post-container" style={{ maxWidth: "800px", margin: "0 auto" }}>
+          {(version || date || namespace) && (
+            <div
+              style={{
+                marginBottom: "20px",
+                padding: "10px 15px",
+                background: "rgba(0,0,0,0.03)",
+                borderRadius: "6px",
+                fontSize: "0.9rem",
+                color: "#555",
+                display: "flex",
+                gap: "20px",
+                flexWrap: "wrap",
+              }}
+            >
+              {version && (
+                <span>
+                  <strong>Version:</strong> {version}
+                </span>
+              )}
+              {date && (
+                <span>
+                  <strong>Date:</strong> {date}
+                </span>
+              )}
+              {namespace && (
+                <span>
+                  <strong>Namespace:</strong> <code>{namespace}</code>
+                </span>
+              )}
+            </div>
+          )}
+
           <Markdown
             remarkPlugins={[remarkGfm]}
             components={{
@@ -148,7 +188,7 @@ export default function TuiPost() {
                   <h3 id={headingId} {...props}>
                     {children}
                   </h3>
-                ); // tagをh2からh3に修正
+                );
               },
               h4({ children, ...props }) {
                 const headingId = createId(children);
@@ -156,7 +196,7 @@ export default function TuiPost() {
                   <h4 id={headingId} {...props}>
                     {children}
                   </h4>
-                ); // tagをh2からh4に修正
+                );
               },
 
               img({ src, alt, ...props }) {
@@ -177,7 +217,6 @@ export default function TuiPost() {
                   .replace(/^docs\//i, "");
 
                 let targetSrc = `/tuilib/docs/${cleanSrc}`;
-
                 targetSrc = targetSrc.replace(/\/+/g, "/");
 
                 return (

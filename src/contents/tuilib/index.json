@@ -1,0 +1,35 @@
+{
+  "sections": [
+    {
+      "order": 1,
+      "basePath": "contents/tuilib",
+      "items": [
+        { "title": "Readme", "path": "/README.md" },
+        {
+          "title": "Getting Started",
+          "items": ["/docs/getting_started.md", "/docs/examples.md"]
+        },
+        {
+          "title": "Sample",
+          "path": "/docs/samples.md",
+          "items": ["/docs/sample/color_palette.md", "/docs/sample/counter.md"]
+        },
+        {
+          "title": "References",
+          "path": "/docs/references.md",
+          "items": ["/docs/references/*.md"]
+        },
+        { "title": "Tips", "path": "/docs/points.md" },
+        {
+          "title": "Changelog",
+          "path": "/docs/changelog.md",
+          "items": [
+            "/docs/changelog/0.1.0.md",
+            "/docs/changelog/0.2.0.md",
+            "/docs/changelog/0.3.0.md"
+          ]
+        }
+      ]
+    }
+  ]
+}

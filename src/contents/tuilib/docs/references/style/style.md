@@ -14,17 +14,17 @@ The `style` namespace provides comprehensive tools for managing colors and text 
 
 The `BasicColor` enum class defines the standard 8 terminal colors.
 
-| Enum Value | Description |
-|:---|:---|
+| Enum Value            | Description                  |
+| :-------------------- | :--------------------------- |
 | `BasicColor::Default` | The terminal's default color |
-| `BasicColor::Black` | Black |
-| `BasicColor::Red` | Red |
-| `BasicColor::Green` | Green |
-| `BasicColor::Yellow` | Yellow |
-| `BasicColor::Blue` | Blue |
-| `BasicColor::Magenta` | Magenta |
-| `BasicColor::Cyan` | Cyan |
-| `BasicColor::White` | White |
+| `BasicColor::Black`   | Black                        |
+| `BasicColor::Red`     | Red                          |
+| `BasicColor::Green`   | Green                        |
+| `BasicColor::Yellow`  | Yellow                       |
+| `BasicColor::Blue`    | Blue                         |
+| `BasicColor::Magenta` | Magenta                      |
+| `BasicColor::Cyan`    | Cyan                         |
+| `BasicColor::White`   | White                        |
 
 ---
 
@@ -108,7 +108,7 @@ int main() {
              .underline();
 
   // Apply alert_style inside components or text streams as supported...
-  
+
   krow::app.stop();
   return 0;
 }

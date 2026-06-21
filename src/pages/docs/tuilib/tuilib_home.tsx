@@ -29,7 +29,6 @@ const createId = (children: React.ReactNode): string => {
 };
 
 export default function TuiDocs() {
-
   const { data, content } = matter(readme);
   const titleFromMeta = typeof data.title === "string" ? data.title : "README";
   return (
