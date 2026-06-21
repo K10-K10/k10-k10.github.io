@@ -5,7 +5,7 @@ import Code from "@parts/Code";
 import Talk from "@layouts/Talk/Talk";
 import Head from "@layouts/Head/Head";
 
-const mdFiles = import.meta.glob("/src/contents/tuiLib/**/*.md", { query: "?raw", eager: true });
+const mdFiles = import.meta.glob("/src/contents/tuilib/**/*.md", { query: "?raw", eager: true });
 
 const createId = (children: React.ReactNode): string => {
   if (typeof children === "string") {
@@ -28,16 +28,17 @@ const createId = (children: React.ReactNode): string => {
 export default function TuiPost() {
   const { "*": docPath } = useParams();
 
-  let cleanPath = docPath?.replace(/^\/?(tuiLib|tuilib)\//i, "") || "";
-
-  const targetKey = `/src/contents/tuiLib/docs/${cleanPath}.md`;
+  const targetKey = `/src/contents/tuilib/docs/${docPath}.md`.replace(/\/+/g, "/");
 
   const file = mdFiles[targetKey];
 
   if (!file) {
     return (
-      <div style={{ padding: "20px" }}>
+      <div style={{ padding: "20px", color: "#ff4d4f" }}>
         <h2>Document not found.</h2>
+        <p>探したパス (Searched): <code>{targetKey}</code></p>
+        <p>Viteが認識しているパス一覧 (Available):</p>
+        <pre>{Object.keys(mdFiles).join("\n")}</pre>
       </div>
     );
   }
