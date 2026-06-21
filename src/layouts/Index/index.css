@@ -1,0 +1,96 @@
+/* TuiSidebar.css */
+
+.tui-sidebar {
+  margin-top: 10px;
+  width: 260px;
+  padding: 20px;
+  border-right: 1px solid var(--text-color);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  box-sizing: border-box;
+  position: sticky;
+  top: 20px;
+  max-height: calc(100vh - 40px);
+  overflow-y: auto;
+}
+
+.tui-sidebar-list,
+.tui-sidebar-sub-list,
+.tui-sidebar-grand-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+.tui-sidebar-item {
+  margin-bottom: 10px;
+}
+
+.tui-sidebar-item.has-children {
+  margin-bottom: 15px;
+}
+
+.tui-sidebar-link {
+  text-decoration: none;
+  color: var(--link-color);
+  transition: color 0.2s ease;
+}
+
+.tui-sidebar-link:hover {
+  color: var(--link-color);
+}
+
+.tui-sidebar-link.is-active {
+  color: #007acc;
+  font-weight: bold;
+}
+
+.tui-sidebar-group-title {
+  font-weight: bold;
+  color: var(--link-color);
+  margin-bottom: 5px;
+}
+
+.tui-sidebar-sub-list {
+  padding-left: 12px;
+  border-left: 1px solid var(--tex-color);
+  list-style-type: none;
+}
+
+.tui-sidebar-sub-item {
+  padding: 4px 0;
+}
+
+.tui-sidebar-sub-item.has-grand-children {
+  padding: 5px 0 2px 0;
+}
+
+.tui-sidebar-sub-group-title {
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: var(--black-hover-color);
+  margin-bottom: 3px;
+}
+
+.tui-sidebar-sub-group-title .tui-sidebar-link {
+  color: var(--black-hover-color);
+}
+
+.tui-sidebar-sub-group-title .tui-sidebar-link.is-active {
+  color: #007acc;
+}
+
+.tui-sidebar-grand-list {
+  list-style-type: none;
+  padding-left: 10px;
+  border-left: 1px dashed var(--text-color);
+}
+
+.tui-sidebar-grand-item {
+  padding: 3px 0;
+}
+
+.tui-sidebar-grand-link {
+  font-size: 0.85rem;
+  color: #555;
+}

@@ -43,6 +43,8 @@
   --shadow-color: #1e3e75;
   --theme-color: #fff;
   --reverse-color: #000;
+  --text-color: #000000;
+  --reverse-text-color: #e0e0e0;
 }
 
 [data-theme="dark"] {
@@ -50,7 +52,7 @@
   --cloudy_background-color: #1e1e1e;
   --secondary-color: #2a2a2a;
 
-  --reverse-text-color: #0000000;
+  --reverse-text-color: #000000;
   --text-color: #e0e0e0;
   --reverse-color: #121212;
   --border-color: #333333;

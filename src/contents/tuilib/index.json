@@ -7,26 +7,61 @@
         { "title": "Readme", "path": "/README.md" },
         {
           "title": "Getting Started",
-          "items": ["/docs/getting_started.md", "/docs/examples.md"]
+          "items": [
+            { "title": "Getting Started", "path": "/docs/getting_started.md" },
+            { "title": "Examples", "path": "/docs/examples.md" }
+          ]
         },
         {
           "title": "Sample",
           "path": "/docs/samples.md",
-          "items": ["/docs/sample/color_palette.md", "/docs/sample/counter.md"]
+          "items": [
+            { "title": "Colour Palette", "path": "/docs/sample/colour_palette.md" },
+            { "title": "Counter", "path": "/docs/sample/counter.md" }
+          ]
         },
         {
           "title": "References",
           "path": "/docs/references.md",
-          "items": ["/docs/references/*.md"]
+          "items": [
+            { "title": "App", "path": "/docs/references/app.md" },
+            {
+              "title": "Events",
+              "path": "/docs/references/events.md",
+              "items": [{ "title": "Key Event", "path": "/docs/references/events/keyevent.md" }]
+            },
+            {
+              "title": "Layout",
+              "path": "/docs/references/layout.md",
+              "items": [{ "title": "Rect", "path": "/docs/references/layout/rect.md" }]
+            },
+            {
+              "title": "Objects",
+              "path": "/docs/references/objects.md",
+              "items": [
+                { "title": "Block", "path": "/docs/references/object/block.md" },
+                { "title": "List", "path": "/docs/references/object/list.md" },
+                { "title": "Text Field", "path": "/docs/references/object/textfield.md" }
+              ]
+            },
+            {
+              "title": "Style",
+              "path": "/docs/references/style/style.md"
+            },
+            {
+              "title": "Text",
+              "path": "/docs/references/text/text.md"
+            }
+          ]
         },
         { "title": "Tips", "path": "/docs/points.md" },
         {
           "title": "Changelog",
           "path": "/docs/changelog.md",
           "items": [
-            "/docs/changelog/0.1.0.md",
-            "/docs/changelog/0.2.0.md",
-            "/docs/changelog/0.3.0.md"
+            { "title": "v0.1.0", "path": "/docs/changelog/0.1.0.md" },
+            { "title": "v0.2.0", "path": "/docs/changelog/0.2.0.md" },
+            { "title": "v0.3.0", "path": "/docs/changelog/0.3.0.md" }
           ]
         }
       ]

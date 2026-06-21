@@ -1,16 +1,10 @@
+// TuiSidebar.tsx
 import { Link, useLocation } from "react-router-dom";
 import indexData from "@contents/tuilib/index.json";
+import "./index.css";
 
 const formatUrl = (path: string) => {
   return `/docs/tuilib/${path.replace(/^\//, "").replace(/\.md$/, "")}`.replace(/\/+/g, "/");
-};
-
-const formatTitle = (path: string) => {
-  const fileName = path.split("/").pop()?.replace(/\.md$/, "") || "";
-  return fileName
-    .replace(/_/g, " ")
-    .replace(/-/g, " ")
-    .replace(/\b\w/g, (c) => c.toUpperCase());
 };
 
 export default function TuiSidebar() {
@@ -18,26 +12,16 @@ export default function TuiSidebar() {
   const section = indexData.sections[0];
 
   return (
-    <aside
-      className="tui-sidebar"
-      style={{ width: "260px", padding: "20px", borderRight: "1px solid #eee" }}
-    >
-      <h3 style={{ marginBottom: "15px", fontSize: "1.1rem" }}>Documentation</h3>
-      <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
+    <aside className="tui-sidebar">
+      <ul className="tui-sidebar-list">
         {section.items.map((item, index) => {
+          const targetUrl = item.path ? formatUrl(item.path) : "";
+          const isActive = location.pathname === targetUrl;
+
           if (!item.items) {
-            const targetUrl = formatUrl(item.path || "");
-            const isActive = location.pathname === targetUrl;
             return (
-              <li key={index} style={{ marginBottom: "10px" }}>
-                <Link
-                  to={targetUrl}
-                  style={{
-                    textDecoration: "none",
-                    color: isActive ? "#007acc" : "#333",
-                    fontWeight: isActive ? "bold" : "normal",
-                  }}
-                >
+              <li key={index} className="tui-sidebar-item">
+                <Link to={targetUrl} className={`tui-sidebar-link ${isActive ? "is-active" : ""}`}>
                   {item.title}
                 </Link>
               </li>
@@ -45,10 +29,13 @@ export default function TuiSidebar() {
           }
 
           return (
-            <li key={index} style={{ marginBottom: "15px" }}>
-              <div style={{ fontWeight: "bold", color: "#666", marginBottom: "5px" }}>
+            <li key={index} className="tui-sidebar-item has-children">
+              <div className="tui-sidebar-group-title">
                 {item.path ? (
-                  <Link to={formatUrl(item.path)} style={{ color: "#333", textDecoration: "none" }}>
+                  <Link
+                    to={targetUrl}
+                    className={`tui-sidebar-link ${isActive ? "is-active" : ""}`}
+                  >
                     {item.title}
                   </Link>
                 ) : (
@@ -56,46 +43,54 @@ export default function TuiSidebar() {
                 )}
               </div>
 
-              <ul
-                style={{
-                  listStyle: "none",
-                  paddingLeft: "15px",
-                  margin: 0,
-                  borderLeft: "1px solid #ddd",
-                }}
-              >
-                {item.items.map((subPath, subIndex) => {
-                  if (subPath.includes("*")) {
+              <ul className="tui-sidebar-sub-list">
+                {item.items.map((subItem, subIndex) => {
+                  const subUrl = subItem.path ? formatUrl(subItem.path) : "";
+                  const isSubActive = location.pathname === subUrl;
+
+                  if (subItem.items) {
                     return (
-                      <li
-                        key={subIndex}
-                        style={{
-                          fontSize: "0.85rem",
-                          color: "#999",
-                          fontStyle: "italic",
-                          padding: "3px 0",
-                        }}
-                      >
-                        All reference items...
+                      <li key={subIndex} className="tui-sidebar-sub-item has-grand-children">
+                        <div className="tui-sidebar-sub-group-title">
+                          {subItem.path ? (
+                            <Link
+                              to={subUrl}
+                              className={`tui-sidebar-link ${isSubActive ? "is-active" : ""}`}
+                            >
+                              {subItem.title}
+                            </Link>
+                          ) : (
+                            subItem.title
+                          )}
+                        </div>
+
+                        <ul className="tui-sidebar-grand-list">
+                          {subItem.items.map((grandChild, gIndex) => {
+                            const grandUrl = formatUrl(grandChild.path);
+                            const isGrandActive = location.pathname === grandUrl;
+                            return (
+                              <li key={gIndex} className="tui-sidebar-grand-item">
+                                <Link
+                                  to={grandUrl}
+                                  className={`tui-sidebar-link tui-sidebar-grand-link ${isGrandActive ? "is-active" : ""}`}
+                                >
+                                  {grandChild.title}
+                                </Link>
+                              </li>
+                            );
+                          })}
+                        </ul>
                       </li>
                     );
                   }
 
-                  const subUrl = formatUrl(subPath);
-                  const isSubActive = location.pathname === subUrl;
-
                   return (
-                    <li key={subIndex} style={{ padding: "3px 0" }}>
+                    <li key={subIndex} className="tui-sidebar-sub-item">
                       <Link
                         to={subUrl}
-                        style={{
-                          textDecoration: "none",
-                          fontSize: "0.9rem",
-                          color: isSubActive ? "#007acc" : "#555",
-                          fontWeight: isSubActive ? "bold" : "normal",
-                        }}
+                        className={`tui-sidebar-link ${isSubActive ? "is-active" : ""}`}
                       >
-                        {formatTitle(subPath)}
+                        {subItem.title}
                       </Link>
                     </li>
                   );
