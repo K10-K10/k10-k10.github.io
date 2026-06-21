@@ -3,9 +3,8 @@ import Talk from "@layouts/Talk/Talk";
 import Head from "@layouts/Head/Head";
 import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
-import matter from "gray-matter";
 import Code from "@parts/Code";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import TuiSidebar from "@layouts/Index";
 
 import readme from "@contents/tuilib/README.md?raw";
@@ -16,9 +15,8 @@ const createId = (children: React.ReactNode): string => {
       .toLowerCase()
       .trim()
       .replace(/\s+/g, "-")
-      .replace(".", "-")
-      .replace("(", "")
-      .replace(")", "");
+      .replace(/\./g, "-")
+      .replace(/\(\)/g, "");
   }
   if (Array.isArray(children)) {
     return children.map((child) => createId(child)).join("");
@@ -29,20 +27,42 @@ const createId = (children: React.ReactNode): string => {
   return "";
 };
 
+const parseFrontMatter = (rawText: string) => {
+  const meta: Record<string, string> = { title: "", version: "", date: "", namespace: "" };
+  let bodyContent = rawText;
+
+  if (rawText && rawText.startsWith("---")) {
+    const parts = rawText.split("---");
+    if (parts.length >= 3) {
+      bodyContent = parts.slice(2).join("---").trim();
+      const lines = parts[1].split("\n");
+      lines.forEach((line) => {
+        const [key, ...valueParts] = line.split(":");
+        if (key && valueParts.length > 0) {
+          meta[key.trim()] = valueParts.join(":").trim().replace(/['"]/g, "");
+        }
+      });
+    }
+  }
+  return { data: meta, bodyContent };
+};
+
 export default function TuiDocs() {
-  const { data, content } = matter(readme);
-  const titleFromMeta = typeof data.title === "string" ? data.title : "README";
+  const location = useLocation();
+  const { data, bodyContent } = parseFrontMatter(readme);
+  const titleFromMeta = data.title || "README";
+
   return (
     <div className="TuiDocs-main">
       <Head
-        title={"K10-K10 - TUI Docs"}
+        title={`K10-K10 - ${titleFromMeta}`}
         linkTitle="tui"
         description={"K10-K10 Documentation - TUI library in C++ documentation."}
         pageUrl="https://K10-K10.github.io/docs/tuilib"
       />
       <div style={{ display: "flex", gap: "20px", alignItems: "flex-start", width: "100%" }}>
         <TuiSidebar />
-        <Talk title="README">
+        <Talk title={titleFromMeta} style={{ flex: 1 }}>
           <div
             style={{ marginBottom: "20px", display: "flex", gap: "15px", flexDirection: "column" }}
           >
@@ -175,7 +195,7 @@ export default function TuiDocs() {
               },
             }}
           >
-            {content}
+            {bodyContent}
           </Markdown>
         </Talk>
       </div>
