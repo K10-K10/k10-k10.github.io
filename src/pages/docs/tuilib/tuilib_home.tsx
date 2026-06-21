@@ -60,6 +60,7 @@ export default function TuiDocs() {
         description={"K10-K10 Documentation - TUI library in C++ documentation."}
         pageUrl="https://K10-K10.github.io/docs/tuilib"
       />
+      <a href="https://github.com/K10-K10/krowTui">Github Repository</a>
       <div style={{ display: "flex", gap: "20px", alignItems: "flex-start", width: "100%" }}>
         <TuiSidebar />
         <Talk title={titleFromMeta} style={{ flex: 1 }}>

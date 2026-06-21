@@ -1,0 +1,107 @@
+name: Get Krow Documents
+on:
+  schedule:
+    - cron: '0 0 * * 1,5'
+  workflow_dispatch:
+
+jobs:
+  get-current-docs:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+
+      - name: Checkout Own Repository
+        uses: actions/checkout@v4
+
+      - name: Restore previous value
+        id: cache-value
+        uses: actions/cache/restore@v4
+        with:
+          path: ./storage
+          key: number-cache-${{ github.run_id }}
+          restore-keys: |
+            number-cache-
+
+      - name: Checkout External Repository
+        uses: actions/checkout@v4
+        with:
+          repository: 'K10-K10/krowtui'
+          path: 'krow-repo'
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+
+      - name: Get Diff
+        run: |
+          STORAGE_DIR="$GITHUB_WORKSPACE/storage"
+          mkdir -p "$STORAGE_DIR"
+          check_and_copy() {
+            local file_path="$1"
+
+            cd "$GITHUB_WORKSPACE/krow-repo"
+            if [ ! -f "$file_path" ]; then
+              echo "Warning: $file_path does not exist."
+              return
+            fi
+            LAST_REMOTE_HASH=$(git log -n 1 --format="%h" -- "$file_path")
+            local cache_name=$(echo "$file_path" | tr '/' '_')
+            local local_target="$GITHUB_WORKSPACE/src/contents/$file_path"
+            mkdir -p "$(dirname "$local_target")"
+
+            if [ -f "$STORAGE_DIR/$cache_name" ]; then
+              LAST_LOCAL_HASH=$(cat "$STORAGE_DIR/$cache_name")
+              if [ "$LAST_REMOTE_HASH" != "$LAST_LOCAL_HASH" ]; then
+                echo "Update: $file_path"
+                cat "$file_path" | xargs echo > "$local_target"
+                echo "$LAST_REMOTE_HASH" > "$STORAGE_DIR/$cache_name"
+              else
+                echo "No diff: $file_path"
+              fi
+            else
+              echo "Init: $file_path"
+              cat "$file_path" | xargs echo > "$local_target"
+              echo "$LAST_REMOTE_HASH" > "$STORAGE_DIR/$cache_name"
+            fi
+          }
+          check_and_copy "README.md"
+          check_and_copy "LICENSE"
+          cd "$GITHUB_WORKSPACE/krow-repo"
+          if [ -d "docs" ]; then
+            while IFS= read -r target_file; do
+              local_rel_path=$(realpath --relative-to="$GITHUB_WORKSPACE/krow-repo" "$target_file")
+              check_and_copy "$local_rel_path"
+            done < <(find docs -type f)
+          fi
+
+
+      - name: Commit and Push
+        run: |
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+
+          git add src/contents/ storage/
+
+          if ! git diff --cached --exit-code --quiet; then
+
+            git commit -m "chore: sync document updates [skip ci]"
+            git push
+          fi
+
+
+      - name: Run deploy
+        run: |
+          npm install
+          npm run deploy
+
+
+      - name: Save value to cache
+        uses: actions/cache/save@v4
+        if: always()
+        with:
+          path: ./storage
+          key: number-cache-${{ github.run_id }}
