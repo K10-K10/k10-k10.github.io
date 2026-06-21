@@ -3,7 +3,12 @@ import Icon from "@parts/Icon";
 import { useState, useEffect } from "react";
 
 export default function Header() {
-  const topics = [["Documents", "docs"], ["Tools","tools"], ["Blog", "blog"], ["About", "about"]];
+  const topics = [
+    ["Documents", "docs"],
+    ["Tools", "tools"],
+    ["Blog", "blog"],
+    ["About", "about"],
+  ];
   const [mode, setMode] = useState<"light" | "dark">(
     window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light",
   );

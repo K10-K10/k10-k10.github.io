@@ -36,7 +36,9 @@ export default function TuiPost() {
     return (
       <div style={{ padding: "20px", color: "#ff4d4f" }}>
         <h2>Document not found.</h2>
-        <p>探したパス (Searched): <code>{targetKey}</code></p>
+        <p>
+          探したパス (Searched): <code>{targetKey}</code>
+        </p>
         <p>Viteが認識しているパス一覧 (Available):</p>
         <pre>{Object.keys(mdFiles).join("\n")}</pre>
       </div>
@@ -169,16 +171,14 @@ export default function TuiPost() {
                   );
                 }
 
-                const cleanSrc = src.replace(/^\.\.\//, "").replace(/^\.\//, "");
-                const currentSegments = location.pathname.split("/");
-                currentSegments.pop();
-                const basePath = currentSegments.join("/");
+                const cleanSrc = src
+                  .replace(/^\.\.\//, "")
+                  .replace(/^\.\//, "")
+                  .replace(/^docs\//i, "");
 
-                const targetSrc =
-                  `/src/contents/tuiLib/${basePath.replace("/docs/tuilib", "")}/${cleanSrc}`.replace(
-                    /\/+/g,
-                    "/",
-                  );
+                let targetSrc = `/tuilib/docs/${cleanSrc}`;
+
+                targetSrc = targetSrc.replace(/\/+/g, "/");
 
                 return (
                   <span style={{ display: "block", textAlign: "center", margin: "20px 0" }}>

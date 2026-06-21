@@ -119,46 +119,54 @@ export default function TuiDocs() {
             },
 
             img({ src, alt, ...props }) {
-  if (!src || src.startsWith("http") || src.startsWith("data:")) {
-    return (
-      <img
-        src={src}
-        alt={alt}
-        style={{ maxWidth: "100%", height: "auto", borderRadius: "8px" }}
-        {...props}
-      />
-    );
-  }
+              if (!src || src.startsWith("http") || src.startsWith("data:")) {
+                return (
+                  <img
+                    src={src}
+                    alt={alt}
+                    style={{ maxWidth: "100%", height: "auto", borderRadius: "8px" }}
+                    {...props}
+                  />
+                );
+              }
 
-  const cleanSrc = src
-    .replace(/^\.\.\//, "")
-    .replace(/^\.\//, "")
-    .replace(/^docs\//i, "");
-  let targetSrc = `/src/contents/tuilib/docs/${cleanSrc}`;
+              const cleanSrc = src
+                .replace(/^\.\.\//, "")
+                .replace(/^\.\//, "")
+                .replace(/^docs\//i, "");
 
-  targetSrc = targetSrc.replace(/\/+/g, "/");
+              let targetSrc = `/tuilib/docs/${cleanSrc}`;
 
-  return (
-    <span style={{ display: "block", textAlign: "center", margin: "20px 0" }}>
-      <img
-        src={targetSrc}
-        alt={alt}
-        style={{
-          maxWidth: "100%",
-          height: "auto",
-          borderRadius: "8px",
-          boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
-        }}
-        {...props}
-      />
-      {alt && (
-        <span style={{ display: "block", fontSize: "0.85rem", color: "#888", marginTop: "8px" }}>
-          {alt}
-        </span>
-      )}
-    </span>
-  );
-}
+              targetSrc = targetSrc.replace(/\/+/g, "/");
+
+              return (
+                <span style={{ display: "block", textAlign: "center", margin: "20px 0" }}>
+                  <img
+                    src={targetSrc}
+                    alt={alt}
+                    style={{
+                      maxWidth: "100%",
+                      height: "auto",
+                      borderRadius: "8px",
+                      boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
+                    }}
+                    {...props}
+                  />
+                  {alt && (
+                    <span
+                      style={{
+                        display: "block",
+                        fontSize: "0.85rem",
+                        color: "#888",
+                        marginTop: "8px",
+                      }}
+                    >
+                      {alt}
+                    </span>
+                  )}
+                </span>
+              );
+            },
           }}
         >
           {readme}
