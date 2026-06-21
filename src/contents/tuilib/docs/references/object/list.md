@@ -37,14 +37,14 @@ The `List` object provides chainable methods to customize its visual appearance:
 
 int main() {
   krow::app.init();
-  
+
   krow::List list;
   krow::Rect rect{2, 2, 20, 5}; // x, y, width, height
-  
+
   // Custom styles
   krow::style::Style standard_style;
   standard_style.fg(krow::utils::TextColor::White);
-  
+
   krow::style::Style select_style;
   select_style.bg(krow::utils::FillColor::Blue).fg(krow::utils::TextColor::White);
 
@@ -68,7 +68,7 @@ int main() {
       list.move_down();
     }
   });
-  
+
   krow::app.stop();
   return 0;
 }

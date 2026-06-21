@@ -2,6 +2,7 @@
 version: 0.3.0
 date: 20/06/2026
 ---
+
 # Color Palette
 
 This sample demonstrates the use of different color palettes in a terminal application using the Krow library. It showcases three types of color palettes: Basic, Code256, and RGB.

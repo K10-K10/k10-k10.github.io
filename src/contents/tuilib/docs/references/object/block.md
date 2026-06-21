@@ -150,22 +150,22 @@ Sets the background color layer bound to the internal grid region of the block.
 
 The library provides predefined `krow::style::Border` instances representing distinct line styling definitions:
 
-| Constant Name | Box Appearance Type Description | Style Representation (`tl`, `tr`, `bl`, `br`, `h`, `v`) |
-| --- | --- | --- |
-| `krow::style::SINGLE` | Standard single-line box layouts. | `┌`, `┐`, `└`, `┘`, `─`, `│` |
-| `krow::style::ROUNDED` | Single-line box layouts utilizing rounded corners. | `╭`, `╮`, `╰`, `╯`, `─`, `│` |
-| `krow::style::BOLD` | Thick/Heavy line container style layouts. | `┏`, `┓`, `┗`, `┛`, `━`, `┃` |
-| `krow::style::DOUBLE` | Standard double-line character container layouts. | `╔`, `╗`, `╚`, `╝`, `═`, `║` |
+| Constant Name          | Box Appearance Type Description                    | Style Representation (`tl`, `tr`, `bl`, `br`, `h`, `v`) |
+| ---------------------- | -------------------------------------------------- | ------------------------------------------------------- |
+| `krow::style::SINGLE`  | Standard single-line box layouts.                  | `┌`, `┐`, `└`, `┘`, `─`, `│`                            |
+| `krow::style::ROUNDED` | Single-line box layouts utilizing rounded corners. | `╭`, `╮`, `╰`, `╯`, `─`, `│`                            |
+| `krow::style::BOLD`    | Thick/Heavy line container style layouts.          | `┏`, `┓`, `┗`, `┛`, `━`, `┃`                            |
+| `krow::style::DOUBLE`  | Standard double-line character container layouts.  | `╔`, `╗`, `╚`, `╝`, `═`, `║`                            |
 
 ## Borders Bitmask Flags
 
 The `Borders` enum represents a bitmask used to filter which edges should be active during the render cycle:
 
-| Flag Constant | Bitmask Shift | Description Value |
-| --- | --- | --- |
-| `Borders::NONE` | `0` | No layout edges are drawn. |
-| `Borders::TOP` | `1 << 0` | Draws only the top horizontal frame row. |
-| `Borders::BOTTOM` | `1 << 1` | Draws only the bottom horizontal frame row. |
-| `Borders::LEFT` | `1 << 2` | Draws only the left vertical frame column. |
-| `Borders::RIGHT` | `1 << 3` | Draws only the right vertical frame column. |
-| `Borders::ALL` | `TOP \| BOTTOM \| LEFT \| RIGHT` | Draws all bounding frame edges (Default behavior). |
+| Flag Constant     | Bitmask Shift                    | Description Value                                  |
+| ----------------- | -------------------------------- | -------------------------------------------------- |
+| `Borders::NONE`   | `0`                              | No layout edges are drawn.                         |
+| `Borders::TOP`    | `1 << 0`                         | Draws only the top horizontal frame row.           |
+| `Borders::BOTTOM` | `1 << 1`                         | Draws only the bottom horizontal frame row.        |
+| `Borders::LEFT`   | `1 << 2`                         | Draws only the left vertical frame column.         |
+| `Borders::RIGHT`  | `1 << 3`                         | Draws only the right vertical frame column.        |
+| `Borders::ALL`    | `TOP \| BOTTOM \| LEFT \| RIGHT` | Draws all bounding frame edges (Default behavior). |
