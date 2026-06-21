@@ -3,6 +3,7 @@ import Talk from "@layouts/Talk/Talk";
 import Head from "@layouts/Head/Head";
 import Markdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import matter from "gray-matter";
 import Code from "@parts/Code";
 import { Link } from "react-router-dom";
 
@@ -28,6 +29,9 @@ const createId = (children: React.ReactNode): string => {
 };
 
 export default function TuiDocs() {
+
+  const { data, content } = matter(readme);
+  const titleFromMeta = typeof data.title === "string" ? data.title : "README";
   return (
     <div className="TuiDocs-main">
       <Head
@@ -169,7 +173,7 @@ export default function TuiDocs() {
             },
           }}
         >
-          {readme}
+          {content}
         </Markdown>
       </Talk>
     </div>
