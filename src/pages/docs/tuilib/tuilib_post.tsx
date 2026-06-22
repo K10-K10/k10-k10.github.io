@@ -5,8 +5,12 @@ import Code from "@parts/Code";
 import Talk from "@layouts/Talk/Talk";
 import Head from "@layouts/Head/Head";
 import Index from "@layouts/Index/index";
+import licenseRaw from "/src/contents/tuilib/LICENSE?raw";
 
-const mdFiles = import.meta.glob("/src/contents/tuilib/**/*.md", { query: "?raw", eager: true });
+const mdFiles = {
+  ...import.meta.glob("/src/contents/tuilib/**/*.md", { query: "?raw", eager: true }),
+  "/src/contents/tuilib/LICENSE": { default: licenseRaw }
+};
 
 const createId = (children: React.ReactNode): string => {
   if (typeof children === "string") {
@@ -53,9 +57,16 @@ const parseFrontMatter = (rawText: string) => {
 export default function TuiPost() {
   const { "*": docPath } = useParams();
 
-  const targetKey = `/src/contents/tuilib/${docPath}.md`.replace(/\/+/g, "/");
+  const isLicense = docPath?.toLowerCase() === "license";
 
-  const file = mdFiles[targetKey];
+  const targetKey = isLicense
+    ? "/src/contents/tuilib/LICENSE"
+    : `/src/contents/tuilib/${docPath}.md`;
+
+  const cleanTargetKey = targetKey.replace(/\/+/g, "/");
+  console.log("Looking for key:", cleanTargetKey);
+  console.log("Available keys:", Object.keys(mdFiles));
+  const file = mdFiles[cleanTargetKey];
 
   if (!file) {
     return (
