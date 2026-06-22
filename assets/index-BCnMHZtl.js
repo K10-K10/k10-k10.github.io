@@ -151,6 +151,37 @@ int main() {
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+### Third-Party Notices
+
+This project uses \`ncurses\` library. It's license is included below.
+
+\`\`\`text
+Copyright 2018-2021,2023 Thomas E. Dickey
+Copyright 1998-2016,2017 Free Software Foundation, Inc.
+Author: Zeyd M. Ben-Halim <zmbenhal@netcom.com> 1992,1995
+   and: Eric S. Raymond <esr@snark.thyrsus.com>
+   and: Thomas E. Dickey                        1996-on
+
+Permission is hereby granted, free of charge, to any person obtaining a
+copy of this software and associated documentation files (the
+"Software"), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, distribute with modifications, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included
+in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+IN NO EVENT SHALL THE ABOVE COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR
+THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+\`\`\`
 `,Y=e=>typeof e==`string`?e.toLowerCase().trim().replace(/\s+/g,`-`).replace(/\./g,`-`).replace(/\(\)/g,``):Array.isArray(e)?e.map(e=>Y(e)).join(``):e&&typeof e==`object`&&`props`in e?Y(e.props.children):``,ue=e=>{let t={title:``,version:``,date:``,namespace:``},n=e;if(e&&e.startsWith(`---`)){let r=e.split(`---`);r.length>=3&&(n=r.slice(2).join(`---`).trim(),r[1].split(`
 `).forEach(e=>{let[n,...r]=e.split(`:`);n&&r.length>0&&(t[n.trim()]=r.join(`:`).trim().replace(/['"]/g,``))}))}return{data:t,bodyContent:n}};function de(){let e=g(),{data:t,bodyContent:n}=ue(J),r=t.title||`README`;return m(`div`,{className:`TuiDocs-main`,children:[d(x,{title:`K10-K10 - ${r}`,linkTitle:`tui`,description:`K10-K10 Documentation - TUI library in C++ documentation.`,pageUrl:`https://K10-K10.github.io/docs/tuilib`}),d(`a`,{href:`https://github.com/K10-K10/krowTui`,children:`Github Repository`}),m(`div`,{style:{display:`flex`,gap:`20px`,alignItems:`flex-start`,width:`100%`},children:[d(q,{}),m(A,{title:r,style:{flex:1},children:[d(`div`,{style:{marginBottom:`20px`,display:`flex`,gap:`15px`,flexDirection:`column`},children:d(`a`,{href:`https://github.com/k10-k10/KrowTUI`,target:`_blank`,rel:`noreferrer`,className:`github-link`,children:`Github Repository`})}),d(s,{remarkPlugins:[p],components:{code({node:e,className:t,children:n,...r}){let i=/language-(\w+)/.exec(t||``),a=i?i[1]:`text`,o=!t&&!String(n).includes(`
 `);return d(B,{lang:a,inline:o,children:n})},h2({children:e,...t}){let n=Y(e);return d(`h2`,{id:n,...t,children:e})},a({href:t,children:n,...r}){if(!t)return null;if(t.startsWith(`http`)||t.startsWith(`#`))return d(`a`,{href:t,target:t.startsWith(`http`)?`_blank`:void 0,rel:`noreferrer`,...r,children:n});let i=()=>{setTimeout(()=>{window.scrollTo(0,0);let e=document.querySelector(`.TuiDocs-main`);e&&(e.scrollTop=0)},50)},a=t.replace(/^\.\.\//,``).replace(/^\.\//,``).replace(/\.md$/,``),o=e.pathname.split(`/`);o.pop();let s=`${o.join(`/`)}/tuilib/${a}`.replace(/\/+/g,`/`);return d(c,{to:s,onClick:i,...r,children:n})},img({src:e,alt:t,...n}){if(!e||e.startsWith(`http`)||e.startsWith(`data:`))return d(`img`,{src:e,alt:t,style:{maxWidth:`100%`,height:`auto`,borderRadius:`8px`},...n});let r=`/tuilib/docs/${e.replace(/^\.\.\//,``).replace(/^\.\//,``).replace(/^docs\//i,``)}`;return r=r.replace(/\/+/g,`/`),m(`span`,{style:{display:`block`,textAlign:`center`,margin:`20px 0`},children:[d(`img`,{src:r,alt:t,style:{maxWidth:`100%`,height:`auto`,borderRadius:`8px`,boxShadow:`0 4px 12px rgba(0,0,0,0.1)`},...n}),t&&d(`span`,{style:{display:`block`,fontSize:`0.85rem`,color:`#888`,marginTop:`8px`},children:t})]})}},children:n})]})]})]})}var fe=e({default:()=>pe}),pe=`# ver 0.1.0
