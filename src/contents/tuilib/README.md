@@ -5,7 +5,7 @@ update: 19/06/2026
 
 # Krow TUI
 
-![Logo](docs/logo.png)
+![Krow Logo](docs/logo.svg)
 
 [![build](https://github.com/K10-K10/krowTUI/actions/workflows/build.yml/badge.svg)](https://github.com/K10-K10/krowTUI/actions/workflows/build.yml)
 [![Lint](https://github.com/K10-K10/krowTUI/actions/workflows/lint.yml/badge.svg)](https://github.com/K10-K10/krowTUI/actions/workflows/lint.yml)
@@ -57,18 +57,21 @@ You can directluy include header file:
 using namespace krow;
 int main() {
   app.init();
-  Text text;
-  text.contents("Hello TUI!");
+  TextField label;
+  Line l = "Hello TUI!"_s.style(style::Default().bold());
+  Text text = l.alignment_left();
+  label.contents({text});
 
   List list;
-  list.items({"item1", "item2", "item3", "item4", "item5"});
+  list.items({Text("item1"_s), Text("item2"_s), Text("item3"_s),
+              Text("item4"_s), Text("item5"_s)});
   Block box;
-  text.position({1, 1, 20, 1});
+  label.position({1, 1, 20, 1});
   list.position({1, 3, 20, 5});
   box.position({0, 0, FULL, FULL});
   app.loop([&]() {
     box.draw();
-    text.draw();
+    label.draw();
     list.draw();
 
     input::key.read();
