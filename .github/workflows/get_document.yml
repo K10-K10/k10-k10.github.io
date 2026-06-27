@@ -48,20 +48,28 @@ jobs:
             fi
             LAST_REMOTE_HASH=$(git log -n 1 --format="%h" -- "$file_path")
             local cache_name=$(echo "$file_path" | tr '/' '_')
-            local local_target="$GITHUB_WORKSPACE/src/contents/tuilib/$file_path"
+            local ext="${file_path##*.}"
+            ext=$(echo "$ext" | tr 'A-Z' 'a-z')
+
+            if [[ "$ext" =~ ^(jpg|jpeg|png|svg|gif|webp)$ ]]; then
+              local local_target="$GITHUB_WORKSPACE/public/tuilib/$file_path"
+            else
+              local local_target="$GITHUB_WORKSPACE/src/contents/tuilib/$file_path"
+            fi
+
             mkdir -p "$(dirname "$local_target")"
 
             if [ -f "$STORAGE_DIR/$cache_name" ]; then
               LAST_LOCAL_HASH=$(cat "$STORAGE_DIR/$cache_name")
               if [ "$LAST_REMOTE_HASH" != "$LAST_LOCAL_HASH" ]; then
-                echo "Update: $file_path"
+                echo "Update: $file_path -> $local_target"
                 cat "$file_path" > "$local_target"
                 echo "$LAST_REMOTE_HASH" > "$STORAGE_DIR/$cache_name"
               else
                 echo "No diff: $file_path"
               fi
             else
-              echo "Init: $file_path"
+              echo "Init: $file_path -> $local_target"
               cat "$file_path" > "$local_target"
               echo "$LAST_REMOTE_HASH" > "$STORAGE_DIR/$cache_name"
             fi
