@@ -18,9 +18,9 @@ jobs:
         uses: actions/cache/restore@v4
         with:
           path: ./storage
-          key: number-cache-${{ github.run_id }}
+          key: number-cache-v2-${{ github.run_id }}
           restore-keys: |
-            number-cache-
+            number-cache-v2-
 
       - name: Checkout External Repository
         uses: actions/checkout@v4
@@ -110,4 +110,4 @@ jobs:
         if: always()
         with:
           path: ./storage
-          key: number-cache-${{ github.run_id }}
+          key: number-cache-v2-${{ github.run_id }}
