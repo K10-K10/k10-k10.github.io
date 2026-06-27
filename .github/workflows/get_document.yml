@@ -81,7 +81,6 @@ jobs:
 
           if [ -d "$GITHUB_WORKSPACE/krow-repo/docs" ]; then
             while IFS= read -r target_file; do
-              # ルートからの相対パスを正確に割り出す
               local_rel_path=$(realpath --relative-to="$GITHUB_WORKSPACE/krow-repo" "$target_file")
               check_and_copy "$local_rel_path"
             done < <(find "$GITHUB_WORKSPACE/krow-repo/docs" -type f)
@@ -92,7 +91,7 @@ jobs:
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
 
-          git add src/contents/ public/ storage/
+          git add src/contents/ public/
 
           if ! git diff --cached --exit-code --quiet; then
             git commit -m "chore: sync document updates [skip ci]"
