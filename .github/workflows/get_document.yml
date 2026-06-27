@@ -18,9 +18,9 @@ jobs:
         uses: actions/cache/restore@v4
         with:
           path: ./storage
-          key: number-cache-v2-${{ github.run_id }}
+          key: number-cache-v3-${{ github.run_id }}
           restore-keys: |
-            number-cache-v2-
+            number-cache-v3-
 
       - name: Checkout External Repository
         uses: actions/checkout@v4
@@ -38,15 +38,16 @@ jobs:
         run: |
           STORAGE_DIR="$GITHUB_WORKSPACE/storage"
           mkdir -p "$STORAGE_DIR"
+
           check_and_copy() {
             local file_path="$1"
+            local remote_source="$GITHUB_WORKSPACE/krow-repo/$file_path"
 
-            cd "$GITHUB_WORKSPACE/krow-repo"
-            if [ ! -f "$file_path" ]; then
-              echo "Warning: $file_path does not exist."
+            if [ ! -f "$remote_source" ]; then
+              echo "Warning: $remote_source does not exist."
               return
             fi
-            LAST_REMOTE_HASH=$(git log -n 1 --format="%h" -- "$file_path")
+            LAST_REMOTE_HASH=$(git -C "$GITHUB_WORKSPACE/krow-repo" log -n 1 --format="%h" -- "$file_path")
             local cache_name=$(echo "$file_path" | tr '/' '_')
             local ext="${file_path##*.}"
             ext=$(echo "$ext" | tr 'A-Z' 'a-z')
@@ -63,25 +64,27 @@ jobs:
               LAST_LOCAL_HASH=$(cat "$STORAGE_DIR/$cache_name")
               if [ "$LAST_REMOTE_HASH" != "$LAST_LOCAL_HASH" ]; then
                 echo "Update: $file_path -> $local_target"
-                cat "$file_path" > "$local_target"
+                cat "$remote_source" > "$local_target"
                 echo "$LAST_REMOTE_HASH" > "$STORAGE_DIR/$cache_name"
               else
                 echo "No diff: $file_path"
               fi
             else
               echo "Init: $file_path -> $local_target"
-              cat "$file_path" > "$local_target"
+              cat "$remote_source" > "$local_target"
               echo "$LAST_REMOTE_HASH" > "$STORAGE_DIR/$cache_name"
             fi
           }
+
           check_and_copy "README.md"
           check_and_copy "LICENSE"
-          cd "$GITHUB_WORKSPACE/krow-repo"
-          if [ -d "docs" ]; then
+
+          if [ -d "$GITHUB_WORKSPACE/krow-repo/docs" ]; then
             while IFS= read -r target_file; do
+              # ルートからの相対パスを正確に割り出す
               local_rel_path=$(realpath --relative-to="$GITHUB_WORKSPACE/krow-repo" "$target_file")
               check_and_copy "$local_rel_path"
-            done < <(find docs -type f)
+            done < <(find "$GITHUB_WORKSPACE/krow-repo/docs" -type f)
           fi
 
       - name: Commit and Push
@@ -89,10 +92,9 @@ jobs:
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
 
-          git add src/contents/ storage/
+          git add src/contents/ public/ storage/
 
           if ! git diff --cached --exit-code --quiet; then
-
             git commit -m "chore: sync document updates [skip ci]"
             git push
           fi
@@ -110,4 +112,4 @@ jobs:
         if: always()
         with:
           path: ./storage
-          key: number-cache-v2-${{ github.run_id }}
+          key: number-cache-v3-${{ github.run_id }}
