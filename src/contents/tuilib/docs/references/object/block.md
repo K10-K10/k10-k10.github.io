@@ -37,7 +37,7 @@ int main() {
                         .bg(krow::style::BasicColor::Blue));
   krow::app.loop([&]() { block.draw(); });
 
-  krow::app.stop();
+  krow::app.leave();
   return 0;
 }
 ```

@@ -109,7 +109,7 @@ int main() {
 
   // Apply alert_style inside components or text streams as supported...
 
-  krow::app.stop();
+  krow::app.leave();
   return 0;
 }
 

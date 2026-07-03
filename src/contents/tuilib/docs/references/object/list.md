@@ -69,7 +69,7 @@ int main() {
     }
   });
 
-  krow::app.stop();
+  krow::app.leave();
   return 0;
 }
 

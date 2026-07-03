@@ -101,7 +101,7 @@ int main() {
         textfield.draw();
     });
 
-    krow::app.stop();
+    krow::app.leave();
     return 0;
 }
 ```

@@ -49,12 +49,12 @@ int main() {
     input::key.read();
     auto key = input::key.getKeyCode();
     if (key == input::KeyCode::ESC) {
-      app.stop();
+      app.leave();
     }
     if (key == input::KeyCode::CHAR) {
       char c = input::key.getCurrentChar();
       if (c == 'q') {
-        app.stop();
+        app.leave();
       }
     }
   });

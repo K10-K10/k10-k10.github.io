@@ -42,7 +42,7 @@ int main() {
     if (key == input::KeyCode::CHAR) {
       char c = input::key.getCurrentChar();
       if (c == 'q') {
-        app.stop();
+        app.leave();
       }
     }
   });

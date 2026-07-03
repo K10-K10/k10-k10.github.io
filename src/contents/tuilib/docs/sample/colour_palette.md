@@ -140,7 +140,7 @@ int main() {
 
     if (key == input::KeyCode::CHAR) {
       char c = input::key.getCurrentChar();
-      if (c == 'q') app.stop();
+      if (c == 'q') app.leave();
       if (c == '1') active_tab = 0;
       if (c == '2') active_tab = 1;
       if (c == '3') active_tab = 2;
