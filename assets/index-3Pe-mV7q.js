@@ -77,7 +77,7 @@ include(FetchContent)
 FetchContent_Declare(
     krowTUI
     GIT_REPOSITORY https://github.com/K10-K10/krowTUI
-    GIT_TAG main # We suport only latest version, so use main branch
+    GIT_TAG latest # We suport only latest version
 )
 
 FetchContent_MakeAvailable(krowTUI)
@@ -133,7 +133,7 @@ int main() {
     if (key == input::KeyCode::CHAR) {
       char c = input::key.getCurrentChar();
       if (c == 'q') {
-        app.stop();
+        app.leave();
       }
     }
   });
@@ -564,7 +564,7 @@ int main() {
     if (key == input::KeyCode::CHAR) {
       char c = input::key.getCurrentChar();
       if (c == 'q') {
-        app.stop();
+        app.leave();
       }
     }
   });
@@ -625,7 +625,7 @@ include(FetchContent)
 FetchContent_Declare(
     krowTUI
     GIT_REPOSITORY https://github.com/K10-K10/KrowTUI
-    GIT_TAG main # We suport only latest version, so use main branch
+    GIT_TAG latest # We suport only latest version.
 )
 
 FetchContent_MakeAvailable(krowTUI)
@@ -691,7 +691,7 @@ app.loop{[&]() {
 When you're done, make sure to clean up resources:
 
 \`\`\`cpp
-app.stop();
+app.leave();
 \`\`\`
 
 example code can be found in the [Examples](examples.md) section of the documentation.
@@ -706,14 +706,14 @@ Here are some important points to note when using the TUI library:
 
 1. **Coordinate System**: The TUI library uses a coordinate system where the top-left corner of the terminal is (0, 0). The x-coordinate increases to the right, and the y-coordinate increases downwards.
 
-2. **Where to Draw**: When \`app\` is initialized, it entered alternate window, and when \`app.stop()\` called, it will exit alternate window.
+2. **Where to Draw**: When \`app\` is initialized, it entered alternate window, and when \`app.leave()\` called, it will exit alternate window.
 
-3. **If process stopped by \`Ctrl + C\`**: This library has a signal handler for \`SIGINT\`, and when the process is stopped by \`Ctrl + C\`, auto call \`app.stop()\`, so the terminal will be restored to its original state.
+3. **If process stopped by \`Ctrl + C\`**: This library has a signal handler for \`SIGINT\`, and when the process is stopped by \`Ctrl + C\`, auto call \`app.leave()\`, so the terminal will be restored to its original state.
 
 4. **Order of Drawing**: The order of drawing objects matters. Objects drawn later will be displayed on top of objects drawn earlier. Make sure to draw background elements first and foreground elements later. I'll add more options to control the order of drawing later.
 `,Me=e({default:()=>Ne}),Ne=`---
 version: 0.3.0
-date: 19/06/2026
+date: 2/07/2026
 namespace: krow
 ---
 
@@ -725,7 +725,10 @@ namespace: krow
 
 - [\`app.init(fps)\`](#1-appinit): Initializes the application.
 - [\`app.loop(funcs)\`](#2-appploop): Starts the main loop of the application.
-- [\`app.stop()\`](#3-appstop): Stops the main loop and exits from alternate screen.
+- [\`app.leave()\`](#3-appleave): stops the main loop and exits from alternate screen.
+- [\`app.attach()\`](#4-appattach): Attaches the application to the terminal, allowing it to run in the foreground.
+- [\`app.detach()\`](#5-appdetach): Detaches the application from the terminal, allowing it to run in the background.
+- [\`app.dump(std::string text)](#6-appdump): Append the text to dump. Those text will be printed when the application is exited.
 
 ## Example
 
@@ -770,13 +773,50 @@ Starts the main loop of the application. The provided function will be called in
 
 It's received only one function, but you can use lambda functions to call multiple functions in one loop iteration.
 
-### 3. \`app.stop()\`
+### 3. \`app.leave()\`
+
+\`\`\`cpp
+void leave();
+\`\`\`
 
 - **Arguments**: None
 - **Return**: None
 
-Stops the main loop and exits from alternate screen.
+stops the main loop and exits from alternate screen.
 You should call this function when you want to exit the application.
+
+### 4. \`app.attach()\`
+
+\`\`\`cpp
+void attach();
+\`\`\`
+
+- **Arguments**: None
+- **Return**: None
+
+Attaches the application to the terminal, allowing it to run in the foreground. This function is useful when you want to run the application in a terminal that is already running another process.
+
+### 5. \`app.detach()\`
+
+\`\`\`cpp
+void detach();
+\`\`\`
+
+- **Arguments**: None
+- **Return**: None
+
+Detaches the application from the terminal, allowing it to run in the background. This function is useful when you want to run the application in a terminal that is already running another process.
+
+### 6. \`app.dump(std::string text)\`
+
+\`\`\`cpp
+void dump(std::string text);
+\`\`\`
+
+- **Arguments**: \`text: std::string\` (the text to be appended to the dump)
+- **Return**: None
+
+Appends the text to dump. Those text will be printed when the application is exited.
 `,Pe=e({default:()=>Fe}),Fe=`---
 version: 0.3.0
 date: 19/06/2026
@@ -828,12 +868,12 @@ int main() {
     input::key.read();
     auto key = input::key.getKeyCode();
     if (key == input::KeyCode::ESC) {
-      app.stop();
+      app.leave();
     }
     if (key == input::KeyCode::CHAR) {
       char c = input::key.getCurrentChar();
       if (c == 'q') {
-        app.stop();
+        app.leave();
       }
     }
   });
@@ -942,7 +982,7 @@ The coordinates in the terminal are represented as (x, y), where x is the column
 The \`Rect\` class represents a rectangular area in the terminal. It is defined by its position (x, y) and its size (width, height). The \`Rect\` class provides methods for manipulating and querying the rectangle's properties.
 
 - [Rect Class Reference](rect.md)
-`,He=e({default:()=>Ue}),Ue="---\nversion: 0.3.0\ndate: 21/06/2026\nnamespace: krow\n---\n\n# Block\n\n`Block` is an object that can render a rectangular frame with a border. It can be used to create sections or containers in your app's interface.\n\n## Methods\n\n- [`position(rect)`](#1-positionrect): Sets the position and size of the block.\n- [`draw()`](#2-draw): Draws the block on the terminal at the specified position and with the specified border style.\n- [`title(text)`](#3-titletext): Sets the title of the block, which will be displayed at the top center of the block.\n- [`bottom_title(text)`](#4-bottom_titletext): Sets the bottom title of the block, which will be displayed at the bottom center of the block.\n\n### Style Methods\n\n- [`border_type(border)`](#1-border_typeborder): Sets the border style presets of the block.\n- [`borders(mask)`](#2-bordersmask): Specifies which edges of the block's border should be drawn using a bitmask.\n- [`border_color(color)`](#3-border_colorcolor): Sets the color of the block's border.\n- [`field_color(color)`](#4-field_colorcolor): Sets the background color of the block.\n\n## Example\n\n```cpp\n#include <K10-K10/krow.h>\n\nint main() {\n  krow::app.init();\n  krow::Block block;\n\n  block.position({1, 1, 20, 10})\n      .border_style(krow::style::Default()\n                        .fg(krow::style::BasicColor::Red)\n                        .bg(krow::style::BasicColor::Blue));\n  krow::app.loop([&]() { block.draw(); });\n\n  krow::app.stop();\n  return 0;\n}\n```\n\n## Method Details\n\n### 1. `position(rect)`\n\n```cpp\nBlock& position(const Rect& r);\n\n```\n\n- **Arguments**: `r: const krow::Rect&` (A `Rect` object that defines the position and size of the block)\n- **Return**: `Block&` (Reference to the block for method chaining)\n\nSets the position and size of the block.\n\n### 2. `draw()`\n\n```cpp\nvoid draw();\n\n```\n\n- **Arguments**: None\n- **Return**: None\n\nDraws the block on the terminal at the specified position and with the specified border style.\n\n### 3. `title(text)`\n\n```cpp\nBlock& title(const Text& text);\n\n```\n\n- **Arguments**: `text: const krow::Text&` (A `Text` structure that defines the content and style of the title)\n- **Return**: `Block&` (Reference to the block for method chaining)\n\nSets the title of the block, which will be displayed at the top center of the block.\n\n### 4. `bottom_title(text)`\n\n```cpp\nBlock& bottom_title(const Text& text);\n\n```\n\n- **Arguments**: `text: const krow::Text&` (A `Text` structure that defines the content and style of the bottom title)\n- **Return**: `Block&` (Reference to the block for method chaining)\n\nSets the bottom title of the block, which will be displayed at the bottom center of the block.\n\n---\n\n### 1. `border_type(border)`\n\n```cpp\nBlock& border_type(const krow::style::Border& border);\n\n```\n\n- **Arguments**: `border: const krow::style::Border&` (Specifies the character set configuration for the border layout)\n- **Return**: `Block&` (Reference to the block for method chaining)\n\nSets the character style configuration of the block's layout frame. See [Border Presets](https://www.google.com/search?q=%23border-presets) for available configurations.\n\n### 2. `borders(mask)`\n\n```cpp\nBlock& borders(krow::style::Borders mask);\n\n```\n\n- **Arguments**: `mask: krow::style::Borders` (A bitmask that specifies the drawing edges)\n- **Return**: `Block&` (Reference to the block for method chaining)\n\nSpecifies which edges of the block's border should be rendered. Supports bitwise operators (`|` and `&`). See [Borders Bitmask Flags](https://www.google.com/search?q=%23borders-bitmask-flags) for details.\n\n### 3. `border_color(color)`\n\n```cpp\nBlock& border_color(const krow::style::Color& color);\nBlock& border_color(int color);\n\n```\n\n- **Arguments**: `color: const krow::style::Color&` / `int` (Specifies the color of the border lines)\n- **Return**: `Block&` (Reference to the block for method chaining)\n\nSets the visual color layout utilized to draw the frame lines.\n\n### 4. `field_color(color)`\n\n```cpp\nBlock& field_color(const krow::style::Color& color);\nBlock& field_color(int color);\n\n```\n\n- **Arguments**: `color: const krow::style::Color&` / `int` (Specifies the background color fill)\n- **Return**: `Block&` (Reference to the block for method chaining)\n\nSets the background color layer bound to the internal grid region of the block.\n\n---\n\n## Border Presets\n\nThe library provides predefined `krow::style::Border` instances representing distinct line styling definitions:\n\n| Constant Name          | Box Appearance Type Description                    | Style Representation (`tl`, `tr`, `bl`, `br`, `h`, `v`) |\n| ---------------------- | -------------------------------------------------- | ------------------------------------------------------- |\n| `krow::style::SINGLE`  | Standard single-line box layouts.                  | `┌`, `┐`, `└`, `┘`, `─`, `│`                            |\n| `krow::style::ROUNDED` | Single-line box layouts utilizing rounded corners. | `╭`, `╮`, `╰`, `╯`, `─`, `│`                            |\n| `krow::style::BOLD`    | Thick/Heavy line container style layouts.          | `┏`, `┓`, `┗`, `┛`, `━`, `┃`                            |\n| `krow::style::DOUBLE`  | Standard double-line character container layouts.  | `╔`, `╗`, `╚`, `╝`, `═`, `║`                            |\n\n## Borders Bitmask Flags\n\nThe `Borders` enum represents a bitmask used to filter which edges should be active during the render cycle:\n\n| Flag Constant     | Bitmask Shift                    | Description Value                                  |\n| ----------------- | -------------------------------- | -------------------------------------------------- |\n| `Borders::NONE`   | `0`                              | No layout edges are drawn.                         |\n| `Borders::TOP`    | `1 << 0`                         | Draws only the top horizontal frame row.           |\n| `Borders::BOTTOM` | `1 << 1`                         | Draws only the bottom horizontal frame row.        |\n| `Borders::LEFT`   | `1 << 2`                         | Draws only the left vertical frame column.         |\n| `Borders::RIGHT`  | `1 << 3`                         | Draws only the right vertical frame column.        |\n| `Borders::ALL`    | `TOP \\| BOTTOM \\| LEFT \\| RIGHT` | Draws all bounding frame edges (Default behavior). |\n",We=e({default:()=>Ge}),Ge=`---
+`,He=e({default:()=>Ue}),Ue="---\nversion: 0.3.0\ndate: 21/06/2026\nnamespace: krow\n---\n\n# Block\n\n`Block` is an object that can render a rectangular frame with a border. It can be used to create sections or containers in your app's interface.\n\n## Methods\n\n- [`position(rect)`](#1-positionrect): Sets the position and size of the block.\n- [`draw()`](#2-draw): Draws the block on the terminal at the specified position and with the specified border style.\n- [`title(text)`](#3-titletext): Sets the title of the block, which will be displayed at the top center of the block.\n- [`bottom_title(text)`](#4-bottom_titletext): Sets the bottom title of the block, which will be displayed at the bottom center of the block.\n\n### Style Methods\n\n- [`border_type(border)`](#1-border_typeborder): Sets the border style presets of the block.\n- [`borders(mask)`](#2-bordersmask): Specifies which edges of the block's border should be drawn using a bitmask.\n- [`border_color(color)`](#3-border_colorcolor): Sets the color of the block's border.\n- [`field_color(color)`](#4-field_colorcolor): Sets the background color of the block.\n\n## Example\n\n```cpp\n#include <K10-K10/krow.h>\n\nint main() {\n  krow::app.init();\n  krow::Block block;\n\n  block.position({1, 1, 20, 10})\n      .border_style(krow::style::Default()\n                        .fg(krow::style::BasicColor::Red)\n                        .bg(krow::style::BasicColor::Blue));\n  krow::app.loop([&]() { block.draw(); });\n\n  krow::app.leave();\n  return 0;\n}\n```\n\n## Method Details\n\n### 1. `position(rect)`\n\n```cpp\nBlock& position(const Rect& r);\n\n```\n\n- **Arguments**: `r: const krow::Rect&` (A `Rect` object that defines the position and size of the block)\n- **Return**: `Block&` (Reference to the block for method chaining)\n\nSets the position and size of the block.\n\n### 2. `draw()`\n\n```cpp\nvoid draw();\n\n```\n\n- **Arguments**: None\n- **Return**: None\n\nDraws the block on the terminal at the specified position and with the specified border style.\n\n### 3. `title(text)`\n\n```cpp\nBlock& title(const Text& text);\n\n```\n\n- **Arguments**: `text: const krow::Text&` (A `Text` structure that defines the content and style of the title)\n- **Return**: `Block&` (Reference to the block for method chaining)\n\nSets the title of the block, which will be displayed at the top center of the block.\n\n### 4. `bottom_title(text)`\n\n```cpp\nBlock& bottom_title(const Text& text);\n\n```\n\n- **Arguments**: `text: const krow::Text&` (A `Text` structure that defines the content and style of the bottom title)\n- **Return**: `Block&` (Reference to the block for method chaining)\n\nSets the bottom title of the block, which will be displayed at the bottom center of the block.\n\n---\n\n### 1. `border_type(border)`\n\n```cpp\nBlock& border_type(const krow::style::Border& border);\n\n```\n\n- **Arguments**: `border: const krow::style::Border&` (Specifies the character set configuration for the border layout)\n- **Return**: `Block&` (Reference to the block for method chaining)\n\nSets the character style configuration of the block's layout frame. See [Border Presets](https://www.google.com/search?q=%23border-presets) for available configurations.\n\n### 2. `borders(mask)`\n\n```cpp\nBlock& borders(krow::style::Borders mask);\n\n```\n\n- **Arguments**: `mask: krow::style::Borders` (A bitmask that specifies the drawing edges)\n- **Return**: `Block&` (Reference to the block for method chaining)\n\nSpecifies which edges of the block's border should be rendered. Supports bitwise operators (`|` and `&`). See [Borders Bitmask Flags](https://www.google.com/search?q=%23borders-bitmask-flags) for details.\n\n### 3. `border_color(color)`\n\n```cpp\nBlock& border_color(const krow::style::Color& color);\nBlock& border_color(int color);\n\n```\n\n- **Arguments**: `color: const krow::style::Color&` / `int` (Specifies the color of the border lines)\n- **Return**: `Block&` (Reference to the block for method chaining)\n\nSets the visual color layout utilized to draw the frame lines.\n\n### 4. `field_color(color)`\n\n```cpp\nBlock& field_color(const krow::style::Color& color);\nBlock& field_color(int color);\n\n```\n\n- **Arguments**: `color: const krow::style::Color&` / `int` (Specifies the background color fill)\n- **Return**: `Block&` (Reference to the block for method chaining)\n\nSets the background color layer bound to the internal grid region of the block.\n\n---\n\n## Border Presets\n\nThe library provides predefined `krow::style::Border` instances representing distinct line styling definitions:\n\n| Constant Name          | Box Appearance Type Description                    | Style Representation (`tl`, `tr`, `bl`, `br`, `h`, `v`) |\n| ---------------------- | -------------------------------------------------- | ------------------------------------------------------- |\n| `krow::style::SINGLE`  | Standard single-line box layouts.                  | `┌`, `┐`, `└`, `┘`, `─`, `│`                            |\n| `krow::style::ROUNDED` | Single-line box layouts utilizing rounded corners. | `╭`, `╮`, `╰`, `╯`, `─`, `│`                            |\n| `krow::style::BOLD`    | Thick/Heavy line container style layouts.          | `┏`, `┓`, `┗`, `┛`, `━`, `┃`                            |\n| `krow::style::DOUBLE`  | Standard double-line character container layouts.  | `╔`, `╗`, `╚`, `╝`, `═`, `║`                            |\n\n## Borders Bitmask Flags\n\nThe `Borders` enum represents a bitmask used to filter which edges should be active during the render cycle:\n\n| Flag Constant     | Bitmask Shift                    | Description Value                                  |\n| ----------------- | -------------------------------- | -------------------------------------------------- |\n| `Borders::NONE`   | `0`                              | No layout edges are drawn.                         |\n| `Borders::TOP`    | `1 << 0`                         | Draws only the top horizontal frame row.           |\n| `Borders::BOTTOM` | `1 << 1`                         | Draws only the bottom horizontal frame row.        |\n| `Borders::LEFT`   | `1 << 2`                         | Draws only the left vertical frame column.         |\n| `Borders::RIGHT`  | `1 << 3`                         | Draws only the right vertical frame column.        |\n| `Borders::ALL`    | `TOP \\| BOTTOM \\| LEFT \\| RIGHT` | Draws all bounding frame edges (Default behavior). |\n",We=e({default:()=>Ge}),Ge=`---
 version: 0.3.0
 date: 20/06/2026
 namespace: krow
@@ -1013,7 +1053,7 @@ int main() {
     }
   });
 
-  krow::app.stop();
+  krow::app.leave();
   return 0;
 }
 
@@ -1329,7 +1369,7 @@ int main() {
 
   // Apply alert_style inside components or text streams as supported...
 
-  krow::app.stop();
+  krow::app.leave();
   return 0;
 }
 
@@ -1396,7 +1436,7 @@ Style& overLine();
 - **Return**: \`Style&\` (Reference to the current style for method chaining)
 
 Each method bitwise-appends a specific visual modifier to the internal formatting flag mask. Multiple configurations can be chained together (e.g., \`style.bold().italic().underline()\`).
-`,Qe=e({default:()=>$e}),$e='---\nversion: 0.3.0\ndate: 20/06/2026\nnamespace: krow\n---\n\n# Text\n\nThis page covers how draw text in TUI library.\n\n`Text` is composed of `Line`s, and which are composed of `Span`s. A `Span` is a string with a style, and a `Line` is a collection of `Span`s. The `Text` object is a collection of `Line`s.\n\n## Span\n\nA `Span` is a string with a style. It is represented by the `Span` struct, which has two fields: `content` and `style`. The `content` field is a string that represents the text to be displayed, and the `style` field is a `Style` object that represents the style of the text.\n\ne.g.\n\n```cpp\nkrow::Span span = "Hello, World!";\nspan.style(style::Default().fg(color(krow::utils::TextColor::Red)));\n```\n\nIf you want to create a `Span` from a string literal, you can use the `operator""_s` user-defined literal.\nSo this character string is equivalent to Span with default style:\n\n```cpp\n"Hello, World!"_s;\n```\n\n## Line\n\nA `Line` is a collection of `Span`s. It is represented by the `Line` struct, which has one field: `spans`. The `spans` field is a vector of `Span`s that represents the text to be displayed in the line.\n\ne.g.\n\n```cpp\nkrow::Line line = "Hello, "_s + "World!"_s;\n```\n\nYou also can call `break_ln()` method to break a line into multiple lines.\n\n> [!WARNING]\n> `break_ln()` does not work currently.\n\nSo if you write:\n\n```cpp\nkrow::Line line = "This is first line."_s;\nkrow::Line line2 = "This is second line."_s;\nkrow::Text text = line + line2;\n```\n\nit will be rendered as:\n\n```text\nThis is first line.\nThis is second line.\n```\n\nYou may already notice that `Line` and `Span` can be concatenated with `operator+`, which will create a new `Line` or `Text` object with the concatenated `Span`s or `Line`s.\n\n## Text\n\nA `Text` is a collection of `Line`s. It is represented by the `Text` struct, which has one field: `lines`. The `lines` field is a vector of `Line`s that represents the text to be displayed.\n\ne.g.\n\n```cpp\nkrow::Line line1 = "This is first line."_s + "This is second line."_s;\nkrow::Line line2 = "This is third line."_s;\nkrow::Text text = line1 + line2;\n```\n\n### Alignment\n\nYou can set the alignment of the text by calling `align_center()`, `align_left()`, or `align_right()` methods on a `Text` object.\n\nDefault alignment is left-aligned. You can also set the alignment of a `Line` or `Span` object, and the alignment will be inherited by the `Text` object.\n\n```cpp\nkrow::Text text = "This is first line."_s.align_center() + "This is second line."_s;\n```\n\nThis will center-align the text.\n\n## Example\n\n```cpp\n#include <K10-K10/krow.h>\n\nint main() {\n    krow::app.init();\n    krow::Text text = "Hello world!"_s.align_center() + "This is a TUI library."_s.align_left() + "Enjoy it!"_s.align_right();\n    TextField textfield;\n    textfield.position({1, 1, 30, 10})\n        .field_color(krow::utils::FillColor::Blue)\n        .text_color(krow::utils::TextColor::White);\n        .content(text);\n    krow::app.loop([&]() {\n        textfield.draw();\n    });\n\n    krow::app.stop();\n    return 0;\n}\n```\n',et=e({default:()=>tt}),tt=`---
+`,Qe=e({default:()=>$e}),$e='---\nversion: 0.3.0\ndate: 20/06/2026\nnamespace: krow\n---\n\n# Text\n\nThis page covers how draw text in TUI library.\n\n`Text` is composed of `Line`s, and which are composed of `Span`s. A `Span` is a string with a style, and a `Line` is a collection of `Span`s. The `Text` object is a collection of `Line`s.\n\n## Span\n\nA `Span` is a string with a style. It is represented by the `Span` struct, which has two fields: `content` and `style`. The `content` field is a string that represents the text to be displayed, and the `style` field is a `Style` object that represents the style of the text.\n\ne.g.\n\n```cpp\nkrow::Span span = "Hello, World!";\nspan.style(style::Default().fg(color(krow::utils::TextColor::Red)));\n```\n\nIf you want to create a `Span` from a string literal, you can use the `operator""_s` user-defined literal.\nSo this character string is equivalent to Span with default style:\n\n```cpp\n"Hello, World!"_s;\n```\n\n## Line\n\nA `Line` is a collection of `Span`s. It is represented by the `Line` struct, which has one field: `spans`. The `spans` field is a vector of `Span`s that represents the text to be displayed in the line.\n\ne.g.\n\n```cpp\nkrow::Line line = "Hello, "_s + "World!"_s;\n```\n\nYou also can call `break_ln()` method to break a line into multiple lines.\n\n> [!WARNING]\n> `break_ln()` does not work currently.\n\nSo if you write:\n\n```cpp\nkrow::Line line = "This is first line."_s;\nkrow::Line line2 = "This is second line."_s;\nkrow::Text text = line + line2;\n```\n\nit will be rendered as:\n\n```text\nThis is first line.\nThis is second line.\n```\n\nYou may already notice that `Line` and `Span` can be concatenated with `operator+`, which will create a new `Line` or `Text` object with the concatenated `Span`s or `Line`s.\n\n## Text\n\nA `Text` is a collection of `Line`s. It is represented by the `Text` struct, which has one field: `lines`. The `lines` field is a vector of `Line`s that represents the text to be displayed.\n\ne.g.\n\n```cpp\nkrow::Line line1 = "This is first line."_s + "This is second line."_s;\nkrow::Line line2 = "This is third line."_s;\nkrow::Text text = line1 + line2;\n```\n\n### Alignment\n\nYou can set the alignment of the text by calling `align_center()`, `align_left()`, or `align_right()` methods on a `Text` object.\n\nDefault alignment is left-aligned. You can also set the alignment of a `Line` or `Span` object, and the alignment will be inherited by the `Text` object.\n\n```cpp\nkrow::Text text = "This is first line."_s.align_center() + "This is second line."_s;\n```\n\nThis will center-align the text.\n\n## Example\n\n```cpp\n#include <K10-K10/krow.h>\n\nint main() {\n    krow::app.init();\n    krow::Text text = "Hello world!"_s.align_center() + "This is a TUI library."_s.align_left() + "Enjoy it!"_s.align_right();\n    TextField textfield;\n    textfield.position({1, 1, 30, 10})\n        .field_color(krow::utils::FillColor::Blue)\n        .text_color(krow::utils::TextColor::White);\n        .content(text);\n    krow::app.loop([&]() {\n        textfield.draw();\n    });\n\n    krow::app.leave();\n    return 0;\n}\n```\n',et=e({default:()=>tt}),tt=`---
 version: 0.3.0
 date: 19/06/2026
 ---
@@ -1562,7 +1602,7 @@ int main() {
 
     if (key == input::KeyCode::CHAR) {
       char c = input::key.getCurrentChar();
-      if (c == 'q') app.stop();
+      if (c == 'q') app.leave();
       if (c == '1') active_tab = 0;
       if (c == '2') active_tab = 1;
       if (c == '3') active_tab = 2;
