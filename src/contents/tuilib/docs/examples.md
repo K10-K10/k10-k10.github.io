@@ -63,7 +63,7 @@ include(FetchContent)
 FetchContent_Declare(
   KrowTUI
   GIT_REPOSITORY https://github.com/K10-K10/KrowTUI
-  GIT_TAG        main
+  GIT_TAG        ver0.3.0
 )
 
 FetchContent_MakeAvailable(KrowTUI)
