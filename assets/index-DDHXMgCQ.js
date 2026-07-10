@@ -77,7 +77,7 @@ include(FetchContent)
 FetchContent_Declare(
     krowTUI
     GIT_REPOSITORY https://github.com/K10-K10/krowTUI
-    GIT_TAG latest # We suport only latest version
+    GIT_TAG ver0.3.0 # We suport only latest version
 )
 
 FetchContent_MakeAvailable(krowTUI)
@@ -585,7 +585,7 @@ include(FetchContent)
 FetchContent_Declare(
   KrowTUI
   GIT_REPOSITORY https://github.com/K10-K10/KrowTUI
-  GIT_TAG        main
+  GIT_TAG        ver0.3.0
 )
 
 FetchContent_MakeAvailable(KrowTUI)
@@ -625,7 +625,7 @@ include(FetchContent)
 FetchContent_Declare(
     krowTUI
     GIT_REPOSITORY https://github.com/K10-K10/KrowTUI
-    GIT_TAG latest # We suport only latest version.
+    GIT_TAG ver0.3.0 # We suport only latest version.
 )
 
 FetchContent_MakeAvailable(krowTUI)
