@@ -17,6 +17,7 @@
     "prettier": "^3.8.4",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
+    "react-helmet-async": "^3.0.0",
     "react-markdown": "^10.1.0",
     "react-router-dom": "^7.18.0",
     "react-syntax-highlighter": "^16.1.1",
@@ -35,7 +36,8 @@
     "gh-pages": "^6.3.0",
     "globals": "^16.4.0",
     "typescript": "^5.9.3",
-    "vite": "npm:rolldown-vite@7.1.14"
+    "vite": "npm:rolldown-vite@7.1.14",
+    "vite-plugin-sitemap": "^0.8.2"
   },
   "overrides": {
     "vite": "npm:rolldown-vite@7.1.14"

@@ -2,10 +2,18 @@
   "compilerOptions": {
     "baseUrl": "src",
     "paths": {
-      "@parts/*": ["ui-parts/*"],
-      "@pages/*": ["pages/*"],
-      "@layouts/*": ["layouts/*"],
-      "@contents/*": ["contents/*"]
+      "@parts/*": [
+        "ui-parts/*"
+      ],
+      "@pages/*": [
+        "pages/*"
+      ],
+      "@layouts/*": [
+        "layouts/*"
+      ],
+      "@contents/*": [
+        "contents/*"
+      ]
     },
     "ignoreDeprecations": "6.0"
   }
