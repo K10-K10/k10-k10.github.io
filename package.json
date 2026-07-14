@@ -19,9 +19,10 @@
     "react-dom": "^19.1.1",
     "react-helmet-async": "^3.0.0",
     "react-markdown": "^10.1.0",
-    "react-router-dom": "^7.18.0",
+    "react-router-dom": "^7.18.1",
     "react-syntax-highlighter": "^16.1.1",
-    "remark-gfm": "^4.0.1"
+    "remark-gfm": "^4.0.1",
+    "vite-ssg": "^28.3.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.36.0",
