@@ -29,8 +29,8 @@
     "jsx": "react-jsx",
     // Aliases
     "paths": {
-      "@parts/*": [
-        "./src/ui-parts/*"
+      "@components/*": [
+        "./src/components/*"
       ],
       "@pages/*": [
         "./src/pages/*"
