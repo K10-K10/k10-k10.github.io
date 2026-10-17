@@ -5,32 +5,25 @@ export default defineConfig({
   base: "/",
 
   assetsInclude: ["**/*.md"],
-  plugins: [
-    react()
-  ],
+  plugins: [react()],
+
+  resolve: {
+    alias: {
+      "@components": new URL("./src/components", import.meta.url).pathname,
+      "@pages": new URL("./src/pages", import.meta.url).pathname,
+      "@layouts": new URL("./src/layouts", import.meta.url).pathname,
+      "@contents": new URL("./src/contents", import.meta.url).pathname,
+    },
+  },
 
   ssgOptions: {
     script: "async",
     formatting: "minify",
     includedRoutes() {
-      return [
-        "/",
-        "/about",
-        "/blog",
-        "/docs",
-        "/docs/tuilib",
-        "/tools",
-        "/tools/rgb",
-        "/tools/github",
-        "/tools/ants",
-        "/404"
-      ];
-    }
+      return ["/", "/about", "/blog", "/404"];
+    },
   },
 
-  resolve: {
-    tsconfigPaths: true,
-  },
   build: {
     rollupOptions: {
       output: {

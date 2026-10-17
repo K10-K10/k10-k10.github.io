@@ -6,10 +6,14 @@ function Home() {
   return (
     <>
       <h1>K10-K10</h1>
-      <Content><p>K10-K10</p>
+      <Content>
+        <p>K10-K10</p>
         <h1>Blog</h1>
         <h1>読書ログ</h1>
-        <h1><Link to="/about">About</Link></h1></Content>
+        <h1>
+          <Link to="/about">About</Link>
+        </h1>
+      </Content>
     </>
   );
 }
