@@ -1,4 +1,5 @@
 import Content from "@components/Content";
+import Footer from "@components/Footer";
 import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
 import About from "./page/about";
 
@@ -21,6 +22,7 @@ export default function Main() {
         <Route path="/about" element={<About />} />
         {/* <Route path="/blog" element={<Blogs />} /> */}
       </Routes>
+      <Footer />
     </BrowserRouter>
   );
 }
