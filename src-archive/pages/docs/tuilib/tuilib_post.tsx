@@ -9,7 +9,7 @@ import licenseRaw from "/src/contents/tuilib/LICENSE?raw";
 
 const mdFiles = {
   ...import.meta.glob("/src/contents/tuilib/**/*.md", { query: "?raw", eager: true }),
-  "/src/contents/tuilib/LICENSE": { default: licenseRaw }
+  "/src/contents/tuilib/LICENSE": { default: licenseRaw },
 };
 
 const createId = (children: React.ReactNode): string => {
