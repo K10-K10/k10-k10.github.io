@@ -37,6 +37,17 @@
   scroll-margin-top: 1rem;
 }
 
+.article > div + div {
+  margin-top: 4rem;
+}
+
+.meta {
+  display: block;
+  margin-top: -1.5rem;
+  margin-bottom: 1rem;
+  color: color-mix(in srgb, currentColor 65%, transparent);
+}
+
 .article p {
   white-space: pre-line;
 }

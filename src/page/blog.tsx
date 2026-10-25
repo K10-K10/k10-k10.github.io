@@ -1,24 +1,59 @@
 import ReactMarkdown from "react-markdown";
-import markdown from "../contents/10-2026.md?raw";
+import matter from "gray-matter";
 import styles from "./blog.module.css";
 
-type Heading = {
+type Post = {
   id: string;
-  text: string;
+  title: string;
+  date: string;
+  section: string;
+  content: string;
 };
 
 function createId(text: string) {
   return encodeURIComponent(text.trim().toLowerCase().replace(/\s+/g, "-"));
 }
 
-function getHeadings(source: string): Heading[] {
-  return [...source.matchAll(/^##\s+(.+)$/gm)].map((match) => {
-    const text = match[1]!.trim();
-    return { id: createId(text), text };
-  });
+function getPosts() {
+  const files = import.meta.glob("../contents/posts/*", {
+    eager: true,
+    query: "?raw",
+    import: "default",
+  }) as Record<string, string>;
+
+  return Object.entries(files)
+    .sort(([left], [right]) => left.localeCompare(right))
+    .flatMap(([file, source]) => {
+      const parts = source.split(/^---\s*$/gm);
+      const documents = [];
+      for (let index = 1; index < parts.length; index += 2) {
+        const metadata = parts[index];
+        if (metadata === undefined || !metadata.includes("title:")) {
+          continue;
+        }
+        documents.push({
+          index,
+          source: `---\n${metadata}\n---\n${parts[index + 1] ?? ""}`,
+        });
+      }
+
+      return documents.map(({ index, source: document }): Post => {
+        const parsed = matter(document);
+        const title = String(parsed.data.title ?? "");
+        const date = String(parsed.data.date ?? "");
+        const section = String(parsed.data.section ?? "");
+        return {
+          id: createId(`${file}-${index}-${title}`),
+          title,
+          date,
+          section,
+          content: parsed.content.trim(),
+        };
+      });
+    });
 }
 
-const headings = getHeadings(markdown);
+const posts = getPosts();
 
 export default function Blog() {
   return (
@@ -27,24 +62,26 @@ export default function Blog() {
       <nav aria-label="目次" className={styles.toc}>
         <h2>目次</h2>
         <ol>
-          {headings.map((heading) => (
-            <li key={heading.id}>
-              <a href={`#${heading.id}`}>{heading.text}</a>
+          {posts.map((post) => (
+            <li key={post.id}>
+              <a href={`#${post.id}`}>{post.title}</a>
             </li>
           ))}
         </ol>
       </nav>
       <article className={styles.article}>
-        <ReactMarkdown
-          components={{
-            h2: ({ children }) => {
-              const text = String(children);
-              return <h2 id={createId(text)}>{children}</h2>;
-            },
-          }}
-        >
-          {markdown}
-        </ReactMarkdown>
+        {posts.map((post) => (
+          <div
+            key={post.id}
+            id={post.id}
+            className={post.section || undefined}
+            data-section={post.section || undefined}
+          >
+            <h2>{post.title}</h2>
+            <small className={styles.meta}>{post.date}</small>
+            <ReactMarkdown>{post.content}</ReactMarkdown>
+          </div>
+        ))}
       </article>
     </main>
   );
