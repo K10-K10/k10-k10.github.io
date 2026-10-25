@@ -101,7 +101,7 @@ void writeSectionName(std::string sec_name) {
 
 void clear_post() {
   std::ofstream ofs(POST_PATH, std::ios::trunc);
-  ofs << "\ndate:\nsection:\n---\n" << std::endl;
+  ofs << "\ndate:\nsection:\n---" << std::endl;
   ofs.close();
   return;
 }
@@ -157,7 +157,6 @@ std::string metaPrint(const Post &post) {
   str += "---\n";
   return str;
 }
-
 struct PostBlock {
   std::string date;
   std::vector<std::string> lines;
@@ -172,17 +171,20 @@ std::vector<PostBlock> readBlocks(const std::string &path) {
   std::string line;
   std::smatch m;
   PostBlock current;
-  bool in_post = false;
+  int dash_count = 0;
 
   while (std::getline(ifs, line)) {
-    if (std::regex_match(line, m, POST_DATE)) {
-      current.date = m[1].str();
+    if (line == "---") {
+      if (dash_count >= 2) {
+        blocks.push_back(current);
+        current = PostBlock{};
+        dash_count = 0;
+      }
+      dash_count++;
     }
 
-    if (line == "---" && !current.lines.empty() && !current.date.empty() &&
-        current.lines.back() != "---") {
-      blocks.push_back(current);
-      current = PostBlock{};
+    if (std::regex_match(line, m, POST_DATE)) {
+      current.date = m[1].str();
     }
 
     current.lines.push_back(line);
@@ -226,6 +228,7 @@ int write(const Post &post, int num) {
       cur_line += c;
     }
   }
+
   for (const std::string &l : post.content) {
     new_block.lines.push_back(l);
   }
@@ -250,7 +253,6 @@ int write(const Post &post, int num) {
     dur.close();
     return write(post, num + 1);
   }
-
   std::ofstream ofs(file_path, std::ios::trunc);
   for (const auto &b : blocks) {
     for (const auto &l : b.lines) {
