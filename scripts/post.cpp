@@ -158,43 +158,107 @@ std::string metaPrint(const Post &post) {
   return str;
 }
 
+struct PostBlock {
+  std::string date;
+  std::vector<std::string> lines;
+};
+
+std::vector<PostBlock> readBlocks(const std::string &path) {
+  std::vector<PostBlock> blocks;
+  std::ifstream ifs(path);
+  if (!ifs)
+    return blocks;
+
+  std::string line;
+  std::smatch m;
+  PostBlock current;
+  bool in_post = false;
+
+  while (std::getline(ifs, line)) {
+    if (std::regex_match(line, m, POST_DATE)) {
+      current.date = m[1].str();
+    }
+
+    if (line == "---" && !current.lines.empty() && !current.date.empty() &&
+        current.lines.back() != "---") {
+      blocks.push_back(current);
+      current = PostBlock{};
+    }
+
+    current.lines.push_back(line);
+  }
+
+  if (!current.lines.empty()) {
+    blocks.push_back(current);
+  }
+  return blocks;
+}
+
 int write(const Post &post, int num) {
-  if (!std::filesystem::exists(BASE_PATH + std::to_string(num))) {
-    std::ofstream ofs(BASE_PATH + std::to_string(num));
-    ofs << metaPrint(post) << std::endl;
-    for (std::string l : post.content) {
-      ofs << l << std::endl;
+  const std::string file_path = BASE_PATH + std::to_string(num);
+
+  if (!std::filesystem::exists(file_path)) {
+    std::ofstream ofs(file_path);
+    ofs << metaPrint(post);
+    for (const std::string &l : post.content) {
+      ofs << l << "\n";
     }
     ofs.close();
+
     std::ofstream dur(DUR_FILE, std::ios::app);
-    dur << post.date << std::endl;
+    dur << post.date << "\n";
     dur.close();
     return num;
   }
-  std::ifstream ifs(BASE_PATH + std::to_string(num));
-  std::string line;
-  std::vector<std::string> lines;
-  std::smatch m;
-  std::string last_date = "";
-  size_t i = 0;
-  while (std::getline(ifs, line)) {
-    lines.push_back(line);
-    if (std::regex_match(line, m, POST_DATE)) {
-      last_date = m[1].str();
+
+  std::vector<PostBlock> blocks = readBlocks(file_path);
+
+  PostBlock new_block;
+  new_block.date = post.date;
+
+  std::string meta = metaPrint(post);
+  std::string cur_line;
+  for (char c : meta) {
+    if (c == '\n') {
+      new_block.lines.push_back(cur_line);
+      cur_line.clear();
+    } else {
+      cur_line += c;
     }
-    ++i;
   }
-  if (lines.size() > MAX_SIZE) {
+  for (const std::string &l : post.content) {
+    new_block.lines.push_back(l);
+  }
+
+  const unsigned int target_date_num = dateToNum(post.date);
+  auto insert_pos =
+      std::upper_bound(blocks.begin(), blocks.end(), target_date_num,
+                       [](unsigned int val, const PostBlock &b) {
+                         return val < dateToNum(b.date);
+                       });
+  blocks.insert(insert_pos, new_block);
+
+  size_t total_lines = 0;
+  for (const auto &b : blocks) {
+    total_lines += b.lines.size();
+  }
+
+  if (total_lines > MAX_SIZE) {
+    std::string last_date = blocks.empty() ? "" : blocks.back().date;
     std::ofstream dur(DUR_FILE, std::ios::app);
-    dur << last_date << std::endl;
+    dur << last_date << "\n";
     dur.close();
     return write(post, num + 1);
   }
-  std::ofstream ofs(BASE_PATH + std::to_string(num), std::ios::app);
-  ofs << metaPrint(post) << std::endl;
-  for (std::string l : post.content) {
-    ofs << l << std::endl;
+
+  std::ofstream ofs(file_path, std::ios::trunc);
+  for (const auto &b : blocks) {
+    for (const auto &l : b.lines) {
+      ofs << l << "\n";
+    }
   }
+  ofs.close();
+
   return num;
 }
 
