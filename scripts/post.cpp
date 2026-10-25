@@ -204,8 +204,8 @@ int main() {
     Error("Section name is conflict.");
   }
   int num = write(post, getFileNum(post.date));
-  // writeSectionName(post.section);
-  // clear_post();
+  writeSectionName(post.section);
+  clear_post();
   std::cout << "Post uploaded.\n" << "Number: " << num << std::endl;
   std::cout << "Title: " << post.title << std::endl;
   std::cout << "Section: " << post.section << std::endl;
