@@ -1,13 +1,14 @@
 import Content from "@components/Content";
 import Footer from "@components/Footer";
-import { BrowserRouter, Link, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import About from "./page/about";
+import Blog from "./page/blog";
+import styles from "./main.module.css";
 
 function Home() {
   return (
     <>
-      <h1>K10-K10</h1>
-      <Content>
+      <Content title="K10-K10">
         <h1>Blog</h1>
       </Content>
     </>
@@ -17,12 +18,16 @@ function Home() {
 export default function Main() {
   return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/about" element={<About />} />
-        {/* <Route path="/blog" element={<Blogs />} /> */}
-      </Routes>
-      <Footer />
+      <div className={styles.app}>
+        <div className={styles.content}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/blog" element={<Blog />} />
+          </Routes>
+        </div>
+        <Footer />
+      </div>
     </BrowserRouter>
   );
 }
