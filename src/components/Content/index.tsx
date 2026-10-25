@@ -9,7 +9,7 @@ type ContentProps = {
 export default function Content({ title, children }: ContentProps) {
   return (
     <main className={styles.content}>
-      {title && <h2>{title}</h2>}
+      {title && <h2 className={styles.title}>{title}</h2>}
       {children}
     </main>
   );
