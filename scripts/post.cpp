@@ -19,7 +19,7 @@ constexpr int MAX_SIZE = 10000;
 const std::string POST_PATH = "./src/contents/post.md";
 
 std::regex DATE(R"(date:\s?(.*))");
-std::regex DATE_FORMAT(R"(\d{2}\/\d{2}\/\d{4})");
+std::regex DATE_FORMAT(R"(^\d{2}\/\d{2}\/\d{4}$)");
 std::regex SECTION(R"(section:\s?(.*))");
 
 void Error(std::string error) {
@@ -69,7 +69,6 @@ Post ReadPost() {
       }
     } else if (i == 3) {
     } else {
-      std::cout << line << std::endl;
       NewPost.content.push_back(line);
     }
     ++i;
@@ -93,6 +92,13 @@ bool hasSectionNameConflict(std::string sec_name) {
   return false;
 };
 
+void writeSectionName(std::string sec_name) {
+  std::ofstream ofs(SECTION_LIST, std::ios::app);
+  ofs << sec_name << std::endl;
+  ofs.close();
+  return;
+}
+
 void clear_post() {
   std::ofstream ofs(POST_PATH, std::ios::trunc);
   ofs << "\ndate:\nsection:\n---\n" << std::endl;
@@ -111,13 +117,14 @@ unsigned int dateToNum(std::string date) {
 }
 
 bool hasDuration(std::pair<std::string, std::string> dur, std::string date) {
-  return dateToNum(dur.first) <= dateToNum(date) <= dateToNum(dur.second);
+  const unsigned int target = dateToNum(date);
+  return dateToNum(dur.first) <= target && target <= dateToNum(dur.second);
 }
 
 int getFileNum(std::string date) {
   std::ifstream ifs(DUR_FILE);
   std::string line;
-  size_t i;
+  size_t i = 0;
   std::pair<std::string, std::string> dur;
   while (std::getline(ifs, line)) {
     if (i % 2 == 0) {
@@ -133,7 +140,10 @@ int getFileNum(std::string date) {
   }
   // Latest file.
   ifs.close();
-  return (i + 1) / 2;
+  if (i == 0) {
+    return 0;
+  }
+  return (i - 1) / 2;
 }
 
 const std::string BASE_PATH = "./src/contents/posts/";
@@ -166,26 +176,21 @@ int write(const Post &post, int num) {
   std::vector<std::string> lines;
   std::smatch m;
   std::string last_date = "";
-  int date_ = dateToNum(post.date);
-  size_t start_line_num = 0;
   size_t i = 0;
   while (std::getline(ifs, line)) {
     lines.push_back(line);
     if (std::regex_match(line, m, POST_DATE)) {
-      if (dateToNum(last_date) <= date_ <= dateToNum(m[2].str())) {
-        start_line_num = i - 4;
-      }
-      last_date = m[2].str();
+      last_date = m[1].str();
     }
     ++i;
   }
   if (lines.size() > MAX_SIZE) {
     std::ofstream dur(DUR_FILE, std::ios::app);
-    dur << last_date;
+    dur << last_date << std::endl;
     dur.close();
     return write(post, num + 1);
   }
-  std::ofstream ofs(BASE_PATH + std::to_string(num));
+  std::ofstream ofs(BASE_PATH + std::to_string(num), std::ios::app);
   ofs << metaPrint(post) << std::endl;
   for (std::string l : post.content) {
     ofs << l << std::endl;
@@ -195,14 +200,16 @@ int write(const Post &post, int num) {
 
 int main() {
   Post post = ReadPost();
-  // if (hasSectionNameConflict(post.section)) {
-  //   Error("Section name is conflict.");
-  // }
-  // int num = write(post, getFileNum(post.date));
+  if (hasSectionNameConflict(post.section)) {
+    Error("Section name is conflict.");
+  }
+  int num = write(post, getFileNum(post.date));
+  // writeSectionName(post.section);
   // clear_post();
-  // std::cout << "Post uploaded.\n" << "Number: " << num << std::endl;
-  // std::cout << "Title: " << post.title << std::endl;
-  // std::cout << "Section:" << post.section << std::endl;
-  // std::cout << "Please deploying." << std::endl;
+  std::cout << "Post uploaded.\n" << "Number: " << num << std::endl;
+  std::cout << "Title: " << post.title << std::endl;
+  std::cout << "Section: " << post.section << std::endl;
+  std::cout << "Contents size: " << post.content.size() << std::endl;
+  std::cout << "Please deploying." << std::endl;
   return 0;
 }
