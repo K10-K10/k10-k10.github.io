@@ -1,143 +1,208 @@
-// Make posts.js from Post files
-
-#include <algorithm>
+#include <cstdlib>
 #include <filesystem>
 #include <fstream>
 #include <iostream>
+#include <regex>
 #include <string>
+#include <utility>
 #include <vector>
 
-const std::string POSTS_DIR = "./../src/pages/blog/posts/";
-const std::string JSON_PATH = "./../src/pages/blog/posts.ts";
-const std::string FIRST_LINE = "export const posts = [";
-const std::string JSON_KEY[5] = {
-    "id:", "title:", "headName:", "date:", "content:"};
-
-int skipped_cnt = 0, failed_cnt = 0;
-
-std::vector<bool> id_map(999, false);
-
-struct Post_Data {
-  int id;
-  std::string title, headName, date, content;
+struct Post {
+  std::string title;
+  std::string date;
+  std::string section;
+  std::vector<std::string> content;
 };
 
-std::string check_char(const std::string &line) {
-  std::string new_line;
-  for (auto c : line) {
-    if (c == '\'')
-      new_line += "\\'";
-    else
-      new_line += c;
-  }
-  return new_line;
+constexpr int MAX_SIZE = 10000;
+
+const std::string POST_PATH = "./src/contents/post.md";
+
+std::regex DATE(R"(date:\s?(.*))");
+std::regex DATE_FORMAT(R"(\d{2}\/\d{2}\/\d{4})");
+std::regex SECTION(R"(section:\s?(.*))");
+
+void Error(std::string error) {
+  std::cerr << "Error : " << error << std::endl;
+  std::exit(-1);
 }
 
-bool readPost(const std::string &fileName, const std::string &stem,
-              Post_Data &post) {
-  std::ifstream postFile(fileName);
-  if (!postFile.is_open()) {
-    std::cerr << "Error: couldn't open " << fileName << std::endl;
-    return false;
-  }
-
+Post ReadPost() {
+  std::ifstream ifs(POST_PATH);
   std::string line;
-  int line_num = 0;
-  post.headName = stem;
-
-  while (std::getline(postFile, line)) {
-    switch (line_num) {
-    case 0:
-      if (line == "no---") {
-        skipped_cnt++;
-        return false;
+  Post NewPost{};
+  size_t i = 0;
+  while (std::getline(ifs, line)) {
+    if (i == 0) {
+      if (line.empty()) {
+        ifs.close();
+        Error("Title is required.");
       }
-      break;
-
-    case 1: {
-      int id = 0;
-      try {
-        id = std::stoi(line);
-      } catch (...) {
-        std::cerr << "Invalid ID (not number): " << stem << std::endl;
-        failed_cnt++;
-        return false;
+      NewPost.title = line;
+    } else if (i == 1) {
+      std::smatch m;
+      if (std::regex_match(line, m, DATE)) {
+        if (!std::regex_match(m[1].str(), DATE_FORMAT) || m.empty()) {
+          ifs.close();
+          Error("Date is required 'DD/MM/YYYY' format.");
+        }
+        NewPost.date = m[1].str();
+      } else {
+        ifs.close();
+        Error("Date is required.");
       }
-      if (id < 0 || id >= (int)id_map.size()) {
-        std::cerr << "Invalid ID range: " << stem << std::endl;
-        failed_cnt++;
-        return false;
+    } else if (i == 2) {
+      std::smatch m;
+      if (std::regex_match(line, m, SECTION)) {
+        std::string section_;
+        for (char c : m[1].str()) {
+          if (c == ' ') {
+            section_ += '-';
+          } else {
+            section_ += c;
+          }
+        }
+        NewPost.section = section_;
+      } else {
+        ifs.close();
+        Error("Section is require.");
       }
-      if (id_map[id]) {
-        std::cerr << "ID is duplicated: " << stem << std::endl;
-        failed_cnt++;
-        return false;
-      }
-      post.id = id;
-      id_map[id] = true;
-      break;
+    } else if (i == 3) {
+    } else {
+      std::cout << line << std::endl;
+      NewPost.content.push_back(line);
     }
-
-    case 2:
-      post.date = check_char(line);
-      if (post.date.size() != 11) {
-        std::cerr << "Date format is wrong: " << stem << std::endl;
-        failed_cnt++;
-        return false;
-      }
-      break;
-
-    case 3:
-      post.title = check_char(line);
-      break;
-
-    case 4:
-      break;
-
-    default:
-      if (!post.content.empty())
-        post.content += "\\\n\\n";
-      post.content += check_char(line);
-      break;
-    }
-    line_num++;
+    ++i;
   }
-  return true;
+  ifs.close();
+  return NewPost;
+}
+
+const std::string SECTION_LIST = "./src/contents/data/list";
+
+bool hasSectionNameConflict(std::string sec_name) {
+  std::ifstream ifs(SECTION_LIST);
+  std::string line;
+  while (std::getline(ifs, line)) {
+    if (line == sec_name) {
+      ifs.close();
+      return true;
+    }
+  }
+  ifs.close();
+  return false;
+};
+
+void clear_post() {
+  std::ofstream ofs(POST_PATH, std::ios::trunc);
+  ofs << "\ndate:\nsection:\n---\n" << std::endl;
+  ofs.close();
+  return;
+}
+
+const std::string DUR_FILE = "./src/contents/data/duration";
+
+unsigned int dateToNum(std::string date) {
+  // "DD/MM/YYYY" to YYYYMMDD.
+  unsigned int result = std::stoi(date.substr(0, 2));
+  result += 100 * std::stoi(date.substr(3, 2));
+  result += 10000 * std::stoi(date.substr(6, 4));
+  return result;
+}
+
+bool hasDuration(std::pair<std::string, std::string> dur, std::string date) {
+  return dateToNum(dur.first) <= dateToNum(date) <= dateToNum(dur.second);
+}
+
+int getFileNum(std::string date) {
+  std::ifstream ifs(DUR_FILE);
+  std::string line;
+  size_t i;
+  std::pair<std::string, std::string> dur;
+  while (std::getline(ifs, line)) {
+    if (i % 2 == 0) {
+      dur.first = line;
+    } else {
+      dur.second = line;
+      if (hasDuration(dur, date)) {
+        ifs.close();
+        return (i - 1) / 2;
+      }
+    }
+    ++i;
+  }
+  // Latest file.
+  ifs.close();
+  return (i + 1) / 2;
+}
+
+const std::string BASE_PATH = "./src/contents/posts/";
+const std::regex POST_DATE(R"(^date:\s(\d{2}/\d{2}/\d{4})$)");
+
+std::string metaPrint(const Post &post) {
+  std::string str = "---\n";
+  str += "title: " + post.title + "\n";
+  str += "date: " + post.date + "\n";
+  str += "section: " + post.section + "\n";
+  str += "---\n";
+  return str;
+}
+
+int write(const Post &post, int num) {
+  if (!std::filesystem::exists(BASE_PATH + std::to_string(num))) {
+    std::ofstream ofs(BASE_PATH + std::to_string(num));
+    ofs << metaPrint(post) << std::endl;
+    for (std::string l : post.content) {
+      ofs << l << std::endl;
+    }
+    ofs.close();
+    std::ofstream dur(DUR_FILE, std::ios::app);
+    dur << post.date << std::endl;
+    dur.close();
+    return num;
+  }
+  std::ifstream ifs(BASE_PATH + std::to_string(num));
+  std::string line;
+  std::vector<std::string> lines;
+  std::smatch m;
+  std::string last_date = "";
+  int date_ = dateToNum(post.date);
+  size_t start_line_num = 0;
+  size_t i = 0;
+  while (std::getline(ifs, line)) {
+    lines.push_back(line);
+    if (std::regex_match(line, m, POST_DATE)) {
+      if (dateToNum(last_date) <= date_ <= dateToNum(m[2].str())) {
+        start_line_num = i - 4;
+      }
+      last_date = m[2].str();
+    }
+    ++i;
+  }
+  if (lines.size() > MAX_SIZE) {
+    std::ofstream dur(DUR_FILE, std::ios::app);
+    dur << last_date;
+    dur.close();
+    return write(post, num + 1);
+  }
+  std::ofstream ofs(BASE_PATH + std::to_string(num));
+  ofs << metaPrint(post) << std::endl;
+  for (std::string l : post.content) {
+    ofs << l << std::endl;
+  }
+  return num;
 }
 
 int main() {
-  std::vector<Post_Data> posts;
-
-  std::vector<std::filesystem::directory_entry> files;
-  for (const auto &entry : std::filesystem::directory_iterator(POSTS_DIR))
-    files.push_back(entry);
-
-  for (const auto &entry : files) {
-    Post_Data post;
-    if (readPost(entry.path().string(), entry.path().stem().string(), post))
-      posts.push_back(post);
-  }
-
-  std::ofstream jsonFile(JSON_PATH, std::ios::out | std::ios::trunc);
-  jsonFile << FIRST_LINE << "\n";
-
-  for (size_t i = 0; i < posts.size(); i++) {
-    const auto &p = posts[i];
-    jsonFile << "  {\n";
-    jsonFile << "    " << JSON_KEY[0] << " " << p.id << ",\n";
-    jsonFile << "    " << JSON_KEY[1] << " '" << p.title << "',\n";
-    jsonFile << "    " << JSON_KEY[2] << " '" << p.headName << "',\n";
-    jsonFile << "    " << JSON_KEY[3] << " '" << p.date << "',\n";
-    jsonFile << "    " << JSON_KEY[4] << " '" << p.content << "'\n";
-    jsonFile << "  }" << (i + 1 < posts.size() ? "," : "") << "\n";
-  }
-
-  jsonFile << "];\n";
-  jsonFile.close();
-
-  std::cout << "---" << std::endl;
-  std::cout << posts.size() << " posts generated.\n";
-  std::cout << skipped_cnt << " posts skipped.\n";
-  std::cout << failed_cnt << " posts failed.\n";
+  Post post = ReadPost();
+  // if (hasSectionNameConflict(post.section)) {
+  //   Error("Section name is conflict.");
+  // }
+  // int num = write(post, getFileNum(post.date));
+  // clear_post();
+  // std::cout << "Post uploaded.\n" << "Number: " << num << std::endl;
+  // std::cout << "Title: " << post.title << std::endl;
+  // std::cout << "Section:" << post.section << std::endl;
+  // std::cout << "Please deploying." << std::endl;
   return 0;
 }
