@@ -1,10 +1,14 @@
 import styles from "./about.module.css";
+import Content from "@components/Content";
 
 export default function About() {
   return (
     <div className={styles.container}>
-      <h1>About</h1>
-      <p>This is the about page of the application.</p>
+      <Content title="About">
+        <div>
+          empty!
+        </div>
+      </Content>
     </div>
   );
 }
