@@ -92,9 +92,9 @@ bool hasSectionNameConflict(std::string sec_name) {
   return false;
 };
 
-void writeSectionName(std::string sec_name) {
+void writeSectionName(std::string sec_name, int num) {
   std::ofstream ofs(SECTION_LIST, std::ios::app);
-  ofs << sec_name << std::endl;
+  ofs << sec_name << " " << num << std::endl;
   ofs.close();
   return;
 }
@@ -109,16 +109,19 @@ void clear_post() {
 const std::string DUR_FILE = "./src/contents/data/duration";
 
 unsigned int dateToNum(std::string date) {
-  // "DD/MM/YYYY" to YYYYMMDD.
-  unsigned int result = std::stoi(date.substr(0, 2));
-  result += 100 * std::stoi(date.substr(3, 2));
-  result += 10000 * std::stoi(date.substr(6, 4));
-  return result;
+  // "DD/MM/YYYY" -> YYYYMMDD
+  unsigned int day = std::stoi(date.substr(0, 2));
+  unsigned int month = std::stoi(date.substr(3, 2));
+  unsigned int year = std::stoi(date.substr(6, 4));
+  return year * 10000 + month * 100 + day;
 }
 
 bool hasDuration(std::pair<std::string, std::string> dur, std::string date) {
   const unsigned int target = dateToNum(date);
-  return dateToNum(dur.first) <= target && target <= dateToNum(dur.second);
+  const unsigned int start = dateToNum(dur.first);
+  const unsigned int end = dateToNum(dur.second);
+
+  return (start >= target && target >= end);
 }
 
 int getFileNum(std::string date) {
@@ -237,7 +240,7 @@ int write(const Post &post, int num) {
   auto insert_pos =
       std::upper_bound(blocks.begin(), blocks.end(), target_date_num,
                        [](unsigned int val, const PostBlock &b) {
-                         return val < dateToNum(b.date);
+                         return val > dateToNum(b.date);
                        });
   blocks.insert(insert_pos, new_block);
 
@@ -270,7 +273,7 @@ int main() {
     Error("Section name is conflict.");
   }
   int num = write(post, getFileNum(post.date));
-  writeSectionName(post.section);
+  writeSectionName(post.section,num);
   clear_post();
   std::cout << "Post uploaded.\n" << "Number: " << num << std::endl;
   std::cout << "Title: " << post.title << std::endl;
