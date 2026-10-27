@@ -16,7 +16,7 @@ struct Post {
 
 constexpr int MAX_SIZE = 10000;
 
-const std::string POST_PATH = "./src/contents/post.md";
+std::string POST_PATH = "./src/contents/post.md";
 
 std::regex DATE(R"(date:\s?(.*))");
 std::regex DATE_FORMAT(R"(^\d{2}\/\d{2}\/\d{4}$)");
@@ -98,6 +98,8 @@ void writeSectionName(std::string sec_name, int num) {
   ofs.close();
   return;
 }
+
+bool edited = false;
 
 void clear_post() {
   std::ofstream ofs(POST_PATH, std::ios::trunc);
@@ -267,14 +269,20 @@ int write(const Post &post, int num) {
   return num;
 }
 
-int main() {
+int main(int argc, char *argv[]) {
   Post post = ReadPost();
   if (hasSectionNameConflict(post.section)) {
     Error("Section name is conflict.");
   }
+  if (argc== 2 && argv[1] == "edited"){
+    POST_PATH = "./src/contents/edit.md";
+    edited = true;
+  }
+
   int num = write(post, getFileNum(post.date));
   writeSectionName(post.section,num);
   clear_post();
+  std::cout << "Post edited and reuploaded." << std::endl;
   std::cout << "Post uploaded.\n" << "Number: " << num << std::endl;
   std::cout << "Title: " << post.title << std::endl;
   std::cout << "Section: " << post.section << std::endl;

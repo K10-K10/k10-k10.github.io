@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+
+./remove $1
+./post edited
