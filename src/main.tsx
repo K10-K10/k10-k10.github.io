@@ -4,12 +4,13 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import About from "./page/about";
 import Blog from "./page/blog";
 import styles from "./main.module.css";
+import { Link } from "react-router-dom";
 
 function Home() {
   return (
     <>
       <Content title="K10-K10">
-        <h1>Blog</h1>
+        <Link to="/blog"><h1>Blog</h1></Link>
       </Content>
     </>
   );
