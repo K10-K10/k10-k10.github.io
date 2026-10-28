@@ -14,7 +14,7 @@ struct Post {
   std::vector<std::string> content;
 };
 
-constexpr int MAX_SIZE = 10000;
+constexpr int MAX_SIZE = 1000;
 
 std::string POST_PATH = "./src/contents/post.md";
 
@@ -274,13 +274,13 @@ int main(int argc, char *argv[]) {
   if (hasSectionNameConflict(post.section)) {
     Error("Section name is conflict.");
   }
-  if (argc== 2 && argv[1] == "edited"){
+  if (argc == 2 && argv[1] == "edited") {
     POST_PATH = "./src/contents/edit.md";
     edited = true;
   }
 
   int num = write(post, getFileNum(post.date));
-  writeSectionName(post.section,num);
+  writeSectionName(post.section, num);
   clear_post();
   std::cout << "Post edited and reuploaded." << std::endl;
   std::cout << "Post uploaded.\n" << "Number: " << num << std::endl;
