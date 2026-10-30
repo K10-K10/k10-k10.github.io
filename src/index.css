@@ -4,6 +4,18 @@
   backgroud-color: #f5f5f5;
 }
 
+@font-face {
+  font-family: "Zen Kurenaido";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url("https://fonts.gstatic.com/s/zenkurenaido/v20/3XFsEr0515BK2u6UUptu_gWJZfw.ttf")
+    format("truetype");
+  unicode-range:
+    U+3000-303F, U+3040-309F, U+30A0-30FF, U+3400-4DBF, U+4E00-9FFF,
+    U+F900-FAFF, U+FF00-FFEF;
+}
+
 html,
 body,
 #root {
@@ -12,9 +24,5 @@ body,
 }
 
 body {
-  font-family: "しねきゃぷしょん", Aldrich, sans-serif;
-}
-
-a {
-  text-decoration: underline;
+  font-family: "Zen Kurenaido", "Ubuntu Mono", sans-serif;
 }
