@@ -63,7 +63,7 @@ export default function Blog() {
         {posts.map((post) => (
           <div
             key={post.id}
-            id={post.id}
+            id={post.section || post.id}
             className={post.section}
             data-section={post.section}
           >
