@@ -29,6 +29,9 @@ void Error(std::string error) {
 
 Post ReadPost() {
   std::ifstream ifs(POST_PATH);
+  if (!ifs.is_open()) {
+    Error("Failed to open post file.");
+  }
   std::string line;
   Post NewPost{};
   size_t i = 0;
@@ -270,13 +273,17 @@ int write(const Post &post, int num) {
 }
 
 int main(int argc, char *argv[]) {
+  if (argc > 2 || (argc == 2 && std::string(argv[1]) != "edited")) {
+    Error("Usage: ./post [edited]");
+  }
+  if (argc == 2) {
+    POST_PATH = "./src/contents/edit.md";
+    edited = true;
+  }
+
   Post post = ReadPost();
   if (hasSectionNameConflict(post.section)) {
     Error("Section name is conflict.");
-  }
-  if (argc == 2 && argv[1] == "edited") {
-    POST_PATH = "./src/contents/edit.md";
-    edited = true;
   }
 
   int num = write(post, getFileNum(post.date));
