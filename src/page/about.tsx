@@ -5,9 +5,7 @@ export default function About() {
   return (
     <div className={styles.container}>
       <Content title="About">
-        <div>
-          empty!
-        </div>
+        <div>empty!</div>
       </Content>
     </div>
   );

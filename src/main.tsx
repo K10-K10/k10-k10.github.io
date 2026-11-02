@@ -10,7 +10,9 @@ function Home() {
   return (
     <>
       <Content title="K10-K10">
-        <Link to="/blog"><h1>Blog</h1></Link>
+        <Link to="/blog">
+          <h1>Blog</h1>
+        </Link>
       </Content>
     </>
   );
